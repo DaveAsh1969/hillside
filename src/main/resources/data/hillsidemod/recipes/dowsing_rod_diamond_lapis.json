@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:diamond"
+    },
+    "X": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "Y": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " Y ",
+    " # ",
+    "YXY"
+  ],
+  "result": {
+    "item": "hillsidemod:dowsing_rod_diamond_lapis"
+  }
+}

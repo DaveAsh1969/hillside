@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:raw_gold"
+    },
+    "X": {
+      "item": "minecraft:raw_iron"
+    },
+    "Y": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " Y ",
+    " # ",
+    "YXY"
+  ],
+  "result": {
+    "item": "hillsidemod:dowsing_rod_iron_gold"
+  }
+}
