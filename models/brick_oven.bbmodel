@@ -1,0 +1,138 @@
+{
+	"meta": {
+		"format_version": "4.5",
+		"model_format": "java_block",
+		"box_uv": false
+	},
+	"name": "brick_oven",
+	"parent": "",
+	"ambientocclusion": true,
+	"front_gui_light": false,
+	"visible_box": [1, 1, 0],
+	"variable_placeholders": "",
+	"variable_placeholder_buttons": [],
+	"resolution": {
+		"width": 64,
+		"height": 64
+	},
+	"elements": [
+		{
+			"name": "cube",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"autouv": 0,
+			"color": 4,
+			"origin": [0, 0, 0],
+			"faces": {
+				"north": {
+					"uv": [0, 0, 16, 16],
+					"texture": 3
+				},
+				"east": {
+					"uv": [0, 16, 16, 32],
+					"texture": 3
+				},
+				"south": {
+					"uv": [16, 0, 32, 16],
+					"texture": 3
+				},
+				"west": {
+					"uv": [16, 16, 32, 32],
+					"texture": 3
+				},
+				"up": {
+					"uv": [16, 48, 0, 32],
+					"texture": 3
+				},
+				"down": {
+					"uv": [48, 0, 32, 16],
+					"texture": 3
+				}
+			},
+			"type": "cube",
+			"uuid": "d21dd415-da0e-fc1b-78a3-5581e6a5c55b"
+		}
+	],
+	"outliner": ["d21dd415-da0e-fc1b-78a3-5581e6a5c55b"],
+	"textures": [
+		{
+			"path": "C:\\Users\\austi\\Desktop\\Minecraft Mod\\Fabric\\riftsofraydenhall\\src\\main\\resources\\assets\\minecraft\\textures\\block\\bricks.png",
+			"name": "bricks.png",
+			"folder": "block",
+			"namespace": "minecraft",
+			"id": "0",
+			"particle": true,
+			"render_mode": "default",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"mode": "bitmap",
+			"saved": true,
+			"uuid": "7b5bec24-3a6c-7c3e-5f00-c54fd9ce05a6",
+			"relative_path": "../../../riftsofraydenhall/src/main/resources/assets/minecraft/textures/block/bricks.png",
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAY1JREFUOE+tks1LQkEUxe8s1GeGShKRUdgHYduCikihT1pESouiRZv+l9YtgqAoNy3CTVhESGVFRkT0J7RrWYZK5lMXE+fGlQlcZWcz78579zf3zTlqLxzWREQl26b17BWdjk+Rx+HAFpVqNX7OlctcrzxnaXcsSi1OJ3ksi3vUViikv6pV3gQgE5nnhoDb/QsC2NLjDR1GZrn5rVjk92ozGNTtXi8Xy5dnDDBPNkECwLeAMOD99YV/4a9SB/0DDAj4fFSpVMjlctXXyZMkJUYnqM3vp7Jtk9uyeIWwbjw9kEoNj2hpzBUKddCnbVPsNk1H0en6cAB85PMMhOIX5z8AsxETiDABADhNmgAACFq7u/6HO0h0dWvxWnwWV+Cz+I0TzZzAKXZhp6NTwyrx2QwKvDZhjXKikqE+LTT4fDy3yCExGxE01I1y0nwO9ocGOQdyu2IVVtxyZiHO2RDBMajVsmgmnSIFgIQEEEiCA8B9bJUa2YzsMGC7t0ebARGYBAUTQJhCQKjxjKA1fQff9w0Et68lHqIAAAAASUVORK5CYII="
+		},
+		{
+			"path": "C:\\Users\\austi\\Desktop\\Minecraft Mod\\Fabric\\riftsofraydenhall\\src\\main\\resources\\assets\\riftsofraydenhall\\textures\\block\\brick_black_smeared.png",
+			"name": "brick_black_smeared.png",
+			"folder": "block",
+			"namespace": "riftsofraydenhall",
+			"id": "1",
+			"particle": false,
+			"render_mode": "default",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"mode": "bitmap",
+			"saved": true,
+			"uuid": "a823a97a-1168-6c26-7961-d493fab2b7b7",
+			"relative_path": "../../../riftsofraydenhall/src/main/resources/assets/riftsofraydenhall/textures/block/brick_black_smeared.png",
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAhBJREFUOE+lk1tPE1EQx//H7W63qxjgW2gEDVKkrdwaQPDBRHyCB31QE2NIqkFRjECxVomFqNEQEuKD38AHo6ZSoIUtahM+iiaSbPfS9ZgZ06aENzvJ5uyZM/Ob2zniSTIpAeCIoiDSF6ffA/J+9S3v3bKFm3enYW585X3u4wdexdNUSrqOje/5TUynM9j7ZkJRVZw+21UDrSymcLS5BdduTWI3v1HTb2c/Q1yM90vfc1lJADKODV2A73msI9iPwha0kMGAfPYTtKCOP77PWYtcweQS/ldEPNIpjzW3IhyJQQmocO0yND0Ev+Ih2j+ItZcvOPrJtnaEY72H4ohLo8OSnKqOvUOj7GxuruP+wiKXRPVTE890dUPT9QP9ESMDPVwCRa2CaE9ZJWbmOQPPcWoQOqsHNd6DpcySrHgeSoU8bj+a5Tn7lQqUQABmLgtF1bju8v5vPF5+g3evlnnf3hlGQFUhCLC3W2Tl9TtTtSZVQaXiDmjMBJpKprHyLIWgYbBdRyQKMTE2Jh3LYmU9gAwIQlm4to1Q0/FDAPJrvAfjVy5L27LQMzzCaW1nv6CppRWeY+NG4h7SDxI8IfpIaDL1Iq5OjMv9Xz+hGwY6uqPcvNJOAQSdnJnD6+cLbE8jpntBUtxa50t37nwfBGVASjWo8+GJU20Ihv5FoweVmX/IznQvaI0NDPKUKCMGNPoW/gI9Oeq9DcjNBwAAAABJRU5ErkJggg=="
+		},
+		{
+			"path": "C:\\Users\\austi\\Desktop\\Minecraft Mod\\Fabric\\riftsofraydenhall\\src\\main\\resources\\assets\\riftsofraydenhall\\textures\\block\\cobblestone.png",
+			"name": "cobblestone.png",
+			"folder": "block",
+			"namespace": "riftsofraydenhall",
+			"id": "2",
+			"particle": false,
+			"render_mode": "default",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"mode": "bitmap",
+			"saved": true,
+			"uuid": "1a0c1566-d579-2e51-1c02-c27ad8bb17d6",
+			"relative_path": "../../../riftsofraydenhall/src/main/resources/assets/riftsofraydenhall/textures/block/cobblestone.png",
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAWpJREFUOE9dk7HKwkAQhDe1JJhOsJD0grUBawtfJb0v4EvlBZJasBcLwc6QYJ2fb3/mWLJN2LvN7MzsXtY0zfx8Pq2qKlutVqZ4v9/2/X5tv9+ns8fjYeM4Wl3X6Sy7XC4zGReHw8GGYbD1em0Cjd/j8WjTNBlANCSy2+02fz4f/0EBGEGn3++X7sSy6zq/L4rCsuv16gzyPLe+7xPyZrPxHAmAKFfn+/3uDRKAOkXNnKmQJpENObUZJqI7GkYhgSx5ozw2QEoyURdynx8wLfqzrHEGp9Np1lhEUTo11qU/MJM3zoAfJIPOZVnadrtNU4n647iR7WNs29ZHIsoYx04QABMUR0kAnc/n/yksJyDK2gfA46ZqkZDoABj3er28K4cU0I3AxDgBnKdOPvgYNS46oX/5BuKixXWm1k1cahNluYgPkaHOYeoMoC1qXLK2GLvb7ZyNHhs5wWMTqHsgzbw0hYwVO/kgMLH8A5VWS+s1c1DhAAAAAElFTkSuQmCC"
+		},
+		{
+			"path": "",
+			"name": "texture",
+			"folder": "block",
+			"namespace": "",
+			"id": "3",
+			"particle": false,
+			"render_mode": "default",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"mode": "bitmap",
+			"saved": false,
+			"uuid": "7b226df2-a002-02e1-144f-119c1951fba6",
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAABQ1JREFUeF7tWz1PW0EQXNwBAkGHoDAfJUiIBgk6oKBz4R6Jmi59JJRfkI46Ej2FOxroQEqDSKBB4qsA0YFAQAfRHJ6X9bOTAHPYz46v8fvax83s3O7evaNjcHDw2Zq4XV5edijd7wABY2NjNjk5afv7+8lvb2+v3d7eGn5HRkbCPTT/3MbGRrg2NTUVnsW9m5sb6+vrs9PT02Dnf2dmZuzu7s4ODg7CPdoXi8Xw3MTEhPX09Nju7m6VLZ7nu9EX9Gtvb8+iEIAOPD4+2tXVVULmwMBAOOcvbvhjAD4+Pg7PEwCNcQ9tdnbW7u/vAzg0gOju7radnZ1wTns44DXPAzQbCYxCADyIdnh4WMU8O+49OT4+Hp6HB9CWlpYqPEey4El4FSSAPHoW9+FFTwDUg4a/A6WAfJAFtfDc34eS1tfX4ygAHgC7Dw8PoQNnZ2c1h9Xw8HAgqKurq0LCIICeBmA2XANQKAHNq8ETSAd4leAYSgExIIKNwwfXohFACUMBHnxpI2c/fj7b59XfcRIkLCws2NHRUeLB+fl5u76+Dt4mUHqLsYHnniAAoILSAKkSxiCckwiQ0N/fb1tbW3EUAA9AoicnJ7a9vW0AXig+WelrzixvL8fla3NzczY6OhokyiEAewK7uLgIZKBRuowB6We8PQANDQ0FOwCkGjh0cJ5+JloQ5BCgAgC88OnJSqs5sz57OS5fgwIQA3wQxBDwEscw8R7zkd0rwSuA0k6P87SiGEhx/cOGAIAXvjxZabmsAByXr5GAdBpDiqLnvad8PIASfLqEhNEwhJA6md48SNp7ZeH9eB5pNFoWqBgCyzkrfCsTYJYc4xqGAIKgVwAVRMmznkDnQQwayPFDopY9gFPyAIkGoIwHCIi8T/soBFQNgemcFb4/WWk6F/44j/FbKwj6QgbPU/KsBxjIfBD7UyHkh5K3ZxHFGPEhdcBr02A6CELC5+fnScpi7kZnWVyx0mNqw7kPgqw2kTJ9PIDH0XxNAYXl8/l4WcArIF2+MhqnCyEvYZbC8DSk61MixzBV4cvhdBZJP0Nbep3vZokeLQv8rRRmJ9IlcWdnZ1LLr6ysBE8zyPnczTjgFcJ31qoDWDzBwxz/zAx+boL+rK2txQmC6cmQB8KozQjtz1nKIg1S2ugsOre5uRlkyswAO5wzsCE4prMAAybIYt0Pr+N8cXExGU6sLqOlQS+1ZjuOkgUaCVoFoPY9rAeo83nFPhMEqPN5xT4TBKjzecU+MwQo83llPSATBKjzecU+EwTEmM+/dz0gEwTEmM/7Scxb1gMyQQCiuDKfV+wzQUCs+fx71gMyQUDs+fxb1gMyQYA6n1fsM0FAjPk8p6pvXQ/IBAHqfF6xzwQB6nxesc8EAeqUUrFvegIaDUAhH7ZhPYAfJhqxJKUCUO0DASyFWc5y2bkei5IqANU+WRHyuzP8Rwj+AX6RxSJnzGVpFYBqnxDQqA8TKgDVPhCQLoW5OFKPT1MqANU+2STFjxn1/jipAlDtK7JAIz5PqwBU+yQLNGqDggpAtU+CYKO2qKgAVPuqOsArwQ8J/KGP2KSkAlDtEwXwRX57Sj22qakAVPuKrbJ4Wb03KqoAVPuEALzoX1tbP2KrqgpAta8qhOq9WVkFoNoHApSXNP10WAHfCrbSPxu0CWgBBtoKaAEnShDaCpDoawHjtgJawIkShLYCJPpawLitgBZwogShrQCJvhYw/u8V8AvfL7SbGZ3u/gAAAABJRU5ErkJggg=="
+		}
+	],
+	"display": {}
+}
