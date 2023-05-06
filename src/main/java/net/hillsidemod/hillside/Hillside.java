@@ -2,6 +2,7 @@ package net.hillsidemod.hillside;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.hillsidemod.hillside.block.ModBlocks;
 import net.hillsidemod.hillside.item.ModItemGroup;
 import net.hillsidemod.hillside.item.ModItems;
 import org.slf4j.Logger;
@@ -15,5 +16,6 @@ public class Hillside implements ModInitializer {
     public void onInitialize() {
         ModItemGroup.registerItemGroups();
         ModItems.registerModItems();
+        ModBlocks.registerModBlocks();
     }
 }
