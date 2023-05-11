@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "hillsidemod:block/brick_oven"
+    },
+    "facing=south": {
+      "model": "hillsidemod:block/brick_oven",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "hillsidemod:block/brick_oven",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "hillsidemod:block/brick_oven",
+      "y": 90
+    }
+  }
+}

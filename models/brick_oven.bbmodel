@@ -116,10 +116,10 @@
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAWpJREFUOE9dk7HKwkAQhDe1JJhOsJD0grUBawtfJb0v4EvlBZJasBcLwc6QYJ2fb3/mWLJN2LvN7MzsXtY0zfx8Pq2qKlutVqZ4v9/2/X5tv9+ns8fjYeM4Wl3X6Sy7XC4zGReHw8GGYbD1em0Cjd/j8WjTNBlANCSy2+02fz4f/0EBGEGn3++X7sSy6zq/L4rCsuv16gzyPLe+7xPyZrPxHAmAKFfn+/3uDRKAOkXNnKmQJpENObUZJqI7GkYhgSx5ozw2QEoyURdynx8wLfqzrHEGp9Np1lhEUTo11qU/MJM3zoAfJIPOZVnadrtNU4n647iR7WNs29ZHIsoYx04QABMUR0kAnc/n/yksJyDK2gfA46ZqkZDoABj3er28K4cU0I3AxDgBnKdOPvgYNS46oX/5BuKixXWm1k1cahNluYgPkaHOYeoMoC1qXLK2GLvb7ZyNHhs5wWMTqHsgzbw0hYwVO/kgMLH8A5VWS+s1c1DhAAAAAElFTkSuQmCC"
 		},
 		{
-			"path": "",
-			"name": "texture",
+			"path": "C:\\Users\\austi\\Desktop\\Minecraft Mod\\Fabric\\hillside\\src\\main\\resources\\assets\\hillsidemod\\textures\\block\\brick_oven.png",
+			"name": "brick_oven.png",
 			"folder": "block",
-			"namespace": "",
+			"namespace": "hillsidemod",
 			"id": "3",
 			"particle": false,
 			"render_mode": "default",
@@ -129,10 +129,39 @@
 			"frame_interpolate": false,
 			"visible": true,
 			"mode": "bitmap",
-			"saved": false,
+			"saved": true,
 			"uuid": "7b226df2-a002-02e1-144f-119c1951fba6",
-			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAABQ1JREFUeF7tWz1PW0EQXNwBAkGHoDAfJUiIBgk6oKBz4R6Jmi59JJRfkI46Ej2FOxroQEqDSKBB4qsA0YFAQAfRHJ6X9bOTAHPYz46v8fvax83s3O7evaNjcHDw2Zq4XV5edijd7wABY2NjNjk5afv7+8lvb2+v3d7eGn5HRkbCPTT/3MbGRrg2NTUVnsW9m5sb6+vrs9PT02Dnf2dmZuzu7s4ODg7CPdoXi8Xw3MTEhPX09Nju7m6VLZ7nu9EX9Gtvb8+iEIAOPD4+2tXVVULmwMBAOOcvbvhjAD4+Pg7PEwCNcQ9tdnbW7u/vAzg0gOju7radnZ1wTns44DXPAzQbCYxCADyIdnh4WMU8O+49OT4+Hp6HB9CWlpYqPEey4El4FSSAPHoW9+FFTwDUg4a/A6WAfJAFtfDc34eS1tfX4ygAHgC7Dw8PoQNnZ2c1h9Xw8HAgqKurq0LCIICeBmA2XANQKAHNq8ETSAd4leAYSgExIIKNwwfXohFACUMBHnxpI2c/fj7b59XfcRIkLCws2NHRUeLB+fl5u76+Dt4mUHqLsYHnniAAoILSAKkSxiCckwiQ0N/fb1tbW3EUAA9AoicnJ7a9vW0AXig+WelrzixvL8fla3NzczY6OhokyiEAewK7uLgIZKBRuowB6We8PQANDQ0FOwCkGjh0cJ5+JloQ5BCgAgC88OnJSqs5sz57OS5fgwIQA3wQxBDwEscw8R7zkd0rwSuA0k6P87SiGEhx/cOGAIAXvjxZabmsAByXr5GAdBpDiqLnvad8PIASfLqEhNEwhJA6md48SNp7ZeH9eB5pNFoWqBgCyzkrfCsTYJYc4xqGAIKgVwAVRMmznkDnQQwayPFDopY9gFPyAIkGoIwHCIi8T/soBFQNgemcFb4/WWk6F/44j/FbKwj6QgbPU/KsBxjIfBD7UyHkh5K3ZxHFGPEhdcBr02A6CELC5+fnScpi7kZnWVyx0mNqw7kPgqw2kTJ9PIDH0XxNAYXl8/l4WcArIF2+MhqnCyEvYZbC8DSk61MixzBV4cvhdBZJP0Nbep3vZokeLQv8rRRmJ9IlcWdnZ1LLr6ysBE8zyPnczTjgFcJ31qoDWDzBwxz/zAx+boL+rK2txQmC6cmQB8KozQjtz1nKIg1S2ugsOre5uRlkyswAO5wzsCE4prMAAybIYt0Pr+N8cXExGU6sLqOlQS+1ZjuOkgUaCVoFoPY9rAeo83nFPhMEqPN5xT4TBKjzecU+MwQo83llPSATBKjzecU+EwTEmM+/dz0gEwTEmM/7Scxb1gMyQQCiuDKfV+wzQUCs+fx71gMyQUDs+fxb1gMyQYA6n1fsM0FAjPk8p6pvXQ/IBAHqfF6xzwQB6nxesc8EAeqUUrFvegIaDUAhH7ZhPYAfJhqxJKUCUO0DASyFWc5y2bkei5IqANU+WRHyuzP8Rwj+AX6RxSJnzGVpFYBqnxDQqA8TKgDVPhCQLoW5OFKPT1MqANU+2STFjxn1/jipAlDtK7JAIz5PqwBU+yQLNGqDggpAtU+CYKO2qKgAVPuqOsArwQ8J/KGP2KSkAlDtEwXwRX57Sj22qakAVPuKrbJ4Wb03KqoAVPuEALzoX1tbP2KrqgpAta8qhOq9WVkFoNoHApSXNP10WAHfCrbSPxu0CWgBBtoKaAEnShDaCpDoawHjtgJawIkShLYCJPpawLitgBZwogShrQCJvhYw/u8V8AvfL7SbGZ3u/gAAAABJRU5ErkJggg=="
+			"relative_path": "../../src/main/resources/assets/hillsidemod/textures/block/brick_oven.png",
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAABRlJREFUeF7tWz1PG0EQHdwBAhnRICjMRwkSookEHVDQuXCPRE2XXxDlF6RDSpeIOhTuaKADKQ1CggaJrwJEBwIBnRO9xe80PpMEeGv7cLzN3e7tnHfevJ2Z3Vt3DQ8P/7J3XC4vL7uU4XcBgImJCZuenrb9/f3k2t/fb7e3t4br2NhYeIbi+21sbIS2mZmZ0BfPbm5uLJ/P2+npaZDz19nZWbu7u7ODg4PwjPKlUin0m5qasr6+Ptvd3a2TRX++G2PBuPb29iwKABjA4+OjXV1dJWAODQ2FOq4PDw9BQbahE+rHx8ehPxWgMJ6hzM3N2f39fVAOBUr09vbazs5OqFMeBnhJfyjNQgCjAAALohweHtYhz4GnLQklYQGU5eXlGsuhDWDBkrAqQGAdA0eBFT0AYA8KfgdMAfgAC2xh3T8Hk9bX1+MwABYAurA0BnB2dvbstBodHQ0A9fT01FAYANDSUJgFbVAUTEDxbECdANIAniW4B1MADIBg4fRBWzQASGEwwCtf3sjZj69m3zcryQAAwuLioh0dHSUWXFhYsOvr62BtKkpr0Tew7gGCAmRQWkGyhD4IdQIBEAYGBmxraysOA2ABUPTk5MS2t7cNihdLFSt/yZkV7Om+2jY/P2/j4+OBot6CVOzi4iKAgULq0gek+3h5KDQyMhLkoCDZwKmDerpPNCfIKUAGQPHix4qVP+XM8vZ0X20DAyYnJ2ucIKaApzjnOS3mPbtngmcAqZ2e52lG0ZGivWFTAIoXP1esvFJlAO6rbQAAlh0cHKwJYwhRtLy3lPcHYIIPl6AwCqYQQifDm1eS8p5ZeD/6I4xGiwI1U2AlZ8VvVQDMknu0YQrACfowSAaR8swnMHgAgwJw/JR4Th6Kk/JQEgWK0h/AIfI55aMAUDcFPuSs+LNi5Q+58OO8x/U5J+gTGfQn5ZkP0JF5J/anRMhPJS/PJIo+oiF5wEvDYNoJgsLn5+dJyGLsxmCZXDHTY2hD3TtBZpsImd4fwOIoPqcAwwqFQrwo4BmQTl/pjX0ilHaCTIVhaVDXh0TOYbLCp8PpKJLuQ1lane9mih4tCvwtFeYgfBqM++7u7sQJrq6uBkvTyfnYTT/gGcJ3PpcHMHmChTn/GRn82gRjWFtbi+ME04shrwi9Nj20rzOVRRgktTFYDG5zczPQlJEBcqjTscE5pqMAHSbAYt4Pq6O+tLSUTCdml9HCoKfae7uPEgVaqbSqgDr2sB+grucV+UwAoK7nFflMAKCu5xX5zACgrOeV/YBMAKCu5xX5TAAAJ6au598qnwkAYqzn/SLmNfsBmQAAXlxZzyvymQAg1nr+LfsBmQAg9nr+NfsBmQBAXc8r8pkAIMZ6nkvV1+4HZAIAdT2vyGcCAHU9r8hnAgB1SanIv3sAWq2AAj5kw34AP0y0YktKVUCVDwAwFWY6y23nZmxKqgqo8smOkD+d4T9C8Af4RRabnDG3pVUFVPkEgFZ9mFAVUOUDAOlUmJsjzfg0pSqgyieHpPgxo9kfJ1UFVPmaKNCKz9OqAqp8EgVadUBBVUCVT5xgq46oqAqo8nV5gGeCnxL4oUYcUlIVUOUTBvBF/nhKM46pqQqo8jVHZfGyZh9UVBVQ5RMA8KJ/HW1txFFVVQFVvi4RavZhZVUBVT4AoLzk3S+HFeXbQVb6s0EHgDZAoMOANjCipEKHARJ8bSDcYUAbGFFSocMACb42EO4woA2MKKnQYYAEXxsI//cM+A0e6LmbQkj69wAAAABJRU5ErkJggg=="
 		}
 	],
-	"display": {}
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [89, 2, 0],
+			"translation": [0, 0.5, -1.75],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [94, 0, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_righthand": {
+			"scale": [0.4, 0.4, 0.22]
+		},
+		"firstperson_lefthand": {
+			"scale": [0.4, 0.4, 0.22]
+		},
+		"ground": {
+			"translation": [0, 3, 0],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"gui": {
+			"rotation": [41, 135, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"fixed": {
+			"translation": [0, 0, 0.75],
+			"scale": [0.7, 0.7, 0.7]
+		}
+	}
 }

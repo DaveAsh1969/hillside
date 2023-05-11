@@ -1,0 +1,11 @@
+{
+  "type": "hillsidemod:brick_oven",
+  "ingredients": [
+    {
+      "item": "minecraft:cobblestone"
+    }
+  ],
+  "output": {
+    "item": "minecraft:brick"
+  }
+}

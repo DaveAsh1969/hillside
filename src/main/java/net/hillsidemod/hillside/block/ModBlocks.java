@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.hillsidemod.hillside.Hillside;
+import net.hillsidemod.hillside.block.custom.BrickOvenBlock;
 import net.hillsidemod.hillside.item.ModItemGroup;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
@@ -33,6 +34,9 @@ public class ModBlocks
 
     public static final Block BRICK_MULTICOLORED_SMEAR = registerBlock("brick_multicolored_smeared",
             new Block(FabricBlockSettings.of(Material.STONE).strength(1.0f).requiresTool()), ModItemGroup.HILLSIDE);
+
+    public static final Block BRICK_OVEN = registerBlock("brick_oven",
+            new BrickOvenBlock(FabricBlockSettings.of(Material.STONE).strength(1.0f).requiresTool().nonOpaque()), ModItemGroup.HILLSIDE);
 
     public static final Block BRICK_SMEAR = registerBlock("brick_smeared",
             new Block(FabricBlockSettings.of(Material.STONE).strength(1.0f).requiresTool()), ModItemGroup.HILLSIDE);
