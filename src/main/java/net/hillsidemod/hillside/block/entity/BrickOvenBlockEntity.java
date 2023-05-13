@@ -121,6 +121,7 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
         if(world.isClient()) {
             return;
         }
+        //convert to a shapeless recipe
 
         /*if(hasRecipe(entity)) {
             entity.progress++;
