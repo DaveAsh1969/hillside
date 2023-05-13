@@ -1,5 +1,9 @@
 package net.hillsidemod.screen;
 
+import net.hillsidemod.hillside.block.entity.BrickOvenBlockEntity;
+import net.hillsidemod.screen.slot.BrickOvenFuelSlot;
+import net.hillsidemod.screen.slot.BrickOvenOutputSlot;
+import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -19,12 +23,12 @@ public class BrickOvenScreenHandler extends ScreenHandler {
 
     public BrickOvenScreenHandler(int syncId, PlayerInventory inventory) {
         //Array Property delegate must be the same as the size in the BlockEntity class
-        this(syncId, inventory, new SimpleInventory(4), new ArrayPropertyDelegate(3));
+        this(syncId, inventory, new SimpleInventory(5), new ArrayPropertyDelegate(4));
     }
 
     public BrickOvenScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate delegate) {
         super(ModScreenHandlers.BRICK_OVEN_SCREEN_HANDLER, syncId);
-        checkSize(inventory, 4);
+        checkSize(inventory, 5);
         this.inventory = inventory;
         inventory.onOpen(playerInventory.player);
         this.propertyDelegate = delegate;
@@ -32,7 +36,8 @@ public class BrickOvenScreenHandler extends ScreenHandler {
         this.addSlot(new Slot(inventory, 0, 38, 17));
         this.addSlot(new Slot(inventory, 1, 56, 17));
         this.addSlot(new Slot(inventory, 2, 74, 17));
-        this.addSlot(new Slot(inventory, 3, 56, 53));
+        this.addSlot(new BrickOvenFuelSlot(this, inventory, 3, 56, 53));
+        this.addSlot(new BrickOvenOutputSlot(playerInventory.player, inventory, 4, 116, 35));
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
@@ -94,5 +99,9 @@ public class BrickOvenScreenHandler extends ScreenHandler {
         for (int i = 0; i < 9; ++i) {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 144));
         }
+    }
+
+    public boolean isFuel(ItemStack itemStack) {
+        return BrickOvenBlockEntity.canUseAsFuel(itemStack);
     }
 }

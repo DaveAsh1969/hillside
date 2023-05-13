@@ -26,7 +26,7 @@ public class BrickOvenRecipe implements Recipe<SimpleInventory> {
         if(world.isClient()) {
             return false;
         }
-
+        //testing the slot on the form vs the recipe array
         return recipeItems.get(0).test(inventory.getStack(1));
     }
 
@@ -70,8 +70,10 @@ public class BrickOvenRecipe implements Recipe<SimpleInventory> {
         public static final Serializer INSTANCE = new Serializer();
         public static final String ID = "brick_oven";
 
+        //reading the json file
         @Override
         public BrickOvenRecipe read(Identifier id, JsonObject json) {
+            //ItemStack output2 = ShapelessRecipe.
             ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "output"));
 
             JsonArray ingredients = JsonHelper.getArray(json, "ingredients");
@@ -84,6 +86,7 @@ public class BrickOvenRecipe implements Recipe<SimpleInventory> {
             return new BrickOvenRecipe(id, output, inputs);
         }
 
+        //networking read/write
         @Override
         public BrickOvenRecipe read(Identifier id, PacketByteBuf buf) {
             DefaultedList<Ingredient> inputs = DefaultedList.ofSize(buf.readInt(), Ingredient.EMPTY);
