@@ -73,11 +73,10 @@ public class BrickOvenRecipe implements Recipe<SimpleInventory> {
         //reading the json file
         @Override
         public BrickOvenRecipe read(Identifier id, JsonObject json) {
-            //ItemStack output2 = ShapelessRecipe.
             ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "output"));
 
             JsonArray ingredients = JsonHelper.getArray(json, "ingredients");
-            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(1, Ingredient.EMPTY);
+            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(0, Ingredient.EMPTY);
 
             for (int i = 0; i < inputs.size(); i++) {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));

@@ -121,9 +121,13 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
         if(world.isClient()) {
             return;
         }
-        //convert to a shapeless recipe
 
-        /*if(hasRecipe(entity)) {
+        if(hasRecipe(entity)) {
+            markDirty(world, blockPos, state);
+            craftItem(entity);
+        }
+        /*
+        if(hasRecipe(entity)) {
             entity.progress++;
             markDirty(world, blockPos, state);
             if(entity.progress >= entity.maxProgress) {
@@ -179,8 +183,8 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
 
         if(hasRecipe(entity)) {
             entity.removeStack(1, 1);
-            entity.setStack(2, new ItemStack(recipe.get().getOutput().getItem(),
-                entity.getStack(2).getCount() +1));
+            entity.setStack(4, new ItemStack(recipe.get().getOutput().getItem(),
+                entity.getStack(4).getCount() +1));
 
             entity.resetProgress();
         }
@@ -202,11 +206,11 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleInventory inventory, Item output) {
-        return inventory.getStack(2).getItem() == output || inventory.getStack(2).isEmpty();
+        return inventory.getStack(4).getItem() == output || inventory.getStack(4).isEmpty();
     }
 
     private static boolean canInsertAmountIntoOutputSlot(SimpleInventory inventory) {
-        return inventory.getStack(2).getMaxCount() > inventory.getStack(2).getCount();
+        return inventory.getStack(4).getMaxCount() > inventory.getStack(4).getCount();
     }
 
     public static boolean canUseAsFuel(ItemStack stack) {
