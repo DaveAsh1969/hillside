@@ -182,9 +182,11 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
                 .getFirstMatch(BrickOvenRecipe.Type.INSTANCE, inventory, entity.getWorld());
 
         if(hasRecipe(entity)) {
+            entity.removeStack(0, 1);
             entity.removeStack(1, 1);
-            entity.setStack(4, new ItemStack(recipe.get().getOutput().getItem(),
-                entity.getStack(4).getCount() +1));
+            entity.removeStack(2, 1);
+            entity.setStack(3, new ItemStack(recipe.get().getOutput().getItem(),
+                entity.getStack(3).getCount() +1));
 
             entity.resetProgress();
         }
@@ -198,8 +200,7 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
 
         //boolean hasCobbleInFirstSlot = entity.getStack(1).getItem() == Items.COBBLESTONE;
 
-        Optional<BrickOvenRecipe> match = entity.getWorld().getRecipeManager()
-                .getFirstMatch(BrickOvenRecipe.Type.INSTANCE, inventory, entity.getWorld());
+        Optional<BrickOvenRecipe> match = entity.getWorld().getRecipeManager().getFirstMatch(BrickOvenRecipe.Type.INSTANCE, inventory, entity.getWorld());
 
         return match.isPresent() && canInsertAmountIntoOutputSlot(inventory)
                 && canInsertItemIntoOutputSlot(inventory, match.get().getOutput().getItem());

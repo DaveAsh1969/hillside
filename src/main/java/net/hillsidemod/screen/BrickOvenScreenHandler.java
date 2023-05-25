@@ -36,10 +36,12 @@ public class BrickOvenScreenHandler extends ScreenHandler {
         this.addSlot(new Slot(inventory, 0, 38, 17));
         this.addSlot(new Slot(inventory, 1, 56, 17));
         this.addSlot(new Slot(inventory, 2, 74, 17));
-        this.addSlot(new Slot(inventory, 3, 56, 53));
-        this.addSlot(new Slot(inventory, 4, 116, 35));
-        //this.addSlot(new BrickOvenFuelSlot(this, inventory, 3, 56, 53));
-        //this.addSlot(new BrickOvenOutputSlot(playerInventory.player, inventory, 4, 116, 35));
+        this.addSlot(new Slot(inventory, 3, 116, 35));
+        this.addSlot(new Slot(inventory, 4, 56, 53));
+
+        //this.addSlot(new BrickOvenOutputSlot(playerInventory.player, inventory, 3, 116, 35));
+        //this.addSlot(new BrickOvenFuelSlot(this, inventory, 4, 56, 53));
+
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);

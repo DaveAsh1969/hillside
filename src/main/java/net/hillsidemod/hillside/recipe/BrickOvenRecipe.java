@@ -27,7 +27,15 @@ public class BrickOvenRecipe implements Recipe<SimpleInventory> {
             return false;
         }
         //testing the slot on the form vs the recipe array
-        return recipeItems.get(0).test(inventory.getStack(1));
+        boolean testSlot0 = recipeItems.get(0).test(inventory.getStack(0));
+        boolean testSlot1 = recipeItems.get(1).test(inventory.getStack(1));
+        boolean testSlot2 = recipeItems.get(2).test(inventory.getStack(2));
+
+        if(testSlot0 && testSlot1 && testSlot2)
+            return true;
+        else
+            return false;
+       // return recipeItems.get(0).test(inventory.getStack(1));
     }
 
     @Override
@@ -76,7 +84,8 @@ public class BrickOvenRecipe implements Recipe<SimpleInventory> {
             ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "output"));
 
             JsonArray ingredients = JsonHelper.getArray(json, "ingredients");
-            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(0, Ingredient.EMPTY);
+
+            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(3, Ingredient.EMPTY);
 
             for (int i = 0; i < inputs.size(); i++) {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));

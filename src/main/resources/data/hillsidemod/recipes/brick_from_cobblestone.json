@@ -3,9 +3,15 @@
   "ingredients": [
     {
       "item": "minecraft:cobblestone"
+    },
+    {
+      "item": "minecraft:cobblestone"
+    },
+    {
+      "item": "minecraft:cobblestone"
     }
   ],
   "output": {
-    "item": "minecraft:brick"
+    "item": "minecraft:bricks"
   }
 }
