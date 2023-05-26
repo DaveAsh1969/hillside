@@ -49,10 +49,10 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
 
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
-    private int maxProgress = 72;
+    private int maxProgress = 0;
     private int fuelTime = 0;
     private int maxFuelTime = 0;
-
+    private boolean initialized = false;
     private boolean hasFuel = false;
 
     public BrickOvenBlockEntity(BlockPos pos, BlockState state) {
@@ -197,8 +197,6 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
         for(int i=0; i < entity.size(); i++) {
             inventory.setStack(i, entity.getStack(i));
         }
-
-        //boolean hasCobbleInFirstSlot = entity.getStack(1).getItem() == Items.COBBLESTONE;
 
         Optional<BrickOvenRecipe> match = entity.getWorld().getRecipeManager().getFirstMatch(BrickOvenRecipe.Type.INSTANCE, inventory, entity.getWorld());
 

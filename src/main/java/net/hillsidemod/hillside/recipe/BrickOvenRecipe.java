@@ -16,10 +16,13 @@ public class BrickOvenRecipe implements Recipe<SimpleInventory> {
     private final ItemStack output;
     private final DefaultedList<Ingredient> recipeItems;
 
-    public BrickOvenRecipe(Identifier id, ItemStack output, DefaultedList<Ingredient> recipeItems) {
+    private final Integer cookingTime;
+
+    public BrickOvenRecipe(Identifier id, ItemStack output, DefaultedList<Ingredient> recipeItems, Integer cookingTime) {
         this.id = id;
         this.output = output;
         this.recipeItems = recipeItems;
+        this.cookingTime = cookingTime;
     }
     @Override
     public boolean matches(SimpleInventory inventory, World world) {
@@ -68,6 +71,10 @@ public class BrickOvenRecipe implements Recipe<SimpleInventory> {
         return Type.INSTANCE;
     }
 
+    public Integer getCookingTime() {
+        return this.cookingTime;
+    }
+
     public static class Type implements RecipeType<BrickOvenRecipe> {
         private Type() {}
         public static final Type INSTANCE = new Type();
@@ -82,7 +89,7 @@ public class BrickOvenRecipe implements Recipe<SimpleInventory> {
         @Override
         public BrickOvenRecipe read(Identifier id, JsonObject json) {
             ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "output"));
-
+            Integer cookingTime = JsonHelper.getInt(json, "cookingtime");
             JsonArray ingredients = JsonHelper.getArray(json, "ingredients");
 
             DefaultedList<Ingredient> inputs = DefaultedList.ofSize(3, Ingredient.EMPTY);
@@ -91,7 +98,7 @@ public class BrickOvenRecipe implements Recipe<SimpleInventory> {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
             }
 
-            return new BrickOvenRecipe(id, output, inputs);
+            return new BrickOvenRecipe(id, output, inputs, cookingTime);
         }
 
         //networking read/write
@@ -102,17 +109,20 @@ public class BrickOvenRecipe implements Recipe<SimpleInventory> {
             for (int i = 0; i < inputs.size(); i++) {
                 inputs.set(i, Ingredient.fromPacket(buf));
             }
-
+            Integer cookingTime = buf.readInt();
             ItemStack output = buf.readItemStack();
-            return new BrickOvenRecipe(id, output, inputs);
+            return new BrickOvenRecipe(id, output, inputs, cookingTime);
         }
 
         @Override
         public void write(PacketByteBuf buf, BrickOvenRecipe recipe) {
             buf.writeInt(recipe.getIngredients().size());
+
             for (Ingredient ing : recipe.getIngredients()) {
                 ing.write(buf);
             }
+
+            buf.writeInt(recipe.cookingTime);
             buf.writeItemStack(recipe.getOutput());
         }
     }
