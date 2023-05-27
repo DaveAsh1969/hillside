@@ -36,7 +36,8 @@ public class ModBlocks
             new Block(FabricBlockSettings.of(Material.STONE).strength(1.0f).requiresTool()), ModItemGroup.HILLSIDE);
 
     public static final Block BRICK_OVEN = registerBlock("brick_oven",
-            new BrickOvenBlock(FabricBlockSettings.of(Material.STONE).strength(1.0f).requiresTool().nonOpaque()), ModItemGroup.HILLSIDE);
+            new BrickOvenBlock(FabricBlockSettings.of(Material.STONE).strength(1.0f).requiresTool().nonOpaque()
+                    .luminance((state) -> state.get(BrickOvenBlock.LIT) ? 15 : 0 )), ModItemGroup.HILLSIDE);
 
     public static final Block BRICK_SMEAR = registerBlock("brick_smeared",
             new Block(FabricBlockSettings.of(Material.STONE).strength(1.0f).requiresTool()), ModItemGroup.HILLSIDE);

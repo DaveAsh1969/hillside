@@ -52,14 +52,24 @@ public class BrickOvenScreenHandler extends ScreenHandler {
         return propertyDelegate.get(0) > 0;
     }
 
+    public boolean hasFuel() { return propertyDelegate.get(2) > 0; }
+
     public int getScaledProgress() {
         int progress = this.propertyDelegate.get(0);
         int maxProgress = this.propertyDelegate.get(1);
-        int progressArrowSize = 26;
+        int progressArrowSize = 24;
 
         return maxProgress != 0 && progress !=0 ? progress * progressArrowSize / maxProgress : 0;
     }
 
+    public int getFuelProgress() {
+        int fuelTime = this.propertyDelegate.get(2);
+        int maxFuelTime = this.propertyDelegate.get(3);
+        int flameSize = 14;
+
+        return maxFuelTime != 0 && fuelTime != 0 ? fuelTime * flameSize / maxFuelTime : 0;
+
+    }
     @Override
     public ItemStack quickMove(PlayerEntity player, int invSlot) {
         ItemStack newStack = ItemStack.EMPTY;
@@ -92,14 +102,14 @@ public class BrickOvenScreenHandler extends ScreenHandler {
     private void addPlayerInventory(PlayerInventory playerInventory) {
         for (int i = 0; i < 3; ++i) {
             for (int l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 86 + i * 18));
+                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 84 + i * 18));
             }
         }
     }
 
     private void addPlayerHotbar(PlayerInventory playerInventory) {
         for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 144));
+            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
         }
     }
 

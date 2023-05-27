@@ -1,15 +1,18 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "hillsidemod:brick_oven",
+  "cookingtime": 100,
   "ingredients": [
     {
-      "item": "minecraft:clay_ball"
+      "item": "minecraft:cobblestone"
     },
     {
-      "item": "minecraft:bricks"
+      "item": "minecraft:bone_meal"
+    },
+    {
+      "item": "minecraft:cobblestone"
     }
   ],
-  "result": {
-    "count": 1,
+  "output": {
     "item": "hillsidemod:brick_smeared"
   }
 }

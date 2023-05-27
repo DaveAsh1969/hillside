@@ -33,15 +33,21 @@ public class BrickOvenScreen extends HandledScreen<BrickOvenScreenHandler> {
         drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
 
         renderProgressArrow(matrices, x, y);
-
+        renderFuelFlame(matrices, x, y);
     }
 
     private void renderProgressArrow(MatrixStack matrices, int x, int y) {
         if(handler.isCrafting()) {
-            drawTexture(matrices, x + 105, y + 33, 176, 0, 8, handler.getScaledProgress());
+            drawTexture(matrices, x + 80, y + 35, 176, 15, handler.getScaledProgress(),16);
         }
     }
 
+    private void renderFuelFlame(MatrixStack matrices, int x, int y) {
+        if(handler.hasFuel()) {
+            Integer yVar = 14 - handler.getFuelProgress();
+            drawTexture(matrices, x + 56, y + 36 + yVar, 176, yVar, 14, handler.getFuelProgress());
+        }
+    }
     @Override
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
         renderBackground(matrices);

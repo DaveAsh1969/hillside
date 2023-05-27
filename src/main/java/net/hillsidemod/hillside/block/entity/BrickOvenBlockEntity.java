@@ -4,9 +4,11 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import net.hillsidemod.hillside.block.ModBlocks;
+import net.hillsidemod.hillside.block.custom.BrickOvenBlock;
 import net.hillsidemod.hillside.recipe.BrickOvenRecipe;
 import net.hillsidemod.screen.BrickOvenScreenHandler;
 import net.minecraft.SharedConstants;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
@@ -52,8 +54,10 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
     private int maxProgress = 0;
     private int fuelTime = 0;
     private int maxFuelTime = 0;
-    private boolean initialized = false;
-    private boolean hasFuel = false;
+    private static boolean initialized = false;
+
+    private static boolean isBurning = false;
+
 
     public BrickOvenBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.BRICK_OVEN, pos, state);
@@ -107,6 +111,10 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
         super.writeNbt(nbt);
         Inventories.writeNbt(nbt, inventory);
         nbt.putInt("brick_oven_progress", progress);
+        nbt.putInt("brick_oven_max_progress", maxProgress);
+        nbt.putInt("brick_oven_fuel", fuelTime);
+        nbt.putInt("brick_oven_max_fuel", maxFuelTime);
+        nbt.putBoolean("brick_oven_isburning", isBurning);
     }
 
     @Override
@@ -114,7 +122,15 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
         Inventories.readNbt(nbt, inventory);
         super.readNbt(nbt);
         progress = nbt.getInt("brick_oven_progress");
+        maxProgress = nbt.getInt("brick_oven_max_progress");
+        fuelTime = nbt.getInt("brick_oven_fuel");
+        maxFuelTime = nbt.getInt("brick_oven_max_fuel");
+        isBurning = nbt.getBoolean("brick_oven_isburning");
 
+        this.propertyDelegate.set(0, progress);
+        this.propertyDelegate.set(1,maxProgress);
+        this.propertyDelegate.set(2, fuelTime);
+        this.propertyDelegate.set(3, maxFuelTime);
     }
 
     public static void tick(World world, BlockPos blockPos, BlockState state, BrickOvenBlockEntity entity) {
@@ -122,12 +138,10 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
             return;
         }
 
-        if(hasRecipe(entity)) {
-            markDirty(world, blockPos, state);
-            craftItem(entity);
-        }
-        /*
-        if(hasRecipe(entity)) {
+        manageFuel(entity);
+        if(hasRecipe(entity) && isBurning) {
+            state = (BlockState)state.with(BrickOvenBlock.LIT, entity.fuelTime > 0);
+            world.setBlockState(blockPos, state, Block.NOTIFY_ALL);
             entity.progress++;
             markDirty(world, blockPos, state);
             if(entity.progress >= entity.maxProgress) {
@@ -136,25 +150,14 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
         }
         else {
             entity.resetProgress();
+            resetRecipe(entity);
+            state = (BlockState)state.with(BrickOvenBlock.LIT, entity.fuelTime > 0);
             markDirty(world, blockPos, state);
-        }*/
+            world.setBlockState(blockPos, state, Block.NOTIFY_ALL);
+        }
 
-        //check for fuel or fuel item
-            //set fuel if not started
-            //if no fuel-1 or fuel item
-                //cancel recipe progress, return
-            //else decrement fuel
-
-        //check for recipe / recipe progress
-            //if recipe progress continue
-            //if recipe progress complete
-                //check recipe output
-                //if recipe output available, craft recipe
-                    //reset recipe progress
-                    //check for next recipe and output slot
-                        //if output is recipe item and under 64 count, then craft
-
-            //if no recipe progress take 1 item to craft, start recipe progress
+        if(entity.fuelTime > 0)
+            entity.fuelTime--;
 
     }
 
@@ -185,10 +188,12 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
             entity.removeStack(0, 1);
             entity.removeStack(1, 1);
             entity.removeStack(2, 1);
-            entity.setStack(3, new ItemStack(recipe.get().getOutput().getItem(),
-                entity.getStack(3).getCount() +1));
+            entity.setStack(3, new ItemStack(recipe.get().getOutput(entity.getWorld().getRegistryManager()).getItem(), entity.getStack(3).getCount()+1));
+         //   entity.setStack(3, new ItemStack(recipe.get().getOutput(entity.getWorld().getRegistryManager())).getItem(),
+         //     entity.getStack(3).getCount() +1));
 
             entity.resetProgress();
+            resetRecipe(entity);
         }
     }
 
@@ -199,21 +204,66 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
         }
 
         Optional<BrickOvenRecipe> match = entity.getWorld().getRecipeManager().getFirstMatch(BrickOvenRecipe.Type.INSTANCE, inventory, entity.getWorld());
+        if(!match.isEmpty() && !initialized)
+            initializeRecipe(match.get(), entity);
 
         return match.isPresent() && canInsertAmountIntoOutputSlot(inventory)
-                && canInsertItemIntoOutputSlot(inventory, match.get().getOutput().getItem());
+                && canInsertItemIntoOutputSlot(inventory, match.get().getOutput(entity.getWorld().getRegistryManager()).getItem());
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleInventory inventory, Item output) {
-        return inventory.getStack(4).getItem() == output || inventory.getStack(4).isEmpty();
+        return inventory.getStack(3).getItem() == output || inventory.getStack(3).isEmpty();
     }
 
     private static boolean canInsertAmountIntoOutputSlot(SimpleInventory inventory) {
-        return inventory.getStack(4).getMaxCount() > inventory.getStack(4).getCount();
+        return inventory.getStack(3).getMaxCount() > inventory.getStack(3).getCount();
     }
 
     public static boolean canUseAsFuel(ItemStack stack) {
         return BrickOvenBlockEntity.createFuelTimeMap().containsKey(stack.getItem());
+    }
+
+    private static void initializeRecipe(BrickOvenRecipe brickOvenRecipe, BrickOvenBlockEntity entity) {
+        entity.maxProgress = brickOvenRecipe.getCookingTime();
+        initialized = true;
+    }
+
+    private static void resetRecipe(BrickOvenBlockEntity entity) {
+        entity.maxProgress = 0;
+        initialized = false;
+    }
+
+    private static void initializeFuel(BrickOvenBlockEntity entity) {
+        ItemStack fuelSlot = entity.getStack(4);
+        if(!fuelSlot.isEmpty()) {
+            if(canUseAsFuel(fuelSlot) && hasRecipe(entity)) {
+                entity.fuelTime = entity.getFuelTime(fuelSlot);
+                entity.maxFuelTime = entity.fuelTime;
+                entity.removeStack(4,1);
+                isBurning = true;
+            }
+            else {
+                entity.fuelTime = 0;
+                isBurning = false;
+            }
+        }
+        else {
+            entity.fuelTime = 0;
+            isBurning = false;
+        }
+    }
+
+    private static void manageFuel(BrickOvenBlockEntity entity) {
+        if(entity.fuelTime <= 0)
+            initializeFuel(entity);
+    }
+
+    protected int getFuelTime(ItemStack fuel) {
+        if (fuel.isEmpty()) {
+            return 0;
+        }
+        Item item = fuel.getItem();
+        return BrickOvenBlockEntity.createFuelTimeMap().getOrDefault(item, 0);
     }
 
     public static Map<Item, Integer> createFuelTimeMap() {
