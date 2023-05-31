@@ -54,9 +54,11 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
     private int maxProgress = 0;
     private int fuelTime = 0;
     private int maxFuelTime = 0;
-    private static boolean initialized = false;
+    private int isInitialized = 0;
+    private int hasFire = 0;
+    //private static boolean initialized = false;
 
-    private static boolean isBurning = false;
+    //private static boolean isBurning = false;
 
 
     public BrickOvenBlockEntity(BlockPos pos, BlockState state) {
@@ -69,6 +71,8 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
                     case 1: return BrickOvenBlockEntity.this.maxProgress;
                     case 2: return BrickOvenBlockEntity.this.fuelTime;
                     case 3: return BrickOvenBlockEntity.this.maxFuelTime;
+                    case 4: return BrickOvenBlockEntity.this.isInitialized;
+                    case 5: return BrickOvenBlockEntity.this.hasFire;
                     default: return 0;
                 }
             }
@@ -79,13 +83,15 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
                     case 0: BrickOvenBlockEntity.this.progress = value; break;
                     case 1: BrickOvenBlockEntity.this.maxProgress = value; break;
                     case 2: BrickOvenBlockEntity.this.fuelTime = value; break;
-                    case 3: BrickOvenBlockEntity.this.maxFuelTime= value; break;
+                    case 3: BrickOvenBlockEntity.this.maxFuelTime = value; break;
+                    case 4: BrickOvenBlockEntity.this.isInitialized = value; break;
+                    case 5: BrickOvenBlockEntity.this.hasFire = value; break;
                 }
             }
 
             @Override
             public int size() {
-                return 4;
+                return 6;
             }
         };
     }
@@ -114,7 +120,8 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
         nbt.putInt("brick_oven_max_progress", maxProgress);
         nbt.putInt("brick_oven_fuel", fuelTime);
         nbt.putInt("brick_oven_max_fuel", maxFuelTime);
-        nbt.putBoolean("brick_oven_isburning", isBurning);
+        nbt.putInt("brick_oven_isburning", hasFire);
+        nbt.putInt("brick_oven_isinitialized", isInitialized);
     }
 
     @Override
@@ -125,12 +132,15 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
         maxProgress = nbt.getInt("brick_oven_max_progress");
         fuelTime = nbt.getInt("brick_oven_fuel");
         maxFuelTime = nbt.getInt("brick_oven_max_fuel");
-        isBurning = nbt.getBoolean("brick_oven_isburning");
+        hasFire = nbt.getInt("brick_oven_isburning");
+        isInitialized = nbt.getInt("brick_oven_isinitialized");
 
         this.propertyDelegate.set(0, progress);
         this.propertyDelegate.set(1,maxProgress);
         this.propertyDelegate.set(2, fuelTime);
         this.propertyDelegate.set(3, maxFuelTime);
+        this.propertyDelegate.set(4, hasFire);
+        this.propertyDelegate.set(5, isInitialized);
     }
 
     public static void tick(World world, BlockPos blockPos, BlockState state, BrickOvenBlockEntity entity) {
@@ -139,7 +149,7 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
         }
 
         manageFuel(entity);
-        if(hasRecipe(entity) && isBurning) {
+        if(hasRecipe(entity) && entity.hasFire == 1) {
             state = (BlockState)state.with(BrickOvenBlock.LIT, entity.fuelTime > 0);
             world.setBlockState(blockPos, state, Block.NOTIFY_ALL);
             entity.progress++;
@@ -204,7 +214,7 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
         }
 
         Optional<BrickOvenRecipe> match = entity.getWorld().getRecipeManager().getFirstMatch(BrickOvenRecipe.Type.INSTANCE, inventory, entity.getWorld());
-        if(!match.isEmpty() && !initialized)
+        if(!match.isEmpty() && entity.isInitialized != 1)
             initializeRecipe(match.get(), entity);
 
         return match.isPresent() && canInsertAmountIntoOutputSlot(inventory)
@@ -225,12 +235,12 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
 
     private static void initializeRecipe(BrickOvenRecipe brickOvenRecipe, BrickOvenBlockEntity entity) {
         entity.maxProgress = brickOvenRecipe.getCookingTime();
-        initialized = true;
+        entity.isInitialized = 1;
     }
 
     private static void resetRecipe(BrickOvenBlockEntity entity) {
         entity.maxProgress = 0;
-        initialized = false;
+        entity.isInitialized = 0;
     }
 
     private static void initializeFuel(BrickOvenBlockEntity entity) {
@@ -240,16 +250,16 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
                 entity.fuelTime = entity.getFuelTime(fuelSlot);
                 entity.maxFuelTime = entity.fuelTime;
                 entity.removeStack(4,1);
-                isBurning = true;
+                entity.hasFire = 1;
             }
             else {
                 entity.fuelTime = 0;
-                isBurning = false;
+                entity.hasFire = 0;
             }
         }
         else {
             entity.fuelTime = 0;
-            isBurning = false;
+            entity.hasFire = 0;
         }
     }
 

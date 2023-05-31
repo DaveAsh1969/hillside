@@ -23,7 +23,7 @@ public class BrickOvenScreenHandler extends ScreenHandler {
 
     public BrickOvenScreenHandler(int syncId, PlayerInventory inventory) {
         //Array Property delegate must be the same as the size in the BlockEntity class
-        this(syncId, inventory, new SimpleInventory(5), new ArrayPropertyDelegate(4));
+        this(syncId, inventory, new SimpleInventory(5), new ArrayPropertyDelegate(6));
     }
 
     public BrickOvenScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate delegate) {
