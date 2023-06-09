@@ -11,9 +11,11 @@
   "block.hillsidemod.brick_tan_smeared": "Tan Brick Smeared",
   "block.hillsidemod.brick_white": "White Brick",
   "block.hillsidemod.brick_white_smeared": "White Brick Smeared",
+  "block.hillsidemod.lamp_block": "Lamp",
   "item.hillsidemod.dowsing_rod_coal_copper": "Dowsing Rod-Coal & Copper",
   "item.hillsidemod.dowsing_rod_diamond_lapis": "Dowsing Rod-Diamond & Lapis",
   "item.hillsidemod.dowsing_rod_iron_gold": "Dowsing Rod-Iron & Gold",
   "item.hillsidemod.dowsing_rod.no_valuables": "No Resources Found!",
+  "item.hillsidemod.mirror": "Teleporting Mirror!",
   "item.hillsidemod.star_compass": "Star Compass"
 }
