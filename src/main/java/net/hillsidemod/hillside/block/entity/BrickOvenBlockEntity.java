@@ -3,6 +3,7 @@ package net.hillsidemod.hillside.block.entity;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
+import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.hillsidemod.hillside.block.ModBlocks;
 import net.hillsidemod.hillside.block.custom.BrickOvenBlock;
 import net.hillsidemod.hillside.recipe.BrickOvenRecipe;
@@ -23,6 +24,7 @@ import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.AbstractCookingRecipe;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.registry.Registries;
@@ -57,7 +59,6 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
     private int isInitialized = 0;
     private int hasFire = 0;
     //private static boolean initialized = false;
-
     //private static boolean isBurning = false;
 
 
@@ -361,4 +362,5 @@ public class BrickOvenBlockEntity extends BlockEntity implements NamedScreenHand
     private static boolean isNonFlammableWood(Item item) {
         return item.getRegistryEntry().isIn(ItemTags.NON_FLAMMABLE_WOOD);
     }
+
 }

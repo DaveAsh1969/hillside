@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.hillsidemod.hillside.Hillside;
 import net.hillsidemod.hillside.block.custom.BrickOvenBlock;
+import net.hillsidemod.hillside.block.custom.BrickOvenBlock20;
 import net.hillsidemod.hillside.block.custom.LampBlock;
 import net.hillsidemod.hillside.item.ModItemGroup;
 import net.minecraft.block.Block;
@@ -40,6 +41,9 @@ public class ModBlocks
 
     public static final Block BRICK_OVEN = registerBlock("brick_oven",
             new BrickOvenBlock(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE).nonOpaque()
+                    .luminance((state) -> state.get(BrickOvenBlock.LIT) ? 15 : 0 )), ModItemGroup.HILLSIDE);
+    public static final Block BRICK_OVEN20 = registerBlock("brick_oven20",
+            new BrickOvenBlock20(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE).nonOpaque()
                     .luminance((state) -> state.get(BrickOvenBlock.LIT) ? 15 : 0 )), ModItemGroup.HILLSIDE);
 
     public static final Block BRICK_SMEAR = registerBlock("brick_smeared",
