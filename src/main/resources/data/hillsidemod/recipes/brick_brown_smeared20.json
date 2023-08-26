@@ -1,0 +1,18 @@
+{
+  "type": "hillsidemod:brick_oven20",
+  "cookingtime": 100,
+  "ingredients": [
+    {
+      "item": "minecraft:brown_dye"
+    },
+    {
+      "item": "minecraft:bone_meal"
+    },
+    {
+      "item": "minecraft:cobblestone"
+    }
+  ],
+  "output": {
+    "item": "hillsidemod:brick_brown_smeared"
+  }
+}

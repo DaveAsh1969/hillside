@@ -4,6 +4,8 @@ import com.google.common.collect.Maps;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.hillsidemod.hillside.block.custom.BrickOvenBlock;
 import net.hillsidemod.hillside.recipe.BrickOvenRecipe;
+import net.hillsidemod.screen.BrickOvenScreenHandler20;
+import net.minecraft.SharedConstants;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -14,6 +16,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
@@ -26,11 +29,13 @@ import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import net.minecraft.util.Util;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -131,7 +136,8 @@ public class BrickOvenBlockEntity20 extends BlockEntity implements ExtendedScree
     @Nullable
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-        return
+
+        return new BrickOvenScreenHandler20(syncId, playerInventory, this, propertyDelegate);
     }
 
     @Override
@@ -323,9 +329,24 @@ public class BrickOvenBlockEntity20 extends BlockEntity implements ExtendedScree
     }
 
     private static void addFuel(Map<Item, Integer> fuelTimes, TagKey<Item> tag, int fuelTime) {
-        for (RegistryEntry<Item> registryEntry : Registries.ITEM.iterateEntries(tag)) {
-            if (BrickOvenBlockEntity20.isNonFlammableWood(registryEntry.value())) continue;
-            fuelTimes.put(registryEntry.value(), fuelTime);
+        Iterator var3 = Registries.ITEM.iterateEntries(tag).iterator();
+
+        while(var3.hasNext()) {
+            RegistryEntry<Item> registryEntry = (RegistryEntry)var3.next();
+            if (!BrickOvenBlockEntity20.isNonFlammableWood((Item)registryEntry.value())) {
+                fuelTimes.put((Item)registryEntry.value(), fuelTime);
+            }
+        }
+    }
+
+    private static void addFuel(Map<Item, Integer> fuelTimes, ItemConvertible item, int fuelTime) {
+        Item item2 = item.asItem();
+        if (isNonFlammableWood(item2)) {
+            if (SharedConstants.isDevelopment) {
+                throw (IllegalStateException) Util.throwOrPause(new IllegalStateException("A developer tried to explicitly make fire resistant item " + item2.getName((ItemStack)null).getString() + " a furnace fuel. That will not work!"));
+            }
+        } else {
+            fuelTimes.put(item2, fuelTime);
         }
     }
 
