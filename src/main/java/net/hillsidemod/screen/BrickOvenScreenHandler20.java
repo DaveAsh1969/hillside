@@ -53,6 +53,7 @@ public class BrickOvenScreenHandler20 extends ScreenHandler {
         addPlayerHotbar(playerInventory);
 
         addProperties(delegate);
+
     }
 
     public boolean isCrafting() {

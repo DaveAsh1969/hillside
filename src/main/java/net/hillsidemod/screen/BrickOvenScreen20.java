@@ -15,6 +15,7 @@ public class BrickOvenScreen20 extends HandledScreen<BrickOvenScreenHandler20> {
 
     public BrickOvenScreen20(BrickOvenScreenHandler20 handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
+
     }
 
     @Override
