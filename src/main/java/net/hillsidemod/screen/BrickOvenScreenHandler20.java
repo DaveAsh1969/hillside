@@ -29,6 +29,7 @@ public class BrickOvenScreenHandler20 extends ScreenHandler {
     public BrickOvenScreenHandler20(int syncId, PlayerInventory inventory, PacketByteBuf buf) {
         //Array Property delegate must be the same as the size in the BlockEntity class
         this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()), new ArrayPropertyDelegate(6));
+
     }
 
     public BrickOvenScreenHandler20(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate delegate) {
