@@ -9,10 +9,6 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModBlockEntities {
-    public static final BlockEntityType<BrickOvenBlockEntity> BRICK_OVEN = Registry.register(Registries.BLOCK_ENTITY_TYPE,
-            new Identifier(Hillside.MOD_ID, "brick_oven"),
-            FabricBlockEntityTypeBuilder.create(BrickOvenBlockEntity::new, ModBlocks.BRICK_OVEN).build(null));
-
     public static final BlockEntityType<BrickOvenBlockEntity20> BRICK_OVEN20 = Registry.register(Registries.BLOCK_ENTITY_TYPE,
             new Identifier(Hillside.MOD_ID, "brick_oven20_entity"),
             FabricBlockEntityTypeBuilder.create(BrickOvenBlockEntity20::new, ModBlocks.BRICK_OVEN20).build(null));

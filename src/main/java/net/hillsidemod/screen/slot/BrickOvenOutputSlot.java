@@ -1,15 +1,9 @@
 package net.hillsidemod.screen.slot;
 
-import net.hillsidemod.hillside.block.entity.BrickOvenBlockEntity;
-import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.Recipe;
 import net.minecraft.screen.slot.Slot;
-import net.minecraft.server.network.ServerPlayerEntity;
-
-import java.util.List;
 
 public class BrickOvenOutputSlot extends Slot {
     private final PlayerEntity player;

@@ -1,6 +1,5 @@
 package net.hillsidemod.screen.slot;
 
-import net.hillsidemod.screen.BrickOvenScreenHandler;
 import net.hillsidemod.screen.BrickOvenScreenHandler20;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;

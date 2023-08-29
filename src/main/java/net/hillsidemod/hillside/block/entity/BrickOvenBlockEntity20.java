@@ -2,7 +2,7 @@ package net.hillsidemod.hillside.block.entity;
 
 import com.google.common.collect.Maps;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
-import net.hillsidemod.hillside.block.custom.BrickOvenBlock;
+import net.hillsidemod.hillside.block.custom.BrickOvenBlock20;
 import net.hillsidemod.hillside.recipe.BrickOvenRecipe;
 import net.hillsidemod.screen.BrickOvenScreenHandler20;
 import net.minecraft.SharedConstants;
@@ -10,7 +10,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
@@ -90,6 +89,7 @@ public class BrickOvenBlockEntity20 extends BlockEntity implements ExtendedScree
                 return 6;
             }
         };
+
     }
 
     @Override
@@ -179,7 +179,7 @@ public class BrickOvenBlockEntity20 extends BlockEntity implements ExtendedScree
 
         manageFuel(this);
         if(hasRecipe(this) && this.hasFire == 1) {
-            state = (BlockState)state.with(BrickOvenBlock.LIT, this.fuelTime > 0);
+            state = (BlockState)state.with(BrickOvenBlock20.LIT, this.fuelTime > 0);
             world.setBlockState(blockPos, state, Block.NOTIFY_ALL);
             this.progress++;
             markDirty(world, blockPos, state);
@@ -190,7 +190,7 @@ public class BrickOvenBlockEntity20 extends BlockEntity implements ExtendedScree
         else {
             this.resetProgress();
             resetRecipe(this);
-            state = (BlockState)state.with(BrickOvenBlock.LIT, this.fuelTime > 0);
+            state = (BlockState)state.with(BrickOvenBlock20.LIT, this.fuelTime > 0);
             markDirty(world, blockPos, state);
             world.setBlockState(blockPos, state, Block.NOTIFY_ALL);
         }

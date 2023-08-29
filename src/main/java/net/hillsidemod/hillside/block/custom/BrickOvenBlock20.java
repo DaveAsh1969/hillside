@@ -1,6 +1,5 @@
 package net.hillsidemod.hillside.block.custom;
 
-import net.hillsidemod.hillside.block.entity.BrickOvenBlockEntity;
 import net.hillsidemod.hillside.block.entity.BrickOvenBlockEntity20;
 import net.hillsidemod.hillside.block.entity.ModBlockEntities;
 import net.minecraft.block.*;
@@ -17,6 +16,7 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -25,7 +25,9 @@ public class BrickOvenBlock20 extends BlockWithEntity implements BlockEntityProv
     public static final BooleanProperty LIT = Properties.LIT;
 
     public BrickOvenBlock20(Settings settings) {
+
         super(settings);
+        this.setDefaultState((BlockState)((BlockState)((BlockState)this.stateManager.getDefaultState()).with(FACING, Direction.NORTH)).with(LIT, false));
     }
 
     @Nullable

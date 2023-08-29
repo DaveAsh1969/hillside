@@ -1,15 +1,12 @@
 package net.hillsidemod.screen;
 
-import net.hillsidemod.hillside.block.entity.BrickOvenBlockEntity;
 import net.hillsidemod.hillside.block.entity.BrickOvenBlockEntity20;
-import net.hillsidemod.screen.slot.BrickOvenFuelSlot;
 import net.hillsidemod.screen.slot.BrickOvenFuelSlot20;
 import net.hillsidemod.screen.slot.BrickOvenOutputSlot;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.ArrayPropertyDelegate;
@@ -123,6 +120,6 @@ public class BrickOvenScreenHandler20 extends ScreenHandler {
     }
 
     public boolean isFuel(ItemStack itemStack) {
-        return BrickOvenBlockEntity.canUseAsFuel(itemStack);
+        return BrickOvenBlockEntity20.canUseAsFuel(itemStack);
     }
 }

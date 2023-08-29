@@ -27,19 +27,10 @@ public class ModItems {
         return Registry.register(Registries.ITEM, new Identifier(Hillside.MOD_ID, name), item);
     }
 
-    public static void addItemsToItemGroup() {
-        addToItemGroup(ModItemGroup.HILLSIDE, DOWSINGROD_COAL_COPPER);
-        addToItemGroup(ModItemGroup.HILLSIDE, DOWSINGROD_DIAMOND_LAPIS);
-        addToItemGroup(ModItemGroup.HILLSIDE, DOWSINGROD_IRON_GOLD);
-        addToItemGroup(ModItemGroup.HILLSIDE, MIRROR);
-        addToItemGroup(ModItemGroup.HILLSIDE, STAR_COMPASS);
-    }
-
     private static void addToItemGroup(RegistryKey<ItemGroup> group, Item item) {
         ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));
     }
     public static void registerModItems() {
         Hillside.LOGGER.info("Registering Items");
-        addItemsToItemGroup();
     }
 }

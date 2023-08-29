@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "hillsidemod:block/brick_black",
+    "side": "hillsidemod:block/brick_black",
+    "top": "hillsidemod:block/brick_black"
+  }
+}

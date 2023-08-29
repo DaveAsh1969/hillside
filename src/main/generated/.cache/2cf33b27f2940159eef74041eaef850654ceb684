@@ -1,0 +1,6 @@
+// 1.20	2023-08-29T06:17:33.2347887	Hillside Mod/Block Loot Tables
+5e62f2eec0e09c31270729f3f2c1ace435f5f57a data\hillsidemod\loot_tables\blocks\brick_black_slab.json
+80e8250ab96a5aa9297b1ea2e22f1d6298959cbd data\hillsidemod\loot_tables\blocks\brick_black_stairs.json
+7090a20108bb387f5088405d979de21569295edd data\hillsidemod\loot_tables\blocks\brick_black_wall.json
+795f054050ba4e37927ba93ec8f2b821cad57d74 data\hillsidemod\loot_tables\blocks\brick_black_pressure_plate.json
+aed9f0e2933332eb0970723868b44326a24a1710 data\hillsidemod\loot_tables\blocks\brick_black_button.json

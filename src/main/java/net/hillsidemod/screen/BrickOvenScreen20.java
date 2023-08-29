@@ -1,9 +1,7 @@
-package net.hillsidemod.screen.slot;
+package net.hillsidemod.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.hillsidemod.hillside.Hillside;
-import net.hillsidemod.screen.BrickOvenScreenHandler;
-import net.hillsidemod.screen.BrickOvenScreenHandler20;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.GameRenderer;
