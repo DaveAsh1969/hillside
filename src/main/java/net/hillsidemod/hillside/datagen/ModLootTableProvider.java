@@ -29,8 +29,32 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.BRICK_BLACK_WALL);
         addDrop(ModBlocks.BRICK_BLACK_BUTTON);
         addDrop(ModBlocks.BRICK_BLACK_PLATE);
-
         addDrop(ModBlocks.BRICK_BLACK_SLAB, slabDrops(ModBlocks.BRICK_BLACK_SLAB));
+        addDrop(ModBlocks.BRICK_BROWN_STAIRS);
+        addDrop(ModBlocks.BRICK_BROWN_WALL);
+        addDrop(ModBlocks.BRICK_BROWN_BUTTON);
+        addDrop(ModBlocks.BRICK_BROWN_PLATE);
+        addDrop(ModBlocks.BRICK_BROWN_SLAB, slabDrops(ModBlocks.BRICK_BROWN_SLAB));
+        addDrop(ModBlocks.BRICK_MULTICOLORED_STAIRS);
+        addDrop(ModBlocks.BRICK_MULTICOLORED_WALL);
+        addDrop(ModBlocks.BRICK_MULTICOLORED_BUTTON);
+        addDrop(ModBlocks.BRICK_MULTICOLORED_PLATE);
+        addDrop(ModBlocks.BRICK_MULTICOLORED_SLAB, slabDrops(ModBlocks.BRICK_MULTICOLORED_SLAB));
+        addDrop(ModBlocks.BRICK_PINK_STAIRS);
+        addDrop(ModBlocks.BRICK_PINK_WALL);
+        addDrop(ModBlocks.BRICK_PINK_BUTTON);
+        addDrop(ModBlocks.BRICK_PINK_PLATE);
+        addDrop(ModBlocks.BRICK_PINK_SLAB, slabDrops(ModBlocks.BRICK_PINK_SLAB));
+        addDrop(ModBlocks.BRICK_TAN_STAIRS);
+        addDrop(ModBlocks.BRICK_TAN_WALL);
+        addDrop(ModBlocks.BRICK_TAN_BUTTON);
+        addDrop(ModBlocks.BRICK_TAN_PLATE);
+        addDrop(ModBlocks.BRICK_TAN_SLAB, slabDrops(ModBlocks.BRICK_TAN_SLAB));
+        addDrop(ModBlocks.BRICK_WHITE_STAIRS);
+        addDrop(ModBlocks.BRICK_WHITE_WALL);
+        addDrop(ModBlocks.BRICK_WHITE_BUTTON);
+        addDrop(ModBlocks.BRICK_WHITE_PLATE);
+        addDrop(ModBlocks.BRICK_WHITE_SLAB, slabDrops(ModBlocks.BRICK_WHITE_SLAB));
     }
 
     public LootTable.Builder copperLikeOreDrops(Block drop, Item item) {

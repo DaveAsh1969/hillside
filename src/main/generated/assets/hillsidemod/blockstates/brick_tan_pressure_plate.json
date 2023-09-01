@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "hillsidemod:block/brick_tan_pressure_plate"
+    },
+    "powered=true": {
+      "model": "hillsidemod:block/brick_tan_pressure_plate_down"
+    }
+  }
+}

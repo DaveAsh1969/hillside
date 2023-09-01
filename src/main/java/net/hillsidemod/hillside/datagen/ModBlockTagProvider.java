@@ -19,6 +19,11 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
         getOrCreateTagBuilder(BlockTags.WALLS)
-                .add(ModBlocks.BRICK_BLACK_WALL);
+                .add(ModBlocks.BRICK_BLACK_WALL)
+                .add(ModBlocks.BRICK_BROWN_WALL)
+                .add(ModBlocks.BRICK_MULTICOLORED_WALL)
+                .add(ModBlocks.BRICK_PINK_WALL)
+                .add(ModBlocks.BRICK_TAN_WALL)
+                .add(ModBlocks.BRICK_WHITE_WALL);
     }
 }

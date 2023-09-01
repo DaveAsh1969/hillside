@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "hillsidemod:block/brick_tan_slab"
+    },
+    "type=double": {
+      "model": "hillsidemod:block/brick_tan"
+    },
+    "type=top": {
+      "model": "hillsidemod:block/brick_tan_slab_top"
+    }
+  }
+}

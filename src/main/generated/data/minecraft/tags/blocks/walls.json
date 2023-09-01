@@ -1,6 +1,11 @@
 {
   "replace": false,
   "values": [
-    "hillsidemod:brick_black_wall"
+    "hillsidemod:brick_black_wall",
+    "hillsidemod:brick_brown_wall",
+    "hillsidemod:brick_multicolored_wall",
+    "hillsidemod:brick_pink_wall",
+    "hillsidemod:brick_tan_wall",
+    "hillsidemod:brick_white_wall"
   ]
 }

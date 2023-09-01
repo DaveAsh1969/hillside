@@ -47,14 +47,48 @@ public class ModBlocks
     public static final Block BRICK_BROWN = registerBlock("brick_brown",
             new Block(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE)));
 
+    public static final Block BRICK_BROWN_BUTTON = registerBlock("brick_brown_button",
+            new ButtonBlock(FabricBlockSettings.copyOf(Blocks.BRICKS), BlockSetType.IRON, 40, true));
+
+    public static final Block BRICK_BROWN_PLATE = registerBlock("brick_brown_pressure_plate",
+            new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copyOf(Blocks.IRON_BLOCK), BlockSetType.IRON));
+
+    public static final Block BRICK_BROWN_SLAB = registerBlock("brick_brown_slab",
+            new SlabBlock(FabricBlockSettings.create().strength(1.0f).requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
+
     public static final Block BRICK_BROWN_SMEAR = registerBlock("brick_brown_smeared",
             new Block(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE)));
 
+    public static final Block BRICK_BROWN_STAIRS = registerBlock("brick_brown_stairs",
+            new StairsBlock(ModBlocks.BRICK_BLACK.getDefaultState(), FabricBlockSettings.create().strength(1.0f).requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
+
+    public static final Block BRICK_BROWN_WALL = registerBlock("brick_brown_wall",
+            new WallBlock(FabricBlockSettings.create().strength(1.0f).requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
     public static final Block BRICK_MULTICOLORED = registerBlock("brick_multicolored",
             new Block(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE)));
 
+    public static final Block BRICK_MULTICOLORED_BUTTON = registerBlock("brick_multicolored_button",
+            new ButtonBlock(FabricBlockSettings.copyOf(Blocks.BRICKS), BlockSetType.IRON, 40, true));
+
+    public static final Block BRICK_MULTICOLORED_PLATE = registerBlock("brick_multicolored_pressure_plate",
+            new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copyOf(Blocks.IRON_BLOCK), BlockSetType.IRON));
+
+    public static final Block BRICK_MULTICOLORED_SLAB = registerBlock("brick_multicolored_slab",
+            new SlabBlock(FabricBlockSettings.create().strength(1.0f).requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
     public static final Block BRICK_MULTICOLORED_SMEAR = registerBlock("brick_multicolored_smeared",
             new Block(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE)));
+
+    public static final Block BRICK_MULTICOLORED_STAIRS = registerBlock("brick_multicolored_stairs",
+            new StairsBlock(ModBlocks.BRICK_BLACK.getDefaultState(), FabricBlockSettings.create().strength(1.0f).requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
+
+    public static final Block BRICK_MULTICOLORED_WALL = registerBlock("brick_multicolored_wall",
+            new WallBlock(FabricBlockSettings.create().strength(1.0f).requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
     public static final Block BRICK_OVEN20 = registerBlock("brick_oven20",
             new BrickOvenBlock20(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE).nonOpaque()
                     .luminance((state) -> state.get(BrickOvenBlock20.LIT) ? 15 : 0 )));
@@ -62,8 +96,26 @@ public class ModBlocks
     public static final Block BRICK_PINK = registerBlock("brick_pink",
             new Block(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE)));
 
+    public static final Block BRICK_PINK_BUTTON = registerBlock("brick_pink_button",
+            new ButtonBlock(FabricBlockSettings.copyOf(Blocks.BRICKS), BlockSetType.IRON, 40, true));
+
+    public static final Block BRICK_PINK_PLATE = registerBlock("brick_pink_pressure_plate",
+            new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copyOf(Blocks.IRON_BLOCK), BlockSetType.IRON));
+
+    public static final Block BRICK_PINK_SLAB = registerBlock("brick_pink_slab",
+            new SlabBlock(FabricBlockSettings.create().strength(1.0f).requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
+
     public static final Block BRICK_PINK_SMEAR = registerBlock("brick_pink_smeared",
             new Block(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE)));
+
+    public static final Block BRICK_PINK_STAIRS = registerBlock("brick_pink_stairs",
+            new StairsBlock(ModBlocks.BRICK_BLACK.getDefaultState(), FabricBlockSettings.create().strength(1.0f).requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
+
+    public static final Block BRICK_PINK_WALL = registerBlock("brick_pink_wall",
+            new WallBlock(FabricBlockSettings.create().strength(1.0f).requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
 
     public static final Block BRICK_SMEAR = registerBlock("brick_smeared",
             new Block(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE)));
@@ -71,15 +123,49 @@ public class ModBlocks
     public static final Block BRICK_TAN = registerBlock("brick_tan",
             new Block(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE)));
 
+    public static final Block BRICK_TAN_BUTTON = registerBlock("brick_tan_button",
+            new ButtonBlock(FabricBlockSettings.copyOf(Blocks.BRICKS), BlockSetType.IRON, 40, true));
+
+    public static final Block BRICK_TAN_PLATE = registerBlock("brick_tan_pressure_plate",
+            new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copyOf(Blocks.IRON_BLOCK), BlockSetType.IRON));
+
+    public static final Block BRICK_TAN_SLAB = registerBlock("brick_tan_slab",
+            new SlabBlock(FabricBlockSettings.create().strength(1.0f).requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
+
     public static final Block BRICK_TAN_SMEAR = registerBlock("brick_tan_smeared",
             new Block(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE)));
 
+    public static final Block BRICK_TAN_STAIRS = registerBlock("brick_tan_stairs",
+            new StairsBlock(ModBlocks.BRICK_BLACK.getDefaultState(), FabricBlockSettings.create().strength(1.0f).requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
+
+    public static final Block BRICK_TAN_WALL = registerBlock("brick_tan_wall",
+            new WallBlock(FabricBlockSettings.create().strength(1.0f).requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
     public static final Block BRICK_WHITE = registerBlock("brick_white",
             new Block(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE)));
+
+    public static final Block BRICK_WHITE_BUTTON = registerBlock("brick_white_button",
+            new ButtonBlock(FabricBlockSettings.copyOf(Blocks.BRICKS), BlockSetType.IRON, 40, true));
+
+    public static final Block BRICK_WHITE_PLATE = registerBlock("brick_white_pressure_plate",
+            new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copyOf(Blocks.IRON_BLOCK), BlockSetType.IRON));
+
+    public static final Block BRICK_WHITE_SLAB = registerBlock("brick_white_slab",
+            new SlabBlock(FabricBlockSettings.create().strength(1.0f).requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
 
     public static final Block BRICK_WHITE_SMEAR = registerBlock("brick_white_smeared",
             new Block(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE)));
 
+    public static final Block BRICK_WHITE_STAIRS = registerBlock("brick_white_stairs",
+            new StairsBlock(ModBlocks.BRICK_BLACK.getDefaultState(), FabricBlockSettings.create().strength(1.0f).requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
+
+    public static final Block BRICK_WHITE_WALL = registerBlock("brick_white_wall",
+            new WallBlock(FabricBlockSettings.create().strength(1.0f).requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
     public static final Block LAMP_BLOCK = registerBlock("lamp_block",
             new LampBlock(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.METAL).nonOpaque()
                     .luminance((state) -> state.get(LampBlock.CLICKED) ? 15 : 0)));

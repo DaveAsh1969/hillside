@@ -27,23 +27,26 @@ public class MirrorItem extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
 
+        if(world.isClient()) {
+            //world.playSound(user, user.getBlockPos(), SoundEvents.ENTITY_ENDERMAN_TELEPORT, SoundCategory.PLAYERS, 1.0f, 1.0f);
+            world.playSound(user, user.getBlockPos(), SoundEvents.ENTITY_ENDERMAN_TELEPORT, SoundCategory.PLAYERS, 1.0f, 1.0f);
+        }
 
         if(!world.isClient) {
+
             user.sendMessage(Text.literal("You have returned home"));
             DimensionType d = user.getWorld().getDimension();
             ServerPlayerEntity spe = (ServerPlayerEntity) user;
-            BlockPos playerWorldSpawn = world.getSpawnPos();
+            BlockPos playerWorldSpawn = user.getWorld().getSpawnPos();
             BlockPos currentPlayerSpawnpoint = spe.getSpawnPointPosition();
 
-            if(currentPlayerSpawnpoint != null)
+            if(currentPlayerSpawnpoint != null && d.respawnAnchorWorks())
             {
                 user.teleport(currentPlayerSpawnpoint.getX(), currentPlayerSpawnpoint.getY(), currentPlayerSpawnpoint.getZ());
             }
             else
                 user.teleport(playerWorldSpawn.getX(), playerWorldSpawn.getY(), playerWorldSpawn.getZ());
         }
-        if(world.isClient())
-            world.playSound(user, user.getBlockPos(), SoundEvents.ENTITY_ENDERMAN_TELEPORT, SoundCategory.PLAYERS, 1.0f, 1.0f);
 
         return super.use(world, user, hand);
     }
@@ -51,6 +54,5 @@ public class MirrorItem extends Item {
     @Override
     public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
         super.usageTick(world, user, stack, remainingUseTicks);
-
     }
 }
