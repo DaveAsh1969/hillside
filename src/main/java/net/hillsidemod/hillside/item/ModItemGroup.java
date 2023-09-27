@@ -17,6 +17,7 @@ public class ModItemGroup {
             new Identifier(Hillside.MOD_ID, "hillside"),
             FabricItemGroup.builder().displayName(Text.literal("Hillside"))
                     .icon(() -> new ItemStack(ModItems.STAR_COMPASS)).entries((displayContext, entries) -> {
+                        entries.add(ModBlocks.BOP);
                         entries.add(ModBlocks.BRICK_BLACK);
                         entries.add(ModBlocks.BRICK_BLACK_BUTTON);
                         entries.add(ModBlocks.BRICK_BLACK_PLATE);
@@ -37,12 +38,12 @@ public class ModItemGroup {
                         entries.add(ModBlocks.BRICK_WHITE);
                         entries.add(ModBlocks.BRICK_WHITE_SMEAR);
                         entries.add(ModBlocks.LAMP_BLOCK);
+                        entries.add(ModBlocks.XANTHE);
                         entries.add(ModItems.DOWSINGROD_COAL_COPPER);
                         entries.add(ModItems.DOWSINGROD_DIAMOND_LAPIS);
                         entries.add(ModItems.DOWSINGROD_IRON_GOLD);
                         entries.add(ModItems.MIRROR);
                         entries.add(ModItems.STAR_COMPASS);
-
 
                     }).build());
 

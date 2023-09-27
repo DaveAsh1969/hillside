@@ -24,7 +24,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
     @Override
     public void generate() {
-
+        addDrop(ModBlocks.BOP);
+        addPottedPlantDrops(ModBlocks.BOP_POTTED);
         addDrop(ModBlocks.BRICK_BLACK_STAIRS);
         addDrop(ModBlocks.BRICK_BLACK_WALL);
         addDrop(ModBlocks.BRICK_BLACK_BUTTON);
@@ -55,6 +56,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.BRICK_WHITE_BUTTON);
         addDrop(ModBlocks.BRICK_WHITE_PLATE);
         addDrop(ModBlocks.BRICK_WHITE_SLAB, slabDrops(ModBlocks.BRICK_WHITE_SLAB));
+        addDrop(ModBlocks.XANTHE);
+        addPottedPlantDrops(ModBlocks.XANTHE_POTTED);
     }
 
     public LootTable.Builder copperLikeOreDrops(Block drop, Item item) {

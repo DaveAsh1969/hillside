@@ -23,7 +23,6 @@ public class MirrorItem extends Item {
         super(settings);
     }
 
-
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
 
@@ -55,4 +54,6 @@ public class MirrorItem extends Item {
     public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
         super.usageTick(world, user, stack, remainingUseTicks);
     }
+
+
 }

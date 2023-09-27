@@ -1,4 +1,5 @@
 {
+  "block.hillsidemod.bop": "Bird of Paradise Flower",
   "block.hillsidemod.brick_black": "Black Brick",
   "block.hillsidemod.brick_black_button": "Black Brick Button",
   "block.hillsidemod.brick_black_pressure_plate": "Black Brick Plate",
@@ -44,6 +45,7 @@
   "block.hillsidemod.brick_white_stairs": "White Brick Stairs",
   "block.hillsidemod.brick_white_wall": "White Brick Wall",
   "block.hillsidemod.lamp_block": "Lamp",
+  "block.hillsidemod.xanthe": "Xanthe Flower",
   "item.hillsidemod.dowsing_rod_coal_copper": "Dowsing Rod-Coal & Copper",
   "item.hillsidemod.dowsing_rod_diamond_lapis": "Dowsing Rod-Diamond & Lapis",
   "item.hillsidemod.dowsing_rod_iron_gold": "Dowsing Rod-Iron & Gold",

@@ -8,6 +8,7 @@ import net.hillsidemod.hillside.block.custom.BrickOvenBlock20;
 import net.hillsidemod.hillside.block.custom.LampBlock;
 import net.hillsidemod.hillside.item.ModItemGroup;
 import net.minecraft.block.*;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -19,6 +20,11 @@ import net.minecraft.util.Identifier;
 
 public class ModBlocks
 {
+    public static final Block BOP = registerBlock("bop", new FlowerBlock(StatusEffects.FIRE_RESISTANCE, 10,
+            FabricBlockSettings.copyOf(Blocks.ALLIUM).nonOpaque().noCollision()));
+
+    public static final Block BOP_POTTED = Registry.register(Registries.BLOCK, new Identifier(Hillside.MOD_ID, "bop_potted"),
+            new FlowerPotBlock(BOP, FabricBlockSettings.copyOf(Blocks.POTTED_ALLIUM).nonOpaque()));
     public static final Block BRICK_BLACK = registerBlock("brick_black",
             //new Block(FabricBlockSettings.of(Blocks.STONE).strength(1.0f).requiresTool()), ModItemGroup.HILLSIDE);
             new Block(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE)));
@@ -169,6 +175,12 @@ public class ModBlocks
     public static final Block LAMP_BLOCK = registerBlock("lamp_block",
             new LampBlock(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.METAL).nonOpaque()
                     .luminance((state) -> state.get(LampBlock.CLICKED) ? 15 : 0)));
+
+    public static final Block XANTHE = registerBlock("xanthe", new FlowerBlock(StatusEffects.FIRE_RESISTANCE, 10,
+            FabricBlockSettings.copyOf(Blocks.ALLIUM).nonOpaque().noCollision()));
+
+    public static final Block XANTHE_POTTED = Registry.register(Registries.BLOCK, new Identifier(Hillside.MOD_ID, "xanthe_potted"),
+            new FlowerPotBlock(XANTHE, FabricBlockSettings.copyOf(Blocks.POTTED_ALLIUM).nonOpaque()));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
