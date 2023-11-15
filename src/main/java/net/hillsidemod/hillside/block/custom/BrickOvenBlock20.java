@@ -24,6 +24,7 @@ public class BrickOvenBlock20 extends BlockWithEntity implements BlockEntityProv
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final BooleanProperty LIT = Properties.LIT;
 
+
     public BrickOvenBlock20(Settings settings) {
 
         super(settings);

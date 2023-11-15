@@ -45,7 +45,7 @@ public class LampBlock extends Block {
             world.setBlockState(pos, state.with(CLICKED, !clicked), 3);
         }
 
-        return ActionResult.PASS;
+        return ActionResult.SUCCESS;
 
     }
 
