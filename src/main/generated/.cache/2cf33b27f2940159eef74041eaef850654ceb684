@@ -1,4 +1,4 @@
-// 1.20.1	2023-11-24T15:31:00.1047869	Hillside Mod/Block Loot Tables
+// 1.20.1	2023-11-24T19:01:43.3338992	Hillside Mod/Block Loot Tables
 c26245f1ae42bee90b631ed4310b9da799795ee7 data\hillsidemod\loot_tables\blocks\brick_brown_pressure_plate.json
 0656c581deaa5ce53959e8a0b566f1f29f9f8485 data\hillsidemod\loot_tables\blocks\brick_pink_wall.json
 80e8250ab96a5aa9297b1ea2e22f1d6298959cbd data\hillsidemod\loot_tables\blocks\brick_black_stairs.json
@@ -18,8 +18,8 @@ ed49d36f5f9ec5cedb598c73c312acb768c8a837 data\hillsidemod\loot_tables\blocks\bri
 5e62f2eec0e09c31270729f3f2c1ace435f5f57a data\hillsidemod\loot_tables\blocks\brick_black_slab.json
 ce0bd2ea4df96c5fcad78838b1d37ad0abd715df data\hillsidemod\loot_tables\blocks\brick_multicolored_stairs.json
 1ed70c32945f93db2e68f6b02430e8749041cb58 data\hillsidemod\loot_tables\blocks\brick_brown_wall.json
-70dca2d2589c94f2e19fd4169f2163bb46f17c3d data\hillsidemod\loot_tables\blocks\brick_pink_button.json
 c88343ca906a20f00c6366ea7e7b7378f6220c74 data\hillsidemod\loot_tables\blocks\brick_white_slab.json
+70dca2d2589c94f2e19fd4169f2163bb46f17c3d data\hillsidemod\loot_tables\blocks\brick_pink_button.json
 ff74edf3be3bae633857ce77955033c7099fcf22 data\hillsidemod\loot_tables\blocks\brick_pink_slab.json
 4734b1c85ae74dd3f177337d2ff08f65bc611f64 data\hillsidemod\loot_tables\blocks\brick_multicolored_pressure_plate.json
 22684968cee07f3bb02e581bd0831be87108e81d data\hillsidemod\loot_tables\blocks\brick_white_wall.json

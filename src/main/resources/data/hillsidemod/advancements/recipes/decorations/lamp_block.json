@@ -35,12 +35,13 @@
   "requirements": [
     [
       "has_brown_wool",
-      "has_oak_planks"
+      "has_oak_planks",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:lamp_block"
+      "hillsidemod:lamp_block"
     ]
   },
   "sends_telemetry_event": false
