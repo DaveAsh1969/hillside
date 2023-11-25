@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:brick_pink_stairs"
+      "hillsidemod:brick_pink_stairs"
     ]
   },
   "sends_telemetry_event": false

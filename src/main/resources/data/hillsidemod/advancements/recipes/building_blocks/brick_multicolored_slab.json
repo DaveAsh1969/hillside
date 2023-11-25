@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:brick_multicolored_slab"
+      "hillsidemod:brick_multicolored_slab"
     ]
   },
   "sends_telemetry_event": false

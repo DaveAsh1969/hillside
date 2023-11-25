@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:brick_multicolored_stairs"
+      "hillsidemod:brick_multicolored_stairs"
     ]
   },
   "sends_telemetry_event": false

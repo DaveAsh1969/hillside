@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:brick_white_button"
+      "hillsidemod:brick_white_button"
     ]
   },
   "sends_telemetry_event": false

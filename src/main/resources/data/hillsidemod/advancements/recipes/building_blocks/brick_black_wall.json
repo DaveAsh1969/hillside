@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:brick_black_wall"
+      "hillsidemod:brick_black_wall"
     ]
   },
   "sends_telemetry_event": false

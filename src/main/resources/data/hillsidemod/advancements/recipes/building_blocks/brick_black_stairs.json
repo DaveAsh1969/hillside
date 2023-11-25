@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:brick_black_stairs"
+      "hillsidemod:brick_black_stairs"
     ]
   },
   "sends_telemetry_event": false

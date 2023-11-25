@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:brick_pink_wall"
+      "hillsidemod:brick_pink_wall"
     ]
   },
   "sends_telemetry_event": false

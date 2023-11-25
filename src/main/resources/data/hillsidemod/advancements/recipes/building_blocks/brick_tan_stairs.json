@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:brick_tan_stairs"
+      "hillsidemod:brick_tan_stairs"
     ]
   },
   "sends_telemetry_event": false

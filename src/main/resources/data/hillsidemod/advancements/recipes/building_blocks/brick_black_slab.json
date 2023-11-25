@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:brick_black_slab"
+        "recipe": "White_black_slab"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:brick_black_slab"
+      "hillsidemod:brick_black_slab"
     ]
   },
   "sends_telemetry_event": false

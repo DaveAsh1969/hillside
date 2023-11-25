@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:brick_multicolored_pressure_plate"
+      "hillsidemod:brick_multicolored_pressure_plate"
     ]
   },
   "sends_telemetry_event": false
