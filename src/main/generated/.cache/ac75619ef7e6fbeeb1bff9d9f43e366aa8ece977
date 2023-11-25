@@ -1,4 +1,4 @@
-// 1.20	2023-09-22T14:05:17.9726341	Hillside Mod/Model Definitions
+// 1.20.1	2023-11-24T15:31:00.1007981	Hillside Mod/Model Definitions
 d6d9b8a3cbb73d68c36dde584681b926e548af0f assets\hillsidemod\blockstates\brick_black.json
 fe0f362d18af223c6848fe989fd2c60053f920a8 assets\hillsidemod\blockstates\brick_pink_slab.json
 de00f888eb80b682dbb0cc3c2f1519dfaca0cd16 assets\hillsidemod\models\block\brick_multicolored_pressure_plate.json
@@ -49,8 +49,8 @@ c9d32b31408f2599a1ebba26450ffedec1357fe9 assets\hillsidemod\models\block\brick_b
 80aff612167eab7deab4a3b5b8384dce92e1c506 assets\hillsidemod\models\block\brick_white_pressure_plate.json
 2c79d3c5a94efa0deed689fc7d4bbf51f196eaec assets\hillsidemod\models\block\brick_multicolored_wall_post.json
 7ee4cd32850d985bd94ccd71ebad799157930295 assets\hillsidemod\models\block\brick_black.json
-1b364b62774a01f2a43b6f643fe7cfa5669f79bb assets\hillsidemod\blockstates\brick_pink.json
 546768c417fc0fe813e0236bec5b482e264947a9 assets\hillsidemod\blockstates\bop.json
+1b364b62774a01f2a43b6f643fe7cfa5669f79bb assets\hillsidemod\blockstates\brick_pink.json
 c6101446ed6297699ed841ca52d391072f9d995f assets\hillsidemod\models\block\brick_black_pressure_plate_down.json
 7d575093ee2685e6768459d3a19bfc2a889980f5 assets\hillsidemod\models\block\brick_white.json
 9b615057f46d5036b9d3a1dc84ed37e54ff49ca0 assets\hillsidemod\blockstates\brick_tan_wall.json

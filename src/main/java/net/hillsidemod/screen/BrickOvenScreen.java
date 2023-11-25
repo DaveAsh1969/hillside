@@ -9,11 +9,11 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class BrickOvenScreen20 extends HandledScreen<BrickOvenScreenHandler20> {
+public class BrickOvenScreen extends HandledScreen<BrickOvenScreenHandler> {
     private static final Identifier TEXTURE =
             new Identifier(Hillside.MOD_ID, "textures/gui/brick_oven_gui.png");
 
-    public BrickOvenScreen20(BrickOvenScreenHandler20 handler, PlayerInventory inventory, Text title) {
+    public BrickOvenScreen(BrickOvenScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
 
     }

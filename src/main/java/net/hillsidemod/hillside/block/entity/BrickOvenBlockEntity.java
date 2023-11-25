@@ -2,9 +2,9 @@ package net.hillsidemod.hillside.block.entity;
 
 import com.google.common.collect.Maps;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
-import net.hillsidemod.hillside.block.custom.BrickOvenBlock20;
+import net.hillsidemod.hillside.block.custom.BrickOvenBlock;
 import net.hillsidemod.hillside.recipe.BrickOvenRecipe;
-import net.hillsidemod.screen.BrickOvenScreenHandler20;
+import net.hillsidemod.screen.BrickOvenScreenHandler;
 import net.minecraft.SharedConstants;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -39,7 +39,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public class BrickOvenBlockEntity20 extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
+public class BrickOvenBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(5, ItemStack.EMPTY);
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
@@ -55,19 +55,19 @@ public class BrickOvenBlockEntity20 extends BlockEntity implements ExtendedScree
     private static final int FUEL_SLOT = 3;
     private static final int OUTPUT_SLOT = 4;
 
-    public BrickOvenBlockEntity20(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.BRICK_OVEN20, pos, state);
+    public BrickOvenBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.BRICK_OVEN, pos, state);
 
         this.propertyDelegate = new PropertyDelegate() {
             @Override
             public int get(int index) {
                 switch(index) {
-                    case 0: return BrickOvenBlockEntity20.this.progress;
-                    case 1: return BrickOvenBlockEntity20.this.maxProgress;
-                    case 2: return BrickOvenBlockEntity20.this.fuelTime;
-                    case 3: return BrickOvenBlockEntity20.this.maxFuelTime;
-                    case 4: return BrickOvenBlockEntity20.this.isInitialized;
-                    case 5: return BrickOvenBlockEntity20.this.hasFire;
+                    case 0: return BrickOvenBlockEntity.this.progress;
+                    case 1: return BrickOvenBlockEntity.this.maxProgress;
+                    case 2: return BrickOvenBlockEntity.this.fuelTime;
+                    case 3: return BrickOvenBlockEntity.this.maxFuelTime;
+                    case 4: return BrickOvenBlockEntity.this.isInitialized;
+                    case 5: return BrickOvenBlockEntity.this.hasFire;
                     default: return 0;
                 }
             }
@@ -75,12 +75,12 @@ public class BrickOvenBlockEntity20 extends BlockEntity implements ExtendedScree
             @Override
             public void set(int index, int value) {
                 switch(index) {
-                    case 0: BrickOvenBlockEntity20.this.progress = value; break;
-                    case 1: BrickOvenBlockEntity20.this.maxProgress = value; break;
-                    case 2: BrickOvenBlockEntity20.this.fuelTime = value; break;
-                    case 3: BrickOvenBlockEntity20.this.maxFuelTime = value; break;
-                    case 4: BrickOvenBlockEntity20.this.isInitialized = value; break;
-                    case 5: BrickOvenBlockEntity20.this.hasFire = value; break;
+                    case 0: BrickOvenBlockEntity.this.progress = value; break;
+                    case 1: BrickOvenBlockEntity.this.maxProgress = value; break;
+                    case 2: BrickOvenBlockEntity.this.fuelTime = value; break;
+                    case 3: BrickOvenBlockEntity.this.maxFuelTime = value; break;
+                    case 4: BrickOvenBlockEntity.this.isInitialized = value; break;
+                    case 5: BrickOvenBlockEntity.this.hasFire = value; break;
                 }
             }
 
@@ -137,7 +137,7 @@ public class BrickOvenBlockEntity20 extends BlockEntity implements ExtendedScree
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
 
-        return new BrickOvenScreenHandler20(syncId, playerInventory, this, propertyDelegate);
+        return new BrickOvenScreenHandler(syncId, playerInventory, this, propertyDelegate);
     }
 
     @Override
@@ -145,7 +145,7 @@ public class BrickOvenBlockEntity20 extends BlockEntity implements ExtendedScree
         return this.inventory;
     }
 
-    private static void craftItem(BrickOvenBlockEntity20 entity) {
+    private static void craftItem(BrickOvenBlockEntity entity) {
         SimpleInventory inventory = new SimpleInventory(entity.size());
         for(int i=0; i < entity.size(); i++) {
             inventory.setStack(i, entity.getStack(i));
@@ -167,7 +167,7 @@ public class BrickOvenBlockEntity20 extends BlockEntity implements ExtendedScree
         }
     }
 
-    private static void resetRecipe(BrickOvenBlockEntity20 entity) {
+    private static void resetRecipe(BrickOvenBlockEntity entity) {
         entity.maxProgress = 0;
         entity.isInitialized = 0;
     }
@@ -179,7 +179,7 @@ public class BrickOvenBlockEntity20 extends BlockEntity implements ExtendedScree
 
         manageFuel(this);
         if(hasRecipe(this) && this.hasFire == 1) {
-            state = (BlockState)state.with(BrickOvenBlock20.LIT, this.fuelTime > 0);
+            state = (BlockState)state.with(BrickOvenBlock.LIT, this.fuelTime > 0);
             world.setBlockState(blockPos, state, Block.NOTIFY_ALL);
             this.progress++;
             markDirty(world, blockPos, state);
@@ -190,7 +190,7 @@ public class BrickOvenBlockEntity20 extends BlockEntity implements ExtendedScree
         else {
             this.resetProgress();
             resetRecipe(this);
-            state = (BlockState)state.with(BrickOvenBlock20.LIT, this.fuelTime > 0);
+            state = (BlockState)state.with(BrickOvenBlock.LIT, this.fuelTime > 0);
             markDirty(world, blockPos, state);
             world.setBlockState(blockPos, state, Block.NOTIFY_ALL);
         }
@@ -199,7 +199,7 @@ public class BrickOvenBlockEntity20 extends BlockEntity implements ExtendedScree
             this.fuelTime--;
     }
 
-    private static void manageFuel(BrickOvenBlockEntity20 entity) {
+    private static void manageFuel(BrickOvenBlockEntity entity) {
         if(entity.fuelTime <= 0)
             initializeFuel(entity);
     }
@@ -209,10 +209,10 @@ public class BrickOvenBlockEntity20 extends BlockEntity implements ExtendedScree
             return 0;
         }
         Item item = fuel.getItem();
-        return BrickOvenBlockEntity20.createFuelTimeMap().getOrDefault(item, 0);
+        return BrickOvenBlockEntity.createFuelTimeMap().getOrDefault(item, 0);
     }
 
-    private static void initializeFuel(BrickOvenBlockEntity20 entity) {
+    private static void initializeFuel(BrickOvenBlockEntity entity) {
         ItemStack fuelSlot = entity.getStack(4);
         if(!fuelSlot.isEmpty()) {
             if(canUseAsFuel(fuelSlot) && hasRecipe(entity)) {
@@ -233,10 +233,10 @@ public class BrickOvenBlockEntity20 extends BlockEntity implements ExtendedScree
     }
 
     public static boolean canUseAsFuel(ItemStack stack) {
-        return BrickOvenBlockEntity20.createFuelTimeMap().containsKey(stack.getItem());
+        return BrickOvenBlockEntity.createFuelTimeMap().containsKey(stack.getItem());
     }
 
-    private static boolean hasRecipe(BrickOvenBlockEntity20 entity) {
+    private static boolean hasRecipe(BrickOvenBlockEntity entity) {
         SimpleInventory inventory = new SimpleInventory(entity.size());
         for(int i=0; i < entity.size(); i++) {
             inventory.setStack(i, entity.getStack(i));
@@ -250,7 +250,7 @@ public class BrickOvenBlockEntity20 extends BlockEntity implements ExtendedScree
                 && canInsertItemIntoOutputSlot(inventory, match.get().getOutput(entity.getWorld().getRegistryManager()).getItem());
     }
 
-    private static void initializeRecipe(BrickOvenRecipe brickOvenRecipe, BrickOvenBlockEntity20 entity) {
+    private static void initializeRecipe(BrickOvenRecipe brickOvenRecipe, BrickOvenBlockEntity entity) {
         entity.maxProgress = brickOvenRecipe.getCookingTime();
         entity.isInitialized = 1;
     }
@@ -266,65 +266,65 @@ public class BrickOvenBlockEntity20 extends BlockEntity implements ExtendedScree
     }
     public static Map<Item, Integer> createFuelTimeMap() {
         LinkedHashMap<Item, Integer> map = Maps.newLinkedHashMap();
-        BrickOvenBlockEntity20.addFuel(map, Items.LAVA_BUCKET, 20000);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.COAL_BLOCK, 16000);
-        BrickOvenBlockEntity20.addFuel(map, Items.BLAZE_ROD, 2400);
-        BrickOvenBlockEntity20.addFuel(map, Items.COAL, 1600);
-        BrickOvenBlockEntity20.addFuel(map, Items.CHARCOAL, 1600);
-        BrickOvenBlockEntity20.addFuel(map, ItemTags.LOGS, 300);
-        BrickOvenBlockEntity20.addFuel(map, ItemTags.BAMBOO_BLOCKS, 300);
-        BrickOvenBlockEntity20.addFuel(map, ItemTags.PLANKS, 300);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.BAMBOO_MOSAIC, 300);
-        BrickOvenBlockEntity20.addFuel(map, ItemTags.WOODEN_STAIRS, 300);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.BAMBOO_MOSAIC_STAIRS, 300);
-        BrickOvenBlockEntity20.addFuel(map, ItemTags.WOODEN_SLABS, 150);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.BAMBOO_MOSAIC_SLAB, 150);
-        BrickOvenBlockEntity20.addFuel(map, ItemTags.WOODEN_TRAPDOORS, 300);
-        BrickOvenBlockEntity20.addFuel(map, ItemTags.WOODEN_PRESSURE_PLATES, 300);
-        BrickOvenBlockEntity20.addFuel(map, ItemTags.WOODEN_FENCES, 300);
-        BrickOvenBlockEntity20.addFuel(map, ItemTags.FENCE_GATES, 300);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.NOTE_BLOCK, 300);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.BOOKSHELF, 300);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.CHISELED_BOOKSHELF, 300);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.LECTERN, 300);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.JUKEBOX, 300);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.CHEST, 300);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.TRAPPED_CHEST, 300);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.CRAFTING_TABLE, 300);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.DAYLIGHT_DETECTOR, 300);
-        BrickOvenBlockEntity20.addFuel(map, ItemTags.BANNERS, 300);
-        BrickOvenBlockEntity20.addFuel(map, Items.BOW, 300);
-        BrickOvenBlockEntity20.addFuel(map, Items.FISHING_ROD, 300);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.LADDER, 300);
-        BrickOvenBlockEntity20.addFuel(map, ItemTags.SIGNS, 200);
-        BrickOvenBlockEntity20.addFuel(map, ItemTags.HANGING_SIGNS, 800);
-        BrickOvenBlockEntity20.addFuel(map, Items.WOODEN_SHOVEL, 200);
-        BrickOvenBlockEntity20.addFuel(map, Items.WOODEN_SWORD, 200);
-        BrickOvenBlockEntity20.addFuel(map, Items.WOODEN_HOE, 200);
-        BrickOvenBlockEntity20.addFuel(map, Items.WOODEN_AXE, 200);
-        BrickOvenBlockEntity20.addFuel(map, Items.WOODEN_PICKAXE, 200);
-        BrickOvenBlockEntity20.addFuel(map, ItemTags.WOODEN_DOORS, 200);
-        BrickOvenBlockEntity20.addFuel(map, ItemTags.BOATS, 1200);
-        BrickOvenBlockEntity20.addFuel(map, ItemTags.WOOL, 100);
-        BrickOvenBlockEntity20.addFuel(map, ItemTags.WOODEN_BUTTONS, 100);
-        BrickOvenBlockEntity20.addFuel(map, Items.STICK, 100);
-        BrickOvenBlockEntity20.addFuel(map, ItemTags.SAPLINGS, 100);
-        BrickOvenBlockEntity20.addFuel(map, Items.BOWL, 100);
-        BrickOvenBlockEntity20.addFuel(map, ItemTags.WOOL_CARPETS, 67);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.DRIED_KELP_BLOCK, 4001);
-        BrickOvenBlockEntity20.addFuel(map, Items.CROSSBOW, 300);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.BAMBOO, 50);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.DEAD_BUSH, 100);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.SCAFFOLDING, 50);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.LOOM, 300);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.BARREL, 300);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.CARTOGRAPHY_TABLE, 300);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.FLETCHING_TABLE, 300);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.SMITHING_TABLE, 300);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.COMPOSTER, 300);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.AZALEA, 100);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.FLOWERING_AZALEA, 100);
-        BrickOvenBlockEntity20.addFuel(map, Blocks.MANGROVE_ROOTS, 300);
+        BrickOvenBlockEntity.addFuel(map, Items.LAVA_BUCKET, 20000);
+        BrickOvenBlockEntity.addFuel(map, Blocks.COAL_BLOCK, 16000);
+        BrickOvenBlockEntity.addFuel(map, Items.BLAZE_ROD, 2400);
+        BrickOvenBlockEntity.addFuel(map, Items.COAL, 1600);
+        BrickOvenBlockEntity.addFuel(map, Items.CHARCOAL, 1600);
+        BrickOvenBlockEntity.addFuel(map, ItemTags.LOGS, 300);
+        BrickOvenBlockEntity.addFuel(map, ItemTags.BAMBOO_BLOCKS, 300);
+        BrickOvenBlockEntity.addFuel(map, ItemTags.PLANKS, 300);
+        BrickOvenBlockEntity.addFuel(map, Blocks.BAMBOO_MOSAIC, 300);
+        BrickOvenBlockEntity.addFuel(map, ItemTags.WOODEN_STAIRS, 300);
+        BrickOvenBlockEntity.addFuel(map, Blocks.BAMBOO_MOSAIC_STAIRS, 300);
+        BrickOvenBlockEntity.addFuel(map, ItemTags.WOODEN_SLABS, 150);
+        BrickOvenBlockEntity.addFuel(map, Blocks.BAMBOO_MOSAIC_SLAB, 150);
+        BrickOvenBlockEntity.addFuel(map, ItemTags.WOODEN_TRAPDOORS, 300);
+        BrickOvenBlockEntity.addFuel(map, ItemTags.WOODEN_PRESSURE_PLATES, 300);
+        BrickOvenBlockEntity.addFuel(map, ItemTags.WOODEN_FENCES, 300);
+        BrickOvenBlockEntity.addFuel(map, ItemTags.FENCE_GATES, 300);
+        BrickOvenBlockEntity.addFuel(map, Blocks.NOTE_BLOCK, 300);
+        BrickOvenBlockEntity.addFuel(map, Blocks.BOOKSHELF, 300);
+        BrickOvenBlockEntity.addFuel(map, Blocks.CHISELED_BOOKSHELF, 300);
+        BrickOvenBlockEntity.addFuel(map, Blocks.LECTERN, 300);
+        BrickOvenBlockEntity.addFuel(map, Blocks.JUKEBOX, 300);
+        BrickOvenBlockEntity.addFuel(map, Blocks.CHEST, 300);
+        BrickOvenBlockEntity.addFuel(map, Blocks.TRAPPED_CHEST, 300);
+        BrickOvenBlockEntity.addFuel(map, Blocks.CRAFTING_TABLE, 300);
+        BrickOvenBlockEntity.addFuel(map, Blocks.DAYLIGHT_DETECTOR, 300);
+        BrickOvenBlockEntity.addFuel(map, ItemTags.BANNERS, 300);
+        BrickOvenBlockEntity.addFuel(map, Items.BOW, 300);
+        BrickOvenBlockEntity.addFuel(map, Items.FISHING_ROD, 300);
+        BrickOvenBlockEntity.addFuel(map, Blocks.LADDER, 300);
+        BrickOvenBlockEntity.addFuel(map, ItemTags.SIGNS, 200);
+        BrickOvenBlockEntity.addFuel(map, ItemTags.HANGING_SIGNS, 800);
+        BrickOvenBlockEntity.addFuel(map, Items.WOODEN_SHOVEL, 200);
+        BrickOvenBlockEntity.addFuel(map, Items.WOODEN_SWORD, 200);
+        BrickOvenBlockEntity.addFuel(map, Items.WOODEN_HOE, 200);
+        BrickOvenBlockEntity.addFuel(map, Items.WOODEN_AXE, 200);
+        BrickOvenBlockEntity.addFuel(map, Items.WOODEN_PICKAXE, 200);
+        BrickOvenBlockEntity.addFuel(map, ItemTags.WOODEN_DOORS, 200);
+        BrickOvenBlockEntity.addFuel(map, ItemTags.BOATS, 1200);
+        BrickOvenBlockEntity.addFuel(map, ItemTags.WOOL, 100);
+        BrickOvenBlockEntity.addFuel(map, ItemTags.WOODEN_BUTTONS, 100);
+        BrickOvenBlockEntity.addFuel(map, Items.STICK, 100);
+        BrickOvenBlockEntity.addFuel(map, ItemTags.SAPLINGS, 100);
+        BrickOvenBlockEntity.addFuel(map, Items.BOWL, 100);
+        BrickOvenBlockEntity.addFuel(map, ItemTags.WOOL_CARPETS, 67);
+        BrickOvenBlockEntity.addFuel(map, Blocks.DRIED_KELP_BLOCK, 4001);
+        BrickOvenBlockEntity.addFuel(map, Items.CROSSBOW, 300);
+        BrickOvenBlockEntity.addFuel(map, Blocks.BAMBOO, 50);
+        BrickOvenBlockEntity.addFuel(map, Blocks.DEAD_BUSH, 100);
+        BrickOvenBlockEntity.addFuel(map, Blocks.SCAFFOLDING, 50);
+        BrickOvenBlockEntity.addFuel(map, Blocks.LOOM, 300);
+        BrickOvenBlockEntity.addFuel(map, Blocks.BARREL, 300);
+        BrickOvenBlockEntity.addFuel(map, Blocks.CARTOGRAPHY_TABLE, 300);
+        BrickOvenBlockEntity.addFuel(map, Blocks.FLETCHING_TABLE, 300);
+        BrickOvenBlockEntity.addFuel(map, Blocks.SMITHING_TABLE, 300);
+        BrickOvenBlockEntity.addFuel(map, Blocks.COMPOSTER, 300);
+        BrickOvenBlockEntity.addFuel(map, Blocks.AZALEA, 100);
+        BrickOvenBlockEntity.addFuel(map, Blocks.FLOWERING_AZALEA, 100);
+        BrickOvenBlockEntity.addFuel(map, Blocks.MANGROVE_ROOTS, 300);
         return map;
     }
 
@@ -333,7 +333,7 @@ public class BrickOvenBlockEntity20 extends BlockEntity implements ExtendedScree
 
         while(var3.hasNext()) {
             RegistryEntry<Item> registryEntry = (RegistryEntry)var3.next();
-            if (!BrickOvenBlockEntity20.isNonFlammableWood((Item)registryEntry.value())) {
+            if (!BrickOvenBlockEntity.isNonFlammableWood((Item)registryEntry.value())) {
                 fuelTimes.put((Item)registryEntry.value(), fuelTime);
             }
         }

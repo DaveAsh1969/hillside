@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 
 public class Hillside implements ModInitializer {
     public static final String MOD_ID = "hillsidemod";
-    public static final Logger LOGGER = LoggerFactory.getLogger("hillside");
+    public static final Logger LOGGER = LoggerFactory.getLogger("hillsidemod");
 
     @Override
     public void onInitialize() {

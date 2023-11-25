@@ -1,5 +1,6 @@
 package net.hillsidemod.hillside.item.custom;
 
+import net.minecraft.client.font.UnihexFont;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.player.PlayerEntity;
@@ -15,6 +16,7 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionType;
+import net.minecraft.world.dimension.DimensionTypes;
 
 import java.awt.*;
 
@@ -29,22 +31,27 @@ public class MirrorItem extends Item {
         if(world.isClient()) {
             //world.playSound(user, user.getBlockPos(), SoundEvents.ENTITY_ENDERMAN_TELEPORT, SoundCategory.PLAYERS, 1.0f, 1.0f);
             world.playSound(user, user.getBlockPos(), SoundEvents.ENTITY_ENDERMAN_TELEPORT, SoundCategory.PLAYERS, 1.0f, 1.0f);
+
         }
 
         if(!world.isClient) {
 
-            user.sendMessage(Text.literal("You have returned home"));
             DimensionType d = user.getWorld().getDimension();
             ServerPlayerEntity spe = (ServerPlayerEntity) user;
             BlockPos playerWorldSpawn = user.getWorld().getSpawnPos();
             BlockPos currentPlayerSpawnpoint = spe.getSpawnPointPosition();
 
-            if(currentPlayerSpawnpoint != null && d.respawnAnchorWorks())
+            if(currentPlayerSpawnpoint != null && d.bedWorks())
             {
                 user.teleport(currentPlayerSpawnpoint.getX(), currentPlayerSpawnpoint.getY(), currentPlayerSpawnpoint.getZ());
+                user.sendMessage(Text.literal("You have returned home."));
+                user.playSound(SoundEvents.ENTITY_ENDERMAN_TELEPORT, SoundCategory.PLAYERS, 1.0f, 1.0f);
+                return super.use(world, user, hand);
             }
-            else
+            else if(d.bedWorks()) {
                 user.teleport(playerWorldSpawn.getX(), playerWorldSpawn.getY(), playerWorldSpawn.getZ());
+                user.sendMessage(Text.literal("No spawn point. Returned to World Spawn."));
+            }
         }
 
         return super.use(world, user, hand);
@@ -54,6 +61,4 @@ public class MirrorItem extends Item {
     public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
         super.usageTick(world, user, stack, remainingUseTicks);
     }
-
-
 }

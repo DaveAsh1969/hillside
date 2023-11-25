@@ -89,12 +89,12 @@ public class BrickOvenRecipe implements Recipe<SimpleInventory> {
     public static class Type implements RecipeType<BrickOvenRecipe> {
         private Type() {}
         public static final Type INSTANCE = new Type();
-        public static final String ID = "brick_oven20";
+        public static final String ID = "brick_oven";
     }
 
     public static class Serializer implements RecipeSerializer<BrickOvenRecipe> {
         public static final Serializer INSTANCE = new Serializer();
-        public static final String ID = "brick_oven20";
+        public static final String ID = "brick_oven";
 
         //reading the json file
         @Override

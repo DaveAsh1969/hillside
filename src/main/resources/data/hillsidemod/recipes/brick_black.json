@@ -1,9 +1,9 @@
 {
-  "type": "hillsidemod:brick_oven20",
+  "type": "hillsidemod:brick_oven",
   "cookingtime": 100,
   "ingredients": [
     {
-      "item": "minecraft:pink_dye"
+      "item": "minecraft:black_dye"
     },
     {
       "item": "minecraft:cobblestone"
@@ -13,6 +13,6 @@
     }
   ],
   "output": {
-    "item": "hillsidemod:brick_pink"
+    "item": "hillsidemod:brick_black"
   }
 }

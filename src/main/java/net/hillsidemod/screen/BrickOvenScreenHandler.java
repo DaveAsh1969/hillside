@@ -1,7 +1,7 @@
 package net.hillsidemod.screen;
 
-import net.hillsidemod.hillside.block.entity.BrickOvenBlockEntity20;
-import net.hillsidemod.screen.slot.BrickOvenFuelSlot20;
+import net.hillsidemod.hillside.block.entity.BrickOvenBlockEntity;
+import net.hillsidemod.screen.slot.BrickOvenFuelSlot;
 import net.hillsidemod.screen.slot.BrickOvenOutputSlot;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -14,31 +14,31 @@ import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 
-public class BrickOvenScreenHandler20 extends ScreenHandler {
+public class BrickOvenScreenHandler extends ScreenHandler {
 
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
 
-    public final BrickOvenBlockEntity20 blockEntity;
+    public final BrickOvenBlockEntity blockEntity;
 
-    /*public BrickOvenScreenHandler20(int syncId, PlayerInventory inventory, PacketByteBuf buf) {
+    /*public BrickOvenScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf) {
         //Array Property delegate must be the same as the size in the BlockEntity class
         this(syncId, inventory, new SimpleInventory(5), new ArrayPropertyDelegate(6));
     }*/
 
-    public BrickOvenScreenHandler20(int syncId, PlayerInventory inventory, PacketByteBuf buf) {
+    public BrickOvenScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf) {
         //Array Property delegate must be the same as the size in the BlockEntity class
         this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()), new ArrayPropertyDelegate(6));
 
     }
 
-    public BrickOvenScreenHandler20(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate delegate) {
-        super(ModScreenHandlers.BRICK_OVEN_SCREEN_HANDLER20, syncId); //probably needs 20
+    public BrickOvenScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate delegate) {
+        super(ModScreenHandlers.BRICK_OVEN_SCREEN_HANDLER, syncId); //probably needs 20
         checkSize(((Inventory) blockEntity), 5);
         this.inventory = (Inventory) blockEntity;
         inventory.onOpen(playerInventory.player);
         this.propertyDelegate = delegate;
-        this.blockEntity = ((BrickOvenBlockEntity20) blockEntity);
+        this.blockEntity = ((BrickOvenBlockEntity) blockEntity);
 
         this.addSlot(new Slot(inventory, 0, 38, 17));
         this.addSlot(new Slot(inventory, 1, 56, 17));
@@ -47,7 +47,7 @@ public class BrickOvenScreenHandler20 extends ScreenHandler {
         //this.addSlot(new Slot(inventory, 4, 56, 53));
 
         this.addSlot(new BrickOvenOutputSlot(playerInventory.player, inventory, 3, 116, 35));
-        this.addSlot(new BrickOvenFuelSlot20(this, inventory, 4, 56, 53));
+        this.addSlot(new BrickOvenFuelSlot(this, inventory, 4, 56, 53));
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
@@ -122,6 +122,6 @@ public class BrickOvenScreenHandler20 extends ScreenHandler {
     }
 
     public boolean isFuel(ItemStack itemStack) {
-        return BrickOvenBlockEntity20.canUseAsFuel(itemStack);
+        return BrickOvenBlockEntity.canUseAsFuel(itemStack);
     }
 }

@@ -3,13 +3,12 @@ package net.hillsidemod.hillside.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.hillsidemod.hillside.block.ModBlocks;
-import net.hillsidemod.hillside.item.ModItems;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
-import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.ShapelessRecipe;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.util.Identifier;
 
@@ -48,6 +47,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('C', ModBlocks.BRICK_BLACK.asItem())
                 .criterion(hasItem(ModBlocks.BRICK_BLACK.asItem()), conditionsFromItem(ModBlocks.BRICK_BLACK.asItem()))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.BRICK_BLACK_WALL.asItem())));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, ModBlocks.LAMP_BLOCK.asItem(), 1)
+                .pattern("XXX")
+                .pattern("XXX")
+                .pattern(" C ")
+                .input('X', Blocks.BROWN_WOOL.asItem())
+                .input('C', Blocks.OAK_PLANKS.asItem())
+                .criterion(hasItem(Items.BROWN_WOOL), conditionsFromItem(Items.BROWN_WOOL))
+                .criterion(hasItem(Items.OAK_PLANKS), conditionsFromItem(Items.OAK_PLANKS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.LAMP_BLOCK.asItem())));
 
         //BROWN BRICK
         createStairsRecipe(ModBlocks.BRICK_BROWN_STAIRS, Ingredient.ofItems(ModBlocks.BRICK_BROWN.asItem()))

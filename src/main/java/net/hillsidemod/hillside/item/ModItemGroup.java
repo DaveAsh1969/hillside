@@ -14,7 +14,7 @@ import net.minecraft.util.Identifier;
 
 public class ModItemGroup {
     public static final ItemGroup HILLSIDE = Registry.register(Registries.ITEM_GROUP,
-            new Identifier(Hillside.MOD_ID, "hillside"),
+            new Identifier(Hillside.MOD_ID, "hillsidemod"),
             FabricItemGroup.builder().displayName(Text.literal("Hillside"))
                     .icon(() -> new ItemStack(ModItems.STAR_COMPASS)).entries((displayContext, entries) -> {
                         entries.add(ModBlocks.BOP);
@@ -26,17 +26,42 @@ public class ModItemGroup {
                         entries.add(ModBlocks.BRICK_BLACK_STAIRS);
                         entries.add(ModBlocks.BRICK_BLACK_WALL);
                         entries.add(ModBlocks.BRICK_BROWN);
+                        entries.add(ModBlocks.BRICK_BROWN_BUTTON);
+                        entries.add(ModBlocks.BRICK_BROWN_PLATE);
+                        entries.add(ModBlocks.BRICK_BROWN_SLAB);
                         entries.add(ModBlocks.BRICK_BROWN_SMEAR);
+                        entries.add(ModBlocks.BRICK_BROWN_STAIRS);
+                        entries.add(ModBlocks.BRICK_BROWN_WALL);
                         entries.add(ModBlocks.BRICK_MULTICOLORED);
+                        entries.add(ModBlocks.BRICK_MULTICOLORED_BUTTON);
+                        entries.add(ModBlocks.BRICK_MULTICOLORED_PLATE);
+                        entries.add(ModBlocks.BRICK_MULTICOLORED_SLAB);
                         entries.add(ModBlocks.BRICK_MULTICOLORED_SMEAR);
-                        entries.add(ModBlocks.BRICK_OVEN20);
+                        entries.add(ModBlocks.BRICK_MULTICOLORED_STAIRS);
+                        entries.add(ModBlocks.BRICK_MULTICOLORED_WALL);
+                        entries.add(ModBlocks.BRICK_OVEN);
                         entries.add(ModBlocks.BRICK_PINK);
+                        entries.add(ModBlocks.BRICK_PINK_BUTTON);
+                        entries.add(ModBlocks.BRICK_PINK_PLATE);
+                        entries.add(ModBlocks.BRICK_PINK_SLAB);
                         entries.add(ModBlocks.BRICK_PINK_SMEAR);
+                        entries.add(ModBlocks.BRICK_PINK_STAIRS);
+                        entries.add(ModBlocks.BRICK_PINK_WALL);
                         entries.add(ModBlocks.BRICK_SMEAR);
                         entries.add(ModBlocks.BRICK_TAN);
+                        entries.add(ModBlocks.BRICK_TAN_BUTTON);
+                        entries.add(ModBlocks.BRICK_TAN_PLATE);
+                        entries.add(ModBlocks.BRICK_TAN_SLAB);
                         entries.add(ModBlocks.BRICK_TAN_SMEAR);
+                        entries.add(ModBlocks.BRICK_TAN_STAIRS);
+                        entries.add(ModBlocks.BRICK_TAN_WALL);
                         entries.add(ModBlocks.BRICK_WHITE);
+                        entries.add(ModBlocks.BRICK_WHITE_BUTTON);
+                        entries.add(ModBlocks.BRICK_WHITE_PLATE);
+                        entries.add(ModBlocks.BRICK_WHITE_SLAB);
                         entries.add(ModBlocks.BRICK_WHITE_SMEAR);
+                        entries.add(ModBlocks.BRICK_WHITE_STAIRS);
+                        entries.add(ModBlocks.BRICK_WHITE_WALL);
                         entries.add(ModBlocks.LAMP_BLOCK);
                         entries.add(ModBlocks.XANTHE);
                         entries.add(ModItems.DOWSINGROD_COAL_COPPER);
@@ -44,6 +69,7 @@ public class ModItemGroup {
                         entries.add(ModItems.DOWSINGROD_IRON_GOLD);
                         entries.add(ModItems.MIRROR);
                         entries.add(ModItems.STAR_COMPASS);
+
 
                     }).build());
 

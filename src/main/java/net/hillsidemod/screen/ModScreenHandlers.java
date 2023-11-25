@@ -11,8 +11,8 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 
 public class ModScreenHandlers {
-    public static ScreenHandlerType<BrickOvenScreenHandler20> BRICK_OVEN_SCREEN_HANDLER20 = Registry.register(Registries.SCREEN_HANDLER,
-            new Identifier(Hillside.MOD_ID, "brick_oven_screen_handler20"), new ExtendedScreenHandlerType<>(BrickOvenScreenHandler20::new));
+    public static ScreenHandlerType<BrickOvenScreenHandler> BRICK_OVEN_SCREEN_HANDLER = Registry.register(Registries.SCREEN_HANDLER,
+            new Identifier(Hillside.MOD_ID, "brick_oven_screen_handler"), new ExtendedScreenHandlerType<>(BrickOvenScreenHandler::new));
 
 
     public static void registerAllScreenHandlers() {

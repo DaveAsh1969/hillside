@@ -1,9 +1,9 @@
 {
-  "type": "hillsidemod:brick_oven20",
+  "type": "hillsidemod:brick_oven",
   "cookingtime": 100,
   "ingredients": [
     {
-      "item": "minecraft:white_dye"
+      "item": "minecraft:pink_dye"
     },
     {
       "item": "minecraft:bone_meal"
@@ -13,6 +13,6 @@
     }
   ],
   "output": {
-    "item": "hillsidemod:brick_white_smeared"
+    "item": "hillsidemod:brick_pink_smeared"
   }
 }
