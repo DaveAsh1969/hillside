@@ -3,9 +3,8 @@ package net.hillsidemod.hillside;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.hillsidemod.hillside.block.ModBlocks;
-import net.hillsidemod.screen.ModScreenHandlers;
 import net.hillsidemod.screen.BrickOvenScreen;
-import net.minecraft.client.gui.screen.ingame.HandledScreen;
+import net.hillsidemod.screen.ModScreenHandlers;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 

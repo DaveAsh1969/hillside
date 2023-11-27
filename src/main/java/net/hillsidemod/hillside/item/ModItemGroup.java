@@ -67,6 +67,7 @@ public class ModItemGroup {
                         entries.add(ModItems.DOWSINGROD_COAL_COPPER);
                         entries.add(ModItems.DOWSINGROD_DIAMOND_LAPIS);
                         entries.add(ModItems.DOWSINGROD_IRON_GOLD);
+                        entries.add(ModItems.DOWSINGROD_ANCIENT_DEBRIS);
                         entries.add(ModItems.MIRROR);
                         entries.add(ModItems.STAR_COMPASS);
 
