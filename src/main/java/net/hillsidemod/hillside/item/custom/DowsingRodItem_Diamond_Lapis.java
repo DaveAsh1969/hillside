@@ -7,6 +7,7 @@ import net.minecraft.item.ItemUsageContext;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.dimension.DimensionTypes;
 
 public class DowsingRodItem_Diamond_Lapis extends Item {
     public DowsingRodItem_Diamond_Lapis(Settings settings) {
@@ -16,6 +17,12 @@ public class DowsingRodItem_Diamond_Lapis extends Item {
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         if(context.getWorld().isClient()) {
+            if (context.getWorld().getDimensionKey().getValue().equals(DimensionTypes.THE_NETHER_ID) ||
+                    context.getWorld().getDimensionKey().getValue().equals(DimensionTypes.THE_END_ID))
+            {
+                context.getPlayer().sendMessage(Text.literal("This dowsing rod only works in the Overworld!"));
+                return super.useOnBlock(context);
+            }
             BlockPos positionClicked = context.getBlockPos();
             PlayerEntity player = context.getPlayer();
             boolean foundBlock = false;

@@ -1,5 +1,4 @@
 package net.hillsidemod.hillside.item.custom;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
@@ -10,18 +9,20 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.dimension.DimensionTypes;
 
-public class DowsingRodItem_Coal_Copper extends Item {
-    public DowsingRodItem_Coal_Copper(Settings settings) {
+import java.awt.*;
+
+public class DowsingRodItem_AncientDebris extends Item {
+    public DowsingRodItem_AncientDebris(Settings settings) {
         super(settings);
     }
 
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         if(context.getWorld().isClient()) {
-            if (context.getWorld().getDimensionKey().getValue().equals(DimensionTypes.THE_NETHER_ID) ||
+            if (context.getWorld().getDimensionKey().getValue().equals(DimensionTypes.OVERWORLD_ID) ||
                     context.getWorld().getDimensionKey().getValue().equals(DimensionTypes.THE_END_ID))
             {
-                context.getPlayer().sendMessage(Text.literal("This dowsing rod only works in the Overworld!"));
+                context.getPlayer().sendMessage(Text.literal("This dowsing rod only works in the Nether!"));
                 return super.useOnBlock(context);
             }
 
@@ -30,13 +31,17 @@ public class DowsingRodItem_Coal_Copper extends Item {
             boolean foundBlock = false;
 
             for(int i = 0; i <= positionClicked.getY() + Math.abs(context.getWorld().getChunk(positionClicked).getBottomY()); i++) {
-                Block blockBelow = context.getWorld().getBlockState(positionClicked.down(i)).getBlock();
+                for(int j= 0; j <= 5; j++) {
+                    for (int k = 0; k <= 5; k++) {
+                        Block blockBelow = context.getWorld().getBlockState(positionClicked.down(i)).getBlock();
 
-                if(isValuableBlock(blockBelow)) {
-                    outputValuableCoordinates(positionClicked.down(i), player, blockBelow);
+                        if (isValuableBlock(blockBelow)) {
+                            outputValuableCoordinates(positionClicked.down(i), player, blockBelow);
 
-                    foundBlock = true;
-                    break;
+                            foundBlock = true;
+                            break;
+                        }
+                    }
                 }
             }
 
@@ -57,7 +62,6 @@ public class DowsingRodItem_Coal_Copper extends Item {
     }
 
     private boolean isValuableBlock(Block block) {
-        return block == Blocks.COAL_ORE ||  block == Blocks.COPPER_ORE || block == Blocks.DEEPSLATE_COAL_ORE || block == Blocks.DEEPSLATE_COPPER_ORE;
+        return block == Blocks.ANCIENT_DEBRIS || block == Blocks.NETHER_QUARTZ_ORE || block == Blocks.NETHER_GOLD_ORE;
     }
 }
-
