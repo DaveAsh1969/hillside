@@ -13,6 +13,8 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
+    public static final Item DOWSINGROD_ANCIENT_DEBRIS = registerItem("dowsing_rod_ancient_debris",
+            new DowsingRodItem_AncientDebris(new FabricItemSettings().maxDamage(300)));
     public static final Item DOWSINGROD_COAL_COPPER = registerItem("dowsing_rod_coal_copper",
             new DowsingRodItem_Coal_Copper(new FabricItemSettings().maxDamage(155)));
     public static final Item DOWSINGROD_DIAMOND_LAPIS = registerItem("dowsing_rod_diamond_lapis",
