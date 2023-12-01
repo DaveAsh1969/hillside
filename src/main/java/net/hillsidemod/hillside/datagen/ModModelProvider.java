@@ -3,6 +3,7 @@ package net.hillsidemod.hillside.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.hillsidemod.hillside.block.ModBlocks;
+import net.hillsidemod.hillside.item.ModItems;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
@@ -64,6 +65,8 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+        itemModelGenerator.register(ModItems.RUBY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUBY_PICKAXE, Models.HANDHELD);
 
     }
 }

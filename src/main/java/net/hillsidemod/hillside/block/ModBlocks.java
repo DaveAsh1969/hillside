@@ -172,6 +172,11 @@ public class ModBlocks
             new LampBlock(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.METAL).nonOpaque()
                     .luminance((state) -> state.get(LampBlock.CLICKED) ? 15 : 0)));
 
+    public static final Block WINTER_WINDOW = registerBlock("winter_window",
+            new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(1.0f).nonOpaque()));
+
+    public static final Block WINTER_WINDOW_PANE = registerBlock("winter_window_pane",
+            new PaneBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(1.0f).nonOpaque()));
     public static final Block XANTHE = registerBlock("xanthe", new FlowerBlock(StatusEffects.FIRE_RESISTANCE, 10,
             FabricBlockSettings.copyOf(Blocks.ALLIUM).nonOpaque().noCollision()));
 

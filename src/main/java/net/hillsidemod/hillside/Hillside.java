@@ -7,6 +7,7 @@ import net.hillsidemod.hillside.block.entity.ModBlockEntities;
 import net.hillsidemod.hillside.item.ModItemGroup;
 import net.hillsidemod.hillside.item.ModItems;
 import net.hillsidemod.hillside.recipe.ModRecipes;
+import net.hillsidemod.hillside.util.ModLootTableModifiers;
 import net.hillsidemod.screen.ModScreenHandlers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,5 +24,6 @@ public class Hillside implements ModInitializer {
         ModBlockEntities.registerBlockEntities();
         ModScreenHandlers.registerAllScreenHandlers();
         ModRecipes.registerRecipes();
+        ModLootTableModifiers.modifyLootTables();
     }
 }

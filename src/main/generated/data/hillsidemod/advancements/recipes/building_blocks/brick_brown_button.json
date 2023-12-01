@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_brick_brown": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hillsidemod:brick_brown"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "hillsidemod:brick_brown_button"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_brick_brown",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "hillsidemod:brick_brown_button"
+    ]
+  },
+  "sends_telemetry_event": false
+}

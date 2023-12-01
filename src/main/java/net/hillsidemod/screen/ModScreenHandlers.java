@@ -18,6 +18,4 @@ public class ModScreenHandlers {
     public static void registerAllScreenHandlers() {
 
     }
-
-
 }

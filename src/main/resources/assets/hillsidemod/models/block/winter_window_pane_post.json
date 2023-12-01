@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_glass_pane_post",
+  "textures": {
+    "edge": "hillsidemod:block/winter_window_pane_top",
+    "pane": "hillsidemod:block/winter_window"
+  }
+}

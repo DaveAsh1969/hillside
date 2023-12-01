@@ -3,10 +3,10 @@
   "cookingtime": 100,
   "ingredients": [
     {
-      "item": "minecraft:brown_dye"
+      "item": "minecraft:orange_dye"
     },
     {
-      "item": "minecraft:gray_dye"
+      "item": "minecraft:brown_dye"
     },
     {
       "item": "minecraft:cobblestone"

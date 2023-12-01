@@ -159,9 +159,6 @@ public class BrickOvenBlockEntity extends BlockEntity implements ExtendedScreenH
             entity.removeStack(1, 1);
             entity.removeStack(2, 1);
             entity.setStack(3, new ItemStack(recipe.get().getOutput(entity.getWorld().getRegistryManager()).getItem(), entity.getStack(3).getCount()+1));
-            //   entity.setStack(3, new ItemStack(recipe.get().getOutput(entity.getWorld().getRegistryManager())).getItem(),
-            //     entity.getStack(3).getCount() +1));
-
             entity.resetProgress();
             resetRecipe(entity);
         }

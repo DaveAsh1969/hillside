@@ -41,7 +41,7 @@ public class DowsingRodItem_Coal_Copper extends Item {
             }
 
             if(!foundBlock) {
-                player.sendMessage(Text.translatable("item.hillsidemod.dowsing_rod.no_valuables"), false);
+                player.sendMessage(Text.translatable("item.hillsidemod.dowsing_rod.no_valuables"), true);
             }
         }
 

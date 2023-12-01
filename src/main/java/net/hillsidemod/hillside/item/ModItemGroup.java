@@ -63,14 +63,17 @@ public class ModItemGroup {
                         entries.add(ModBlocks.BRICK_WHITE_STAIRS);
                         entries.add(ModBlocks.BRICK_WHITE_WALL);
                         entries.add(ModBlocks.LAMP_BLOCK);
+                        entries.add(ModBlocks.WINTER_WINDOW);
+                        entries.add(ModBlocks.WINTER_WINDOW_PANE);
                         entries.add(ModBlocks.XANTHE);
                         entries.add(ModItems.DOWSINGROD_COAL_COPPER);
                         entries.add(ModItems.DOWSINGROD_DIAMOND_LAPIS);
                         entries.add(ModItems.DOWSINGROD_IRON_GOLD);
                         entries.add(ModItems.DOWSINGROD_ANCIENT_DEBRIS);
                         entries.add(ModItems.MIRROR);
+                        entries.add(ModItems.RUBY);
+                        entries.add(ModItems.RUBY_PICKAXE);
                         entries.add(ModItems.STAR_COMPASS);
-
 
                     }).build());
 
@@ -79,66 +82,4 @@ public class ModItemGroup {
         Hillside.LOGGER.info("Registering Item Groups for " + Hillside.MOD_ID);
     }
 
-
-    //public static final RegistryKey<ItemGroup> HILLSIDE = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(Hillside.MOD_ID, "hillside"));
-
-    /*public static void registerItemGroups() {
-        HILLSIDE = FabricItemGroup.builder(new Identifier(Hillside.MOD_ID, "hillside"))
-                .displayName(Text.literal("Hillside"))
-                .icon(() -> new ItemStack((ModItems.STAR_COMPASS))).build();
-        Registry.register(Registries.ITEM_GROUP, HILLSIDE, FabricItemGroup.builder()
-                .displayName(Text.literal("hillside"))
-                .icon(() -> new ItemStack((ModItems.STAR_COMPASS)).entries((displayContext, entries) -> {
-                    entries.add(ModItems.RUBY);
-                    entries.add(ModBlocks.RUBY_STAIRS);
-                    entries.add(ModBlocks.RUBY_SLAB);
-                    entries.add(ModBlocks.RUBY_FENCE);
-                    entries.add(ModBlocks.RUBY_FENCE_GATE);
-                    entries.add(ModBlocks.RUBY_WALL);
-                    entries.add(ModBlocks.RUBY_BUTTON);
-                    entries.add(ModBlocks.RUBY_PRESSURE_PLATE);
-                    entries.add(ModBlocks.RUBY_DOOR);
-                    entries.add(ModBlocks.RUBY_TRAPDOOR);
-
-
-                }).build());
-
-        public static final ItemGroup HILLSIDE = Registry.register(Registries.ITEM_GROUP,
-                new Identifier(TutorialMod.MOD_ID, "ruby"),
-                FabricItemGroup.builder().displayName(Text.translatable("itemgroup.ruby"))
-                        .icon(() -> new ItemStack(ModItems.RUBY)).entries((displayContext, entries) -> {
-                            entries.add(ModItems.RUBY);
-                            entries.add(ModItems.RAW_RUBY);
-
-                            entries.add(ModItems.METAL_DETECTOR);
-
-                            entries.add(Items.DIAMOND);
-
-                            entries.add(ModItems.TOMATO);
-                            entries.add(ModItems.COAL_BRIQUETTE);
-
-                            entries.add(ModBlocks.RUBY_BLOCK);
-                            entries.add(ModBlocks.RAW_RUBY_BLOCK);
-
-                            entries.add(ModBlocks.RUBY_ORE);
-                            entries.add(ModBlocks.DEEPSLATE_RUBY_ORE);
-                            entries.add(ModBlocks.NETHER_RUBY_ORE);
-                            entries.add(ModBlocks.END_STONE_RUBY_ORE);
-
-                            entries.add(ModBlocks.SOUND_BLOCK);
-
-                            entries.add(ModBlocks.RUBY_STAIRS);
-                            entries.add(ModBlocks.RUBY_SLAB);
-                            entries.add(ModBlocks.RUBY_FENCE);
-                            entries.add(ModBlocks.RUBY_FENCE_GATE);
-                            entries.add(ModBlocks.RUBY_WALL);
-                            entries.add(ModBlocks.RUBY_BUTTON);
-                            entries.add(ModBlocks.RUBY_PRESSURE_PLATE);
-                            entries.add(ModBlocks.RUBY_DOOR);
-                            entries.add(ModBlocks.RUBY_TRAPDOOR);
-
-
-                        }).build());
-
-    }*/
 }

@@ -22,7 +22,7 @@ public class DowsingRodItem_AncientDebris extends Item {
             if (context.getWorld().getDimensionKey().getValue().equals(DimensionTypes.OVERWORLD_ID) ||
                     context.getWorld().getDimensionKey().getValue().equals(DimensionTypes.THE_END_ID))
             {
-                context.getPlayer().sendMessage(Text.literal("This dowsing rod only works in the Nether!"));
+                context.getPlayer().sendMessage(Text.translatable("This dowsing rod only works in the Nether!"), true);
                 return super.useOnBlock(context);
             }
 
@@ -30,14 +30,26 @@ public class DowsingRodItem_AncientDebris extends Item {
             PlayerEntity player = context.getPlayer();
             boolean foundBlock = false;
 
-            for(int i = 0; i <= positionClicked.getY() + Math.abs(context.getWorld().getChunk(positionClicked).getBottomY()); i++) {
-                for(int j= 0; j <= 5; j++) {
-                    for (int k = 0; k <= 5; k++) {
-                        Block blockBelow = context.getWorld().getBlockState(positionClicked.down(i)).getBlock();
+            for(int i = 22; i <= 22 && i >=8; i--) {
+                for(int j= 0; j <= 10; j++) {
+                    for (int k = 0; k <= 10; k++) {
+                        int xMod=0;
+                        int zMod=0;
+                        if(positionClicked.getX()+j > 0)
+                            xMod = -1;
+                        else if(positionClicked.getX()+j < 0)
+                            xMod = 1;
+                        if(positionClicked.getZ()+k > 0)
+                            zMod = -1;
+                        else if(positionClicked.getZ()+k < 0)
+                            zMod = 1;
 
-                        if (isValuableBlock(blockBelow)) {
-                            outputValuableCoordinates(positionClicked.down(i), player, blockBelow);
+                        BlockPos testPos = new BlockPos(positionClicked.getX()+j+xMod, i, positionClicked.getZ()+k+zMod);
+                        Block testBlock = context.getWorld().getBlockState(testPos).getBlock();
 
+                        if (isValuableBlock(testBlock))
+                        {
+                            outputValuableCoordinates(testPos, player, testBlock);
                             foundBlock = true;
                             break;
                         }
@@ -46,7 +58,7 @@ public class DowsingRodItem_AncientDebris extends Item {
             }
 
             if(!foundBlock) {
-                player.sendMessage(Text.translatable("item.hillsidemod.dowsing_rod.no_valuables"), false);
+                player.sendMessage(Text.translatable("item.hillsidemod.dowsing_rod.no_valuables"), true);
             }
         }
 
@@ -62,6 +74,6 @@ public class DowsingRodItem_AncientDebris extends Item {
     }
 
     private boolean isValuableBlock(Block block) {
-        return block == Blocks.ANCIENT_DEBRIS || block == Blocks.NETHER_QUARTZ_ORE || block == Blocks.NETHER_GOLD_ORE;
+        return block == Blocks.ANCIENT_DEBRIS;
     }
 }
