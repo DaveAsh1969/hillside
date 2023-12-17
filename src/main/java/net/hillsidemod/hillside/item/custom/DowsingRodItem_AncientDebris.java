@@ -65,6 +65,7 @@ public class DowsingRodItem_AncientDebris extends Item {
         context.getStack().damage(1, context.getPlayer(),
                 (player) -> player.sendToolBreakStatus(player.getActiveHand()));
 
+
         return super.useOnBlock(context);
     }
 

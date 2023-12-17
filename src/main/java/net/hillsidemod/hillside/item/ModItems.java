@@ -5,10 +5,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.hillsidemod.hillside.Hillside;
 import net.hillsidemod.hillside.item.custom.*;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.item.PickaxeItem;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -29,6 +26,9 @@ public class ModItems {
     public static final Item RUBY = registerItem("ruby",
             new Item(new FabricItemSettings()));
 
+    public static final Item RUBY_BOOTS = registerItem("ruby_boots",
+            new ModRubyBootsItem(ModArmorMaterials.RUBY, ArmorItem.Type.BOOTS,
+                    new FabricItemSettings()));
     public static final Item RUBY_PICKAXE = registerItem("ruby_pickaxe",
             new RubyPickaxeItem(ModToolMaterial.RUBY, 2, 2f, new FabricItemSettings()));
     public static final Item STAR_COMPASS = registerItem("star_compass",

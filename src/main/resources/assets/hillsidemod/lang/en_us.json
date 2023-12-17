@@ -45,6 +45,7 @@
   "block.hillsidemod.brick_white_stairs": "White Brick Stairs",
   "block.hillsidemod.brick_white_wall": "White Brick Wall",
   "block.hillsidemod.lamp_block": "Lamp",
+  "block.hillsidemod.lava_block": "Lava Block",
   "block.hillsidemod.winter_window": "Winter Window",
   "block.hillsidemod.winter_window_pane": "Winter Window Pane",
   "block.hillsidemod.xanthe": "Xanthe Flower",
@@ -56,6 +57,7 @@
   "item.hillsidemod.dowsing_rod.no_valuables": "No Resources Found!",
   "item.hillsidemod.mirror": "Teleporting Mirror!",
   "item.hillsidemod.ruby": "Ruby",
+  "item.hillsidemod.ruby_boots": "Ruby Boots",
   "item.hillsidemod.ruby_pickaxe": "Ruby Pickaxe",
   "item.hillsidemod.star_compass": "Star Compass"
 }

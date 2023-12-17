@@ -22,5 +22,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.BRICK_PINK_WALL)
                 .add(ModBlocks.BRICK_TAN_WALL)
                 .add(ModBlocks.BRICK_WHITE_WALL);
+
+
     }
 }

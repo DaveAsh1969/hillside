@@ -7,6 +7,7 @@ import net.hillsidemod.hillside.item.ModItems;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
+import net.minecraft.item.ArmorItem;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
@@ -22,6 +23,7 @@ public class ModModelProvider extends FabricModelProvider {
         BlockStateModelGenerator.BlockTexturePool tanBrownPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.BRICK_TAN);
         BlockStateModelGenerator.BlockTexturePool whiteBrownPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.BRICK_WHITE);
 
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LAVA_BLOCK);
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.XANTHE, ModBlocks.XANTHE_POTTED, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.BOP, ModBlocks.BOP_POTTED, BlockStateModelGenerator.TintType.NOT_TINTED);
 
@@ -68,5 +70,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.RUBY, Models.GENERATED);
         itemModelGenerator.register(ModItems.RUBY_PICKAXE, Models.HANDHELD);
 
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.RUBY_BOOTS));
     }
 }

@@ -168,6 +168,9 @@ public class ModBlocks
     public static final Block BRICK_WHITE_WALL = registerBlock("brick_white_wall",
             new WallBlock(FabricBlockSettings.create().strength(1.0f).requiresTool()
                     .sounds(BlockSoundGroup.STONE)));
+
+    public static final Block LAVA_BLOCK = registerBlock("lava_block",
+            new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
     public static final Block LAMP_BLOCK = registerBlock("lamp_block",
             new LampBlock(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.METAL).nonOpaque()
                     .luminance((state) -> state.get(LampBlock.CLICKED) ? 15 : 0)));
