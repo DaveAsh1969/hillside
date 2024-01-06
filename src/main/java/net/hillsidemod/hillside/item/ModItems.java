@@ -4,14 +4,19 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.hillsidemod.hillside.Hillside;
+import net.hillsidemod.hillside.entity.ModEntities;
 import net.hillsidemod.hillside.item.custom.*;
+import net.minecraft.client.sound.SoundSystem;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
+    public static final Item DECAYING_ZOMBIE_EGG = registerItem("decaying_zombie_egg",
+            new SpawnEggItem(ModEntities.DECAYING_ZOMBIE, 0xa86528, 0x3b260f, new FabricItemSettings()));
     public static final Item DOWSINGROD_ANCIENT_DEBRIS = registerItem("dowsing_rod_ancient_debris",
             new DowsingRodItem_AncientDebris(new FabricItemSettings().maxDamage(300)));
     public static final Item DOWSINGROD_COAL_COPPER = registerItem("dowsing_rod_coal_copper",

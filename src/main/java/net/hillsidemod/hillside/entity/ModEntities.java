@@ -3,6 +3,7 @@ package net.hillsidemod.hillside.entity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.hillsidemod.hillside.Hillside;
 import net.hillsidemod.hillside.entity.custom.ChristmasTreeEntity;
+import net.hillsidemod.hillside.entity.custom.DecayingZombieEntity;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -16,6 +17,10 @@ public class ModEntities {
                         FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ChristmasTreeEntity::new)
                                 .dimensions(EntityDimensions.fixed(1f, 3f)).build());
 
+    public static final EntityType<DecayingZombieEntity> DECAYING_ZOMBIE = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(Hillside.MOD_ID, "decaying_zombie"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, DecayingZombieEntity::new)
+                    .dimensions(EntityDimensions.fixed(1f, 2f)).build());
     public static void registerModEntities() {
         Hillside.LOGGER.info("Registering Entities for " + Hillside.MOD_ID);
     }

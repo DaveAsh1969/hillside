@@ -50,6 +50,8 @@
   "block.hillsidemod.winter_window_pane": "Winter Window Pane",
   "block.hillsidemod.xanthe": "Xanthe Flower",
   "entity.hillsidemod.christmas_tree": "Christmas Tree",
+  "entity.hillsidemod.decaying_zombie": "Decaying Zombie",
+  "item.hillsidemod.decaying_zombie_egg": "Decaying Zombie Spawn Egg",
   "item.hillsidemod.dowsing_rod_coal_copper": "Dowsing Rod-Coal & Copper",
   "item.hillsidemod.dowsing_rod_diamond_lapis": "Dowsing Rod-Diamond & Lapis",
   "item.hillsidemod.dowsing_rod_iron_gold": "Dowsing Rod-Iron & Gold",

@@ -6,9 +6,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.hillsidemod.hillside.block.ModBlocks;
 import net.hillsidemod.hillside.entity.ModEntities;
-import net.hillsidemod.hillside.entity.client.ChristmasTreeModel;
-import net.hillsidemod.hillside.entity.client.ChristmasTreeRenderer;
-import net.hillsidemod.hillside.entity.client.ModModelLayers;
+import net.hillsidemod.hillside.entity.client.*;
 import net.hillsidemod.screen.BrickOvenScreen;
 import net.hillsidemod.screen.ModScreenHandlers;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
@@ -29,6 +27,9 @@ public class HillsideModClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.XANTHE_POTTED, RenderLayer.getCutout());
 
         EntityRendererRegistry.register(ModEntities.CHRISTMAS_TREE, ChristmasTreeRenderer::new);
+        EntityRendererRegistry.register(ModEntities.DECAYING_ZOMBIE, DecayingZombieRenderer::new);
+
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.CHRISTMAS_TREE, ChristmasTreeModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.DECAYING_ZOMBIE, DecayingZombieModel::getTexturedModelData);
     }
 }

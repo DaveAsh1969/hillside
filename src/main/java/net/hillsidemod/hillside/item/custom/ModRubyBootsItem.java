@@ -30,56 +30,60 @@ public class ModRubyBootsItem extends ArmorItem {
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if(!world.isClient()) {
             //check for player
-            if (entity.isPlayer()) {
+            if (entity.isPlayer() && !entity.isSpectator()) {
                 PlayerEntity p = world.getClosestPlayer(entity.getBlockPos().getX(), entity.getBlockPos().getY(),
                         entity.getBlockPos().getZ(), 2, false);
-                float playerHealth = p.getHealth();
 
-                //if the player is wearing the boots
-                if (p.getInventory().getArmorStack(0).getItem() == this)
-                {
-                    BlockPos blockPosBelowPlayer = new BlockPos(p.getBlockPos().getX(), p.getBlockPos().getY() - 1,
-                            p.getBlockPos().getZ());
+                    float playerHealth = p.getHealth();
 
-                    //if the player is trying to stand on lava set the lava block, clear old block back to lava
-                    if (world.getBlockState(blockPosBelowPlayer).getBlock().equals(Blocks.LAVA) ||
-                    (world.getBlockState(p.getBlockPos()).getBlock().equals(Blocks.LAVA)))
-                    {
-                        setBlocksForPlayer(world, blockPosBelowPlayer);
+                    //if the player is wearing the boots
+                    if (p.getInventory().getArmorStack(0).getItem() == this) {
+                        BlockPos blockPosBelowPlayer = new BlockPos(p.getBlockPos().getX(), p.getBlockPos().getY() - 1,
+                                p.getBlockPos().getZ());
+                        BlockPos blockPosAbovePlayer = new BlockPos(p.getBlockPos().getX(), p.getBlockPos().getY() + 1,
+                                p.getBlockPos().getZ());
 
-                        if (priorBlockPos != blockPosBelowPlayer)
+                        //if the player is trying to stand on lava set the lava block, clear old block back to lava
+                        if (world.getBlockState(blockPosBelowPlayer).getBlock().equals(Blocks.LAVA) ||
+                                (world.getBlockState(p.getBlockPos()).getBlock().equals(Blocks.LAVA)))
                         {
-                            returnBlocksForPlayer(world, priorBlockPos);
-                            priorBlockPos = blockPosBelowPlayer;
-                        }
+                            //sets lava block to lava_block for player to walk on
+                            setBlocksForPlayer(world, blockPosBelowPlayer);
 
-                        //extinguish player if he's on fire
-                        if(p.isOnFire()) {
-                            p.teleport(p.getBlockPos().getX(),p.getBlockPos().getY()+1,p.getBlockPos().getZ());
-                            p.setFireTicks(0);
-                            p.setHealth(playerHealth);
+                            //if the player isn't standing still, reset the old block back to lava, set prior block to current block
+                            if (priorBlockPos != blockPosBelowPlayer) {
+                                returnBlocksForPlayer(world, priorBlockPos);
+                                priorBlockPos = blockPosBelowPlayer;
+                            }
+
+                            //***********************************************************************
+                            //-sometimes player can fall off the block in rare scenarios. This resets the player if it happens.
+                            //***********************************************************************
+                            //-extinguish player if he's on fire, reset health, move player up a block if there's no lava above the player
+                            if (p.isOnFire() && !world.getBlockState(blockPosAbovePlayer).getBlock().equals(Blocks.LAVA)) {
+                                p.teleport(p.getBlockPos().getX(), p.getBlockPos().getY() + 1, p.getBlockPos().getZ());
+                                p.setFireTicks(0);
+                                p.setHealth(playerHealth);
+                            }
                         }
+                        //if the player left a lava block behind when landing on dry ground, clear the prior lava block and block below player
+                        else if (world.getBlockState(priorBlockPos).getBlock().equals(ModBlocks.LAVA_BLOCK) &&
+                                !world.getBlockState(blockPosBelowPlayer).getBlock().equals(Blocks.LAVA) &&
+                                !world.getBlockState(blockPosBelowPlayer).getBlock().equals(ModBlocks.LAVA_BLOCK)) {
+                            returnBlocksForPlayer(world, priorBlockPos);
+                        }
+                        //make sure player has fire resistance for 10 seconds at a time.
+                        if (!p.hasStatusEffect(StatusEffects.FIRE_RESISTANCE))
+                            p.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 200));
                     }
-                    //if the player left a lava block behind on dry ground, clear the lava block
+                    //if the player isn't wearing the boots anymore, clear the lava block, they now sink
                     else if (world.getBlockState(priorBlockPos).getBlock().equals(ModBlocks.LAVA_BLOCK) &&
-                        !world.getBlockState(blockPosBelowPlayer).getBlock().equals(Blocks.LAVA) &&
-                            !world.getBlockState(blockPosBelowPlayer).getBlock().equals(ModBlocks.LAVA_BLOCK))
-                    {
+                            p.getInventory().getArmorStack(0).getItem() != this) {
                         returnBlocksForPlayer(world, priorBlockPos);
                     }
-                    //make sure player has fire resistance for 10 seconds at a time.
-                    if(!p.hasStatusEffect(StatusEffects.FIRE_RESISTANCE))
-                        p.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 200));
-                }
-                //if the player isn't wearing the boots anymore, clear the lava block, they now sink
-                else if(world.getBlockState(priorBlockPos).getBlock().equals(ModBlocks.LAVA_BLOCK) &&
-                        p.getInventory().getArmorStack(0).getItem() != this)
-                {
-                    returnBlocksForPlayer(world, priorBlockPos);
-                }
+
             }
         }
-        super.inventoryTick(stack, world, entity, slot, selected);
     }
 
     @Override
