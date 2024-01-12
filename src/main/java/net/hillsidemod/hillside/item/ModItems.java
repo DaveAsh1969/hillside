@@ -28,6 +28,8 @@ public class ModItems {
     public static final Item MIRROR = registerItem("mirror",
             new MirrorItem(new FabricItemSettings().maxDamage(50)));
 
+    public static final Item NETHER_MIRROR = registerItem("nether_mirror",
+            new NetherMirrorItem(new FabricItemSettings().maxDamage(50)));
     public static final Item RUBY = registerItem("ruby",
             new Item(new FabricItemSettings()));
 

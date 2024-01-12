@@ -3,7 +3,8 @@
 	"package": "net.hillsidemod.hillside.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin"
+		"ExampleMixin",
+		"SkeletonAggro"
 	],
 	"injectors": {
 		"defaultRequire": 1

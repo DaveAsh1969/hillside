@@ -70,6 +70,7 @@ public class ModItemGroup {
                         entries.add(ModBlocks.LAMP_BLOCK);
                         entries.add(ModBlocks.LAVA_BLOCK);
                         entries.add(ModItems.MIRROR);
+                        entries.add(ModItems.NETHER_MIRROR);
                         entries.add(ModItems.RUBY);
                         entries.add(ModItems.RUBY_BOOTS);
                         entries.add(ModItems.RUBY_PICKAXE);
