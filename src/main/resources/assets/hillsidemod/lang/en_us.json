@@ -62,5 +62,6 @@
   "item.hillsidemod.ruby": "Ruby",
   "item.hillsidemod.ruby_boots": "Ruby Boots",
   "item.hillsidemod.ruby_pickaxe": "Ruby Pickaxe",
-  "item.hillsidemod.star_compass": "Star Compass"
+  "item.hillsidemod.star_compass": "Star Compass",
+  "sounds.hillsidemod.teleport_charging": "Teleport Charging"
 }

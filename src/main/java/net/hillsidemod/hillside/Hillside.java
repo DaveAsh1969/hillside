@@ -13,6 +13,7 @@ import net.hillsidemod.hillside.entity.custom.DecayingZombieEntity;
 import net.hillsidemod.hillside.item.ModItemGroup;
 import net.hillsidemod.hillside.item.ModItems;
 import net.hillsidemod.hillside.recipe.ModRecipes;
+import net.hillsidemod.hillside.sound.ModSounds;
 import net.hillsidemod.hillside.util.ModLootTableModifiers;
 import net.hillsidemod.screen.ModScreenHandlers;
 import org.slf4j.Logger;
@@ -32,6 +33,7 @@ public class Hillside implements ModInitializer {
         ModRecipes.registerRecipes();
         ModLootTableModifiers.modifyLootTables();
         ModEntities.registerModEntities();
+        ModSounds.registerSounds();
 
         FabricDefaultAttributeRegistry.register(ModEntities.CHRISTMAS_TREE, ChristmasTreeEntity.createChristmasTreeAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.DECAYING_ZOMBIE, DecayingZombieEntity.createDecayingZombieAttributes());

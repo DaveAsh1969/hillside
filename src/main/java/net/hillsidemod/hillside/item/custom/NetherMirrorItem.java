@@ -2,31 +2,39 @@ package net.hillsidemod.hillside.item.custom;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.*;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 
 public class NetherMirrorItem extends Item {
-    private final NbtCompound nMNBT = new NbtCompound();
+    private final NbtCompound NetherMirrorNBT = new NbtCompound();
     private boolean usedOnBlock = false;
+
     public NetherMirrorItem(Settings settings) {
         super(settings);
     }
 
+    @Override
+    public UseAction getUseAction(ItemStack stack) {
+        return UseAction.BOW;
+    }
+
+    @Override
+    public int getMaxUseTime(ItemStack stack) {
+        return 100;
+    }
 
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
-        nMNBT.putInt("nMx", context.getBlockPos().getX());
-        nMNBT.putInt("nMy", context.getBlockPos().getY());
-        nMNBT.putInt("nMz", context.getBlockPos().getZ());
+        NetherMirrorNBT.putInt("netherMirrorx", context.getBlockPos().getX());
+        NetherMirrorNBT.putInt("netherMirrory", context.getBlockPos().getY());
+        NetherMirrorNBT.putInt("netherMirrorz", context.getBlockPos().getZ());
         context.getPlayer().sendMessage(Text.literal("Block coordinate set"), true);
 
         usedOnBlock = true;
@@ -41,24 +49,36 @@ public class NetherMirrorItem extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand)
     {
         if(!world.isClient()) {
-            if (nMNBT.contains("nMx") && !usedOnBlock)
-                user.teleport(nMNBT.getInt("nMx"), nMNBT.getInt("nMy")+1, nMNBT.getInt("nMz"));
-
+            if (NetherMirrorNBT.contains("netherMirrorx") && !usedOnBlock)
+            {
+                user.teleport(NetherMirrorNBT.getInt("netherMirrorx"), NetherMirrorNBT.getInt("netherMirrory")+1,
+                        NetherMirrorNBT.getInt("netherMirrorz"));
+            }
         }
         usedOnBlock=false;
-        //return super.use(world, user, hand);
-        return TypedActionResult.pass(user.getStackInHand(hand));
+        //return TypedActionResult.pass(user.getStackInHand(hand));
+        return TypedActionResult.success(user.getStackInHand(hand));
     }
 
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
-        user.sendMessage(Text.literal("StoppedUsing Fired"));
+        if(!world.isClient()) {
+            if (NetherMirrorNBT.contains("netherMirrorx") && !usedOnBlock && user.isPlayer())
+                user.teleport(NetherMirrorNBT.getInt("netherMirrorx"), NetherMirrorNBT.getInt("netherMirrory")+1,
+                        NetherMirrorNBT.getInt("netherMirrorz"));
+        }
+        usedOnBlock=false;
         return stack;
     }
 
     @Override
-    public int getMaxUseTime(ItemStack stack) {
-        return 10;
+    public boolean hasGlint(ItemStack stack) {
+        return true;
     }
 
+    @Override
+    public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
+        if(world.isClient())
+            user.sendMessage(Text.literal("usageTick Called"));
+    }
 }

@@ -1,0 +1,8 @@
+{
+  "teleport_charging": {
+    "subtitle": "sounds.hillsidemod.teleport_charging",
+    "sounds": [
+      "hillsidemod:teleport_charging"
+    ]
+  }
+}
