@@ -2,14 +2,18 @@ package net.hillsidemod.hillside;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.hillsidemod.hillside.block.ModBlocks;
 import net.hillsidemod.hillside.entity.ModEntities;
 import net.hillsidemod.hillside.entity.client.*;
+import net.hillsidemod.hillside.particle.ModParticles;
+import net.hillsidemod.hillside.util.ModModelPredicateProvider;
 import net.hillsidemod.screen.BrickOvenScreen;
 import net.hillsidemod.screen.ModScreenHandlers;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
+import net.minecraft.client.particle.FireworksSparkParticle;
 import net.minecraft.client.render.RenderLayer;
 
 public class HillsideModClient implements ClientModInitializer {
@@ -31,5 +35,7 @@ public class HillsideModClient implements ClientModInitializer {
 
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.CHRISTMAS_TREE, ChristmasTreeModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.DECAYING_ZOMBIE, DecayingZombieModel::getTexturedModelData);
+        ParticleFactoryRegistry.getInstance().register(ModParticles.TELEPORT_PARTICLE, FireworksSparkParticle.FlashFactory::new);
+        ModModelPredicateProvider.init();
     }
 }
