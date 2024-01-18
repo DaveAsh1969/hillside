@@ -27,7 +27,7 @@ public class NetherMirrorItem extends Item {
 
     @Override
     public int getMaxUseTime(ItemStack stack) {
-        return 100;
+        return 40;
     }
 
     @Override
@@ -42,6 +42,7 @@ public class NetherMirrorItem extends Item {
         {
             context.getPlayer().playSound(SoundEvents.BLOCK_AMETHYST_CLUSTER_STEP, 1.0f, 1.0f);
         }
+        usedOnBlock=true;
         return ActionResult.PASS;
     }
 
@@ -56,8 +57,14 @@ public class NetherMirrorItem extends Item {
             }
         }
         usedOnBlock=false;
-        //return TypedActionResult.pass(user.getStackInHand(hand));
-        return TypedActionResult.success(user.getStackInHand(hand));
+        //ended here.
+        return ItemUsage.consumeHeldItem(world, user, hand);
+    }
+
+    @Override
+    public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
+        if(world.isClient())
+            user.sendMessage(Text.literal("usageTick Called"));
     }
 
     @Override
@@ -76,9 +83,5 @@ public class NetherMirrorItem extends Item {
         return true;
     }
 
-    @Override
-    public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
-        if(world.isClient())
-            user.sendMessage(Text.literal("usageTick Called"));
-    }
+
 }

@@ -9,6 +9,7 @@ import net.hillsidemod.hillside.block.ModBlocks;
 import net.hillsidemod.hillside.entity.ModEntities;
 import net.hillsidemod.hillside.entity.client.*;
 import net.hillsidemod.hillside.particle.ModParticles;
+import net.hillsidemod.hillside.particle.custom.TeleportParticle;
 import net.hillsidemod.hillside.util.ModModelPredicateProvider;
 import net.hillsidemod.screen.BrickOvenScreen;
 import net.hillsidemod.screen.ModScreenHandlers;
@@ -35,7 +36,7 @@ public class HillsideModClient implements ClientModInitializer {
 
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.CHRISTMAS_TREE, ChristmasTreeModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.DECAYING_ZOMBIE, DecayingZombieModel::getTexturedModelData);
-        ParticleFactoryRegistry.getInstance().register(ModParticles.TELEPORT_PARTICLE, FireworksSparkParticle.FlashFactory::new);
+        ParticleFactoryRegistry.getInstance().register(ModParticles.TELEPORT_PARTICLE, TeleportParticle.Factory::new);
         ModModelPredicateProvider.init();
     }
 }

@@ -18,6 +18,8 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.dimension.DimensionTypes;
@@ -25,12 +27,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-/*
-    TODO: Stop sound if user bails on teleport
-    TODO: Stop sound if person moves
-    TODO: Add particles for teleport load time
-
- */
 public class MirrorItem extends Item {
 
     private boolean bHasTeleported = false;
@@ -77,10 +73,7 @@ public class MirrorItem extends Item {
             }
 
             if(charging) {
-                if(remainingUseTicks % 4 == 0)
-                {
-                    world.addParticle(ParticleTypes.DRAGON_BREATH, user.getX(), user.getY(), user.getZ(), 1, 1, 1);
-                }
+
                 if(user.getX()!=teleportLocX || user.getY()!=teleportLocY || user.getZ() != teleportLocZ)
                 {
                     //if the player has moved, stop process.
@@ -96,8 +89,12 @@ public class MirrorItem extends Item {
                 }
             }
         }
-
-
+        if(remainingUseTicks % 2 == 0)
+        {
+            world.addParticle(ModParticles.TELEPORT_PARTICLE, user.getX(), user.getY() + 0.75d, user.getZ(),
+                    MathHelper.cos(Random.create().nextBetween(0,100)) * 0.25d, 0.15,
+                    MathHelper.sin(Random.create().nextBetween(0,100)) * 0.25d);
+        }
     }
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
