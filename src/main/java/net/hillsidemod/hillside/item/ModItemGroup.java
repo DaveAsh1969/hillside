@@ -67,6 +67,7 @@ public class ModItemGroup {
                         entries.add(ModItems.DOWSINGROD_COAL_COPPER);
                         entries.add(ModItems.DOWSINGROD_DIAMOND_LAPIS);
                         entries.add(ModItems.DOWSINGROD_IRON_GOLD);
+                        entries.add(ModItems.END_MIRROR);
                         entries.add(ModBlocks.LAMP_BLOCK);
                         entries.add(ModBlocks.LAVA_BLOCK);
                         entries.add(ModItems.MIRROR);
@@ -78,11 +79,6 @@ public class ModItemGroup {
                         entries.add(ModBlocks.WINTER_WINDOW);
                         entries.add(ModBlocks.WINTER_WINDOW_PANE);
                         entries.add(ModBlocks.XANTHE);
-
-
-
-
-
                     }).build());
 
 

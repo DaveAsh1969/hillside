@@ -2,5 +2,19 @@
   "parent": "item/generated",
   "textures": {
     "layer0": "hillsidemod:item/nether_mirror"
-  }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "nether_block": 1
+      },
+      "model": "hillsidemod:item/nether_mirror_block"
+    },
+    {
+      "predicate": {
+        "nether_charging": 1
+      },
+      "model": "hillsidemod:item/nether_mirror_charging"
+    }
+  ]
 }

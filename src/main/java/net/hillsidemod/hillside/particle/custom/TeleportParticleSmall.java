@@ -6,16 +6,16 @@ import net.minecraft.client.particle.*;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particle.DefaultParticleType;
 
-public class TeleportParticle extends SpriteBillboardParticle {
-    public TeleportParticle(ClientWorld level, double xCoord, double yCoord, double zCoord,
-                               SpriteProvider spriteSet,  double xd, double yd, double zd) {
+public class TeleportParticleSmall extends SpriteBillboardParticle {
+    public TeleportParticleSmall(ClientWorld level, double xCoord, double yCoord, double zCoord,
+                               SpriteProvider spriteSet, double xd, double yd, double zd) {
         super(level, xCoord, yCoord, zCoord, xd, yd, zd);
-        this.velocityMultiplier = 0.9F;
+        this.velocityMultiplier = 0.1F;
         this.x = xd;
         this.y = yd;
         this.z = zd;
-        this.scale *= 0.8F;
-        this.maxAge = 30;
+        this.scale *= 1.5F;
+        this.maxAge = 50;
         this.setSpriteForAge(spriteSet);
 
         this.red = 1f;
@@ -48,7 +48,7 @@ public class TeleportParticle extends SpriteBillboardParticle {
 
         public Particle createParticle(DefaultParticleType particleType, ClientWorld level, double x, double y, double z,
                                        double dx, double dy, double dz) {
-            return new TeleportParticle(level, x, y, z, this.sprites, dx, dy, dz);
+            return new TeleportParticleSmall(level, x, y, z, this.sprites, dx, dy, dz);
         }
     }
 }

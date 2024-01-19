@@ -23,7 +23,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class NetherMirrorItem extends Item {
+public class EndMirrorItem extends Item {
     private boolean bHasTeleported = false;
     private double teleportLocX = 0;
     private double teleportLocY = 0;
@@ -35,7 +35,7 @@ public class NetherMirrorItem extends Item {
     public boolean usedOnBlock = false;
     public boolean blockFailed = true;
 
-    public NetherMirrorItem(Settings settings) {
+    public EndMirrorItem(Settings settings) {
         super(settings);
     }
     @Override
@@ -52,9 +52,9 @@ public class NetherMirrorItem extends Item {
         World world = context.getWorld();
         PlayerEntity user = context.getPlayer();
         if(!world.isClient()) {
-            if (!world.getDimensionKey().getValue().equals(DimensionTypes.THE_NETHER_ID))
+            if (!world.getDimensionKey().getValue().equals(DimensionTypes.THE_END_ID))
             {
-                user.sendMessage(Text.translatable("This mirror only works in the Nether!"), true);
+                user.sendMessage(Text.translatable("This mirror only works in the End!"), true);
                 user.stopUsingItem();
                 blockFailed = true;
                 user.getItemCooldownManager().set(this,20);
@@ -81,9 +81,9 @@ public class NetherMirrorItem extends Item {
     {
         if(!world.isClient())
         {
-            if (!world.getDimensionKey().getValue().equals(DimensionTypes.THE_NETHER_ID))
+            if (!world.getDimensionKey().getValue().equals(DimensionTypes.THE_END_ID))
             {
-                user.sendMessage(Text.translatable("This mirror only works in the Nether!"), true);
+                user.sendMessage(Text.translatable("This mirror only works in the End!"), true);
                 user.stopUsingItem();
                 return TypedActionResult.success(user.getStackInHand(hand));
             }
@@ -134,10 +134,10 @@ public class NetherMirrorItem extends Item {
         }
         if(remainingUseTicks % 2 == 0)
         {
-            world.addParticle(ModParticles.NETHER_TELEPORT_PARTICLE, user.getX() + 0.5d, user.getY() + 1.25d, user.getZ(),0, 0.85,0);
-            world.addParticle(ModParticles.NETHER_TELEPORT_PARTICLE, user.getX(), user.getY() + 1.25d, user.getZ()+0.5d,0, 0.85,0);
-            world.addParticle(ModParticles.NETHER_TELEPORT_PARTICLE, user.getX() - 0.5d, user.getY() + 1.25d, user.getZ(),0, 0.85,0);
-            world.addParticle(ModParticles.NETHER_TELEPORT_PARTICLE, user.getX(), user.getY() + 1.25d, user.getZ()-0.5d,0, 0.85,0);
+            world.addParticle(ModParticles.END_TELEPORT_PARTICLE, user.getX() + 0.5d, user.getY() + 1.25d, user.getZ(),0, 0.85,0);
+            world.addParticle(ModParticles.END_TELEPORT_PARTICLE, user.getX(), user.getY() + 1.25d, user.getZ()+0.5d,0, 0.85,0);
+            world.addParticle(ModParticles.END_TELEPORT_PARTICLE, user.getX() - 0.5d, user.getY() + 1.25d, user.getZ(),0, 0.85,0);
+            world.addParticle(ModParticles.END_TELEPORT_PARTICLE, user.getX(), user.getY() + 1.25d, user.getZ()-0.5d,0, 0.85,0);
         }
     }
 
@@ -145,13 +145,12 @@ public class NetherMirrorItem extends Item {
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         if(!world.isClient())
         {
-            //make sure the player is not in the Nether or End
+            //make sure the player is not in the Nether or Overworld
             if(!world.isClient && user.isPlayer()) {
-                if (!world.getDimensionKey().getValue().equals(DimensionTypes.THE_NETHER_ID) ||
-                        world.getDimensionKey().getValue().equals(DimensionTypes.THE_NETHER))
+                if (!world.getDimensionKey().getValue().equals(DimensionTypes.THE_END_ID))
                 {
                     //alert the player and stop the process
-                    ((PlayerEntity) user).sendMessage(Text.translatable("This mirror only works in the Nether!"), true);
+                    ((PlayerEntity) user).sendMessage(Text.translatable("This mirror only works in the End!"), true);
                     user.stopUsingItem();
                     return stack;
                 }
@@ -208,7 +207,7 @@ public class NetherMirrorItem extends Item {
         }
         else
         {
-            tooltip.add(Text.literal("Right click on block to set {SHIFT}"));
+            tooltip.add(Text.literal("Right click on block to set {SHIFT for more}"));
         }
         super.appendTooltip(stack, world, tooltip,context);
     }

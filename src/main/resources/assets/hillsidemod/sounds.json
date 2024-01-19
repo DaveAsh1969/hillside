@@ -4,5 +4,11 @@
     "sounds": [
       "hillsidemod:teleport_charging"
     ]
+  },
+  "nether_teleport_charging": {
+    "subtitle": "sounds.hillsidemod.nether_teleport_charging",
+    "sounds": [
+      "hillsidemod:nether_teleport_charging"
+    ]
   }
 }

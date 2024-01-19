@@ -9,10 +9,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsage;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -95,6 +93,13 @@ public class MirrorItem extends Item {
                     MathHelper.cos(Random.create().nextBetween(0,100)) * 0.25d, 0.15,
                     MathHelper.sin(Random.create().nextBetween(0,100)) * 0.25d);
         }
+        if(remainingUseTicks % 4 == 0)
+        {
+            world.addParticle(ModParticles.TELEPORT_PARTICLE_SMALL, user.getX() + Random.create().nextBetween(-1,1),
+                    user.getY() + Random.create().nextBetween(0,2), user.getZ() + Random.create().nextBetween(-1,1),
+                    0.01d, 0.015d,
+                    0.02d);
+        }
     }
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
@@ -102,8 +107,9 @@ public class MirrorItem extends Item {
         {
             //make sure the player is not in the Nether or End
             if(!world.isClient && user.isPlayer()) {
-                if (world.getDimensionKey().getValue().equals(DimensionTypes.THE_NETHER_ID) ||
-                        world.getDimensionKey().getValue().equals(DimensionTypes.THE_END_ID))
+                if (!world.getDimensionKey().getValue().equals(DimensionTypes.OVERWORLD_ID) ||
+                        world.getDimensionKey().getValue().equals(DimensionTypes.OVERWORLD_CAVES) ||
+                                world.getDimensionKey().getValue().equals(DimensionTypes.OVERWORLD))
                 {
                     ((PlayerEntity) user).sendMessage(Text.translatable("This mirror only works in the Overworld!"), true);
                     return stack;
@@ -168,7 +174,7 @@ public class MirrorItem extends Item {
         }
         else
         {
-            tooltip.add(Text.literal("Hold right click for 2 seconds to teleport to your bed"));
+            tooltip.add(Text.literal("Hold right click to teleport to your bed"));
         }
         super.appendTooltip(stack, world, tooltip,context);
     }

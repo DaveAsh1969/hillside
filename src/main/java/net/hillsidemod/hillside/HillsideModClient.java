@@ -9,12 +9,16 @@ import net.hillsidemod.hillside.block.ModBlocks;
 import net.hillsidemod.hillside.entity.ModEntities;
 import net.hillsidemod.hillside.entity.client.*;
 import net.hillsidemod.hillside.particle.ModParticles;
+import net.hillsidemod.hillside.particle.custom.EndTeleportParticle;
+import net.hillsidemod.hillside.particle.custom.NetherTeleportParticle;
 import net.hillsidemod.hillside.particle.custom.TeleportParticle;
+import net.hillsidemod.hillside.particle.custom.TeleportParticleSmall;
 import net.hillsidemod.hillside.util.ModModelPredicateProvider;
 import net.hillsidemod.screen.BrickOvenScreen;
 import net.hillsidemod.screen.ModScreenHandlers;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.particle.FireworksSparkParticle;
+import net.minecraft.client.render.DimensionEffects;
 import net.minecraft.client.render.RenderLayer;
 
 public class HillsideModClient implements ClientModInitializer {
@@ -37,6 +41,9 @@ public class HillsideModClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.CHRISTMAS_TREE, ChristmasTreeModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.DECAYING_ZOMBIE, DecayingZombieModel::getTexturedModelData);
         ParticleFactoryRegistry.getInstance().register(ModParticles.TELEPORT_PARTICLE, TeleportParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(ModParticles.TELEPORT_PARTICLE_SMALL, TeleportParticleSmall.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(ModParticles.NETHER_TELEPORT_PARTICLE, NetherTeleportParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(ModParticles.END_TELEPORT_PARTICLE, EndTeleportParticle.Factory::new);
         ModModelPredicateProvider.init();
     }
 }
