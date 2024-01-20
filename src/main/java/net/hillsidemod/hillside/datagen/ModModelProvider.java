@@ -4,10 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.hillsidemod.hillside.block.ModBlocks;
 import net.hillsidemod.hillside.item.ModItems;
-import net.minecraft.data.client.BlockStateModelGenerator;
-import net.minecraft.data.client.ItemModelGenerator;
-import net.minecraft.data.client.Model;
-import net.minecraft.data.client.Models;
+import net.minecraft.data.client.*;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.util.Identifier;
 
@@ -30,6 +27,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LAVA_BLOCK);
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.XANTHE, ModBlocks.XANTHE_POTTED, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.BOP, ModBlocks.BOP_POTTED, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerParentedItemModel(ModItems.DECAYING_ZOMBIE_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
 
         brickBlackPool.stairs(ModBlocks.BRICK_BLACK_STAIRS);
         brickBlackPool.slab(ModBlocks.BRICK_BLACK_SLAB);
@@ -71,8 +69,8 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        itemModelGenerator.register(ModItems.DECAYING_ZOMBIE_EGG,
-                new Model(Optional.of(new Identifier("item/template_spawn_egg")), Optional.empty()));
+        //itemModelGenerator.register(ModItems.DECAYING_ZOMBIE_EGG,
+               // new Model(Optional.of(new Identifier("item/template_spawn_egg")), Optional.empty()));
         itemModelGenerator.register(ModItems.RUBY, Models.GENERATED);
         itemModelGenerator.register(ModItems.RUBY_PICKAXE, Models.HANDHELD);
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.RUBY_BOOTS));

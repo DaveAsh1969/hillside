@@ -6,18 +6,15 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.hillsidemod.hillside.Hillside;
 import net.hillsidemod.hillside.entity.ModEntities;
 import net.hillsidemod.hillside.item.custom.*;
-import net.minecraft.client.sound.SoundSystem;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
-import net.minecraft.resource.featuretoggle.FeatureFlag;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
     public static final Item DECAYING_ZOMBIE_EGG = registerItem("decaying_zombie_egg",
-            new SpawnEggItem(ModEntities.DECAYING_ZOMBIE, 0xa86528, 0x3b260f, new FabricItemSettings()));
+            new SpawnEggItem(ModEntities.DECAYING_ZOMBIE, 0x805e6a, 0x6f965c, new FabricItemSettings()));
     public static final Item DOWSINGROD_ANCIENT_DEBRIS = registerItem("dowsing_rod_ancient_debris",
             new DowsingRodItem_AncientDebris(new FabricItemSettings().maxDamage(300)));
     public static final Item DOWSINGROD_COAL_COPPER = registerItem("dowsing_rod_coal_copper",
@@ -28,14 +25,12 @@ public class ModItems {
             new DowsingRodItem_Iron_Gold(new FabricItemSettings().maxDamage(255)));
     public static final Item MIRROR = registerItem("mirror",
             new MirrorItem(new FabricItemSettings().maxDamage(50)));
-
     public static final Item NETHER_MIRROR = registerItem("nether_mirror",
             new NetherMirrorItem(new FabricItemSettings().maxDamage(50)));
     public static final Item END_MIRROR = registerItem("end_mirror",
             new EndMirrorItem(new FabricItemSettings().maxDamage(50)));
     public static final Item RUBY = registerItem("ruby",
             new Item(new FabricItemSettings()));
-
     public static final Item RUBY_BOOTS = registerItem("ruby_boots",
             new ModRubyBootsItem(ModArmorMaterials.RUBY, ArmorItem.Type.BOOTS,
                     new FabricItemSettings()));
@@ -54,7 +49,6 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));
     }
     public static void registerModItems() {
-
         Hillside.LOGGER.info("Registering Items");
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(ModItems::addItemsToIngredientTabItemGroup);
     }

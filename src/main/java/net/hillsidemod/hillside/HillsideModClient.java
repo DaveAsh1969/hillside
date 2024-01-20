@@ -39,7 +39,6 @@ public class HillsideModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.DECAYING_ZOMBIE, DecayingZombieRenderer::new);
 
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.CHRISTMAS_TREE, ChristmasTreeModel::getTexturedModelData);
-        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.DECAYING_ZOMBIE, DecayingZombieModel::getTexturedModelData);
         ParticleFactoryRegistry.getInstance().register(ModParticles.TELEPORT_PARTICLE, TeleportParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.TELEPORT_PARTICLE_SMALL, TeleportParticleSmall.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.NETHER_TELEPORT_PARTICLE, NetherTeleportParticle.Factory::new);

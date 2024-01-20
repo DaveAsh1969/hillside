@@ -7,21 +7,28 @@ import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
+import software.bernie.geckolib.core.animatable.model.CoreGeoBone;
+import software.bernie.geckolib.model.GeoModel;
+import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
-public class DecayingZombieRenderer extends MobEntityRenderer <DecayingZombieEntity, DecayingZombieModel<DecayingZombieEntity>> {
-    private static final Identifier TEXTURE = new Identifier(Hillside.MOD_ID, "textures/entity/decaying_zombie.png");
-
-    public DecayingZombieRenderer(EntityRendererFactory.Context context) {
-        super(context, new DecayingZombieModel<>(context.getPart(ModModelLayers.DECAYING_ZOMBIE)), 0.6f);
+public class DecayingZombieRenderer extends GeoEntityRenderer<DecayingZombieEntity>
+{
+    public DecayingZombieRenderer(EntityRendererFactory.Context renderManager) {
+        super(renderManager, new DecayingZombieModel());
     }
 
     @Override
-    public Identifier getTexture(DecayingZombieEntity entity) {
-        return TEXTURE;
+    public Identifier getTextureLocation(DecayingZombieEntity animatable) {
+        return new Identifier(Hillside.MOD_ID, "textures/entity/decaying_zombie.png");
     }
 
     @Override
-    public void render(DecayingZombieEntity mobEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
-        super.render(mobEntity, f, g, matrixStack, vertexConsumerProvider, i);
+    public void render(DecayingZombieEntity entity, float entityYaw, float partialTick, MatrixStack poseStack,
+                       VertexConsumerProvider bufferSource, int packedLight) {
+        if(entity.isBaby())
+        {
+            poseStack.scale(0.65f, 0.6f, 0.65f);
+        }
+        super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
     }
 }
