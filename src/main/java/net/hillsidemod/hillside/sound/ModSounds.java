@@ -11,6 +11,8 @@ public class ModSounds {
 
     public static final SoundEvent TELEPORT_CHARGING = registerSoundEvent("teleport_charging");
     public static final SoundEvent NETHER_TELEPORT_CHARGING = registerSoundEvent("nether_teleport_charging");
+
+    public static final SoundEvent ZOMBIE_PILLAGER_IDLE = registerSoundEvent("zombie_pillager_idle");
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = new Identifier(Hillside.MOD_ID, name);
         return Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of(id));

@@ -8,6 +8,4 @@ public class ModModelLayers {
     public static final EntityModelLayer CHRISTMAS_TREE =
             new EntityModelLayer(new Identifier(Hillside.MOD_ID, "christmas_tree"), "main");
 
-    public static final EntityModelLayer DECAYING_ZOMBIE =
-            new EntityModelLayer(new Identifier(Hillside.MOD_ID, "decaying_zombie"), "main");
 }

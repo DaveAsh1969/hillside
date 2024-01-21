@@ -10,5 +10,11 @@
     "sounds": [
       "hillsidemod:nether_teleport_charging"
     ]
+  },
+  "zombie_pillager_idle": {
+    "subtitle": "sounds.hillsidemod.zombie_pillager_idle",
+    "sounds": [
+      "hillsidemod:zombie_pillager_idle"
+    ]
   }
 }

@@ -1,18 +1,14 @@
 package net.hillsidemod.hillside.entity.custom;
 
+import net.hillsidemod.hillside.animation.ModEntityAnimations;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.mob.AbstractSkeletonEntity;
-import net.minecraft.entity.mob.HostileEntity;
-import net.minecraft.entity.mob.ZombieEntity;
-import net.minecraft.entity.passive.CatEntity;
-import net.minecraft.entity.passive.IronGolemEntity;
-import net.minecraft.entity.passive.VillagerEntity;
-import net.minecraft.entity.passive.WanderingTraderEntity;
+import net.minecraft.entity.mob.*;
+import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -45,14 +41,13 @@ public class DecayingZombieEntity extends ZombieEntity implements GeoEntity {
     @Override
     protected void initGoals() {
         this.goalSelector.add(2, new ZombieAttackGoal(this, 1.1D, false));
+        this.goalSelector.add(6, new MoveThroughVillageGoal(this, 1.0, true, 4, this::canBreakDoors));
         this.goalSelector.add(7, new WanderAroundFarGoal(this, 1.0));
-        this.goalSelector.add(4, new FleeEntityGoal(this, CatEntity.class, 6.0F, 1.0, 1.2));
-        this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
-        this.targetSelector.add(2, new ActiveTargetGoal<>(this, VillagerEntity.class, true));
+        this.targetSelector.add(1, new RevengeGoal(this, new Class[0]).setGroupRevenge(PillagerEntity.class));
+        this.targetSelector.add(2, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
+        this.targetSelector.add(3, new ActiveTargetGoal<>(this, MerchantEntity.class, false));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, IronGolemEntity.class, true));
-        this.targetSelector.add(4, new ActiveTargetGoal<>(this, WanderingTraderEntity.class, true));
-        this.targetSelector.add(5, new ActiveTargetGoal<>(this, AbstractSkeletonEntity.class, true));
-        //this.targetSelector.add(3, new ActiveTargetGoal<>(this, TrollEntity.class, true));
+        this.targetSelector.add(3, new ActiveTargetGoal<>(this, PillagerEntity.class, true));
     }
 
     @Override
@@ -80,21 +75,21 @@ public class DecayingZombieEntity extends ZombieEntity implements GeoEntity {
         controllers.add(new AnimationController<>(this,"controller", 0, this::attackPredicate));
     }
     private <T extends GeoAnimatable> PlayState attackPredicate(AnimationState<T> tAnimationState) {
+
         //if the zombie is attacking
         if(this.handSwinging)
         {
-            return tAnimationState.setAndContinue(RawAnimation.begin().thenPlay("animation.decaying_zombie.attack"));
+            return tAnimationState.setAndContinue(ModEntityAnimations.DECAYING_ZOMBIE_ATTACK);
         }
 
         //if the attack is done, check to see if the entity is moving or idle then play animation.
         if(tAnimationState.getController().getAnimationState().equals(AnimationController.State.STOPPED))
-            return tAnimationState.setAndContinue(tAnimationState.isMoving() ? RawAnimation.begin()
-                            .then("animation.decaying_zombie.walk", Animation.LoopType.LOOP) :
-                    RawAnimation.begin().thenPlay("animation.decaying_zombie.idle"));
+            return tAnimationState.setAndContinue(tAnimationState.isMoving() ? ModEntityAnimations.DECAYING_ZOMBIE_WALK :
+                    ModEntityAnimations.DECAYING_ZOMBIE_IDLE);
 
         //if the entity has quit moving and the walk animation is playing, stop it from playing
         if(!tAnimationState.isMoving() &&
-                tAnimationState.isCurrentAnimation(RawAnimation.begin().then("animation.decaying_zombie.walk", Animation.LoopType.LOOP)))
+                tAnimationState.isCurrentAnimation(ModEntityAnimations.DECAYING_ZOMBIE_WALK))
         {
             tAnimationState.getController().forceAnimationReset();
             return PlayState.STOP;

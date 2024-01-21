@@ -38,6 +38,8 @@ public class ModItems {
             new RubyPickaxeItem(ModToolMaterial.RUBY, 2, 2f, new FabricItemSettings()));
     public static final Item STAR_COMPASS = registerItem("star_compass",
             new StarCompassItem(new FabricItemSettings().maxDamage(300)));
+    public static final Item ZOMBIE_PILLAGER_EGG = registerItem("zombie_pillager_egg",
+            new SpawnEggItem(ModEntities.ZOMBIE_PILLAGER, 0x4b8b08, 0x654503, new FabricItemSettings()));
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(Hillside.MOD_ID, name), item);
     }

@@ -79,6 +79,7 @@ public class ModItemGroup {
                         entries.add(ModBlocks.WINTER_WINDOW);
                         entries.add(ModBlocks.WINTER_WINDOW_PANE);
                         entries.add(ModBlocks.XANTHE);
+                        entries.add(ModItems.ZOMBIE_PILLAGER_EGG);
                     }).build());
 
 
