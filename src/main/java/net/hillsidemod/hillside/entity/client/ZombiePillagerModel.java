@@ -29,7 +29,7 @@ public class ZombiePillagerModel extends GeoModel<ZombiePillagerEntity> {
 		return new Identifier(Hillside.MOD_ID, "animations/zombie_pillager.animation.json");
 	}
 
-	@Override
+	/*@Override
 	public void setCustomAnimations(ZombiePillagerEntity animatable, long instanceId, AnimationState<ZombiePillagerEntity> animationState) {
 		CoreGeoBone head = getAnimationProcessor().getBone("head");
 
@@ -38,5 +38,5 @@ public class ZombiePillagerModel extends GeoModel<ZombiePillagerEntity> {
 			head.setRotX(entityData.headPitch() * MathHelper.RADIANS_PER_DEGREE);
 			head.setRotY(entityData.netHeadYaw() * MathHelper.RADIANS_PER_DEGREE);
 		}
-	}
+	}*/
 }
