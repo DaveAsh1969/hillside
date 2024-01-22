@@ -1,5 +1,6 @@
 package net.hillsidemod.hillside.entity.custom;
 
+import net.hillsidemod.hillside.animation.ModEntityAnimations;
 import net.hillsidemod.hillside.sound.ModSounds;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
@@ -21,7 +22,10 @@ import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.*;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.AnimationState;
+import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
 
 public class ZombiePillagerEntity extends ZombieEntity implements GeoEntity {
@@ -74,62 +78,56 @@ public class ZombiePillagerEntity extends ZombieEntity implements GeoEntity {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this,"zp_controller", 0, this::clientLoop));
+        controllers.add(new AnimationController<>(this,"controller", 0, this::movingPredicate));
+        //controllers.add(new AnimationController<>(this,"attack_controller", 0, this::attackPredicate));
     }
 
-    private <T extends GeoAnimatable> PlayState clientLoop(AnimationState<T> tAnimationState) {
-        //if the zombie is attacking
+    private <T extends GeoAnimatable> PlayState movingPredicate(AnimationState<T> tAnimationState)
+    {
+        //move animation or idle
+       if(tAnimationState.isMoving())
+       {
+           tAnimationState.getController().setAnimation(ModEntityAnimations.ZOMBIE_PILLAGER_WALK);
+           return PlayState.CONTINUE;
+       }
+       else if(!tAnimationState.isMoving() &&
+               tAnimationState.isCurrentAnimation(ModEntityAnimations.ZOMBIE_PILLAGER_WALK))
+       {
+           tAnimationState.getController().forceAnimationReset();
+           tAnimationState.getController().setAnimation(getIdleAnimation());
+           return PlayState.CONTINUE;
+       }
+      else if(tAnimationState.getController().hasAnimationFinished())
+      {
+          tAnimationState.getController().setAnimation(getIdleAnimation());
+          return PlayState.CONTINUE;
+      }
+        //call the attack animation
         if(this.handSwinging)
-        {
-            return tAnimationState.setAndContinue(RawAnimation.begin().thenPlay("animation.zombie_pillager.attack"));
-        }
+            return tAnimationState.setAndContinue(ModEntityAnimations.ZOMBIE_PILLAGER_ATTACK);
 
-        //if the attack is done, check to see if the entity is moving or idle then play animation.
-        if(tAnimationState.getController().getAnimationState().equals(AnimationController.State.STOPPED))
-        {
-            if(tAnimationState.isMoving())
-            {
-                tAnimationState.getController().setAnimation(RawAnimation.begin().thenPlay("animation.zombie_pillager.walk"));
-                return PlayState.CONTINUE;
-            }
-            else if(tAnimationState.getController().getAnimationState().equals(AnimationController.State.STOPPED))
-            {
-                int randomIdlePlayNumber = Random.create().nextBetween(0, 10000);
-                if (randomIdlePlayNumber > 200 && randomIdlePlayNumber < 202)
-                {
-                    tAnimationState.getController().setAnimation(RawAnimation.begin().thenLoop("animation.zombie_pillager.idle1"));
-
-                    return PlayState.CONTINUE;
-                }
-                else if (randomIdlePlayNumber > 400 && randomIdlePlayNumber < 402)
-                {
-                    tAnimationState.getController().setAnimation(RawAnimation.begin().thenPlay("animation.zombie_pillager.stretch"));
-                    return PlayState.CONTINUE;
-                }
-                else
-                {
-                    tAnimationState.getController().setAnimation(RawAnimation.begin().thenPlay("animation.zombie_pillager.still"));
-                    return PlayState.CONTINUE;
-                }
-            }
-        }
-       if(tAnimationState.isMoving() &&
-                (!tAnimationState.isCurrentAnimation(RawAnimation.begin().then("animation.zombie_pillager.walk", Animation.LoopType.LOOP))))
-        {
-            tAnimationState.getController().forceAnimationReset();
-            tAnimationState.getController().setAnimation(RawAnimation.begin().then("animation.zombie_pillager.walk", Animation.LoopType.LOOP));
-        }
-
-        //if the entity has quit moving and the walk animation is playing, stop it from playing
-        if(!tAnimationState.isMoving() &&
-                tAnimationState.isCurrentAnimation(RawAnimation.begin().then("animation.zombie_pillager.walk", Animation.LoopType.LOOP)))
-        {
-            tAnimationState.getController().forceAnimationReset();
-            return PlayState.STOP;
-        }
-
-        //default return
         return PlayState.CONTINUE;
+    }
+
+   /* private <T extends GeoAnimatable> PlayState attackPredicate(AnimationState<T> tAnimationState)
+    {
+        //call the attack animation
+        if(this.handSwinging)
+            return tAnimationState.setAndContinue(ModEntityAnimations.ZOMBIE_PILLAGER_ATTACK);
+        else
+            return PlayState.STOP;
+    }*/
+
+    private RawAnimation getIdleAnimation()
+    {
+        //random number determines idle animation.
+        int randomIdlePlayNumber = Random.create().nextBetween(0, 1000);
+        if (randomIdlePlayNumber > 200 && randomIdlePlayNumber < 314)
+            return ModEntityAnimations.ZOMBIE_PILLAGER_STRETCH;
+        else if(randomIdlePlayNumber > 400 && randomIdlePlayNumber <714)
+            return ModEntityAnimations.ZOMBIE_PILLAGER_IDLE;
+        else
+            return ModEntityAnimations.ZOMBIE_PILLAGER_STILL;
     }
 
     @Override

@@ -51,6 +51,7 @@
   "block.hillsidemod.xanthe": "Xanthe Flower",
   "entity.hillsidemod.christmas_tree": "Christmas Tree",
   "entity.hillsidemod.decaying_zombie": "Decaying Zombie",
+  "entity.hillsidemod.zombie_pillager": "Zombie Pillager",
   "item.hillsidemod.decaying_zombie_egg": "Decaying Zombie Spawn Egg",
   "item.hillsidemod.dowsing_rod_coal_copper": "Dowsing Rod-Coal & Copper",
   "item.hillsidemod.dowsing_rod_diamond_lapis": "Dowsing Rod-Diamond & Lapis",
@@ -64,6 +65,7 @@
   "item.hillsidemod.ruby_boots": "Ruby Boots",
   "item.hillsidemod.ruby_pickaxe": "Ruby Pickaxe",
   "item.hillsidemod.star_compass": "Star Compass",
+  "item.hillsidemod.zombie_pillager_egg": "Zombie Pillager Egg",
   "sounds.hillsidemod.teleport_charging": "Teleport Charging",
   "sounds.hillsidemod.nether_teleport_charging": "Nether & End Teleport Charging"
 }
