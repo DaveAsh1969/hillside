@@ -75,27 +75,27 @@ public class DecayingZombieEntity extends ZombieEntity implements GeoEntity {
         controllers.add(new AnimationController<>(this,"controller", 0, this::attackPredicate));
     }
     private <T extends GeoAnimatable> PlayState attackPredicate(AnimationState<T> tAnimationState) {
+        if(this.handSwinging &&
+                tAnimationState.getController().getAnimationState() != AnimationController.State.STOPPED &&
+                !tAnimationState.isCurrentAnimation(ModEntityAnimations.DECAYING_ZOMBIE_ATTACK))
+            return PlayState.STOP;
 
-        //if the zombie is attacking
-        if(this.handSwinging)
-        {
-            return tAnimationState.setAndContinue(ModEntityAnimations.DECAYING_ZOMBIE_ATTACK);
-        }
-
-        //if the attack is done, check to see if the entity is moving or idle then play animation.
-        if(tAnimationState.getController().getAnimationState().equals(AnimationController.State.STOPPED))
-            return tAnimationState.setAndContinue(tAnimationState.isMoving() ? ModEntityAnimations.DECAYING_ZOMBIE_WALK :
-                    ModEntityAnimations.DECAYING_ZOMBIE_IDLE);
-
-        //if the entity has quit moving and the walk animation is playing, stop it from playing
-        if(!tAnimationState.isMoving() &&
-                tAnimationState.isCurrentAnimation(ModEntityAnimations.DECAYING_ZOMBIE_WALK))
+        if (tAnimationState.getController().hasAnimationFinished() || tAnimationState.getController().getAnimationState() == AnimationController.State.STOPPED)
         {
             tAnimationState.getController().forceAnimationReset();
-            return PlayState.STOP;
+            if (tAnimationState.isMoving() && this.handSwinging)
+            {
+                tAnimationState.getController().setAnimation(ModEntityAnimations.DECAYING_ZOMBIE_ATTACK);
+            }
+            else if (!tAnimationState.isMoving() && this.handSwinging) {
+                tAnimationState.getController().setAnimation(ModEntityAnimations.DECAYING_ZOMBIE_ATTACK);
+            }
+            else if (tAnimationState.isMoving())
+                tAnimationState.getController().setAnimation(ModEntityAnimations.ZOMBIE_PILLAGER_WALK);
+            else
+                tAnimationState.getController().setAnimation(ModEntityAnimations.DECAYING_ZOMBIE_IDLE);
         }
-
-        //default return
+            //default return
         return PlayState.CONTINUE;
     }
 
