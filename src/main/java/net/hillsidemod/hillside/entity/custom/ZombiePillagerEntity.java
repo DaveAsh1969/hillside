@@ -44,6 +44,13 @@ public class ZombiePillagerEntity extends ZombieEntity implements GeoEntity {
         super(entityType, world);
     }
 
+    @Override
+    protected void initDataTracker() {
+        super.initDataTracker();
+        this.dataTracker.startTracking(HAS_TARGET, false);
+        this.dataTracker.startTracking(IN_RANGE, false);
+    }
+
     public static DefaultAttributeContainer.Builder createZombiePillagerAttributes()
     {
         return HostileEntity.createMobAttributes()
@@ -58,6 +65,21 @@ public class ZombiePillagerEntity extends ZombieEntity implements GeoEntity {
     @Override
     public void tick() {
         super.tick();
+        if(this.getTarget() != null) {
+            this.dataTracker.set(HAS_TARGET, true);
+
+            if(this.isInAttackRange(this.getTarget()))
+            {
+                this.dataTracker.set(IN_RANGE, true);
+            }
+            else
+                this.dataTracker.set(IN_RANGE, false);
+        }
+        else
+        {
+            this.dataTracker.set(HAS_TARGET, false);
+            this.dataTracker.set(IN_RANGE, false);
+        }
     }
 
     @Override
@@ -109,7 +131,8 @@ public class ZombiePillagerEntity extends ZombieEntity implements GeoEntity {
            tAnimationState.getController().forceAnimationReset();
            if(tAnimationState.isMoving() && this.handSwinging)
            {
-               if(this.handSwinging)
+               MinecraftClient.getInstance().player.sendMessage(Text.literal("Has_Target:" + this.dataTracker.get(HAS_TARGET).toString()));
+               if(this.dataTracker.get(HAS_TARGET) && this.dataTracker.get(IN_RANGE))
                     tAnimationState.getController().setAnimation(ModEntityAnimations.ZOMBIE_PILLAGER_ATTACK);
                else
                    tAnimationState.getController().setAnimation(ModEntityAnimations.ZOMBIE_PILLAGER_WALK);
@@ -117,10 +140,8 @@ public class ZombiePillagerEntity extends ZombieEntity implements GeoEntity {
 
            else if(!tAnimationState.isMoving() && this.handSwinging)
            {
-               if(this.getTarget() != null)
-                   MinecraftClient.getInstance().player.sendMessage(Text.literal("Target = " + this.getTarget().toString()));
-
-               if(this.handSwinging)
+               MinecraftClient.getInstance().player.sendMessage(Text.literal("Has_Target:" + this.dataTracker.get(HAS_TARGET).toString()));
+               if(this.dataTracker.get(HAS_TARGET) && this.dataTracker.get(IN_RANGE))
                    tAnimationState.getController().setAnimation(ModEntityAnimations.ZOMBIE_PILLAGER_ATTACK);
                else
                    tAnimationState.getController().setAnimation(ModEntityAnimations.ZOMBIE_PILLAGER_WALK);
