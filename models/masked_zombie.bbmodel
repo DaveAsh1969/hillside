@@ -274,8 +274,8 @@
 			"locked": false,
 			"render_order": "default",
 			"allow_mirror_modeling": true,
-			"from": [-3, 29, -5],
-			"to": [0, 30, -4],
+			"from": [-4, 29, -5],
+			"to": [-1, 30, -4],
 			"autouv": 1,
 			"color": 6,
 			"origin": [-1, 29, -5],
@@ -390,6 +390,88 @@
 			},
 			"type": "cube",
 			"uuid": "840704a3-7066-65c0-0a75-8b5f12e5f88c"
+		},
+		{
+			"name": "cube",
+			"box_uv": true,
+			"rescale": false,
+			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [3, 26, -5],
+			"to": [5, 29, -4],
+			"autouv": 1,
+			"color": 6,
+			"origin": [-4, 28, -5],
+			"faces": {
+				"north": {
+					"uv": [1, 1, 3, 4],
+					"texture": 0
+				},
+				"east": {
+					"uv": [0, 1, 1, 4],
+					"texture": 0
+				},
+				"south": {
+					"uv": [4, 1, 6, 4],
+					"texture": 0
+				},
+				"west": {
+					"uv": [3, 1, 4, 4],
+					"texture": 0
+				},
+				"up": {
+					"uv": [3, 1, 1, 0],
+					"texture": 0
+				},
+				"down": {
+					"uv": [5, 0, 3, 1],
+					"texture": 0
+				}
+			},
+			"type": "cube",
+			"uuid": "977df538-a288-673f-5d6f-a3f73b1e900a"
+		},
+		{
+			"name": "cube",
+			"box_uv": true,
+			"rescale": false,
+			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [1, 29, -5],
+			"to": [4, 30, -4],
+			"autouv": 1,
+			"color": 6,
+			"origin": [-1, 29, -5],
+			"faces": {
+				"north": {
+					"uv": [1, 1, 4, 2],
+					"texture": 0
+				},
+				"east": {
+					"uv": [0, 1, 1, 2],
+					"texture": 0
+				},
+				"south": {
+					"uv": [5, 1, 8, 2],
+					"texture": 0
+				},
+				"west": {
+					"uv": [4, 1, 5, 2],
+					"texture": 0
+				},
+				"up": {
+					"uv": [4, 1, 1, 0],
+					"texture": 0
+				},
+				"down": {
+					"uv": [7, 0, 4, 1],
+					"texture": 0
+				}
+			},
+			"type": "cube",
+			"uuid": "48b0aada-c2e3-3bd8-4c9b-bfbeaa98f10c"
 		}
 	],
 	"outliner": [
@@ -402,14 +484,16 @@
 			"uuid": "5f9aab74-90a5-a208-21f6-a7024bd73a8e",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": false,
+			"isOpen": true,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
 			"children": [
 				"cd95367b-1237-410c-da8e-ed412fccf70b",
 				"7fa3a70e-08ea-7a9d-3dab-a4727918cee3",
+				"48b0aada-c2e3-3bd8-4c9b-bfbeaa98f10c",
 				"b8ce59a8-0803-1369-859c-58b3333e6acc",
+				"977df538-a288-673f-5d6f-a3f73b1e900a",
 				"840704a3-7066-65c0-0a75-8b5f12e5f88c"
 			]
 		},
@@ -422,7 +506,7 @@
 			"uuid": "5db7817e-9236-053f-ccb7-aeca1734b752",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": false,
+			"isOpen": true,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
@@ -437,7 +521,7 @@
 			"uuid": "e505b674-f63d-e089-4023-df42d6fc97d8",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": false,
+			"isOpen": true,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
@@ -452,7 +536,7 @@
 			"uuid": "3a8994ad-190f-763f-1026-eea443297bdf",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": false,
+			"isOpen": true,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
@@ -467,7 +551,7 @@
 			"uuid": "0c5a59ae-8469-9f9b-81c8-37bf99d8b813",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": false,
+			"isOpen": true,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
@@ -482,7 +566,7 @@
 			"uuid": "e4363b79-21ec-0ffc-f5af-38d6b0e12d13",
 			"export": true,
 			"mirror_uv": false,
-			"isOpen": false,
+			"isOpen": true,
 			"locked": false,
 			"visibility": true,
 			"autouv": 0,
@@ -491,10 +575,10 @@
 	],
 	"textures": [
 		{
-			"path": "C:\\Users\\austi\\Desktop\\Minecraft Mod\\Fabric\\hillside\\src\\main\\resources\\assets\\hillsidemod\\textures\\entity\\decaying_zombie.png",
+			"path": "C:\\Users\\austi\\Desktop\\Minecraft Mod\\Fabric\\riftsofraydenhall\\src\\main\\resources\\assets\\riftsofraydenhall\\textures\\entity\\decaying_zombie.png",
 			"name": "decaying_zombie.png",
 			"folder": "",
-			"namespace": "",
+			"namespace": "custom resource",
 			"id": "0",
 			"width": 64,
 			"height": 64,
@@ -512,9 +596,9 @@
 			"visible": true,
 			"internal": true,
 			"saved": true,
-			"uuid": "3050a75c-784f-45b8-bea6-e9729b919d0a",
-			"relative_path": "../../src/main/resources/assets/hillsidemod/textures/entity/decaying_zombie.png",
-			"source": "data:image/png;base64,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"
+			"uuid": "e6249841-07e4-cf63-f278-1690504a182c",
+			"relative_path": "../../../riftsofraydenhall/src/main/resources/assets/riftsofraydenhall/textures/entity/decaying_zombie.png",
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAABWBJREFUeF7tm19sU1Ucx79F2GS1o+tKi6VVcWOsyILBgczOB4lTQ9QIxAyDwQfjTAhb9EXgAZwS40QfdJigS4zRiBkS5EXNoibzz6ZoDAkwbZnGGOkm7bq22awTgV3zO8u5dt1dT7vbe7nFe17uyjk95/f7/L7nd37nplgAYDjYL9GTt7KKSvanfUmtZctTW6f1pY/L5e9jr3ZbchnHx4jWy3c+0doW7vzZE99ixfqGGRAe72gXzZG1P1+DrwiA+FAYjqXeaY54/AEWOZFBIjpFAUDJif8NAFEEtVaA1vOL/BMmKMoRtEWe/ei4aC7FftEWMDyAidSIdGF8FOGBU4oQvvy4FzvdFThTf+vVCSB5PiT9lRgFnRKvn/phhpMEoH2ZG70rVxYnACUJPnf/JlQ1bABFnhoBUGqtbx6c07Yo5JdEW0y0lmKhs3N1PasJaO9Tyzwi0yf9YlcbrrveincWekRradKvCQCylFTw2fMvMaMHy6rhdjnRsmcb+7z/6ddQFgnCa1sAt30qjx67ebkmDoom1QRA48lB9K2pwZZff8bX/1ThUM8HzI7hYD9Txaq7m9nngc+PyPad7jyAwXhq1mQocmSu/ZoAIMe7A8uxtf8/AB19wPbKfmbnu6MB7G6cAkKNoJBaXvhjKOuJMFcns31PEwCPTQzjQEkpQj2nceiJPQg8sJbZ4PEHZCXQhanUVskSJSVJgkAqaAuGdYWgCQBSADnCW6ffy/b4wSdbpwWDX6DoudjnuyIq0AQA5QCSMzUqcmocVmzsOswiTZHnTyqOvKtWsyKJbwFOKFtxVMitoBpApjG9b78i0RFIjvZ0dcHt82Df+5/AdYsL0R+jcLqqUV5hw1hiHKlYjH3d6nTK/3b8cJewvM4VABVh2cbS+4pc55pt3IwJ7mzaIB3p3C8nN6oBmtv2wuYsx3hsTDcAvALNzDuZjqiFoAiAnL0xUcLOfmqRaAwDl2PYfCGJr3z1uiiAR9++pJbZkDwfUgyiJgBI7q7QJOrq/GzRaGQEi347wYqeo7bbdAXAy3D+mq7gCrjn3s1sn/F9/Of8qeRHGZ8fbZGkhKZ9uzBy7hxe7P6G9bc2N2LZDUuF12S1SUrtHhd930J7ngbxJEdPBsRxDVLxy5iI/M0+0/5Pb4/etRaLLl3E0fhw1jUMD2DjIw8xAE6/FbFgCgvd1+Kt3e3yDZBfiCj61F7+tI89afwzdzxY/Arg12FvzXyEBy/JkScnqSAi+dO9gCuBAFGj8Q0xl+4KoDdU/H2lSN659MvX4TXr5uHk95PMsURMQmfLXrnEpYm4AvhLET5etEjmFhC9AtN7y8gAuOMrqiWUvRGSb4PvWX1sWygpgEBRnsjWigYAJT1yPpqcB5d9Emd/saDj4R3yS5FMBfDxpJqrAkBd3IHE+jHc3hPEd/f5cVP3TwiPX0Swtko+BahA4jmAj6e8UdQA+ClAjvGjj550IjQN/Y4PS+3T/CMI1NLHi/KAmn6tc4KFA1i3wIMzjvisttJFiBoHIBqvxun072oOoH37jqlCyL2YlbzZINA4kn4+49WC0BzApm0tEl1rqRSmp81fktXmyZFyNi7X8YYHkGlgoc9p0XwiQJorwASQQUAUsXwjIprPVICAQL7ARUAz+zX/DZBaBYgcUgvIBKA2QqIIqJ3fVIDGOULzLSCKYL7HsGg+kSJ1T4Iig00AedYhIqCmAvL8aa6ZA9QeU/lKTiRhve0xFaA3ccMpQGSQ3v16B0T1DwwKDcgEoPP/UDEVUGgJF9t8hlOA3gBNAHoTN9p6pgKMFhG97TEVoDdxo61nKsBoEdHbHlMBehM32nr/An8OMW6YOxzDAAAAAElFTkSuQmCC"
 		}
 	],
 	"animations": [
@@ -525,7 +609,7 @@
 			"override": false,
 			"length": 1.28,
 			"snapping": 25,
-			"selected": true,
+			"selected": false,
 			"saved": true,
 			"path": "C:\\Users\\austi\\Desktop\\Minecraft Mod\\Fabric\\riftsofraydenhall\\src\\main\\resources\\assets\\riftsofraydenhall\\animations\\decaying_zombie.animation.json",
 			"anim_time_update": "",

@@ -7,6 +7,7 @@ import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.mob.*;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
@@ -19,6 +20,7 @@ import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.*;
+import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.object.PlayState;
 
 public class DecayingZombieEntity extends ZombieEntity implements GeoEntity {
@@ -51,6 +53,11 @@ public class DecayingZombieEntity extends ZombieEntity implements GeoEntity {
     }
 
     @Override
+    public void tick() {
+        super.tick();
+    }
+
+    @Override
     protected SoundEvent getAmbientSound() {
         return SoundEvents.ENTITY_DOLPHIN_AMBIENT;
     }
@@ -72,30 +79,46 @@ public class DecayingZombieEntity extends ZombieEntity implements GeoEntity {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this,"controller", 0, this::attackPredicate));
+        controllers.add(new AnimationController<>(this,"controller", 0, this::characterPredicate));
     }
-    private <T extends GeoAnimatable> PlayState attackPredicate(AnimationState<T> tAnimationState) {
+    private <T extends GeoAnimatable> PlayState characterPredicate(AnimationState<T> tAnimationState) {
+        //if this is attacking and the state is stopped and the attack animation isn't playing, immediately stop the state so the main code can take effect
         if(this.handSwinging &&
                 tAnimationState.getController().getAnimationState() != AnimationController.State.STOPPED &&
                 !tAnimationState.isCurrentAnimation(ModEntityAnimations.DECAYING_ZOMBIE_ATTACK))
             return PlayState.STOP;
 
+        //if the player is in the middle of an idle animation and is not attacking, but starts moving, stop the state so the main code below can take effect.
+        if(!this.handSwinging &&
+                !tAnimationState.isCurrentAnimation(ModEntityAnimations.DECAYING_ZOMBIE_WALK) &&
+                tAnimationState.isMoving() &&
+                tAnimationState.getController().getAnimationState() != AnimationController.State.STOPPED)
+            return PlayState.STOP;
+
+        //main animation code----
         if (tAnimationState.getController().hasAnimationFinished() || tAnimationState.getController().getAnimationState() == AnimationController.State.STOPPED)
         {
+            //reset the animation queue
             tAnimationState.getController().forceAnimationReset();
+
+            //this defaults to attack animation if the entity is moving and attacking at the same time.
             if (tAnimationState.isMoving() && this.handSwinging)
             {
                 tAnimationState.getController().setAnimation(ModEntityAnimations.DECAYING_ZOMBIE_ATTACK);
             }
-            else if (!tAnimationState.isMoving() && this.handSwinging) {
+            //entity will also play attack animation if not moving and attacking.
+            else if (!tAnimationState.isMoving() && this.handSwinging)
+            {
                 tAnimationState.getController().setAnimation(ModEntityAnimations.DECAYING_ZOMBIE_ATTACK);
             }
+            //if the entity is just moving, play walking animation
             else if (tAnimationState.isMoving())
-                tAnimationState.getController().setAnimation(ModEntityAnimations.ZOMBIE_PILLAGER_WALK);
+                tAnimationState.getController().setAnimation(ModEntityAnimations.DECAYING_ZOMBIE_WALK);
+            //otherwise, play idle animation
             else
                 tAnimationState.getController().setAnimation(ModEntityAnimations.DECAYING_ZOMBIE_IDLE);
         }
-            //default return
+            //start the selected animation
         return PlayState.CONTINUE;
     }
 
