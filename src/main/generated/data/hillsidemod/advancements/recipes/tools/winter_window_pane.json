@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "hillsidemod:winter_window_pane"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_winter_window": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hillsidemod:winter_window"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_winter_window",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "hillsidemod:winter_window_pane"
+    ]
+  },
+  "sends_telemetry_event": false
+}
