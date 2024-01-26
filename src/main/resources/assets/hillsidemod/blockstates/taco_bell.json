@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "hillsidemod:block/taco_bell"},
+    "facing=east": { "model": "hillsidemod:block/taco_bell", "y": 90},
+    "facing=south": { "model": "hillsidemod:block/taco_bell", "y": 180},
+    "facing=west": { "model": "hillsidemod:block/taco_bell", "y": 270 }
+  }
+}

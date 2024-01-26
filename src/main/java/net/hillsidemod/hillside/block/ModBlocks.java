@@ -4,7 +4,9 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.hillsidemod.hillside.Hillside;
 import net.hillsidemod.hillside.block.custom.BrickOvenBlock;
+import net.hillsidemod.hillside.block.custom.DungeonDoorBlock;
 import net.hillsidemod.hillside.block.custom.LampBlock;
+import net.hillsidemod.hillside.block.custom.TacoBellBlock;
 import net.minecraft.block.*;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
@@ -169,11 +171,17 @@ public class ModBlocks
             new WallBlock(FabricBlockSettings.create().strength(1.0f).requiresTool()
                     .sounds(BlockSoundGroup.STONE)));
 
+    public static final Block DUNGEON_DOOR = registerBlock("dungeon_door",
+            new DungeonDoorBlock(FabricBlockSettings.copyOf(Blocks.OAK_DOOR), BlockSetType.OAK));
     public static final Block LAVA_BLOCK = registerBlock("lava_block",
             new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
     public static final Block LAMP_BLOCK = registerBlock("lamp_block",
             new LampBlock(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.METAL).nonOpaque()
                     .luminance((state) -> state.get(LampBlock.CLICKED) ? 15 : 0)));
+
+    public static final Block TACO_BELL = registerBlock("taco_bell",
+            new TacoBellBlock(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.ANVIL)
+                    .nonOpaque()));
 
     public static final Block WINTER_WINDOW = registerBlock("winter_window",
             new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(1.0f).nonOpaque()));

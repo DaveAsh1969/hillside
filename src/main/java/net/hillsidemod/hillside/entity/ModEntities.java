@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.hillsidemod.hillside.Hillside;
 import net.hillsidemod.hillside.entity.custom.ChristmasTreeEntity;
 import net.hillsidemod.hillside.entity.custom.DecayingZombieEntity;
+import net.hillsidemod.hillside.entity.custom.TrollEntity;
 import net.hillsidemod.hillside.entity.custom.ZombiePillagerEntity;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
@@ -27,6 +28,11 @@ public class ModEntities {
             new Identifier(Hillside.MOD_ID, "zombie_pillager"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, ZombiePillagerEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 2f)).build());
+
+    public static final EntityType<TrollEntity> TROLL_ENTITY = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(Hillside.MOD_ID, "troll"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, TrollEntity::new)
+                    .dimensions(EntityDimensions.fixed(1f, 3f)).build());
     public static void registerModEntities() {
         Hillside.LOGGER.info("Registering Entities for " + Hillside.MOD_ID);
     }

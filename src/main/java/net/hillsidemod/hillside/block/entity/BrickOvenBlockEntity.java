@@ -4,7 +4,7 @@ import com.google.common.collect.Maps;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.hillsidemod.hillside.block.custom.BrickOvenBlock;
 import net.hillsidemod.hillside.recipe.BrickOvenRecipe;
-import net.hillsidemod.screen.BrickOvenScreenHandler;
+import net.hillsidemod.hillside.screen.BrickOvenScreenHandler;
 import net.minecraft.SharedConstants;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

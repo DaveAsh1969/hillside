@@ -1,6 +1,7 @@
 package net.hillsidemod.hillside.entity.client;
 
 import net.hillsidemod.hillside.Hillside;
+import net.hillsidemod.hillside.entity.custom.TrollEntity;
 import net.hillsidemod.hillside.entity.custom.ZombiePillagerEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
@@ -16,7 +17,7 @@ import software.bernie.geckolib.model.data.EntityModelData;
 public class ZombiePillagerModel extends GeoModel<ZombiePillagerEntity> {
 	@Override
 	public Identifier getModelResource(ZombiePillagerEntity animatable) {
-		return new Identifier(Hillside.MOD_ID, "geo/zombie_pillager.geo.json");
+		return new Identifier(Hillside.MOD_ID, "geo/troll.geo.json");
 	}
 
 	@Override

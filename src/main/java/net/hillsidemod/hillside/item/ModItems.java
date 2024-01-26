@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.hillsidemod.hillside.Hillside;
+import net.hillsidemod.hillside.block.ModBlocks;
 import net.hillsidemod.hillside.entity.ModEntities;
 import net.hillsidemod.hillside.item.custom.*;
 import net.minecraft.item.*;
@@ -23,6 +24,8 @@ public class ModItems {
             new DowsingRodItem_Diamond_Lapis(new FabricItemSettings().maxDamage(300)));
     public static final Item DOWSINGROD_IRON_GOLD = registerItem("dowsing_rod_iron_gold",
             new DowsingRodItem_Iron_Gold(new FabricItemSettings().maxDamage(255)));
+    public static final Item DUNGEON_KEY = registerItem("dungeon_key",
+            new Item(new FabricItemSettings().maxCount(1)));
     public static final Item MIRROR = registerItem("mirror",
             new MirrorItem(new FabricItemSettings().maxDamage(50)));
     public static final Item NETHER_MIRROR = registerItem("nether_mirror",
@@ -38,6 +41,10 @@ public class ModItems {
             new RubyPickaxeItem(ModToolMaterial.RUBY, 2, 2f, new FabricItemSettings()));
     public static final Item STAR_COMPASS = registerItem("star_compass",
             new StarCompassItem(new FabricItemSettings().maxDamage(300)));
+    public static final Item TACO_BELL_ITEM = registerItem("taco_bell_item",
+            new TacoBellItem(ModBlocks.TACO_BELL, new FabricItemSettings().maxCount(1)));
+    public static final Item TROLL_EGG = registerItem("troll_egg",
+            new SpawnEggItem(ModEntities.TROLL_ENTITY, 0xeed9ae, 0x7d7158, new FabricItemSettings()));
     public static final Item ZOMBIE_PILLAGER_EGG = registerItem("zombie_pillager_egg",
             new SpawnEggItem(ModEntities.ZOMBIE_PILLAGER, 0x4b8b08, 0x654503, new FabricItemSettings()));
     private static Item registerItem(String name, Item item) {

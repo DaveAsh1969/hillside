@@ -1,8 +1,8 @@
-package net.hillsidemod.screen;
+package net.hillsidemod.hillside.screen;
 
 import net.hillsidemod.hillside.block.entity.BrickOvenBlockEntity;
-import net.hillsidemod.screen.slot.BrickOvenFuelSlot;
-import net.hillsidemod.screen.slot.BrickOvenOutputSlot;
+import net.hillsidemod.hillside.screen.slot.BrickOvenFuelSlot;
+import net.hillsidemod.hillside.screen.slot.BrickOvenOutputSlot;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;

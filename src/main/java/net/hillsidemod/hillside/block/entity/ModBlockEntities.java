@@ -13,6 +13,9 @@ public class ModBlockEntities {
             new Identifier(Hillside.MOD_ID, "brick_oven_entity"),
             FabricBlockEntityTypeBuilder.create(BrickOvenBlockEntity::new, ModBlocks.BRICK_OVEN).build(null));
 
+    public static final BlockEntityType<TacoBellBlockEntity> TACO_BELL_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+            new Identifier(Hillside.MOD_ID, "taco_bell_entity"),
+            FabricBlockEntityTypeBuilder.create(TacoBellBlockEntity::new, ModBlocks.TACO_BELL).build());
     public static void registerBlockEntities() {
         Hillside.LOGGER.info("Registering Block Entities for " + Hillside.MOD_ID);
     }

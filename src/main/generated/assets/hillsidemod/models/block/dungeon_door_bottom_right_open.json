@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_right_open",
+  "textures": {
+    "bottom": "hillsidemod:block/dungeon_door_bottom",
+    "top": "hillsidemod:block/dungeon_door_top"
+  }
+}

@@ -56,7 +56,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.BRICK_WHITE_BUTTON);
         addDrop(ModBlocks.BRICK_WHITE_PLATE);
         addDrop(ModBlocks.BRICK_WHITE_SLAB, slabDrops(ModBlocks.BRICK_WHITE_SLAB));
+        addDrop(ModBlocks.DUNGEON_DOOR, doorDrops(ModBlocks.DUNGEON_DOOR));
         addDrop(ModBlocks.LAVA_BLOCK);
+        addDrop(ModBlocks.TACO_BELL);
         addDrop(ModBlocks.XANTHE);
         addPottedPlantDrops(ModBlocks.XANTHE_POTTED);
     }

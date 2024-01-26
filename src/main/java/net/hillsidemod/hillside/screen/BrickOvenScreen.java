@@ -1,4 +1,4 @@
-package net.hillsidemod.screen;
+package net.hillsidemod.hillside.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.hillsidemod.hillside.Hillside;

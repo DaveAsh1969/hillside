@@ -16,5 +16,41 @@
     "sounds": [
       "hillsidemod:zombie_pillager_idle"
     ]
+  },
+  "troll_hurt": {
+    "subtitle": "sounds.hillsidemod.troll_hurt",
+    "sounds": [
+      "hillsidemod:troll_hurt"
+    ]
+  },
+  "troll_say": {
+    "subtitle": "sounds.hillsidemod.troll_say",
+    "sounds": [
+      "hillsidemod:troll_say"
+    ]
+  },
+  "taco_bell": {
+    "subtitle": "sounds.hillsidemod.taco_bell",
+    "sounds": [
+      "hillsidemod:taco_bell"
+    ]
+  },
+  "dungeon_door_open": {
+    "subtitle": "sounds.hillsidemod.dungeon_door_open",
+    "sounds": [
+      "hillsidemod:dungeon_door_open"
+    ]
+  },
+  "dungeon_door_close": {
+    "subtitle": "sounds.hillsidemod.dungeon_door_close",
+    "sounds": [
+      "hillsidemod:dungeon_door_close"
+    ]
+  },
+  "dungeon_door_locked": {
+    "subtitle": "sounds.hillsidemod.dungeon_door_locked",
+    "sounds": [
+      "hillsidemod:dungeon_door_locked"
+    ]
   }
 }

@@ -44,9 +44,7 @@ public class LampBlock extends Block {
             boolean clicked = state.get(CLICKED);
             world.setBlockState(pos, state.with(CLICKED, !clicked), 3);
         }
-
         return ActionResult.SUCCESS;
-
     }
 
     @Override

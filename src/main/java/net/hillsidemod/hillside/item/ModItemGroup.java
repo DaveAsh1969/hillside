@@ -67,6 +67,8 @@ public class ModItemGroup {
                         entries.add(ModItems.DOWSINGROD_COAL_COPPER);
                         entries.add(ModItems.DOWSINGROD_DIAMOND_LAPIS);
                         entries.add(ModItems.DOWSINGROD_IRON_GOLD);
+                        entries.add(ModBlocks.DUNGEON_DOOR);
+                        entries.add(ModItems.DUNGEON_KEY);
                         entries.add(ModItems.END_MIRROR);
                         entries.add(ModBlocks.LAMP_BLOCK);
                         entries.add(ModBlocks.LAVA_BLOCK);
@@ -76,6 +78,8 @@ public class ModItemGroup {
                         entries.add(ModItems.RUBY_BOOTS);
                         entries.add(ModItems.RUBY_PICKAXE);
                         entries.add(ModItems.STAR_COMPASS);
+                        entries.add(ModItems.TACO_BELL_ITEM);
+                        entries.add(ModItems.TROLL_EGG);
                         entries.add(ModBlocks.WINTER_WINDOW);
                         entries.add(ModBlocks.WINTER_WINDOW_PANE);
                         entries.add(ModBlocks.XANTHE);

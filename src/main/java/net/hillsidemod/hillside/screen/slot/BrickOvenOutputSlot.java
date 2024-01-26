@@ -1,4 +1,4 @@
-package net.hillsidemod.screen.slot;
+package net.hillsidemod.hillside.screen.slot;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;

@@ -3,9 +3,12 @@ package net.hillsidemod.hillside;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.hillsidemod.hillside.block.ModBlocks;
+import net.hillsidemod.hillside.block.entity.ModBlockEntities;
+import net.hillsidemod.hillside.block.entity.client.TacoBellRenderer;
 import net.hillsidemod.hillside.entity.ModEntities;
 import net.hillsidemod.hillside.entity.client.*;
 import net.hillsidemod.hillside.particle.ModParticles;
@@ -14,12 +17,12 @@ import net.hillsidemod.hillside.particle.custom.NetherTeleportParticle;
 import net.hillsidemod.hillside.particle.custom.TeleportParticle;
 import net.hillsidemod.hillside.particle.custom.TeleportParticleSmall;
 import net.hillsidemod.hillside.util.ModModelPredicateProvider;
-import net.hillsidemod.screen.BrickOvenScreen;
-import net.hillsidemod.screen.ModScreenHandlers;
+import net.hillsidemod.hillside.screen.BrickOvenScreen;
+import net.hillsidemod.hillside.screen.ModScreenHandlers;
+import net.minecraft.block.Block;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
-import net.minecraft.client.particle.FireworksSparkParticle;
-import net.minecraft.client.render.DimensionEffects;
 import net.minecraft.client.render.RenderLayer;
+import software.bernie.example.registry.BlockEntityRegistry;
 
 public class HillsideModClient implements ClientModInitializer {
     @Override
@@ -38,6 +41,8 @@ public class HillsideModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.CHRISTMAS_TREE, ChristmasTreeRenderer::new);
         EntityRendererRegistry.register(ModEntities.DECAYING_ZOMBIE, DecayingZombieRenderer::new);
         EntityRendererRegistry.register(ModEntities.ZOMBIE_PILLAGER, ZombiePillagerRenderer::new);
+        EntityRendererRegistry.register(ModEntities.TROLL_ENTITY, TrollRenderer::new);
+        BlockEntityRendererRegistry.register(ModBlockEntities.TACO_BELL_ENTITY, TacoBellRenderer::new);
 
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.CHRISTMAS_TREE, ChristmasTreeModel::getTexturedModelData);
         ParticleFactoryRegistry.getInstance().register(ModParticles.TELEPORT_PARTICLE, TeleportParticle.Factory::new);
