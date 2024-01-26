@@ -14,6 +14,8 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
+    public static final Item CHEESE = registerItem("cheese",
+            new Item(new FabricItemSettings().food(ModFoodComponents.CHEESE).maxCount(64)));
     public static final Item DECAYING_ZOMBIE_EGG = registerItem("decaying_zombie_egg",
             new SpawnEggItem(ModEntities.DECAYING_ZOMBIE, 0x805e6a, 0x6f965c, new FabricItemSettings()));
     public static final Item DOWSINGROD_ANCIENT_DEBRIS = registerItem("dowsing_rod_ancient_debris",
@@ -41,6 +43,8 @@ public class ModItems {
             new RubyPickaxeItem(ModToolMaterial.RUBY, 2, 2f, new FabricItemSettings()));
     public static final Item STAR_COMPASS = registerItem("star_compass",
             new StarCompassItem(new FabricItemSettings().maxDamage(300)));
+    public static final Item TACO = registerItem("taco",
+            new Item(new FabricItemSettings().food(ModFoodComponents.TACO).maxCount(64)));
     public static final Item TACO_BELL_ITEM = registerItem("taco_bell_item",
             new TacoBellItem(ModBlocks.TACO_BELL, new FabricItemSettings().maxCount(1)));
     public static final Item TROLL_EGG = registerItem("troll_egg",

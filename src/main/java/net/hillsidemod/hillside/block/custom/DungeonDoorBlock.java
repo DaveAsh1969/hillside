@@ -47,7 +47,7 @@ public class DungeonDoorBlock extends DoorBlock {
                 world.playSound(pos.getX(),pos.getY(),pos.getZ(), ModSounds.DUNGEON_DOOR_LOCKED, SoundCategory.BLOCKS, 1f, 1f, true);
                 player.sendMessage(Text.literal("You need a key!"), true);
             }
-            return ActionResult.PASS;
+            return ActionResult.SUCCESS;
         }
 
     }

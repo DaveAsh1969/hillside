@@ -71,7 +71,7 @@ public class TacoBellBlock extends BlockWithEntity implements BlockEntityProvide
             //head
             Block.createCuboidShape(7, 9, 7, 9, 12, 9),
             //bar
-            Block.createCuboidShape(0, 12, 7, 16, 14, 9)
+            Block.createCuboidShape(7, 12, 0, 9, 14, 16)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
 
     private static final VoxelShape SHAPE_W = Stream.of(
@@ -82,7 +82,7 @@ public class TacoBellBlock extends BlockWithEntity implements BlockEntityProvide
             //head
             Block.createCuboidShape(7, 9, 7, 9, 12, 9),
             //bar
-            Block.createCuboidShape(0, 12, 7, 16, 14, 9)
+            Block.createCuboidShape(7, 12, 0, 9, 14, 16)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
 
     //verified
@@ -120,8 +120,6 @@ public class TacoBellBlock extends BlockWithEntity implements BlockEntityProvide
             ((TacoBellBlockEntity)blockEntity).activate(direction, player, state.get(FACING));
         }
         world.playSound(pos.getX(), pos.getY(), pos.getZ(), ModSounds.TACO_BELL, SoundCategory.BLOCKS, 0.5f, 1.0f, true);
-
-        //return super.onUse(state, world, pos, player, hand, hit);
         return ActionResult.SUCCESS;
     }
 
@@ -206,7 +204,6 @@ public class TacoBellBlock extends BlockWithEntity implements BlockEntityProvide
             return false;
         }
         Direction direction = state.get(FACING);
-        //This may need to change
         return direction.getAxis() == side.getAxis();
 
     }

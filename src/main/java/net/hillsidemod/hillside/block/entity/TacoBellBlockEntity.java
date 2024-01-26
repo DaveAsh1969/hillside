@@ -1,5 +1,6 @@
 package net.hillsidemod.hillside.block.entity;
 
+import net.hillsidemod.hillside.item.ModItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -98,8 +99,8 @@ public class TacoBellBlockEntity extends BlockEntity implements GeoBlockEntity {
         this.ringing = true;
 
         if(giveTaco) {
-            //player.giveItemStack(new ItemStack(ModItems.TACO));
-            //player.sendMessage(Text.literal("Enjoy your taco! Come back tomorrow!"));
+            player.giveItemStack(new ItemStack(ModItems.TACO));
+            player.sendMessage(Text.literal("Enjoy your taco! Come back tomorrow!"));
             giveTaco=false;
         }
 

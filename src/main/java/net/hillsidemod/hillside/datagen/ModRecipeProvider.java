@@ -5,11 +5,12 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.hillsidemod.hillside.block.ModBlocks;
 import net.hillsidemod.hillside.item.ModItems;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.server.recipe.RecipeJsonProvider;
-import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.*;
+import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.util.Identifier;
 
@@ -295,6 +296,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.COBBLESTONE), conditionsFromItem(Items.COBBLESTONE))
                 .criterion(hasItem(Items.CAMPFIRE), conditionsFromItem(Items.CAMPFIRE))
                 .offerTo(exporter);
+
+        //CookingRecipeJsonBuilder.create(Ingredient.ofItems(Items.MILK_BUCKET), RecipeCategory.FOOD, ModItems.CHEESE, 1.0f, 4, RecipeSerializer.SMELTING);
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Items.MILK_BUCKET), RecipeCategory.FOOD, ModItems.CHEESE, 1.0f, 200)
+                .criterion(RecipeProvider.hasItem(Items.MILK_BUCKET), RecipeProvider.conditionsFromItem(Items.MILK_BUCKET))
+                .offerTo(exporter);
+
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.DOWSINGROD_ANCIENT_DEBRIS, 1)
                 .pattern(" X ")

@@ -62,6 +62,7 @@ public class ModItemGroup {
                         entries.add(ModBlocks.BRICK_WHITE_SMEAR);
                         entries.add(ModBlocks.BRICK_WHITE_STAIRS);
                         entries.add(ModBlocks.BRICK_WHITE_WALL);
+                        entries.add(ModItems.CHEESE);
                         entries.add(ModItems.DECAYING_ZOMBIE_EGG);
                         entries.add(ModItems.DOWSINGROD_ANCIENT_DEBRIS);
                         entries.add(ModItems.DOWSINGROD_COAL_COPPER);
@@ -78,6 +79,7 @@ public class ModItemGroup {
                         entries.add(ModItems.RUBY_BOOTS);
                         entries.add(ModItems.RUBY_PICKAXE);
                         entries.add(ModItems.STAR_COMPASS);
+                        entries.add(ModItems.TACO);
                         entries.add(ModItems.TACO_BELL_ITEM);
                         entries.add(ModItems.TROLL_EGG);
                         entries.add(ModBlocks.WINTER_WINDOW);

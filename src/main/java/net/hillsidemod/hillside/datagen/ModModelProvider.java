@@ -30,7 +30,9 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerParentedItemModel(ModItems.DECAYING_ZOMBIE_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
         blockStateModelGenerator.registerParentedItemModel(ModItems.ZOMBIE_PILLAGER_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
         blockStateModelGenerator.registerParentedItemModel(ModItems.TROLL_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
+        blockStateModelGenerator.registerItemModel(ModItems.CHEESE);
         blockStateModelGenerator.registerItemModel(ModItems.DUNGEON_KEY);
+        blockStateModelGenerator.registerItemModel(ModItems.TACO);
         blockStateModelGenerator.registerDoor(ModBlocks.DUNGEON_DOOR);
 
         brickBlackPool.stairs(ModBlocks.BRICK_BLACK_STAIRS);
