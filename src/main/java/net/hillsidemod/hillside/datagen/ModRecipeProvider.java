@@ -297,7 +297,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.CAMPFIRE), conditionsFromItem(Items.CAMPFIRE))
                 .offerTo(exporter);
 
-        //CookingRecipeJsonBuilder.create(Ingredient.ofItems(Items.MILK_BUCKET), RecipeCategory.FOOD, ModItems.CHEESE, 1.0f, 4, RecipeSerializer.SMELTING);
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Items.MILK_BUCKET), RecipeCategory.FOOD, ModItems.CHEESE, 1.0f, 200)
                 .criterion(RecipeProvider.hasItem(Items.MILK_BUCKET), RecipeProvider.conditionsFromItem(Items.MILK_BUCKET))
                 .offerTo(exporter);
@@ -390,14 +389,19 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.LAPIS_LAZULI), conditionsFromItem(Items.LAPIS_LAZULI))
                 .criterion(hasItem(Items.COMPASS), conditionsFromItem(Items.COMPASS))
                 .offerTo(exporter);
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, ModBlocks.TACO_BELL.asItem(), 1)
                 .input(Ingredient.ofItems(Items.PURPLE_DYE))
                 .input(Ingredient.ofItems(Items.PINK_DYE))
                 .input(Ingredient.ofItems(Blocks.BELL.asItem()))
                 .criterion(hasItem(Items.PURPLE_DYE), conditionsFromItem(Items.PURPLE_DYE))
                 .criterion(hasItem(Items.PINK_DYE), conditionsFromItem(Items.PINK_DYE))
-                //.offerTo(exporter, new Identifier(getRecipeName(ModBlocks.BRICK_TAN_BUTTON.asItem())));
                 .offerTo(exporter);
+
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Items.BREAD), RecipeCategory.FOOD, ModItems.TORTILLA, 1.0f, 200)
+                .criterion(RecipeProvider.hasItem(Items.BREAD), RecipeProvider.conditionsFromItem(Items.BREAD))
+                .offerTo(exporter);
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModBlocks.WINTER_WINDOW.asItem(), 4)
                 .pattern("WXW")
                 .pattern("XYX")

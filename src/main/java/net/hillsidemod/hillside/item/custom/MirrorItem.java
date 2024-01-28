@@ -27,6 +27,7 @@ import java.util.List;
 
 public class MirrorItem extends Item {
 
+    //look at properties
     private boolean bHasTeleported = false;
     private double teleportLocX = 0;
     private double teleportLocY = 0;

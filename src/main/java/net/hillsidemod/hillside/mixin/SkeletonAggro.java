@@ -27,6 +27,6 @@ public abstract class SkeletonAggro extends HostileEntity
     @Inject(method = "initGoals", at = @At("RETURN"))
     protected void initGoals(CallbackInfo ci)
     {
-        this.targetSelector.add(2, new ActiveTargetGoal<TrollEntity>((MobEntity) this, TrollEntity.class, true));
+        this.targetSelector.add(2, new ActiveTargetGoal<>(this, TrollEntity.class, true));
     }
 }

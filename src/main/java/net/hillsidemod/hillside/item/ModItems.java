@@ -28,6 +28,10 @@ public class ModItems {
             new DowsingRodItem_Iron_Gold(new FabricItemSettings().maxDamage(255)));
     public static final Item DUNGEON_KEY = registerItem("dungeon_key",
             new Item(new FabricItemSettings().maxCount(1)));
+    public static final Item LETTUCE = registerItem("lettuce",
+            new Item(new FabricItemSettings().food(ModFoodComponents.LETTUCE).maxCount(64)));
+    public static final Item LETTUCE_SEEDS = registerItem("lettuce_seeds",
+            new AliasedBlockItem(ModBlocks.LETTUCE_CROP, new FabricItemSettings()));
     public static final Item MIRROR = registerItem("mirror",
             new MirrorItem(new FabricItemSettings().maxDamage(50)));
     public static final Item NETHER_MIRROR = registerItem("nether_mirror",
@@ -47,6 +51,8 @@ public class ModItems {
             new Item(new FabricItemSettings().food(ModFoodComponents.TACO).maxCount(64)));
     public static final Item TACO_BELL_ITEM = registerItem("taco_bell_item",
             new TacoBellItem(ModBlocks.TACO_BELL, new FabricItemSettings().maxCount(1)));
+    public static final Item TORTILLA = registerItem("tortilla",
+            new Item(new FabricItemSettings().food(ModFoodComponents.TORTILLA).maxCount(64)));
     public static final Item TROLL_EGG = registerItem("troll_egg",
             new SpawnEggItem(ModEntities.TROLL_ENTITY, 0xeed9ae, 0x7d7158, new FabricItemSettings()));
     public static final Item ZOMBIE_PILLAGER_EGG = registerItem("zombie_pillager_egg",

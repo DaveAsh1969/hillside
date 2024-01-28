@@ -1,0 +1,26 @@
+package net.hillsidemod.hillside.mixin;
+
+import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.recipe.Recipe;
+import net.minecraft.registry.DynamicRegistryManager;
+import net.minecraft.util.collection.DefaultedList;
+import org.jetbrains.annotations.Nullable;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+@Mixin(AbstractFurnaceBlockEntity.class)
+public class FurnaceMilkBucket
+{
+   @Inject(method="craftRecipe", at=@At(value="INVOKE", target="Lnet/minecraft/item/ItemStack;decrement(I)V"))
+    private static void craftRecipe(DynamicRegistryManager registryManager, @Nullable Recipe<?> recipe, DefaultedList<ItemStack> slots, int count, CallbackInfoReturnable<Boolean> cir)
+    {
+        if(slots.get(0).isOf(Items.MILK_BUCKET))
+        {
+            slots.set(0, new ItemStack(Items.BUCKET));
+        }
+    }
+}

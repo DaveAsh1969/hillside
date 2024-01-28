@@ -3,6 +3,7 @@ package net.hillsidemod.hillside.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.hillsidemod.hillside.block.ModBlocks;
+import net.hillsidemod.hillside.block.custom.LettuceBlock;
 import net.hillsidemod.hillside.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.data.server.loottable.BlockLootTableGenerator;
@@ -10,12 +11,14 @@ import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootTable;
+import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.LeafEntry;
 import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.ApplyBonusLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
+import net.minecraft.predicate.StatePredicate;
 
 public class ModLootTableProvider extends FabricBlockLootTableProvider {
     public ModLootTableProvider(FabricDataOutput dataOutput) {
@@ -57,6 +60,12 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.BRICK_WHITE_PLATE);
         addDrop(ModBlocks.BRICK_WHITE_SLAB, slabDrops(ModBlocks.BRICK_WHITE_SLAB));
         addDrop(ModBlocks.DUNGEON_DOOR, doorDrops(ModBlocks.DUNGEON_DOOR));
+
+        BlockStatePropertyLootCondition.Builder builder = BlockStatePropertyLootCondition.builder(ModBlocks.LETTUCE_CROP)
+                .properties(StatePredicate.Builder.create()
+                        .exactMatch(LettuceBlock.AGE, 4));
+        addDrop(ModBlocks.LETTUCE_CROP, cropDrops(ModBlocks.LETTUCE_CROP, ModItems.LETTUCE, ModItems.LETTUCE_SEEDS, builder));
+
         addDrop(ModBlocks.LAVA_BLOCK);
         addDrop(ModBlocks.TACO_BELL);
         addDrop(ModBlocks.XANTHE);

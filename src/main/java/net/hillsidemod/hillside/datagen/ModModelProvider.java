@@ -3,6 +3,7 @@ package net.hillsidemod.hillside.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.hillsidemod.hillside.block.ModBlocks;
+import net.hillsidemod.hillside.block.custom.LettuceBlock;
 import net.hillsidemod.hillside.item.ModItems;
 import net.minecraft.data.client.*;
 import net.minecraft.item.ArmorItem;
@@ -32,7 +33,10 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerParentedItemModel(ModItems.TROLL_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
         blockStateModelGenerator.registerItemModel(ModItems.CHEESE);
         blockStateModelGenerator.registerItemModel(ModItems.DUNGEON_KEY);
+        blockStateModelGenerator.registerItemModel(ModItems.LETTUCE);
+        blockStateModelGenerator.registerCrop(ModBlocks.LETTUCE_CROP, LettuceBlock.AGE, 0,1,2,3,4);
         blockStateModelGenerator.registerItemModel(ModItems.TACO);
+        blockStateModelGenerator.registerItemModel(ModItems.TORTILLA);
         blockStateModelGenerator.registerDoor(ModBlocks.DUNGEON_DOOR);
 
         brickBlackPool.stairs(ModBlocks.BRICK_BLACK_STAIRS);
@@ -70,7 +74,6 @@ public class ModModelProvider extends FabricModelProvider {
         whiteBrownPool.button(ModBlocks.BRICK_WHITE_BUTTON);
         whiteBrownPool.pressurePlate(ModBlocks.BRICK_WHITE_PLATE);
         whiteBrownPool.wall(ModBlocks.BRICK_WHITE_WALL);
-
     }
 
     @Override

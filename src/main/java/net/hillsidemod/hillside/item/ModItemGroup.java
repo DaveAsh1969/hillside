@@ -73,6 +73,7 @@ public class ModItemGroup {
                         entries.add(ModItems.END_MIRROR);
                         entries.add(ModBlocks.LAMP_BLOCK);
                         entries.add(ModBlocks.LAVA_BLOCK);
+                        entries.add(ModItems.LETTUCE_SEEDS);
                         entries.add(ModItems.MIRROR);
                         entries.add(ModItems.NETHER_MIRROR);
                         entries.add(ModItems.RUBY);
@@ -81,6 +82,7 @@ public class ModItemGroup {
                         entries.add(ModItems.STAR_COMPASS);
                         entries.add(ModItems.TACO);
                         entries.add(ModItems.TACO_BELL_ITEM);
+                        entries.add(ModItems.TORTILLA);
                         entries.add(ModItems.TROLL_EGG);
                         entries.add(ModBlocks.WINTER_WINDOW);
                         entries.add(ModBlocks.WINTER_WINDOW_PANE);

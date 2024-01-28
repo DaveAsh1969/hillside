@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-26T14:40:46.5388411	Hillside Mod/Block Loot Tables
+// 1.20.1	2024-01-27T12:20:52.1966351	Hillside Mod/Block Loot Tables
 c26245f1ae42bee90b631ed4310b9da799795ee7 data\hillsidemod\loot_tables\blocks\brick_brown_pressure_plate.json
 0656c581deaa5ce53959e8a0b566f1f29f9f8485 data\hillsidemod\loot_tables\blocks\brick_pink_wall.json
 80e8250ab96a5aa9297b1ea2e22f1d6298959cbd data\hillsidemod\loot_tables\blocks\brick_black_stairs.json
@@ -32,6 +32,7 @@ a1a9d68a0eb7aa556dd654657da1f83ead0e445f data\hillsidemod\loot_tables\blocks\tac
 7e7a5802611485d093b7d769a126ae27cea7273c data\hillsidemod\loot_tables\blocks\brick_brown_stairs.json
 94f6e5e81cb3f63ae53c657f6525f639ad3f18ab data\hillsidemod\loot_tables\blocks\brick_tan_button.json
 d0b463b9d760ce1381ad3492714fe4ac5ac725ef data\hillsidemod\loot_tables\blocks\xanthe.json
+2c86305f9526f5c2fde3fbff7d09ac680254c3ca data\hillsidemod\loot_tables\blocks\lettuce_crop.json
 b21ed32f7248a27e06cca74ebc72d7434b32289d data\hillsidemod\loot_tables\blocks\brick_white_pressure_plate.json
 08bcd52b3bc96f9d9896dab2ce16e5ede444e627 data\hillsidemod\loot_tables\blocks\dungeon_door.json
 a558f833fe7b6cc5319347f33c2285f0aff6626f data\hillsidemod\loot_tables\blocks\brick_multicolored_wall.json
