@@ -26,6 +26,8 @@ public class ModItems {
             new DowsingRodItem_Diamond_Lapis(new FabricItemSettings().maxDamage(300)));
     public static final Item DOWSINGROD_IRON_GOLD = registerItem("dowsing_rod_iron_gold",
             new DowsingRodItem_Iron_Gold(new FabricItemSettings().maxDamage(255)));
+    public static final Item DUCK_EGG = registerItem("duck_egg",
+            new DuckEggItem(new FabricItemSettings().maxCount(64)));
     public static final Item DUNGEON_KEY = registerItem("dungeon_key",
             new Item(new FabricItemSettings().maxCount(1)));
     public static final Item LETTUCE = registerItem("lettuce",

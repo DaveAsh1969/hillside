@@ -2,10 +2,7 @@ package net.hillsidemod.hillside.entity;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.hillsidemod.hillside.Hillside;
-import net.hillsidemod.hillside.entity.custom.ChristmasTreeEntity;
-import net.hillsidemod.hillside.entity.custom.DecayingZombieEntity;
-import net.hillsidemod.hillside.entity.custom.TrollEntity;
-import net.hillsidemod.hillside.entity.custom.ZombiePillagerEntity;
+import net.hillsidemod.hillside.entity.custom.*;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -18,12 +15,14 @@ public class ModEntities {
                       new Identifier(Hillside.MOD_ID, "christmas_tree"),
                         FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ChristmasTreeEntity::new)
                                 .dimensions(EntityDimensions.fixed(1f, 3f)).build());
-
     public static final EntityType<DecayingZombieEntity> DECAYING_ZOMBIE = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(Hillside.MOD_ID, "decaying_zombie"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, DecayingZombieEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 2f)).build());
-
+    public static final EntityType<DuckEntity> DUCK = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(Hillside.MOD_ID, "duck"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DuckEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.4f, 0.5f)).build());
     public static final EntityType<ZombiePillagerEntity> ZOMBIE_PILLAGER = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(Hillside.MOD_ID, "zombie_pillager"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, ZombiePillagerEntity::new)

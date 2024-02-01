@@ -68,6 +68,7 @@ public class ModItemGroup {
                         entries.add(ModItems.DOWSINGROD_COAL_COPPER);
                         entries.add(ModItems.DOWSINGROD_DIAMOND_LAPIS);
                         entries.add(ModItems.DOWSINGROD_IRON_GOLD);
+                        entries.add(ModItems.DUCK_EGG);
                         entries.add(ModBlocks.DUNGEON_DOOR);
                         entries.add(ModItems.DUNGEON_KEY);
                         entries.add(ModItems.END_MIRROR);

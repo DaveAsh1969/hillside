@@ -6,10 +6,7 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRe
 import net.hillsidemod.hillside.block.ModBlocks;
 import net.hillsidemod.hillside.block.entity.ModBlockEntities;
 import net.hillsidemod.hillside.entity.ModEntities;
-import net.hillsidemod.hillside.entity.custom.ChristmasTreeEntity;
-import net.hillsidemod.hillside.entity.custom.DecayingZombieEntity;
-import net.hillsidemod.hillside.entity.custom.TrollEntity;
-import net.hillsidemod.hillside.entity.custom.ZombiePillagerEntity;
+import net.hillsidemod.hillside.entity.custom.*;
 import net.hillsidemod.hillside.item.ModItemGroup;
 import net.hillsidemod.hillside.item.ModItems;
 import net.hillsidemod.hillside.particle.ModParticles;
@@ -40,6 +37,7 @@ public class Hillside implements ModInitializer {
         FabricDefaultAttributeRegistry.register(ModEntities.DECAYING_ZOMBIE, DecayingZombieEntity.createDecayingZombieAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.ZOMBIE_PILLAGER, ZombiePillagerEntity.createZombiePillagerAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.TROLL_ENTITY, TrollEntity.createTrollAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.DUCK, DuckEntity.createDuckAttributes());
 
     }
 }

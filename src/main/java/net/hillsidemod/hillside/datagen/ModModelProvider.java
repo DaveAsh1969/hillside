@@ -18,6 +18,7 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+        //bricks generator
         BlockStateModelGenerator.BlockTexturePool brickBlackPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.BRICK_BLACK);
         BlockStateModelGenerator.BlockTexturePool brickBrownPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.BRICK_BROWN);
         BlockStateModelGenerator.BlockTexturePool brickMulticoloredPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.BRICK_MULTICOLORED);
@@ -25,20 +26,22 @@ public class ModModelProvider extends FabricModelProvider {
         BlockStateModelGenerator.BlockTexturePool tanBrownPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.BRICK_TAN);
         BlockStateModelGenerator.BlockTexturePool whiteBrownPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.BRICK_WHITE);
 
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LAVA_BLOCK);
-        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.XANTHE, ModBlocks.XANTHE_POTTED, BlockStateModelGenerator.TintType.NOT_TINTED);
+        //generic generator
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.BOP, ModBlocks.BOP_POTTED, BlockStateModelGenerator.TintType.NOT_TINTED);
-        blockStateModelGenerator.registerParentedItemModel(ModItems.DECAYING_ZOMBIE_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
-        blockStateModelGenerator.registerParentedItemModel(ModItems.ZOMBIE_PILLAGER_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
-        blockStateModelGenerator.registerParentedItemModel(ModItems.TROLL_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
         blockStateModelGenerator.registerItemModel(ModItems.CHEESE);
+        blockStateModelGenerator.registerParentedItemModel(ModItems.DECAYING_ZOMBIE_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
+        blockStateModelGenerator.registerDoor(ModBlocks.DUNGEON_DOOR);
         blockStateModelGenerator.registerItemModel(ModItems.DUNGEON_KEY);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LAVA_BLOCK);
         blockStateModelGenerator.registerItemModel(ModItems.LETTUCE);
         blockStateModelGenerator.registerCrop(ModBlocks.LETTUCE_CROP, LettuceBlock.AGE, 0,1,2,3,4);
         blockStateModelGenerator.registerItemModel(ModItems.TACO);
         blockStateModelGenerator.registerItemModel(ModItems.TORTILLA);
-        blockStateModelGenerator.registerDoor(ModBlocks.DUNGEON_DOOR);
+        blockStateModelGenerator.registerParentedItemModel(ModItems.TROLL_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.XANTHE, ModBlocks.XANTHE_POTTED, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerParentedItemModel(ModItems.ZOMBIE_PILLAGER_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
 
+        //definitions for specialty blocks
         brickBlackPool.stairs(ModBlocks.BRICK_BLACK_STAIRS);
         brickBlackPool.slab(ModBlocks.BRICK_BLACK_SLAB);
         brickBlackPool.button(ModBlocks.BRICK_BLACK_BUTTON);
@@ -78,8 +81,6 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        //itemModelGenerator.register(ModItems.DECAYING_ZOMBIE_EGG,
-               // new Model(Optional.of(new Identifier("item/template_spawn_egg")), Optional.empty()));
         itemModelGenerator.register(ModItems.RUBY, Models.GENERATED);
         itemModelGenerator.register(ModItems.RUBY_PICKAXE, Models.HANDHELD);
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.RUBY_BOOTS));
