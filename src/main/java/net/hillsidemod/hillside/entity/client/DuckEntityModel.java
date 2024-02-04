@@ -1,8 +1,8 @@
 package net.hillsidemod.hillside.entity.client;
 
 import net.hillsidemod.hillside.Hillside;
-import net.hillsidemod.hillside.entity.custom.DecayingZombieEntity;
 import net.hillsidemod.hillside.entity.custom.DuckEntity;
+import net.hillsidemod.hillside.entity.variant.DuckVariant;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import software.bernie.geckolib.constant.DataTickets;
@@ -20,15 +20,19 @@ public class DuckEntityModel extends GeoModel<DuckEntity> {
 
     @Override
     public Identifier getTextureResource(DuckEntity animatable) {
-        return new Identifier(Hillside.MOD_ID, "textures/entity/decaying_zombie.png");
+        //return new Identifier(Hillside.MOD_ID, "textures/entity/duck_mallard.png");
+        if(animatable.isBaby())
+            return DuckEntityRenderer.LOCATION_BY_VARIANT.get(DuckVariant.BABY);
+        else
+            return DuckEntityRenderer.LOCATION_BY_VARIANT.get(animatable.getVariant());
     }
 
     @Override
     public Identifier getAnimationResource(DuckEntity animatable) {
-        return new Identifier(Hillside.MOD_ID, "animations/decaying_zombie.animation.json");
+        return new Identifier(Hillside.MOD_ID, "animations/duck.animation.json");
     }
 
-    @Override
+   /* @Override
     public void setCustomAnimations(DuckEntity animatable, long instanceId, AnimationState<DuckEntity> animationState) {
         CoreGeoBone head = getAnimationProcessor().getBone("head");
 
@@ -37,5 +41,5 @@ public class DuckEntityModel extends GeoModel<DuckEntity> {
             head.setRotX(entityData.headPitch() * MathHelper.RADIANS_PER_DEGREE);
             head.setRotY(entityData.netHeadYaw() * MathHelper.RADIANS_PER_DEGREE);
         }
-    }
+    }*/
 }

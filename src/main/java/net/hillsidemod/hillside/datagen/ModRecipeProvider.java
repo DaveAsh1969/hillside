@@ -287,6 +287,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter);
 
         //Other Items
+        //Brick Oven
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BRICK_OVEN.asItem(), 1)
                 .pattern("XXX")
                 .pattern("XCX")
@@ -297,11 +298,41 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.CAMPFIRE), conditionsFromItem(Items.CAMPFIRE))
                 .offerTo(exporter);
 
+        //Brush - made with duck feather
+        //Winter Window Pane
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Items.BRUSH, 1)
+                .pattern("#")
+                .pattern("I")
+                .pattern("X")
+                .input('#', Items.COPPER_INGOT)
+                .input('I', Items.STICK)
+                .input('X', ModItems.DUCK_FEATHER)
+                .criterion(hasItem(Items.COPPER_INGOT), conditionsFromItem(Items.COPPER_INGOT))
+                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                .criterion(hasItem(ModItems.DUCK_FEATHER), conditionsFromItem(ModItems.DUCK_FEATHER))
+                .offerTo(exporter);
+
+        //Cake
+        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, Items.CAKE, 1)
+                .pattern("AAA")
+                .pattern("BEB")
+                .pattern("CCC")
+                .input('A', Items.MILK_BUCKET)
+                .input('B', Items.SUGAR)
+                .input('C', Items.WHEAT)
+                .input('E', ModItems.DUCK_EGG)
+                .criterion(hasItem(Items.MILK_BUCKET), conditionsFromItem(Items.MILK_BUCKET))
+                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
+                .criterion(hasItem(Items.WHEAT), conditionsFromItem(Items.WHEAT))
+                .criterion(hasItem(ModItems.DUCK_EGG), conditionsFromItem(ModItems.DUCK_EGG))
+                .offerTo(exporter);
+
+        //Cheese
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Items.MILK_BUCKET), RecipeCategory.FOOD, ModItems.CHEESE, 1.0f, 200)
                 .criterion(RecipeProvider.hasItem(Items.MILK_BUCKET), RecipeProvider.conditionsFromItem(Items.MILK_BUCKET))
                 .offerTo(exporter);
 
-
+        //Dowsing Rod Ancient Debris
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.DOWSINGROD_ANCIENT_DEBRIS, 1)
                 .pattern(" X ")
                 .pattern(" Y ")
@@ -314,6 +345,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.QUARTZ), conditionsFromItem(Items.QUARTZ))
                 .offerTo(exporter);
 
+        //Dowsing Rod Coal & Copper
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.DOWSINGROD_COAL_COPPER, 1)
                 .pattern(" X ")
                 .pattern(" Y ")
@@ -326,6 +358,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.COAL), conditionsFromItem(Items.COAL))
                 .offerTo(exporter);
 
+        //Dowsing Rod Diamond & Lapis
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.DOWSINGROD_DIAMOND_LAPIS, 1)
                 .pattern(" X ")
                 .pattern(" Y ")
@@ -338,6 +371,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.LAPIS_LAZULI), conditionsFromItem(Items.LAPIS_LAZULI))
                 .offerTo(exporter);
 
+        //Dowsing Rod Iron & Gold
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.DOWSINGROD_IRON_GOLD, 1)
                 .pattern(" X ")
                 .pattern(" Y ")
@@ -350,6 +384,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
                 .offerTo(exporter);
 
+        //Duck (cooking)
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(ModItems.DUCK_RAW), RecipeCategory.FOOD, ModItems.DUCK_COOKED,
+                        1.0f, 200)
+                .criterion(RecipeProvider.hasItem(ModItems.DUCK_RAW), RecipeProvider.conditionsFromItem(ModItems.DUCK_RAW))
+                .offerTo(exporter);
+
+        //Lamp Block
         ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, ModBlocks.LAMP_BLOCK.asItem(), 1)
                 .pattern("XXX")
                 .pattern("XXX")
@@ -360,6 +401,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.OAK_PLANKS), conditionsFromItem(Items.OAK_PLANKS))
                 .offerTo(exporter);
 
+        //Mirror - Teleporting in Overworld
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.MIRROR, 1)
                 .pattern("  X")
                 .pattern(" XY")
@@ -370,6 +412,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.DIAMOND), conditionsFromItem(Items.DIAMOND))
                 .offerTo(exporter);
 
+        //Pumpkin Pie with Duck Egg
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, Items.PUMPKIN_PIE, 1)
+                .input(Ingredient.ofItems(Items.PUMPKIN))
+                .input(Ingredient.ofItems(Items.SUGAR))
+                .input(Ingredient.ofItems(ModItems.DUCK_EGG))
+                .criterion(hasItem(Items.PUMPKIN), conditionsFromItem(Items.PUMPKIN))
+                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
+                .criterion(hasItem(ModItems.DUCK_EGG), conditionsFromItem(ModItems.DUCK_EGG))
+                .offerTo(exporter);
+
+        //Ruby Pickaxe
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.RUBY_PICKAXE, 1)
                 .pattern("XXX")
                 .pattern(" Y ")
@@ -380,6 +433,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                 .offerTo(exporter);
 
+        //Star Compass
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.STAR_COMPASS, 1)
                 .pattern("XXX")
                 .pattern("XYX")
@@ -390,6 +444,19 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.COMPASS), conditionsFromItem(Items.COMPASS))
                 .offerTo(exporter);
 
+        //Taco
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.TACO, 1)
+                .input(Ingredient.ofItems(ModItems.LETTUCE))
+                .input(Ingredient.ofItems(Items.COOKED_BEEF))
+                .input(Ingredient.ofItems(ModItems.CHEESE))
+                .input(Ingredient.ofItems(ModItems.TORTILLA))
+                .criterion(hasItem(ModItems.LETTUCE), conditionsFromItem(ModItems.LETTUCE))
+                .criterion(hasItem(Items.COOKED_BEEF), conditionsFromItem(Items.COOKED_BEEF))
+                .criterion(hasItem(ModItems.CHEESE), conditionsFromItem(ModItems.CHEESE))
+                .criterion(hasItem(ModItems.TORTILLA), conditionsFromItem(ModItems.TORTILLA))
+                .offerTo(exporter);
+
+        //Taco Bell
         ShapelessRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, ModBlocks.TACO_BELL.asItem(), 1)
                 .input(Ingredient.ofItems(Items.PURPLE_DYE))
                 .input(Ingredient.ofItems(Items.PINK_DYE))
@@ -398,10 +465,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.PINK_DYE), conditionsFromItem(Items.PINK_DYE))
                 .offerTo(exporter);
 
+        //Tortilla
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Items.BREAD), RecipeCategory.FOOD, ModItems.TORTILLA, 1.0f, 200)
                 .criterion(RecipeProvider.hasItem(Items.BREAD), RecipeProvider.conditionsFromItem(Items.BREAD))
                 .offerTo(exporter);
 
+        //Winter Window
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModBlocks.WINTER_WINDOW.asItem(), 4)
                 .pattern("WXW")
                 .pattern("XYX")
@@ -416,12 +485,23 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.BROWN_WOOL), conditionsFromItem(Items.BROWN_WOOL))
                 .offerTo(exporter);
 
+        //Winter Window Pane
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModBlocks.WINTER_WINDOW_PANE.asItem(), 12)
                 .pattern("   ")
                 .pattern("XXX")
                 .pattern("XXX")
                 .input('X', ModBlocks.WINTER_WINDOW.asItem())
                 .criterion(hasItem(ModBlocks.WINTER_WINDOW.asItem()), conditionsFromItem(ModBlocks.WINTER_WINDOW.asItem()))
+                .offerTo(exporter);
+
+        //Writable Book
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.WRITABLE_BOOK, 1)
+                .input(Ingredient.ofItems(Items.BOOK))
+                .input(Ingredient.ofItems(Items.INK_SAC))
+                .input(Ingredient.ofItems(ModItems.DUCK_FEATHER))
+                .criterion(hasItem(Items.BOOK), conditionsFromItem(Items.BOOK))
+                .criterion(hasItem(Items.INK_SAC), conditionsFromItem(Items.INK_SAC))
+                .criterion(hasItem(ModItems.DUCK_FEATHER), conditionsFromItem(ModItems.DUCK_FEATHER))
                 .offerTo(exporter);
     }
 }

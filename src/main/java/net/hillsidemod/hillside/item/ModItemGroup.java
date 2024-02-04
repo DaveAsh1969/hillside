@@ -68,12 +68,17 @@ public class ModItemGroup {
                         entries.add(ModItems.DOWSINGROD_COAL_COPPER);
                         entries.add(ModItems.DOWSINGROD_DIAMOND_LAPIS);
                         entries.add(ModItems.DOWSINGROD_IRON_GOLD);
+                        entries.add(ModItems.DUCK_COOKED);
                         entries.add(ModItems.DUCK_EGG);
+                        entries.add(ModItems.DUCK_FEATHER);
+                        entries.add(ModItems.DUCK_RAW);
+                        entries.add(ModItems.DUCK_ENTITY_EGG);
                         entries.add(ModBlocks.DUNGEON_DOOR);
                         entries.add(ModItems.DUNGEON_KEY);
                         entries.add(ModItems.END_MIRROR);
                         entries.add(ModBlocks.LAMP_BLOCK);
                         entries.add(ModBlocks.LAVA_BLOCK);
+                        entries.add(ModItems.LETTUCE);
                         entries.add(ModItems.LETTUCE_SEEDS);
                         entries.add(ModItems.MIRROR);
                         entries.add(ModItems.NETHER_MIRROR);

@@ -6,10 +6,7 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUsage;
-import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.*;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
@@ -23,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class NetherMirrorItem extends Item {
+public class NetherMirrorItem extends BowItem {
     private boolean bHasTeleported = false;
     private double teleportLocX = 0;
     private double teleportLocY = 0;
@@ -174,16 +171,6 @@ public class NetherMirrorItem extends Item {
         //reset used on block and return
         usedOnBlock=false;
         return stack;
-    }
-
-    @Override
-    public boolean hasGlint(ItemStack stack)
-    {
-        //use glint only when charging
-        if(this.charging)
-            return true;
-        else
-            return false;
     }
 
     @Override

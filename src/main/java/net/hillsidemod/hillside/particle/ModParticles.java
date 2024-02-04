@@ -14,10 +14,13 @@ public class ModParticles {
     public static final DefaultParticleType END_TELEPORT_PARTICLE = FabricParticleTypes.simple();
     public static final DefaultParticleType TELEPORT_PARTICLE_SMALL = FabricParticleTypes.simple();
 
+    public static final DefaultParticleType DUCK_EGG_BREAK = FabricParticleTypes.simple();
+
     public static void registerParticles() {
         Registry.register(Registries.PARTICLE_TYPE, new Identifier(Hillside.MOD_ID, "teleport_particle"), TELEPORT_PARTICLE);
         Registry.register(Registries.PARTICLE_TYPE, new Identifier(Hillside.MOD_ID, "nether_teleport_particle"), NETHER_TELEPORT_PARTICLE);
         Registry.register(Registries.PARTICLE_TYPE, new Identifier(Hillside.MOD_ID, "end_teleport_particle"), END_TELEPORT_PARTICLE);
         Registry.register(Registries.PARTICLE_TYPE, new Identifier(Hillside.MOD_ID, "teleport_particle_small"), TELEPORT_PARTICLE_SMALL);
+        Registry.register(Registries.PARTICLE_TYPE, new Identifier(Hillside.MOD_ID, "duck_egg_break"), DUCK_EGG_BREAK);
     }
 }

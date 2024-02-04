@@ -4,13 +4,16 @@ import net.hillsidemod.hillside.particle.ModParticles;
 import net.hillsidemod.hillside.sound.ModSounds;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.BowItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsage;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -25,9 +28,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class MirrorItem extends Item {
+public class MirrorItem extends BowItem {
 
     //look at properties
+
     private boolean bHasTeleported = false;
     private double teleportLocX = 0;
     private double teleportLocY = 0;
@@ -52,9 +56,9 @@ public class MirrorItem extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if(!world.isClient())
         {
-            teleportLocX = user.getX();
-            teleportLocY = user.getY();
-            teleportLocZ = user.getZ();
+            this.teleportLocX = user.getX();
+            this.teleportLocY = user.getY();
+            this.teleportLocZ = user.getZ();
         }
 
         return ItemUsage.consumeHeldItem(world,user,hand);
@@ -73,7 +77,7 @@ public class MirrorItem extends Item {
 
             if(charging) {
 
-                if(user.getX()!=teleportLocX || user.getY()!=teleportLocY || user.getZ() != teleportLocZ)
+                if(user.getX()!=this.teleportLocX || user.getY()!=this.teleportLocY || user.getZ() !=this.teleportLocZ)
                 {
                     //if the player has moved, stop process.
                     ((PlayerEntity)(user)).sendMessage(Text.literal("Stand still until you teleport"), true);
@@ -157,14 +161,6 @@ public class MirrorItem extends Item {
             charging = false;
         }
 
-    }
-
-    @Override
-    public boolean hasGlint(ItemStack stack) {
-        if(this.charging)
-            return true;
-        else
-            return false;
     }
 
     @Override

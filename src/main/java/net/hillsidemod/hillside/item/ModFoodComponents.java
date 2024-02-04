@@ -7,6 +7,9 @@ import net.minecraft.item.FoodComponent;
 public class ModFoodComponents {
     public static final FoodComponent CHEESE = (new FoodComponent.Builder()).hunger(3).saturationModifier(0.2f)
             .build();
+    public static final FoodComponent DUCK_RAW = new FoodComponent.Builder().hunger(2).saturationModifier(0.3f)
+            .statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 600, 0), 0.3f).meat().build();
+    public static final FoodComponent DUCK_COOKED = new FoodComponent.Builder().hunger(7).saturationModifier(0.7f).meat().build();
     public static final FoodComponent LETTUCE = (new FoodComponent.Builder())
             .hunger(4)
             .saturationModifier(0.4f)

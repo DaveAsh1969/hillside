@@ -491,6 +491,21 @@
 					}
 				}
 			}
+		},
+		"animation.duck.idle": {
+			"animation_length": 0.2,
+			"bones": {
+				"body": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.2": {
+							"vector": [0, 0, 0]
+						}
+					}
+				}
+			}
 		}
 	},
 	"geckolib_format_version": 2

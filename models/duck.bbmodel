@@ -32,27 +32,27 @@
 			"faces": {
 				"north": {
 					"uv": [26, 4, 30, 8],
-					"texture": 4
+					"texture": 2
 				},
 				"east": {
 					"uv": [22, 4, 26, 8],
-					"texture": 4
+					"texture": 2
 				},
 				"south": {
 					"uv": [34, 4, 38, 8],
-					"texture": 4
+					"texture": 2
 				},
 				"west": {
 					"uv": [30, 4, 34, 8],
-					"texture": 4
+					"texture": 2
 				},
 				"up": {
 					"uv": [30, 4, 26, 0],
-					"texture": 4
+					"texture": 2
 				},
 				"down": {
 					"uv": [34, 0, 30, 4],
-					"texture": 4
+					"texture": 2
 				}
 			},
 			"type": "cube",
@@ -74,27 +74,27 @@
 			"faces": {
 				"north": {
 					"uv": [23, 25, 27, 26],
-					"texture": 4
+					"texture": 2
 				},
 				"east": {
 					"uv": [21, 25, 23, 26],
-					"texture": 4
+					"texture": 2
 				},
 				"south": {
 					"uv": [29, 25, 33, 26],
-					"texture": 4
+					"texture": 2
 				},
 				"west": {
 					"uv": [27, 25, 29, 26],
-					"texture": 4
+					"texture": 2
 				},
 				"up": {
 					"uv": [27, 25, 23, 23],
-					"texture": 4
+					"texture": 2
 				},
 				"down": {
 					"uv": [31, 23, 27, 25],
-					"texture": 4
+					"texture": 2
 				}
 			},
 			"type": "cube",
@@ -115,27 +115,27 @@
 			"faces": {
 				"north": {
 					"uv": [5, 5, 11, 13],
-					"texture": 4
+					"texture": 2
 				},
 				"east": {
 					"uv": [0, 5, 5, 13],
-					"texture": 4
+					"texture": 2
 				},
 				"south": {
 					"uv": [16, 5, 22, 13],
-					"texture": 4
+					"texture": 2
 				},
 				"west": {
 					"uv": [11, 5, 16, 13],
-					"texture": 4
+					"texture": 2
 				},
 				"up": {
 					"uv": [11, 5, 5, 0],
-					"texture": 4
+					"texture": 2
 				},
 				"down": {
 					"uv": [17, 0, 11, 5],
-					"texture": 4
+					"texture": 2
 				}
 			},
 			"type": "cube",
@@ -157,27 +157,27 @@
 			"faces": {
 				"north": {
 					"uv": [20, 19, 21, 23],
-					"texture": 4
+					"texture": 2
 				},
 				"east": {
 					"uv": [14, 19, 20, 23],
-					"texture": 4
+					"texture": 2
 				},
 				"south": {
 					"uv": [27, 19, 28, 23],
-					"texture": 4
+					"texture": 2
 				},
 				"west": {
 					"uv": [21, 19, 27, 23],
-					"texture": 4
+					"texture": 2
 				},
 				"up": {
 					"uv": [21, 19, 20, 13],
-					"texture": 4
+					"texture": 2
 				},
 				"down": {
 					"uv": [22, 13, 21, 19],
-					"texture": 4
+					"texture": 2
 				}
 			},
 			"type": "cube",
@@ -199,27 +199,27 @@
 			"faces": {
 				"north": {
 					"uv": [6, 19, 7, 23],
-					"texture": 4
+					"texture": 2
 				},
 				"east": {
 					"uv": [0, 19, 6, 23],
-					"texture": 4
+					"texture": 2
 				},
 				"south": {
 					"uv": [13, 19, 14, 23],
-					"texture": 4
+					"texture": 2
 				},
 				"west": {
 					"uv": [7, 19, 13, 23],
-					"texture": 4
+					"texture": 2
 				},
 				"up": {
 					"uv": [7, 19, 6, 13],
-					"texture": 4
+					"texture": 2
 				},
 				"down": {
 					"uv": [8, 13, 7, 19],
-					"texture": 4
+					"texture": 2
 				}
 			},
 			"type": "cube",
@@ -241,27 +241,27 @@
 			"faces": {
 				"north": {
 					"uv": [1, 14, 2, 17],
-					"texture": 4
+					"texture": 2
 				},
 				"east": {
 					"uv": [0, 14, 1, 17],
-					"texture": 4
+					"texture": 2
 				},
 				"south": {
 					"uv": [3, 14, 4, 17],
-					"texture": 4
+					"texture": 2
 				},
 				"west": {
 					"uv": [2, 14, 3, 17],
-					"texture": 4
+					"texture": 2
 				},
 				"up": {
 					"uv": [2, 14, 1, 13],
-					"texture": 4
+					"texture": 2
 				},
 				"down": {
 					"uv": [3, 13, 2, 14],
-					"texture": 4
+					"texture": 2
 				}
 			},
 			"type": "cube",
@@ -282,27 +282,27 @@
 			"faces": {
 				"north": {
 					"uv": [1, 1, 2, 4],
-					"texture": 4
+					"texture": 2
 				},
 				"east": {
 					"uv": [0, 1, 1, 4],
-					"texture": 4
+					"texture": 2
 				},
 				"south": {
 					"uv": [3, 1, 4, 4],
-					"texture": 4
+					"texture": 2
 				},
 				"west": {
 					"uv": [2, 1, 3, 4],
-					"texture": 4
+					"texture": 2
 				},
 				"up": {
 					"uv": [2, 1, 1, 0],
-					"texture": 4
+					"texture": 2
 				},
 				"down": {
 					"uv": [3, 0, 2, 1],
-					"texture": 4
+					"texture": 2
 				}
 			},
 			"type": "cube",
@@ -324,27 +324,27 @@
 			"faces": {
 				"north": {
 					"uv": [3, 26, 6, 28],
-					"texture": 4
+					"texture": 2
 				},
 				"east": {
 					"uv": [0, 26, 3, 28],
-					"texture": 4
+					"texture": 2
 				},
 				"south": {
 					"uv": [9, 26, 12, 28],
-					"texture": 4
+					"texture": 2
 				},
 				"west": {
 					"uv": [6, 26, 9, 28],
-					"texture": 4
+					"texture": 2
 				},
 				"up": {
 					"uv": [6, 26, 3, 23],
-					"texture": 4
+					"texture": 2
 				},
 				"down": {
 					"uv": [9, 23, 6, 26],
-					"texture": 4
+					"texture": 2
 				}
 			},
 			"type": "cube",
@@ -366,27 +366,27 @@
 			"faces": {
 				"north": {
 					"uv": [11, 16, 14, 18],
-					"texture": 4
+					"texture": 2
 				},
 				"east": {
 					"uv": [8, 16, 11, 18],
-					"texture": 4
+					"texture": 2
 				},
 				"south": {
 					"uv": [17, 16, 20, 18],
-					"texture": 4
+					"texture": 2
 				},
 				"west": {
 					"uv": [14, 16, 17, 18],
-					"texture": 4
+					"texture": 2
 				},
 				"up": {
 					"uv": [14, 16, 11, 13],
-					"texture": 4
+					"texture": 2
 				},
 				"down": {
 					"uv": [17, 13, 14, 16],
-					"texture": 4
+					"texture": 2
 				}
 			},
 			"type": "cube",
@@ -409,27 +409,27 @@
 			"faces": {
 				"north": {
 					"uv": [26, 12, 30, 13],
-					"texture": 4
+					"texture": 2
 				},
 				"east": {
 					"uv": [22, 12, 26, 13],
-					"texture": 4
+					"texture": 2
 				},
 				"south": {
 					"uv": [34, 12, 38, 13],
-					"texture": 4
+					"texture": 2
 				},
 				"west": {
 					"uv": [30, 12, 34, 13],
-					"texture": 4
+					"texture": 2
 				},
 				"up": {
 					"uv": [30, 12, 26, 8],
-					"texture": 4
+					"texture": 2
 				},
 				"down": {
 					"uv": [34, 8, 30, 12],
-					"texture": 4
+					"texture": 2
 				}
 			},
 			"type": "cube",
@@ -451,27 +451,27 @@
 			"faces": {
 				"north": {
 					"uv": [11, 25, 15, 26],
-					"texture": 4
+					"texture": 2
 				},
 				"east": {
 					"uv": [9, 25, 11, 26],
-					"texture": 4
+					"texture": 2
 				},
 				"south": {
 					"uv": [17, 25, 21, 26],
-					"texture": 4
+					"texture": 2
 				},
 				"west": {
 					"uv": [15, 25, 17, 26],
-					"texture": 4
+					"texture": 2
 				},
 				"up": {
 					"uv": [15, 25, 11, 23],
-					"texture": 4
+					"texture": 2
 				},
 				"down": {
 					"uv": [19, 23, 15, 25],
-					"texture": 4
+					"texture": 2
 				}
 			},
 			"type": "cube",
@@ -493,27 +493,27 @@
 			"faces": {
 				"north": {
 					"uv": [25, 16, 29, 17],
-					"texture": 4
+					"texture": 2
 				},
 				"east": {
 					"uv": [22, 16, 25, 17],
-					"texture": 4
+					"texture": 2
 				},
 				"south": {
 					"uv": [32, 16, 36, 17],
-					"texture": 4
+					"texture": 2
 				},
 				"west": {
 					"uv": [29, 16, 32, 17],
-					"texture": 4
+					"texture": 2
 				},
 				"up": {
 					"uv": [29, 16, 25, 13],
-					"texture": 4
+					"texture": 2
 				},
 				"down": {
 					"uv": [33, 13, 29, 16],
-					"texture": 4
+					"texture": 2
 				}
 			},
 			"type": "cube",
@@ -2102,7 +2102,7 @@
 			"override": false,
 			"length": 1,
 			"snapping": 24,
-			"selected": true,
+			"selected": false,
 			"saved": true,
 			"path": "C:\\Users\\austi\\Desktop\\Minecraft Mod\\Fabric\\hillside\\src\\main\\resources\\assets\\hillsidemod\\animations\\duck.animation.json",
 			"anim_time_update": "",
@@ -3339,6 +3339,67 @@
 							],
 							"uuid": "c426b2ff-2f92-4e37-a9df-9c63c8882aa6",
 							"time": 0.6,
+							"color": -1,
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
+						}
+					]
+				}
+			}
+		},
+		{
+			"uuid": "68aa1d8c-9dcb-4f9f-1c0a-03ff5b31f21d",
+			"name": "animation.duck.idle",
+			"loop": "once",
+			"override": false,
+			"length": 0.2,
+			"snapping": 25,
+			"selected": true,
+			"saved": true,
+			"path": "C:\\Users\\austi\\Desktop\\Minecraft Mod\\Fabric\\hillside\\src\\main\\resources\\assets\\hillsidemod\\animations\\duck.animation.json",
+			"anim_time_update": "",
+			"blend_weight": "",
+			"start_delay": "",
+			"loop_delay": "",
+			"animators": {
+				"1b313729-a9d7-db82-6298-2db4bb68bdc0": {
+					"name": "body",
+					"type": "bone",
+					"keyframes": [
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": "0",
+									"y": "0",
+									"z": "0"
+								}
+							],
+							"uuid": "a059b4a2-b07f-d371-c697-8ce40430cb11",
+							"time": 0,
+							"color": -1,
+							"interpolation": "linear",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
+						},
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": 0,
+									"y": 0,
+									"z": 0
+								}
+							],
+							"uuid": "b0475d3c-7bce-7cc9-ebf6-2b0b555660f9",
+							"time": 0.2,
 							"color": -1,
 							"interpolation": "linear",
 							"bezier_linked": true,

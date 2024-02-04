@@ -23,7 +23,7 @@ public class DuckEggItem extends EggItem {
         world.playSound((PlayerEntity)null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_EGG_THROW, SoundCategory.PLAYERS, 0.5F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!world.isClient) {
 
-            DuckEggEntity eggEntity = new DuckEggEntity(world, user);
+            DuckEggEntity eggEntity = new DuckEggEntity(user, world);
             eggEntity.setItem(itemStack);
             eggEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 1.0F);
             world.spawnEntity(eggEntity);

@@ -26,8 +26,16 @@ public class ModItems {
             new DowsingRodItem_Diamond_Lapis(new FabricItemSettings().maxDamage(300)));
     public static final Item DOWSINGROD_IRON_GOLD = registerItem("dowsing_rod_iron_gold",
             new DowsingRodItem_Iron_Gold(new FabricItemSettings().maxDamage(255)));
+    public static final Item DUCK_RAW = registerItem("duck_raw",
+            new Item(new FabricItemSettings().food(ModFoodComponents.DUCK_RAW).maxCount(64)));
+    public static final Item DUCK_COOKED = registerItem("duck_cooked",
+            new Item(new FabricItemSettings().food(ModFoodComponents.DUCK_COOKED).maxCount(64)));
     public static final Item DUCK_EGG = registerItem("duck_egg",
             new DuckEggItem(new FabricItemSettings().maxCount(64)));
+    public static final Item DUCK_FEATHER = registerItem("duck_feather",
+            new Item(new FabricItemSettings().maxCount(64)));
+    public static final Item DUCK_ENTITY_EGG = registerItem("duck_entity_egg",
+            new SpawnEggItem(ModEntities.DUCK, 0x064439, 0xbcbec4, new FabricItemSettings()));
     public static final Item DUNGEON_KEY = registerItem("dungeon_key",
             new Item(new FabricItemSettings().maxCount(1)));
     public static final Item LETTUCE = registerItem("lettuce",
