@@ -9,6 +9,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.hillsidemod.hillside.block.ModBlocks;
 import net.hillsidemod.hillside.block.entity.ModBlockEntities;
 import net.hillsidemod.hillside.block.entity.client.TacoBellRenderer;
+import net.hillsidemod.hillside.block.entity.client.TrollHeadRenderer;
 import net.hillsidemod.hillside.entity.ModEntities;
 import net.hillsidemod.hillside.entity.client.*;
 import net.hillsidemod.hillside.particle.ModParticles;
@@ -48,6 +49,8 @@ public class HillsideModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.TROLL_ENTITY, TrollRenderer::new);
         //BlockEntityRendererRegistry.register(ModBlockEntities.TACO_BELL_ENTITY, TacoBellRenderer::new);
         BlockEntityRendererFactories.register(ModBlockEntities.TACO_BELL_ENTITY, TacoBellRenderer::new);
+        BlockEntityRendererFactories.register(ModBlockEntities.TROLL_HEAD_ENTITY, TrollHeadRenderer::new);
+
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.CHRISTMAS_TREE, ChristmasTreeModel::getTexturedModelData);
         ParticleFactoryRegistry.getInstance().register(ModParticles.TELEPORT_PARTICLE, TeleportParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.TELEPORT_PARTICLE_SMALL, TeleportParticleSmall.Factory::new);

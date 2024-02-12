@@ -35,7 +35,7 @@ public class ModEntities {
     public static final EntityType<TrollEntity> TROLL_ENTITY = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(Hillside.MOD_ID, "troll"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, TrollEntity::new)
-                    .dimensions(EntityDimensions.fixed(1f, 3f)).build());
+                    .dimensions(EntityDimensions.fixed(3f, 6f)).build());
 
     /*public static final EntityType<EggEntity> EGG = EntityType.register("egg", Builder.create(EggEntity::new,
     SpawnGroup.MISC).setDimensions(0.25f, 0.25f).maxTrackingRange(4).trackingTickInterval(10));*/

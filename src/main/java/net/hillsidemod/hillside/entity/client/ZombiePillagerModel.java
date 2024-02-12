@@ -17,7 +17,7 @@ import software.bernie.geckolib.model.data.EntityModelData;
 public class ZombiePillagerModel extends GeoModel<ZombiePillagerEntity> {
 	@Override
 	public Identifier getModelResource(ZombiePillagerEntity animatable) {
-		return new Identifier(Hillside.MOD_ID, "geo/troll.geo.json");
+		return new Identifier(Hillside.MOD_ID, "geo/zombie_pillager.geo.json");
 	}
 
 	@Override

@@ -28,6 +28,6 @@ public final class ModEntityAnimations {
     public static final RawAnimation TROLL_ATTACK = RawAnimation.begin().thenPlay("animation.troll.attack");
     public static final RawAnimation TROLL_POUND = RawAnimation.begin().thenPlay("animation.troll.pound");
     public static final RawAnimation TROLL_ARMTAP = RawAnimation.begin().thenPlay("animation.troll.armtap");
-    public static final RawAnimation TROLL_CLUBTOSS = RawAnimation.begin().thenPlay("animation.troll.nod");
+    public static final RawAnimation TROLL_CLUBTOSS = RawAnimation.begin().thenPlay("animation.troll.clubtoss");
     public static final RawAnimation TROLL_BREATHE = RawAnimation.begin().thenPlay("animation.troll.breathe");
 }

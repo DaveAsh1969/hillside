@@ -176,16 +176,6 @@ public class EndMirrorItem extends Item {
     }
 
     @Override
-    public boolean hasGlint(ItemStack stack)
-    {
-        //use glint only when charging
-        if(this.charging)
-            return true;
-        else
-            return false;
-    }
-
-    @Override
     public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks)
     {
             if(bHasTeleported && user.isPlayer())

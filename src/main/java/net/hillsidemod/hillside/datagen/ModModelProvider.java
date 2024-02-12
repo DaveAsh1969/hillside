@@ -82,10 +82,11 @@ public class ModModelProvider extends FabricModelProvider {
     }
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        itemModelGenerator.register(ModItems.DUCK_COOKED, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.DECAYING_FLESH, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DUCK_COOKED, Models.GENERATED);
         itemModelGenerator.register(ModItems.DUCK_EGG, Models.GENERATED);
         itemModelGenerator.register(ModItems.DUCK_FEATHER, Models.GENERATED);
-        itemModelGenerator.register(ModItems.DUCK_RAW, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.DUCK_RAW, Models.GENERATED);
         itemModelGenerator.register(ModItems.RUBY, Models.GENERATED);
         itemModelGenerator.register(ModItems.RUBY_PICKAXE, Models.HANDHELD);
 

@@ -3,6 +3,7 @@ package net.hillsidemod.hillside.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.hillsidemod.hillside.entity.ModEntities;
+import net.hillsidemod.hillside.world.gen.ModEntityGeneration;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.EntityTypeTags;
 
@@ -16,6 +17,7 @@ public class ModEntityTypeTagProvider extends FabricTagProvider.EntityTypeTagPro
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
         getOrCreateTagBuilder(EntityTypeTags.FALL_DAMAGE_IMMUNE)
-                .add(ModEntities.DUCK);
+                .add(ModEntities.DUCK)
+                .add(ModEntities.TROLL_ENTITY);
     }
 }

@@ -7,6 +7,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.block.enums.Attachment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
@@ -15,6 +16,7 @@ import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.stat.Stats;
 import net.minecraft.state.StateManager;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
@@ -36,10 +38,11 @@ import java.util.stream.Stream;
 
 public class TacoBellBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
+    public static final BooleanProperty GIVE_TACO = BooleanProperty.of("give_taco");
 
     public TacoBellBlock(Settings settings) {
         super(settings);
-
+        this.setDefaultState(this.getDefaultState().with(GIVE_TACO, false));
     }
     private static final VoxelShape SHAPE_N = Stream.of(
             //body
@@ -138,8 +141,15 @@ public class TacoBellBlock extends BlockWithEntity implements BlockEntityProvide
     @Nullable
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        //return this.getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite());
-        return this.getDefaultState().with(FACING, ctx.getPlayerLookDirection().getOpposite());
+        Direction direction = ctx.getSide();
+        BlockPos blockPos = ctx.getBlockPos();
+        World world = ctx.getWorld();
+        Direction.Axis axis = direction.getAxis();
+        if (direction == Direction.DOWN || direction == Direction.UP) {
+            return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
+        } else {
+            return this.getDefaultState().with(FACING, ctx.getPlayerLookDirection().getOpposite());
+        }
     }
 
     //method not found in bell block, in Abstract Block
@@ -154,10 +164,11 @@ public class TacoBellBlock extends BlockWithEntity implements BlockEntityProvide
         return state.rotate(mirror.getRotation(state.get(FACING)));
     }
 
-    //slightly different but both look like they work
     @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder)
+    {
         builder.add(FACING);
+        builder.add(GIVE_TACO);
     }
 
     //confirmed
@@ -184,19 +195,6 @@ public class TacoBellBlock extends BlockWithEntity implements BlockEntityProvide
             return false;
         }
     }
-        /*boolean bl;
-        Direction direction = hitResult.getSide();
-        BlockPos blockPos = hitResult.getBlockPos();
-        boolean bl2 = bl = !checkHitPos || this.isPointOnBell(state, direction, hitResult.getPos().y - (double)blockPos.getY());
-        if (bl) {
-            boolean bl22 = this.ring(player, world, blockPos, direction);
-            if (bl22 && player != null) {
-                player.incrementStat(Stats.BELL_RING);
-            }
-            return true;
-        }
-        return false;
-    }*/
 
     //different than new code
     private boolean isPointOnBell(BlockState state, Direction side, double y) {
@@ -205,7 +203,6 @@ public class TacoBellBlock extends BlockWithEntity implements BlockEntityProvide
         }
         Direction direction = state.get(FACING);
         return direction.getAxis() == side.getAxis();
-
     }
 
     public boolean ring(@Nullable Entity entity, World world, BlockPos pos, @Nullable Direction direction) {
@@ -233,4 +230,5 @@ public class TacoBellBlock extends BlockWithEntity implements BlockEntityProvide
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         return checkType(type, ModBlockEntities.TACO_BELL_ENTITY, TacoBellBlockEntity::tick);
     }
+
 }

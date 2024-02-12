@@ -5,22 +5,24 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import software.bernie.geckolib.animatable.GeoBlockEntity;
-import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
 
+import static net.hillsidemod.hillside.block.custom.TacoBellBlock.GIVE_TACO;
+
 public class TacoBellBlockEntity extends BlockEntity implements GeoBlockEntity {
     private final AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
-    public Direction lastSideHit;
-    private static boolean giveTaco;
 
+
+    public Direction lastSideHit;
     public boolean ringing;
     public ringType ringDirection;
 
@@ -33,8 +35,6 @@ public class TacoBellBlockEntity extends BlockEntity implements GeoBlockEntity {
         super(ModBlockEntities.TACO_BELL_ENTITY, pos, state);
         ringing=false;
         ringDirection = ringType.SOUTH;
-        giveTaco = false;
-
     }
 
     @Override
@@ -97,13 +97,15 @@ public class TacoBellBlockEntity extends BlockEntity implements GeoBlockEntity {
         }
 
         this.ringing = true;
+        if(!world.isClient())
+        {
+            if(world.getBlockState(blockPos).get(GIVE_TACO)) {
 
-        if(giveTaco) {
-            player.giveItemStack(new ItemStack(ModItems.TACO));
-            player.sendMessage(Text.literal("Enjoy your taco! Come back tomorrow!"));
-            giveTaco=false;
+                player.giveItemStack(new ItemStack(ModItems.TACO));
+                player.sendMessage(Text.literal("Enjoy your taco! Come back tomorrow!"), true);
+                world.setBlockState(blockPos, world.getBlockState(blockPos).with(GIVE_TACO, false));
+            }
         }
-
     }
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
@@ -111,9 +113,12 @@ public class TacoBellBlockEntity extends BlockEntity implements GeoBlockEntity {
     }
 
     public static void tick(World world, BlockPos pos, BlockState state, TacoBellBlockEntity entity) {
-        if(world.getTimeOfDay() > 6000 & world.getTimeOfDay() < 6005 && !giveTaco)
+        if(!world.isClient())
         {
-            giveTaco=true;
+            if(world.getTimeOfDay() > 6000 & world.getTimeOfDay() < 6010 && !world.getBlockState(pos).get(GIVE_TACO))
+            {
+                world.setBlockState(pos, state.with(GIVE_TACO,true));
+            }
         }
     }
 }

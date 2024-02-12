@@ -1,18 +1,20 @@
 package net.hillsidemod.hillside.entity.client;
 
 import net.hillsidemod.hillside.Hillside;
-import net.hillsidemod.hillside.entity.custom.DecayingZombieEntity;
 import net.hillsidemod.hillside.entity.custom.ZombiePillagerEntity;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
+import software.bernie.geckolib.renderer.layer.AutoGlowingGeoLayer;
 
 public class ZombiePillagerRenderer extends GeoEntityRenderer<ZombiePillagerEntity>
 {
     public ZombiePillagerRenderer(EntityRendererFactory.Context renderManager) {
         super(renderManager, new ZombiePillagerModel());
+
+        addRenderLayer(new AutoGlowingGeoLayer<>(this));
     }
 
     @Override

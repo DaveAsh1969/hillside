@@ -16,6 +16,8 @@ import net.minecraft.util.Identifier;
 public class ModItems {
     public static final Item CHEESE = registerItem("cheese",
             new Item(new FabricItemSettings().food(ModFoodComponents.CHEESE).maxCount(64)));
+    public static final Item DECAYING_FLESH = registerItem("decaying_flesh",
+            new Item(new FabricItemSettings().food(ModFoodComponents.DECAYING_FLESH).maxCount(64)));
     public static final Item DECAYING_ZOMBIE_EGG = registerItem("decaying_zombie_egg",
             new SpawnEggItem(ModEntities.DECAYING_ZOMBIE, 0x805e6a, 0x6f965c, new FabricItemSettings()));
     public static final Item DOWSINGROD_ANCIENT_DEBRIS = registerItem("dowsing_rod_ancient_debris",

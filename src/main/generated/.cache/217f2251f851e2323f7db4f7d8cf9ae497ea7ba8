@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-03T10:29:47.0152708	Hillside Mod/Recipes
+// 1.20.1	2024-02-09T16:45:53.7803613	Hillside Mod/Recipes
 ede7b7002729f2b1df4b5ee2459158517040a402 data\hillside\advancements\recipes\decorations\green_dye.json
 79dc9671316237efd391d2dd27d95089407d6d85 data\hillside\advancements\recipes\decorations\light_gray_dye.json
 dc0f87d9c79f16154d84b14f7899a4e5e8e97685 data\hillside\advancements\recipes\building_blocks\brick_tan_wall.json
@@ -107,8 +107,8 @@ f5226ac94730073e9d80a1be9ce19eae42f3b33c data\hillside\advancements\recipes\tool
 8294c221f984a7f0e62b993e91a4e4ba389c5ae5 data\hillside\advancements\recipes\decorations\magenta_dye.json
 00d953364bb00c8eb6907bcdc329263637ee9bce data\hillside\advancements\recipes\building_blocks\brick_black_pressure_plate.json
 017a15abcaf63221ee22c805c46a89dfc1b5b435 data\hillside\recipes\yellow_dye.json
-cbc1101001208987f7c5468d7514703326e65f00 data\hillside\advancements\recipes\tools\dowsing_rod_diamond_lapis.json
 064bdb3dd0d4cf07d1bf81f3ebf225c214d60c86 data\hillside\advancements\recipes\tools\dowsing_rod_iron_gold.json
+cbc1101001208987f7c5468d7514703326e65f00 data\hillside\advancements\recipes\tools\dowsing_rod_diamond_lapis.json
 52caed26a951d4e28072ef0f39ab93fecb5df432 data\hillside\advancements\recipes\building_blocks\brick_tan_pressure_plate.json
 c210a062e03c59165809db0eeeb8d451281df657 data\hillside\advancements\recipes\tools\winter_window.json
 fb0b6b35b43a116247254f63da8e00633ade69bf data\hillside\recipes\brick_black_slab.json

@@ -17,10 +17,13 @@ import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import software.bernie.geckolib.animatable.GeoEntity;
@@ -34,6 +37,7 @@ import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Predicate;
 
 public class TrollEntity extends HostileEntity implements GeoEntity {
@@ -54,12 +58,24 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
     public static DefaultAttributeContainer.Builder createTrollAttributes() {
         return HostileEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 90.0D)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 30.0f)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 20.0f)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED, 1.0f)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.4f)
                 .add(EntityAttributes.GENERIC_ARMOR_TOUGHNESS, 1.5f)
                 .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 12.0f)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 40f);
+    }
+
+    @Override
+    public void checkDespawn() {
+        if (this.getWorld().getDifficulty() == Difficulty.PEACEFUL && this.isDisallowedInPeaceful()) {
+            this.discard();
+            return;
+        }
+        if(this.isAlive())
+            this.despawnCounter = 0;
+        else
+            this.discard();
     }
 
     @Override
@@ -120,7 +136,7 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
 
     private void resetHeartTick()
     {
-        heartTick = 600 + Random.create().nextBetween(1,100);
+        heartTick = 200 + Random.create().nextBetween(1,100);
     }
     public void setTargetInRange(LivingEntity potentialTarget) {
         if(potentialTarget!=null)
@@ -193,11 +209,13 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
 
     private <T extends GeoAnimatable>PlayState characterPredicate(AnimationState<T> tAnimationState)
     {
+        tAnimationState.getController().setAnimationSpeed(0.6D);
+
         //-------------------------------------------------------------------------------------------------------------------------
         //-----animations that interrupt playing animations, this routine assumes no animation loops. -----------------------------
         //-------------------------------------------------------------------------------------------------------------------------
         //if this is attacking and the state is stopped and the attack animation isn't playing, immediately stop the state so the main code can take effect
-        if(this.handSwinging &&
+        if(getTargetInRange() &&
                 tAnimationState.getController().getAnimationState() != AnimationController.State.STOPPED &&
                 !tAnimationState.isCurrentAnimation(ModEntityAnimations.TROLL_ATTACK))
         {
@@ -206,7 +224,7 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
         }
 
         //if the player is in the middle of an idle animation and is not attacking, but starts moving, stop the state so the main code below can take effect.
-        if(!this.handSwinging &&
+        if(!getTargetInRange() &&
                 !tAnimationState.isCurrentAnimation(ModEntityAnimations.TROLL_WALK) &&
                 tAnimationState.isMoving() &&
                 tAnimationState.getController().getAnimationState() != AnimationController.State.STOPPED)
@@ -215,31 +233,42 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
             return PlayState.STOP;
         }
 
+        //if the walking animation is playing but the zombie is idle and not attacking, stop the animation
+        //for the main code to take effect
+        if(!tAnimationState.isMoving()
+                && tAnimationState.isCurrentAnimation(ModEntityAnimations.TROLL_WALK)
+                && !tAnimationState.isCurrentAnimation(ModEntityAnimations.TROLL_ATTACK)
+                && tAnimationState.getController().getAnimationState() != AnimationController.State.STOPPED)
+            return PlayState.STOP;
+
         //------------------------------
         //-----Main Animation Logic-----
         //------------------------------
-        //if animations is complete, play new animation
+        //if animations is complete or stopped, play new animation
         if (tAnimationState.getController().hasAnimationFinished() || tAnimationState.getController().getAnimationState() == AnimationController.State.STOPPED)
         {
             //reset the animation queue
             tAnimationState.getController().forceAnimationReset();
 
-            //this defaults to attack if the entity is moving but has the ability to attack.
-            if(tAnimationState.isMoving() && getTargetInRange())
+            //this defaults to attack if attacking.
+            if(getTargetInRange() || this.handSwinging)
             {
                 tAnimationState.getController().setAnimation(ModEntityAnimations.TROLL_ATTACK);
             }
-            //if the entity is in range of the target that is acquired
-            else if(!tAnimationState.isMoving() && getTargetInRange())
-            {
-                tAnimationState.getController().setAnimation(ModEntityAnimations.TROLL_ATTACK);
-            }
-            //if it's just moving
-            else if(tAnimationState.isMoving())
+
+            else if(tAnimationState.isMoving() || this.isAttacking())
                 tAnimationState.getController().setAnimation(ModEntityAnimations.TROLL_WALK);
-                //if nothing else is happening, the entity is idle
+
+            //if nothing is happening, the entity is idle
             else
+            {
                 tAnimationState.getController().setAnimation(getIdleAnimation());
+
+                //if animation is yawn, play growl sound
+                if(tAnimationState.getController().getCurrentAnimation() != null)
+                    if (tAnimationState.getController().getCurrentRawAnimation() == ModEntityAnimations.TROLL_YAWN)
+                        this.getWorld().playSound(this.getX(), this.getY(), this.getZ(), ModSounds.TROLL_SAY, SoundCategory.HOSTILE, 0.7f, 1f, true);
+            }
         }
         return PlayState.CONTINUE;
     }
@@ -248,15 +277,15 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
     {
         //random number determines idle animation. Breathe almost all the time, but varies.
         int randomIdlePlayNumber = Random.create().nextBetween(0, 1000);
-        if (randomIdlePlayNumber > 200 && randomIdlePlayNumber < 210)
+        if (randomIdlePlayNumber > 200 && randomIdlePlayNumber < 225)
             return ModEntityAnimations.TROLL_CLUBTOSS;
-        else if(randomIdlePlayNumber > 300 && randomIdlePlayNumber <310)
+        else if(randomIdlePlayNumber > 300 && randomIdlePlayNumber <325)
             return ModEntityAnimations.TROLL_FOOTTAP;
-        else if(randomIdlePlayNumber > 400 && randomIdlePlayNumber <410)
+        else if(randomIdlePlayNumber > 400 && randomIdlePlayNumber <425)
             return ModEntityAnimations.TROLL_NOD;
-        else if(randomIdlePlayNumber > 500 && randomIdlePlayNumber <510)
+        else if(randomIdlePlayNumber > 500 && randomIdlePlayNumber <525)
             return ModEntityAnimations.TROLL_YAWN;
-        else if(randomIdlePlayNumber > 600 && randomIdlePlayNumber <610)
+        else if(randomIdlePlayNumber > 600 && randomIdlePlayNumber <625)
             return ModEntityAnimations.TROLL_ARMTAP;
         else
             return ModEntityAnimations.TROLL_BREATHE;

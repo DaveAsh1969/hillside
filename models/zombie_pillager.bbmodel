@@ -106,48 +106,6 @@
 			"locked": false,
 			"render_order": "default",
 			"allow_mirror_modeling": true,
-			"from": [-4, 12, -3],
-			"to": [4, 24, 3],
-			"autouv": 0,
-			"color": 1,
-			"origin": [0, 0, 0],
-			"uv_offset": [16, 20],
-			"faces": {
-				"north": {
-					"uv": [22, 26, 30, 38],
-					"texture": 0
-				},
-				"east": {
-					"uv": [16, 26, 22, 38],
-					"texture": 0
-				},
-				"south": {
-					"uv": [36, 26, 44, 38],
-					"texture": 0
-				},
-				"west": {
-					"uv": [30, 26, 36, 38],
-					"texture": 0
-				},
-				"up": {
-					"uv": [30, 26, 22, 20],
-					"texture": 0
-				},
-				"down": {
-					"uv": [38, 20, 30, 26],
-					"texture": 0
-				}
-			},
-			"type": "cube",
-			"uuid": "1ebce081-569a-e6ff-7493-414c0702333d"
-		},
-		{
-			"name": "body",
-			"box_uv": true,
-			"rescale": false,
-			"locked": false,
-			"render_order": "default",
-			"allow_mirror_modeling": true,
 			"from": [-4, 6, -3],
 			"to": [4, 24, 3],
 			"autouv": 0,
@@ -369,7 +327,6 @@
 			"visibility": true,
 			"autouv": 0,
 			"children": [
-				"1ebce081-569a-e6ff-7493-414c0702333d",
 				"5a81abe2-0d6c-66b5-3d5d-4e3092bb0c91",
 				{
 					"name": "head",
@@ -948,7 +905,7 @@
 							"channel": "rotation",
 							"data_points": [
 								{
-									"x": -87.5,
+									"x": "-82.5\n",
 									"y": "0",
 									"z": "0"
 								}
@@ -1005,7 +962,7 @@
 							"channel": "rotation",
 							"data_points": [
 								{
-									"x": -87.5,
+									"x": "-82.5\n",
 									"y": "0",
 									"z": "0"
 								}
@@ -3258,8 +3215,8 @@
 			"override": false,
 			"length": 0.52,
 			"snapping": 25,
-			"selected": true,
-			"saved": false,
+			"selected": false,
+			"saved": true,
 			"path": "C:\\Users\\austi\\Desktop\\Minecraft Mod\\Fabric\\hillside\\src\\main\\resources\\assets\\hillsidemod\\animations\\zombie_pillager.animation.json",
 			"anim_time_update": "",
 			"blend_weight": "",
@@ -4318,7 +4275,7 @@
 			"override": false,
 			"length": 1,
 			"snapping": 25,
-			"selected": false,
+			"selected": true,
 			"saved": true,
 			"path": "C:\\Users\\austi\\Desktop\\Minecraft Mod\\Fabric\\hillside\\src\\main\\resources\\assets\\hillsidemod\\animations\\zombie_pillager.animation.json",
 			"anim_time_update": "",

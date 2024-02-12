@@ -64,6 +64,7 @@ public class ModItemGroup {
                         entries.add(ModBlocks.BRICK_WHITE_WALL);
                         entries.add(ModItems.CHEESE);
                         entries.add(ModItems.DECAYING_ZOMBIE_EGG);
+                        entries.add(ModItems.DECAYING_FLESH);
                         entries.add(ModItems.DOWSINGROD_ANCIENT_DEBRIS);
                         entries.add(ModItems.DOWSINGROD_COAL_COPPER);
                         entries.add(ModItems.DOWSINGROD_DIAMOND_LAPIS);

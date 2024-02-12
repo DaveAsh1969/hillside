@@ -48,6 +48,7 @@ public class NetherMirrorItem extends BowItem {
     public ActionResult useOnBlock(ItemUsageContext context) {
         World world = context.getWorld();
         PlayerEntity user = context.getPlayer();
+
         if(!world.isClient()) {
             if (!world.getDimensionKey().getValue().equals(DimensionTypes.THE_NETHER_ID))
             {
@@ -70,6 +71,8 @@ public class NetherMirrorItem extends BowItem {
         }
 
         user.playSound(SoundEvents.BLOCK_AMETHYST_CLUSTER_STEP, 1.0f, 1.0f);
+
+
         return ActionResult.FAIL;
     }
 

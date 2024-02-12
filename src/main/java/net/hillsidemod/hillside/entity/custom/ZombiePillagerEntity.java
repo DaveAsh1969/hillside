@@ -123,6 +123,7 @@ public class ZombiePillagerEntity extends ZombieEntity implements GeoEntity {
     }
 
     private <T extends GeoAnimatable> PlayState characterPredicate(AnimationState<T> tAnimationState) {
+//      //INTERRUPT ANIMATIONS BASED ON STATE----
         //if this is attacking and the state is stopped and the attack animation isn't playing, immediately stop the state so the main code can take effect
         if(this.handSwinging &&
                 tAnimationState.getController().getAnimationState() != AnimationController.State.STOPPED &&
@@ -136,7 +137,15 @@ public class ZombiePillagerEntity extends ZombieEntity implements GeoEntity {
                 tAnimationState.getController().getAnimationState() != AnimationController.State.STOPPED)
              return  PlayState.STOP;
 
-        //main code----
+        //if the walking animation is playing but the zombie is idle and not attacking, stop the animation
+        //for the main code to take effect
+        if(!tAnimationState.isMoving()
+                && tAnimationState.isCurrentAnimation(ModEntityAnimations.ZOMBIE_PILLAGER_WALK)
+                && !tAnimationState.isCurrentAnimation(ModEntityAnimations.ZOMBIE_PILLAGER_ATTACK))
+            return PlayState.STOP;
+
+        //MAIN ANIMATION CODE----
+        //If the animation is done or stopped, reset animation
         if (tAnimationState.getController().hasAnimationFinished() || tAnimationState.getController().getAnimationState() == AnimationController.State.STOPPED)
         {
             //reset the animation queue
@@ -159,10 +168,9 @@ public class ZombiePillagerEntity extends ZombieEntity implements GeoEntity {
             else
                 tAnimationState.getController().setAnimation(getIdleAnimation());
         }
-        //reset the animation and play
+        //play the selected animation
         return PlayState.CONTINUE;
 }
-
     private RawAnimation getIdleAnimation()
     {
         //random number determines idle animation. Still almost all the time, every now and then it stretches and shifts breathing pattern.
