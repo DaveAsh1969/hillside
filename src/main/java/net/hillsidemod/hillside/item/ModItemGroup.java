@@ -89,6 +89,7 @@ public class ModItemGroup {
                         entries.add(ModItems.STAR_COMPASS);
                         entries.add(ModItems.TACO);
                         entries.add(ModItems.TACO_BELL_ITEM);
+                        entries.add(ModItems.TROLL_HEAD_ITEM);
                         entries.add(ModItems.TORTILLA);
                         entries.add(ModItems.TROLL_EGG);
                         entries.add(ModBlocks.WINTER_WINDOW);

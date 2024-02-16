@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-09T16:45:53.777369	Hillside Mod/Model Definitions
+// 1.20.1	2024-02-13T15:14:11.0404761	Hillside Mod/Model Definitions
 d6d9b8a3cbb73d68c36dde584681b926e548af0f assets\hillsidemod\blockstates\brick_black.json
 fe0f362d18af223c6848fe989fd2c60053f920a8 assets\hillsidemod\blockstates\brick_pink_slab.json
 de00f888eb80b682dbb0cc3c2f1519dfaca0cd16 assets\hillsidemod\models\block\brick_multicolored_pressure_plate.json
@@ -134,8 +134,8 @@ e82ac88238a82a80f187958a144caa4696427db6 assets\hillsidemod\models\block\dungeon
 9b615057f46d5036b9d3a1dc84ed37e54ff49ca0 assets\hillsidemod\blockstates\brick_tan_wall.json
 21e74fe129ab37b3f4a8370d63d1be739e73054c assets\hillsidemod\blockstates\brick_white_slab.json
 392fc6583838ed90bc31655b1b7ea563d25c40f3 assets\hillsidemod\models\block\brick_multicolored_wall_side_tall.json
-36e5e6dfae160c7f0b7742d604f29a541151c36d assets\hillsidemod\models\block\brick_multicolored_stairs_inner.json
 ba92f51b577dfbb36ec8df952f81f63ccd0a16a0 assets\hillsidemod\models\block\brick_black_stairs_inner.json
+36e5e6dfae160c7f0b7742d604f29a541151c36d assets\hillsidemod\models\block\brick_multicolored_stairs_inner.json
 3c0bd422719323e4deba3d27c493b7b446225f2e assets\hillsidemod\models\block\lettuce_crop_stage0.json
 5e61385ee3f8ccc0dd2beb8690667fd3479e50a1 assets\hillsidemod\models\block\brick_multicolored_stairs_outer.json
 4c453bb88c922429629e2ee1b44742cf5d405ec3 assets\hillsidemod\models\block\brick_brown_pressure_plate.json

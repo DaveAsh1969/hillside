@@ -64,10 +64,12 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         BlockStatePropertyLootCondition.Builder builder = BlockStatePropertyLootCondition.builder(ModBlocks.LETTUCE_CROP)
                 .properties(StatePredicate.Builder.create()
                         .exactMatch(LettuceBlock.AGE, 4));
+
         addDrop(ModBlocks.LETTUCE_CROP, cropDrops(ModBlocks.LETTUCE_CROP, ModItems.LETTUCE, ModItems.LETTUCE_SEEDS, builder));
 
         addDrop(ModBlocks.LAVA_BLOCK);
         addDrop(ModBlocks.TACO_BELL);
+        addDrop(ModBlocks.TROLL_HEAD);
         addDrop(ModBlocks.XANTHE);
         addPottedPlantDrops(ModBlocks.XANTHE_POTTED);
     }

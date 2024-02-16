@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "C": {
+      "item": "hillsidemod:brick_brown"
+    }
+  },
+  "pattern": [
+    "   ",
+    "CCC",
+    "CCC"
+  ],
+  "result": {
+    "count": 6,
+    "item": "hillsidemod:brick_brown_wall"
+  },
+  "show_notification": true
+}

@@ -63,6 +63,8 @@ public class ModItems {
             new Item(new FabricItemSettings().food(ModFoodComponents.TACO).maxCount(64)));
     public static final Item TACO_BELL_ITEM = registerItem("taco_bell_item",
             new TacoBellItem(ModBlocks.TACO_BELL, new FabricItemSettings().maxCount(1)));
+    public static final Item TROLL_HEAD_ITEM = registerItem("troll_head_item",
+            new TrollHeadItem(ModBlocks.TROLL_HEAD, new FabricItemSettings().maxCount(1)));
     public static final Item TORTILLA = registerItem("tortilla",
             new Item(new FabricItemSettings().food(ModFoodComponents.TORTILLA).maxCount(64)));
     public static final Item TROLL_EGG = registerItem("troll_egg",

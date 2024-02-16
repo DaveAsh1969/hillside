@@ -47,7 +47,7 @@ public class HillsideModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.DUCK_EGG, FlyingItemEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.ZOMBIE_PILLAGER, ZombiePillagerRenderer::new);
         EntityRendererRegistry.register(ModEntities.TROLL_ENTITY, TrollRenderer::new);
-        //BlockEntityRendererRegistry.register(ModBlockEntities.TACO_BELL_ENTITY, TacoBellRenderer::new);
+
         BlockEntityRendererFactories.register(ModBlockEntities.TACO_BELL_ENTITY, TacoBellRenderer::new);
         BlockEntityRendererFactories.register(ModBlockEntities.TROLL_HEAD_ENTITY, TrollHeadRenderer::new);
 

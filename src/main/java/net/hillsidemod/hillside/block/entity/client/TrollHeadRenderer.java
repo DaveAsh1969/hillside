@@ -17,7 +17,7 @@ public class TrollHeadRenderer extends GeoBlockRenderer<TrollHeadEntity>
 
     @Override
     public Identifier getTextureLocation(TrollHeadEntity animatable) {
-        return new Identifier(Hillside.MOD_ID, "textures/block/taco_bell.png");
+        return new Identifier(Hillside.MOD_ID, "textures/block/troll_head.png");
     }
 
     @Override

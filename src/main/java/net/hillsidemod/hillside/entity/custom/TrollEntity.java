@@ -20,6 +20,7 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.state.property.IntProperty;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
@@ -46,9 +47,10 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
 
     private int slamTick;
     private int heartTick;
+    private boolean roarCalled=false;
 
     private static final TrackedData<Boolean> IN_RANGE = DataTracker.registerData(TrollEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-
+    private static final TrackedData<Integer> SLAM_TICK = DataTracker.registerData(TrollEntity.class, TrackedDataHandlerRegistry.INTEGER);
     public TrollEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
         resetSlamTick();
@@ -63,10 +65,10 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.4f)
                 .add(EntityAttributes.GENERIC_ARMOR_TOUGHNESS, 1.5f)
                 .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 12.0f)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 40f);
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 50f);
     }
 
-    @Override
+    /*@Override
     public void checkDespawn() {
         if (this.getWorld().getDifficulty() == Difficulty.PEACEFUL && this.isDisallowedInPeaceful()) {
             this.discard();
@@ -76,14 +78,14 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
             this.despawnCounter = 0;
         else
             this.discard();
-    }
+    }*/
 
     @Override
     protected void initGoals() {
         this.goalSelector.add(1, new MeleeAttackGoal(this, 1.2D, false));
         this.goalSelector.add(2, new WanderAroundFarGoal(this, 0.75f, 1));
         this.goalSelector.add(3, new SwimGoal(this));
-        this.goalSelector.add(4, new LookAroundGoal(this));
+        //this.goalSelector.add(4, new LookAroundGoal(this));
 
         this.goalSelector.add(7, new WanderAroundFarGoal(this, 1.0));
         this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
@@ -99,6 +101,7 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
     protected void initDataTracker() {
         super.initDataTracker();
         this.dataTracker.startTracking(IN_RANGE, false);
+        this.dataTracker.startTracking(SLAM_TICK, 100);
     }
 
     @Override
@@ -112,11 +115,19 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
             //if not attacking troll heals
             if(!isAttacking())
                 this.heartTick--;
+            else if(this.dataTracker.get(SLAM_TICK) > 9)
+                    dataTracker.set(SLAM_TICK, setSlamTick(slamTick--));
+            else if(roarCalled)
+            {
+                resetSlamTick();
+                roarCalled=false;
+            }
+
 
             //every 30ish seconds not attacking, it gains 2 health.
             if(heartTick <= 0)
             {
-                if(this.getHealth() != this.getMaxHealth())
+                if(this.getHealth() < this.getMaxHealth())
                 {
                     this.setHealth(this.getHealth() + 2.0f);
                     resetHeartTick();
@@ -125,9 +136,19 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
         }
     }
 
+    private int setSlamTick(int slamticker)
+    {
+        this.dataTracker.set(SLAM_TICK, slamticker);
+        return slamticker;
+    }
+    private int getSlamTick()
+    {
+        return this.dataTracker.get(SLAM_TICK);
+    }
     private void resetSlamTick()
     {
         slamTick = 100 + Random.create().nextBetween(1,100);
+        this.dataTracker.set(SLAM_TICK, slamTick);
     }
     public boolean getTargetInRange()
     {
@@ -159,23 +180,23 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.ZOMBIE_PILLAGER_IDLE;
+        return ModSounds.TROLL_SAY;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundEvents.ENTITY_ZOMBIE_HURT;
+        return ModSounds.TROLL_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_ZOMBIE_DEATH;
+        return ModSounds.TROLL_HURT;
     }
 
     private void roar() {
         if (this.isAlive()) {
             int particles = 0;
-            List<Entity> list = this.getWorld().getEntitiesByClass(Entity.class, this.getBoundingBox().expand(8.0), IS_NOT_TROLL);
+            List<Entity> list = this.getWorld().getEntitiesByClass(Entity.class, this.getBoundingBox().expand(12.0), IS_NOT_TROLL);
             if(list.size() > 0) {
                 for (Entity livingEntity : list) {
                     livingEntity.damage(livingEntity.getDamageSources().mobAttack(this), 6.0f );
@@ -192,6 +213,11 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
                 }
                 this.emitGameEvent(GameEvent.ENTITY_ROAR);
             }
+            roarCalled=true;
+
+            this.getWorld().getClosestPlayer(this.getX(), this.getY(), this.getZ(),
+                    100D, false).sendMessage(Text.literal("Roar Called!"));
+
         }
     }
 
@@ -199,7 +225,7 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
         double d = entity.getX() - this.getX();
         double e = entity.getZ() - this.getZ();
         double f = Math.max(d * d + e * e, 0.001);
-        entity.addVelocity(d / f * 4.0, 0.2, e / f * 4.0);
+        entity.addVelocity(d / f * 2.5, 1.4, e / f * 2.5);
     }
 
     @Override
@@ -212,8 +238,18 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
         tAnimationState.getController().setAnimationSpeed(0.6D);
 
         //-------------------------------------------------------------------------------------------------------------------------
-        //-----animations that interrupt playing animations, this routine assumes no animation loops. -----------------------------
+        //-----animations that interrupt playing animations or finish before interruption, this routine assumes no animation loops.
         //-------------------------------------------------------------------------------------------------------------------------
+
+        //if attack or pound animations are playing, continue until finished.
+        if(tAnimationState.isCurrentAnimation(ModEntityAnimations.TROLL_ATTACK) &&
+                !tAnimationState.getController().getAnimationState().equals(AnimationController.State.STOPPED))
+            return PlayState.CONTINUE;
+
+        else if(tAnimationState.isCurrentAnimation(ModEntityAnimations.TROLL_POUND) &&
+                !tAnimationState.getController().getAnimationState().equals(AnimationController.State.STOPPED))
+            return PlayState.CONTINUE;
+
         //if this is attacking and the state is stopped and the attack animation isn't playing, immediately stop the state so the main code can take effect
         if(getTargetInRange() &&
                 tAnimationState.getController().getAnimationState() != AnimationController.State.STOPPED &&
@@ -249,14 +285,24 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
         {
             //reset the animation queue
             tAnimationState.getController().forceAnimationReset();
-
-            //this defaults to attack if attacking.
-            if(getTargetInRange() || this.handSwinging)
+            this.getWorld().getClosestPlayer(this.getX(), this.getY(), this.getZ(),
+                    100D, false).sendMessage(Text.literal(dataTracker.get(SLAM_TICK).toString()));
+            if(dataTracker.get(SLAM_TICK) < 10)
             {
-                tAnimationState.getController().setAnimation(ModEntityAnimations.TROLL_ATTACK);
+                this.roar();
+                tAnimationState.getController().setAnimation(ModEntityAnimations.TROLL_POUND);
+                dataTracker.set(SLAM_TICK, 100 + Random.create().nextBetween(1,100));
+                return PlayState.CONTINUE;
             }
 
-            else if(tAnimationState.isMoving() || this.isAttacking())
+            //this defaults to attack if attacking.
+            if(getTargetInRange() || this.handSwinging || this.isAttacking())
+            {
+                tAnimationState.getController().setAnimation(ModEntityAnimations.TROLL_ATTACK);
+                slamTick--;
+            }
+
+            else if(tAnimationState.isMoving()) // || this.isAttacking())
                 tAnimationState.getController().setAnimation(ModEntityAnimations.TROLL_WALK);
 
             //if nothing is happening, the entity is idle
@@ -290,5 +336,4 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
         else
             return ModEntityAnimations.TROLL_BREATHE;
     }
-
 }

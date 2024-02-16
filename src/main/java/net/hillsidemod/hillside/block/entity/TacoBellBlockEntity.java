@@ -5,7 +5,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -52,7 +51,6 @@ public class TacoBellBlockEntity extends BlockEntity implements GeoBlockEntity {
                 animationState.getController().setAnimation(RawAnimation.begin().then("animation.taco_bell.ring_south", Animation.LoopType.PLAY_ONCE));
 
             if(animationState.getController().getAnimationState().equals(AnimationController.State.STOPPED)) {
-                //if(event.getController().getAnimationState().equals(AnimationState.Stopped)) {
                 ringing=false;
             }
             return PlayState.CONTINUE;

@@ -1,0 +1,291 @@
+{
+	"meta": {
+		"format_version": "4.9",
+		"model_format": "animated_entity_model",
+		"box_uv": false
+	},
+	"name": "troll_head",
+	"model_identifier": "troll_head - Converted",
+	"visible_box": [2, 4.5, 1.75],
+	"variable_placeholders": "",
+	"variable_placeholder_buttons": [],
+	"timeline_setups": [],
+	"unhandled_root_fields": {},
+	"resolution": {
+		"width": 64,
+		"height": 64
+	},
+	"elements": [
+		{
+			"name": "head",
+			"box_uv": true,
+			"rescale": false,
+			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-6, 2, -3.6],
+			"to": [6, 12, 4.4],
+			"autouv": 0,
+			"color": 5,
+			"origin": [-8, 40.75, -9.025],
+			"uv_offset": [2, 0],
+			"faces": {
+				"north": {
+					"uv": [10, 8, 22, 18],
+					"texture": 0
+				},
+				"east": {
+					"uv": [2, 8, 10, 18],
+					"texture": 0
+				},
+				"south": {
+					"uv": [30, 8, 42, 18],
+					"texture": 0
+				},
+				"west": {
+					"uv": [22, 8, 30, 18],
+					"texture": 0
+				},
+				"up": {
+					"uv": [22, 8, 10, 0],
+					"texture": 0
+				},
+				"down": {
+					"uv": [34, 0, 22, 8],
+					"texture": 0
+				}
+			},
+			"type": "cube",
+			"uuid": "430f1a3d-0473-b099-f4c6-3fe91d2df4af"
+		},
+		{
+			"name": "cube",
+			"box_uv": true,
+			"rescale": false,
+			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [4, 5, -5.3],
+			"to": [5.5, 7, -3.8],
+			"autouv": 0,
+			"color": 7,
+			"origin": [-8, 40.75, -9.025],
+			"uv_offset": [12, 35],
+			"faces": {
+				"north": {
+					"uv": [13, 36, 14, 38],
+					"texture": 0
+				},
+				"east": {
+					"uv": [12, 36, 13, 38],
+					"texture": 0
+				},
+				"south": {
+					"uv": [15, 36, 16, 38],
+					"texture": 0
+				},
+				"west": {
+					"uv": [14, 36, 15, 38],
+					"texture": 0
+				},
+				"up": {
+					"uv": [14, 36, 13, 35],
+					"texture": 0
+				},
+				"down": {
+					"uv": [15, 35, 14, 36],
+					"texture": 0
+				}
+			},
+			"type": "cube",
+			"uuid": "4e6f5704-79e5-7c21-21ac-47045b30c5df"
+		},
+		{
+			"name": "cube",
+			"box_uv": true,
+			"rescale": false,
+			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-5.5, 5, -5.3],
+			"to": [-4, 7, -3.8],
+			"autouv": 0,
+			"color": 7,
+			"origin": [-8, 40.75, -9.025],
+			"uv_offset": [18, 35],
+			"faces": {
+				"north": {
+					"uv": [19, 36, 20, 38],
+					"texture": 0
+				},
+				"east": {
+					"uv": [18, 36, 19, 38],
+					"texture": 0
+				},
+				"south": {
+					"uv": [21, 36, 22, 38],
+					"texture": 0
+				},
+				"west": {
+					"uv": [20, 36, 21, 38],
+					"texture": 0
+				},
+				"up": {
+					"uv": [20, 36, 19, 35],
+					"texture": 0
+				},
+				"down": {
+					"uv": [21, 35, 20, 36],
+					"texture": 0
+				}
+			},
+			"type": "cube",
+			"uuid": "a6ea89d5-f135-1e68-37e5-3203f1595d4d"
+		},
+		{
+			"name": "head",
+			"box_uv": true,
+			"rescale": false,
+			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-6.5, 0, -5.5],
+			"to": [6.5, 5, 4.5],
+			"autouv": 0,
+			"color": 5,
+			"origin": [-8, 40.75, -9.025],
+			"uv_offset": [0, 19],
+			"faces": {
+				"north": {
+					"uv": [10, 29, 23, 34],
+					"texture": 0
+				},
+				"east": {
+					"uv": [0, 29, 10, 34],
+					"texture": 0
+				},
+				"south": {
+					"uv": [33, 29, 46, 34],
+					"texture": 0
+				},
+				"west": {
+					"uv": [23, 29, 33, 34],
+					"texture": 0
+				},
+				"up": {
+					"uv": [23, 29, 10, 19],
+					"texture": 0
+				},
+				"down": {
+					"uv": [36, 19, 23, 29],
+					"texture": 0
+				}
+			},
+			"type": "cube",
+			"uuid": "2084aa2a-19b1-913a-db6c-47db53a83943"
+		},
+		{
+			"name": "head",
+			"box_uv": true,
+			"rescale": false,
+			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-1, 9, 7.5187],
+			"to": [1, 12, 9.5187],
+			"autouv": 0,
+			"color": 0,
+			"rotation": [22.5, 0, 0],
+			"origin": [-8, 40.75, -9.025],
+			"uv_offset": [2, 35],
+			"faces": {
+				"north": {
+					"uv": [4, 37, 6, 40],
+					"texture": 0
+				},
+				"east": {
+					"uv": [2, 37, 4, 40],
+					"texture": 0
+				},
+				"south": {
+					"uv": [8, 37, 10, 40],
+					"texture": 0
+				},
+				"west": {
+					"uv": [6, 37, 8, 40],
+					"texture": 0
+				},
+				"up": {
+					"uv": [6, 37, 4, 35],
+					"texture": 0
+				},
+				"down": {
+					"uv": [8, 35, 6, 37],
+					"texture": 0
+				}
+			},
+			"type": "cube",
+			"uuid": "b4bb104f-a401-c1df-ab52-cf5361657be2"
+		}
+	],
+	"outliner": [
+		{
+			"name": "VoxelShapes",
+			"origin": [0, 5.51779, -2.71858],
+			"color": 0,
+			"nbt": "{}",
+			"uuid": "9a1773aa-e954-bc91-7177-0ab54d5a334b",
+			"export": true,
+			"mirror_uv": false,
+			"isOpen": true,
+			"locked": false,
+			"visibility": true,
+			"autouv": 0,
+			"children": [
+				"430f1a3d-0473-b099-f4c6-3fe91d2df4af",
+				"4e6f5704-79e5-7c21-21ac-47045b30c5df",
+				"a6ea89d5-f135-1e68-37e5-3203f1595d4d",
+				"2084aa2a-19b1-913a-db6c-47db53a83943",
+				"b4bb104f-a401-c1df-ab52-cf5361657be2"
+			]
+		}
+	],
+	"textures": [
+		{
+			"path": "C:\\Users\\austi\\Desktop\\Minecraft Mod\\Fabric\\hillside\\src\\main\\resources\\assets\\hillsidemod\\textures\\block\\troll_head.png",
+			"name": "troll_head.png",
+			"folder": "block",
+			"namespace": "hillsidemod",
+			"id": "0",
+			"width": 64,
+			"height": 64,
+			"uv_width": 64,
+			"uv_height": 64,
+			"particle": true,
+			"layers_enabled": false,
+			"sync_to_project": "",
+			"render_mode": "default",
+			"render_sides": "auto",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"internal": true,
+			"saved": true,
+			"uuid": "b3213246-4589-e4d9-5279-e15986d2846e",
+			"relative_path": "../../src/main/resources/assets/hillsidemod/textures/block/troll_head.png",
+			"source": "data:image/png;base64,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"
+		}
+	],
+	"geckoSettings": {
+		"formatVersion": 2,
+		"modSDK": "Forge 1.12 - 1.16",
+		"objectType": "OBJ_TYPE_ENTITY",
+		"entityType": "Entity",
+		"javaPackage": "com.example.mod",
+		"animFileNamespace": "MODID",
+		"animFilePath": "animations/ANIMATIONFILE.json",
+		"itemModelPath": "C:\\Users\\austi\\Desktop\\Minecraft Mod\\Fabric\\hillside\\src\\main\\resources\\assets\\hillsidemod\\models\\block\\troll_head.json"
+	}
+}
