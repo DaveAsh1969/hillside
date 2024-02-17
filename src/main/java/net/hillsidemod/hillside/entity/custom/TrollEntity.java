@@ -59,13 +59,13 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
 
     public static DefaultAttributeContainer.Builder createTrollAttributes() {
         return HostileEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 90.0D)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 80.0D)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 20.0f)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED, 1.0f)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.4f)
                 .add(EntityAttributes.GENERIC_ARMOR_TOUGHNESS, 1.5f)
                 .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 12.0f)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 50f);
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 20f);
     }
 
     /*@Override
@@ -86,7 +86,7 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
         this.goalSelector.add(2, new WanderAroundFarGoal(this, 0.75f, 1));
         this.goalSelector.add(3, new SwimGoal(this));
         //this.goalSelector.add(4, new LookAroundGoal(this));
-
+        this.goalSelector.add(3, new RevengeGoal(this, TrollEntity.class));
         this.goalSelector.add(7, new WanderAroundFarGoal(this, 1.0));
         this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
         this.targetSelector.add(2, new ActiveTargetGoal<>(this, SkeletonEntity.class, true));
@@ -115,12 +115,13 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
             //if not attacking troll heals
             if(!isAttacking())
                 this.heartTick--;
-            else if(this.dataTracker.get(SLAM_TICK) > 9)
+            else if(isAttacking() && this.dataTracker.get(SLAM_TICK) > 9)
                     dataTracker.set(SLAM_TICK, setSlamTick(slamTick--));
-            else if(roarCalled)
+
+            else if(isAttacking() && this.dataTracker.get(SLAM_TICK) < 10)
             {
+                this.roar();
                 resetSlamTick();
-                roarCalled=false;
             }
 
 
@@ -141,13 +142,10 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
         this.dataTracker.set(SLAM_TICK, slamticker);
         return slamticker;
     }
-    private int getSlamTick()
-    {
-        return this.dataTracker.get(SLAM_TICK);
-    }
+
     private void resetSlamTick()
     {
-        slamTick = 100 + Random.create().nextBetween(1,100);
+        slamTick = 80 + Random.create().nextBetween(1,100);
         this.dataTracker.set(SLAM_TICK, slamTick);
     }
     public boolean getTargetInRange()
@@ -214,10 +212,6 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
                 this.emitGameEvent(GameEvent.ENTITY_ROAR);
             }
             roarCalled=true;
-
-            this.getWorld().getClosestPlayer(this.getX(), this.getY(), this.getZ(),
-                    100D, false).sendMessage(Text.literal("Roar Called!"));
-
         }
     }
 
@@ -250,8 +244,9 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
                 !tAnimationState.getController().getAnimationState().equals(AnimationController.State.STOPPED))
             return PlayState.CONTINUE;
 
-        //if this is attacking and the state is stopped and the attack animation isn't playing, immediately stop the state so the main code can take effect
-        if(getTargetInRange() &&
+        //if this is attacking and the state is not stopped and the attack animation isn't playing, immediately stop the state so the main code can take effect
+        //if(getTargetInRange() &&
+        if(this.isAttacking() &&
                 tAnimationState.getController().getAnimationState() != AnimationController.State.STOPPED &&
                 !tAnimationState.isCurrentAnimation(ModEntityAnimations.TROLL_ATTACK))
         {
@@ -260,7 +255,8 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
         }
 
         //if the player is in the middle of an idle animation and is not attacking, but starts moving, stop the state so the main code below can take effect.
-        if(!getTargetInRange() &&
+        //if(!getTargetInRange() &&
+        if(!this.isAttacking() &&
                 !tAnimationState.isCurrentAnimation(ModEntityAnimations.TROLL_WALK) &&
                 tAnimationState.isMoving() &&
                 tAnimationState.getController().getAnimationState() != AnimationController.State.STOPPED)
@@ -269,7 +265,7 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
             return PlayState.STOP;
         }
 
-        //if the walking animation is playing but the zombie is idle and not attacking, stop the animation
+        //if the walking animation is playing but the troll is idle and not attacking, stop the animation
         //for the main code to take effect
         if(!tAnimationState.isMoving()
                 && tAnimationState.isCurrentAnimation(ModEntityAnimations.TROLL_WALK)
@@ -285,18 +281,21 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
         {
             //reset the animation queue
             tAnimationState.getController().forceAnimationReset();
-            this.getWorld().getClosestPlayer(this.getX(), this.getY(), this.getZ(),
-                    100D, false).sendMessage(Text.literal(dataTracker.get(SLAM_TICK).toString()));
+
+            //debug code
+            //this.getWorld().getClosestPlayer(this.getX(), this.getY(), this.getZ(),
+            //        100D, false).sendMessage(Text.literal(dataTracker.get(SLAM_TICK).toString()));
+
             if(dataTracker.get(SLAM_TICK) < 10)
             {
-                this.roar();
+                //this.roar();
                 tAnimationState.getController().setAnimation(ModEntityAnimations.TROLL_POUND);
-                dataTracker.set(SLAM_TICK, 100 + Random.create().nextBetween(1,100));
+                //dataTracker.set(SLAM_TICK, 100 + Random.create().nextBetween(1,100));
                 return PlayState.CONTINUE;
             }
 
             //this defaults to attack if attacking.
-            if(getTargetInRange() || this.handSwinging || this.isAttacking())
+            if(this.handSwinging || this.isAttacking()) //getTargetInRange() ||
             {
                 tAnimationState.getController().setAnimation(ModEntityAnimations.TROLL_ATTACK);
                 slamTick--;

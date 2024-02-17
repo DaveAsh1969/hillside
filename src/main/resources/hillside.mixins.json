@@ -8,7 +8,8 @@
 		"SkeletonAggro",
 		"SpiderAggro",
 		"ZombieAggro",
-		"FurnaceMilkBucket"
+		"FurnaceMilkBucket",
+		"LivingEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

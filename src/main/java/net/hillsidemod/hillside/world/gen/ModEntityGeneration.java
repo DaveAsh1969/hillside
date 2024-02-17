@@ -18,8 +18,8 @@ public class ModEntityGeneration {
         BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.PLAINS), SpawnGroup.MONSTER,
                 ModEntities.ZOMBIE_PILLAGER, 30, 2, 4);
 
-      //  BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.DESERT), SpawnGroup.MONSTER,
-      //          ModEntities.TROLL_ENTITY, 5, 1, 2);
+        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.DESERT), SpawnGroup.MONSTER,
+                ModEntities.TROLL_ENTITY, 5, 1, 2);
 
         SpawnRestriction.register(ModEntities.DECAYING_ZOMBIE, SpawnRestriction.Location.ON_GROUND,
                 Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HostileEntity::canSpawnInDark);
@@ -27,7 +27,7 @@ public class ModEntityGeneration {
         SpawnRestriction.register(ModEntities.ZOMBIE_PILLAGER, SpawnRestriction.Location.ON_GROUND,
                 Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HostileEntity::canSpawnInDark);
 
-      //  SpawnRestriction.register(ModEntities.TROLL_ENTITY, SpawnRestriction.Location.ON_GROUND,
-      //          Heightmap.Type.WORLD_SURFACE, HostileEntity::canSpawnIgnoreLightLevel);
+        SpawnRestriction.register(ModEntities.TROLL_ENTITY, SpawnRestriction.Location.ON_GROUND,
+                Heightmap.Type.WORLD_SURFACE, HostileEntity::canSpawnIgnoreLightLevel);
     }
 }

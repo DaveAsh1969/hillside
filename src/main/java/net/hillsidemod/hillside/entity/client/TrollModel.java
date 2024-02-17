@@ -28,7 +28,7 @@ public class TrollModel extends GeoModel<TrollEntity> {
         return new Identifier(Hillside.MOD_ID, "animations/troll.animation.json");
     }
 
-    @Override
+    /*@Override
     public void setCustomAnimations(TrollEntity animatable, long instanceId, AnimationState<TrollEntity> animationState) {
         CoreGeoBone head = getAnimationProcessor().getBone("head");
 
@@ -37,5 +37,5 @@ public class TrollModel extends GeoModel<TrollEntity> {
             head.setRotX(entityData.headPitch() * MathHelper.RADIANS_PER_DEGREE);
             head.setRotY(entityData.netHeadYaw() * MathHelper.RADIANS_PER_DEGREE);
         }
-    }
+    }*/
 }

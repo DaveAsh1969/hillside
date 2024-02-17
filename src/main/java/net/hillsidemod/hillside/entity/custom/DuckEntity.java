@@ -200,7 +200,7 @@ public class DuckEntity extends AnimalEntity implements GeoEntity {
             tAnimationState.getController().forceAnimationReset();
 
             //play moving or still animation
-            if(tAnimationState.isMoving())
+            if(tAnimationState.isMoving() || this.isInWater)
             {
                 tAnimationState.getController().setAnimation(ModEntityAnimations.DUCK_WALK);
             }
@@ -222,10 +222,12 @@ public class DuckEntity extends AnimalEntity implements GeoEntity {
             if (dataTracker.get(DUCK_TRAVEL_STATUS) == DuckTravelStatus.GETTING_IN_WATER.getId())
             {
                 tAnimationState.getController().setAnimation(ModEntityAnimations.DUCK_FLYING);
+                dataTracker.set(DUCK_TRAVEL_STATUS, DuckTravelStatus.WATER.getId());
             }
             else if (dataTracker.get(DUCK_TRAVEL_STATUS) == DuckTravelStatus.GETTING_ON_LAND.getId())
             {
                 tAnimationState.getController().setAnimation(ModEntityAnimations.DUCK_FLAP);
+                dataTracker.set(DUCK_TRAVEL_STATUS, DuckTravelStatus.LAND.getId());
             }
             else if (dataTracker.get(DUCK_TRAVEL_STATUS) == DuckTravelStatus.AIR.getId())
             {
