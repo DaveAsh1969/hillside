@@ -16,6 +16,9 @@ public final class ModEntityAnimations {
     public static final RawAnimation DUCK_FLYING = RawAnimation.begin().thenPlay("animation.duck.flying");
     public static final RawAnimation DUCK_BOB = RawAnimation.begin().thenPlay("animation.duck.bob");
     public static final RawAnimation DUCK_IDLE = RawAnimation.begin().thenPlay("animation.duck.idle");
+
+    public static final RawAnimation DUCK_WATER_IDLE = RawAnimation.begin().thenPlay("animation.duck.wateridle");
+    public static final RawAnimation DUCK_WATER_SWIM = RawAnimation.begin().thenPlay("animation.duck.waterswim");
     public static final RawAnimation ZOMBIE_PILLAGER_ATTACK = RawAnimation.begin().thenPlay("animation.zombie_pillager.attack");
     public static final RawAnimation ZOMBIE_PILLAGER_IDLE = RawAnimation.begin().thenPlay("animation.zombie_pillager.idle1");
     public static final RawAnimation ZOMBIE_PILLAGER_STRETCH = RawAnimation.begin().thenPlay("animation.zombie_pillager.stretch");

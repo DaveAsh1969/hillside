@@ -26,7 +26,7 @@ public class EggBreakingParticle extends SpriteBillboardParticle {
     @Override
     public void tick() {
         super.tick();
-        fadeOut();
+        //fadeOut();
     }
 
     private void fadeOut() {
@@ -48,7 +48,7 @@ public class EggBreakingParticle extends SpriteBillboardParticle {
 
         public Particle createParticle(DefaultParticleType particleType, ClientWorld level, double x, double y, double z,
                                        double dx, double dy, double dz) {
-            return new TeleportParticleSmall(level, x, y, z, this.sprites, dx, dy, dz);
+            return new EggBreakingParticle(level, x, y, z, this.sprites, dx, dy, dz);
         }
     }
 }

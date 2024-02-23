@@ -17,9 +17,10 @@ public class HillsideUtils {
         });
     }
 
-    //replaces getRandom from main code. In entities, always set baby texture as last and baby texture will be excluded in getting texture variations
+    //replaces getRandom from main code. In entities, always set baby texture as last and baby texture will be excluded
+    // in getting texture variations
     public static <T> T getRandom(T[] array, Random random) {
-        //subtract 1 from the array length to exclude the baby skin
-        return array[random.nextInt(array.length-1)];
+        //subtract 2 from the array length to exclude the baby skin and none
+        return array[random.nextInt(array.length-2)];
     }
 }

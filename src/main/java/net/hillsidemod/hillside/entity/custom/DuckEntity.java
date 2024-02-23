@@ -4,13 +4,13 @@ import net.hillsidemod.hillside.animation.ModEntityAnimations;
 import net.hillsidemod.hillside.entity.ModEntities;
 import net.hillsidemod.hillside.entity.variant.DuckVariant;
 import net.hillsidemod.hillside.item.ModItems;
+import net.hillsidemod.hillside.sound.ModSounds;
 import net.hillsidemod.hillside.util.DuckTravelStatus;
 import net.hillsidemod.hillside.util.HillsideUtils;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.EntityData;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.ai.pathing.PathNodeType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -20,11 +20,14 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
@@ -42,15 +45,9 @@ import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInst
 import software.bernie.geckolib.core.animation.AnimatableManager;
 import software.bernie.geckolib.core.animation.AnimationController;
 import software.bernie.geckolib.core.animation.AnimationState;
+import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
 
-import java.util.Arrays;
-import java.util.Comparator;
-
-//TODO: EggLayTime tick to lay duck egg
-//Baby Duck with baby texture
-//set to adult texture when adult
-//Variant textures based on 4 adult texture types
 //TODO: Handle flying duck (if it is falling)
 //TODO: Add duck sounds
 //Add duck egg entity
@@ -65,6 +62,8 @@ public class DuckEntity extends AnimalEntity implements GeoEntity {
             DataTracker.registerData(DuckEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static final TrackedData<Integer> DUCK_TRAVEL_STATUS =
             DataTracker.registerData(DuckEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    private static final TrackedData<Integer> DUCK_ID_ADULT_VARIANT =
+            DataTracker.registerData(DuckEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     private boolean isOnLand = true;
     private boolean isInWater = false;
@@ -73,6 +72,7 @@ public class DuckEntity extends AnimalEntity implements GeoEntity {
     public DuckEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
         this.eggLayTime = this.random.nextInt(6000) + 6000;
+        this.setPathfindingPenalty(PathNodeType.WATER, 0.0f);
     }
 
     protected void initGoals() {
@@ -96,25 +96,20 @@ public class DuckEntity extends AnimalEntity implements GeoEntity {
     }
 
     @Override
-    public void setMovementSpeed(float movementSpeed) {
-        if(this.isSwimming())
-            super.setMovementSpeed(movementSpeed+12.0f);
-        else
-            super.setMovementSpeed(movementSpeed);
-    }
-
-    @Override
     protected void initDataTracker() {
         super.initDataTracker();
-        this.dataTracker.startTracking(DATA_ID_TYPE_VARIANT, 0);
+        this.dataTracker.startTracking(DATA_ID_TYPE_VARIANT, 5);
         this.dataTracker.startTracking(DUCK_TRAVEL_STATUS, 0);
+        this.dataTracker.startTracking(DUCK_ID_ADULT_VARIANT, 5);
     }
 
     public void readCustomDataFromNbt(NbtCompound nbt) {
         super.readCustomDataFromNbt(nbt);
         this.eggLayTime = nbt.getInt("EggLayTime");
-        this.dataTracker.get(DATA_ID_TYPE_VARIANT);
+        this.dataTracker.set(DATA_ID_TYPE_VARIANT, nbt.getInt("DataIDTypeVariant"));
         this.dataTracker.set(DUCK_TRAVEL_STATUS, nbt.getInt("DuckTravelStatus"));
+        this.dataTracker.set(DUCK_ID_ADULT_VARIANT, nbt.getInt("DuckAdultVariantID"));
+        this.setVariant(this.dataTracker.get(DATA_ID_TYPE_VARIANT));
     }
 
     public void writeCustomDataToNbt(NbtCompound nbt) {
@@ -122,33 +117,32 @@ public class DuckEntity extends AnimalEntity implements GeoEntity {
         if (nbt.contains("EggLayTime")) {
             nbt.putInt("EggLayTime", this.eggLayTime);
         }
-        nbt.putInt("Variant", this.getTypeVariant());
-        nbt.putInt("DuckTravelStatus", DUCK_TRAVEL_STATUS.getId());
+        nbt.putInt("Variant", this.getVariant().getId());
+        nbt.putInt("DuckTravelStatus", this.dataTracker.get(DUCK_TRAVEL_STATUS));
+        nbt.putInt("DuckAdultVariantID", this.dataTracker.get(DUCK_ID_ADULT_VARIANT));
+        nbt.putInt("DataIDTypeVariant", this.dataTracker.get(DATA_ID_TYPE_VARIANT));
+
     }
 
     @Override
-    public void tickMovement() {
-        super.tickMovement();
-
-        if(!getWorld().isClient())
-        {
-            //set status for animation and change y velocity for flying ducks
-            if(this.isSwimming())
-            {
-                if(isOnLand || isInAir) {
+    public void tick() {
+        super.tick();
+        if (!getWorld().isClient()) {
+            //manage the three navigations for ducks.-----------------
+            //if it's in water
+            if (this.isTouchingWater()) {
+                if (isInWater) {
+                    this.dataTracker.set(DUCK_TRAVEL_STATUS, DuckTravelStatus.WATER.getId());
+                } else if (isOnLand || isInAir) {
                     this.dataTracker.set(DUCK_TRAVEL_STATUS, DuckTravelStatus.GETTING_IN_WATER.getId());
                     //TODO:add splash sound
-                } else
-                {
-                    this.dataTracker.set(DUCK_TRAVEL_STATUS, DuckTravelStatus.WATER.getId());
-                    //TODO:add swim sound
                 }
                 isOnLand = false;
                 isInAir = false;
                 isInWater = true;
             }
-            else if(!this.isOnGround() && !this.isSwimming())
-            {
+            //manage if it's in the air
+            else if (this.isFallFlying()) {
                 this.dataTracker.set(DUCK_TRAVEL_STATUS, DuckTravelStatus.AIR.getId());
                 //TODO:add flying sound
                 isOnLand = false;
@@ -160,12 +154,14 @@ public class DuckEntity extends AnimalEntity implements GeoEntity {
                     this.setVelocity(vec3d.multiply(1.0, 0.6, 1.0));
                 }
             }
-            else
+            //manage if it's on the ground
+            else if (this.isOnGround())
             {
-                if(!isOnLand)
+                if (!isOnLand)
                 {
                     this.dataTracker.set(DUCK_TRAVEL_STATUS, DuckTravelStatus.GETTING_ON_LAND.getId());
-                    //TODO:add shake sound
+                    this.getWorld().playSound(this, this.getBlockPos(),SoundEvents.ENTITY_WOLF_SHAKE,
+                            SoundCategory.HOSTILE, 1.0f, 1.0f);
                 }
                 else {
                     this.dataTracker.set(DUCK_TRAVEL_STATUS, DuckTravelStatus.LAND.getId());
@@ -173,16 +169,44 @@ public class DuckEntity extends AnimalEntity implements GeoEntity {
                 isOnLand = true;
                 isInAir = false;
                 isInWater = false;
-            }
 
-            if(--eggLayTime <= 0)
-            {
-                this.playSound(SoundEvents.ENTITY_CHICKEN_EGG, 1.0f, (this.random.nextFloat() - this.random.nextFloat()) * 0.2f + 1.0f);
-                this.dropItem(ModItems.DUCK_EGG);
-                this.emitGameEvent(GameEvent.ENTITY_PLACE);
-                this.eggLayTime = this.random.nextInt(6000) + 6000;
+                //set the egg lay time only on land (don't lay an egg in the air or water)
+                if (--eggLayTime <= 0) {
+                    this.playSound(SoundEvents.ENTITY_CHICKEN_EGG, 1.0f, (this.random.nextFloat() - this.random.nextFloat()) * 0.2f + 1.0f);
+                    this.dropItem(ModItems.DUCK_EGG);
+                    this.emitGameEvent(GameEvent.ENTITY_PLACE);
+                    this.eggLayTime = this.random.nextInt(6000) + 6000;
+                }
             }
         }
+    }
+
+   @Override
+    public void travel(Vec3d movementInput) {
+        if (this.canMoveVoluntarily() && this.isTouchingWater())
+        {
+          this.updateVelocity(this.getMovementSpeed(), movementInput);
+          this.move(MovementType.SELF, this.getVelocity());
+          this.setVelocity(this.getVelocity().multiply(0.7D));
+
+          if (this.getTarget() == null)
+          {
+                this.setVelocity(this.getVelocity().add(0.0, -0.005, 0.0));
+          }
+        }
+        else
+        {
+            super.travel(movementInput);
+        }
+    }
+
+    @Override
+    public boolean canWalkOnFluid(FluidState state) {
+        return state.isOf(Fluids.WATER);
+    }
+
+    private SoundEvent getFallSound(int distance) {
+        return distance > 4 ? this.getFallSounds().big() : this.getFallSounds().small();
     }
 
     @Override
@@ -200,34 +224,52 @@ public class DuckEntity extends AnimalEntity implements GeoEntity {
             tAnimationState.getController().forceAnimationReset();
 
             //play moving or still animation
-            if(tAnimationState.isMoving() || this.isInWater)
+            if(tAnimationState.isMoving())
             {
-                tAnimationState.getController().setAnimation(ModEntityAnimations.DUCK_WALK);
+                if(this.isTouchingWater())
+                    tAnimationState.getController().setAnimation(ModEntityAnimations.DUCK_WATER_SWIM);
+                else
+                    tAnimationState.getController().setAnimation(ModEntityAnimations.DUCK_WALK);
             }
-            else
+            else //idle animation
             {
-                tAnimationState.getController().setAnimation(ModEntityAnimations.DUCK_IDLE);
+                if(this.isTouchingWater())
+                {
+                    tAnimationState.getController().setAnimation(isBobbingForFish());
+                }
+                else
+                    tAnimationState.getController().setAnimation(ModEntityAnimations.DUCK_IDLE);
             }
         }
         return PlayState.CONTINUE;
     }
 
+    private RawAnimation isBobbingForFish()
+    {
+        int randomIdlePlayNumber = Random.create().nextBetween(0, 300);
+        if(randomIdlePlayNumber < 11 && randomIdlePlayNumber > 5)
+        {
+            return ModEntityAnimations.DUCK_BOB;
+        }
+        else
+            return ModEntityAnimations.DUCK_WATER_IDLE;
+    }
+
     private <T extends GeoAnimatable> PlayState duckStatusPredicate(AnimationState<T> tAnimationState)
     {
         if (tAnimationState.getController().hasAnimationFinished() ||
-                tAnimationState.getController().getAnimationState() == AnimationController.State.STOPPED) {
+                tAnimationState.getController().getAnimationState() == AnimationController.State.STOPPED)
+        {
             //reset the animation queue
             tAnimationState.getController().forceAnimationReset();
 
             if (dataTracker.get(DUCK_TRAVEL_STATUS) == DuckTravelStatus.GETTING_IN_WATER.getId())
             {
                 tAnimationState.getController().setAnimation(ModEntityAnimations.DUCK_FLYING);
-                dataTracker.set(DUCK_TRAVEL_STATUS, DuckTravelStatus.WATER.getId());
             }
             else if (dataTracker.get(DUCK_TRAVEL_STATUS) == DuckTravelStatus.GETTING_ON_LAND.getId())
             {
                 tAnimationState.getController().setAnimation(ModEntityAnimations.DUCK_FLAP);
-                dataTracker.set(DUCK_TRAVEL_STATUS, DuckTravelStatus.LAND.getId());
             }
             else if (dataTracker.get(DUCK_TRAVEL_STATUS) == DuckTravelStatus.AIR.getId())
             {
@@ -238,17 +280,26 @@ public class DuckEntity extends AnimalEntity implements GeoEntity {
     }
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.ENTITY_CHICKEN_AMBIENT;
+       if(!this.isBaby())
+            return ModSounds.DUCK_QUACK;
+       else
+           return ModSounds.DUCK_BABY;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundEvents.ENTITY_CHICKEN_HURT;
+       if(!this.isBaby())
+            return ModSounds.DUCK_HURT;
+       else
+           return ModSounds.DUCK_BABY;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_CHICKEN_DEATH;
+       if(!this.isBaby())
+            return ModSounds.DUCK_HURT;
+       else
+            return ModSounds.DUCK_BABY;
     }
 
     @Override
@@ -267,7 +318,11 @@ public class DuckEntity extends AnimalEntity implements GeoEntity {
     {
         DuckEntity duck = ModEntities.DUCK.create(world);
         if(duck != null)
-            duck.setVariant(DuckVariant.BABY);
+        {
+            duck.setVariant(DuckVariant.BABY.getId());
+            duck.dataTracker.set(DUCK_ID_ADULT_VARIANT, this.getVariant().getId());
+        }
+
         return duck;
     }
 
@@ -275,10 +330,13 @@ public class DuckEntity extends AnimalEntity implements GeoEntity {
     protected void onGrowUp() {
         super.onGrowUp();
         //set skin to adult skin
-        if(!this.isBaby())
+        if(!this.isBaby() && this.dataTracker.get(DUCK_ID_ADULT_VARIANT) != 5)
         {
-            DuckVariant variant = HillsideUtils.getRandom(DuckVariant.values(), this.random);
-            setVariant(variant);
+            setVariant(this.dataTracker.get(DUCK_ID_ADULT_VARIANT));
+        }
+        else if(!isBaby())
+        {
+            createVariant();
         }
     }
 
@@ -292,28 +350,35 @@ public class DuckEntity extends AnimalEntity implements GeoEntity {
                                                     Items.PITCHER_POD);
     }
 
-    /*VARIANTS*/
-    public DuckVariant getVariant()
-    {
-        return DuckVariant.byId(this.getTypeVariant() & 255);
-    }
-
     @Override
     public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData,
                                  @Nullable NbtCompound entityNbt) {
-        DuckVariant variant = HillsideUtils.getRandom(DuckVariant.values(), this.random);
-        setVariant(variant);
+
+        createVariant();
         return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
     }
 
-    private int getTypeVariant()
+    private void createVariant()
     {
-        return this.dataTracker.get(DATA_ID_TYPE_VARIANT);
+        DuckVariant variant = HillsideUtils.getRandom(DuckVariant.values(), this.random);
+        setVariant(variant.getId());
     }
 
-    private void setVariant(DuckVariant variant)
+    public DuckVariant getVariant()
     {
-        this.dataTracker.set(DATA_ID_TYPE_VARIANT, variant.getId() & 255);
+        int duckID = this.dataTracker.get(DATA_ID_TYPE_VARIANT);
+        return DuckVariant.byId(duckID);
+    }
+
+    private void setVariant(int variantID)
+    {
+        if(variantID != 5)
+            this.dataTracker.set(DATA_ID_TYPE_VARIANT, variantID);
+        else
+        {
+            DuckVariant variant = HillsideUtils.getRandom(DuckVariant.values(), this.random);
+            this.dataTracker.set(DATA_ID_TYPE_VARIANT, variant.getId());
+        }
     }
 
     @Override

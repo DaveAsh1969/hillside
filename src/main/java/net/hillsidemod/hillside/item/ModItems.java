@@ -33,7 +33,7 @@ public class ModItems {
     public static final Item DUCK_COOKED = registerItem("duck_cooked",
             new Item(new FabricItemSettings().food(ModFoodComponents.DUCK_COOKED).maxCount(64)));
     public static final Item DUCK_EGG = registerItem("duck_egg",
-            new DuckEggItem(new FabricItemSettings().maxCount(64)));
+            new DuckEggItem(new FabricItemSettings().maxCount(16)));
     public static final Item DUCK_FEATHER = registerItem("duck_feather",
             new Item(new FabricItemSettings().maxCount(64)));
     public static final Item DUCK_ENTITY_EGG = registerItem("duck_entity_egg",

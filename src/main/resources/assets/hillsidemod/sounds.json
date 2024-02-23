@@ -1,8 +1,20 @@
 {
-  "teleport_charging": {
-    "subtitle": "sounds.hillsidemod.teleport_charging",
+  "dungeon_door_close": {
+    "subtitle": "sounds.hillsidemod.dungeon_door_close",
     "sounds": [
-      "hillsidemod:teleport_charging"
+      "hillsidemod:dungeon_door_close"
+    ]
+  },
+  "dungeon_door_locked": {
+    "subtitle": "sounds.hillsidemod.dungeon_door_locked",
+    "sounds": [
+      "hillsidemod:dungeon_door_locked"
+    ]
+  },
+  "dungeon_door_open": {
+    "subtitle": "sounds.hillsidemod.dungeon_door_open",
+    "sounds": [
+      "hillsidemod:dungeon_door_open"
     ]
   },
   "nether_teleport_charging": {
@@ -11,10 +23,34 @@
       "hillsidemod:nether_teleport_charging"
     ]
   },
-  "zombie_pillager_idle": {
-    "subtitle": "sounds.hillsidemod.zombie_pillager_idle",
+  "quack": {
+    "subtitle": "sounds.hillsidemod.quack",
     "sounds": [
-      "hillsidemod:zombie_pillager_idle"
+      "hillsidemod:quack"
+    ]
+  },
+  "quack_baby": {
+    "subtitle": "sounds.hillsidemod.quack_baby",
+    "sounds": [
+      "hillsidemod:quack_baby"
+    ]
+  },
+  "quack_hurt": {
+    "subtitle": "sounds.hillsidemod.quack_hurt",
+    "sounds": [
+      "hillsidemod:quack_hurt"
+    ]
+  },
+  "taco_bell": {
+    "subtitle": "sounds.hillsidemod.taco_bell",
+    "sounds": [
+      "hillsidemod:taco_bell"
+    ]
+  },
+  "teleport_charging": {
+    "subtitle": "sounds.hillsidemod.teleport_charging",
+    "sounds": [
+      "hillsidemod:teleport_charging"
     ]
   },
   "troll_hurt": {
@@ -29,28 +65,10 @@
       "hillsidemod:troll_say"
     ]
   },
-  "taco_bell": {
-    "subtitle": "sounds.hillsidemod.taco_bell",
+  "zombie_pillager_idle": {
+    "subtitle": "sounds.hillsidemod.zombie_pillager_idle",
     "sounds": [
-      "hillsidemod:taco_bell"
-    ]
-  },
-  "dungeon_door_open": {
-    "subtitle": "sounds.hillsidemod.dungeon_door_open",
-    "sounds": [
-      "hillsidemod:dungeon_door_open"
-    ]
-  },
-  "dungeon_door_close": {
-    "subtitle": "sounds.hillsidemod.dungeon_door_close",
-    "sounds": [
-      "hillsidemod:dungeon_door_close"
-    ]
-  },
-  "dungeon_door_locked": {
-    "subtitle": "sounds.hillsidemod.dungeon_door_locked",
-    "sounds": [
-      "hillsidemod:dungeon_door_locked"
+      "hillsidemod:zombie_pillager_idle"
     ]
   }
 }

@@ -30,6 +30,8 @@ public class DuckEntityRenderer extends GeoEntityRenderer<DuckEntity> {
                         new Identifier(Hillside.MOD_ID, "textures/entity/duck_brown.png"));
                 map.put(DuckVariant.BABY,
                         new Identifier(Hillside.MOD_ID, "textures/entity/duck_baby.png"));
+                map.put(DuckVariant.NONE,
+                        new Identifier(Hillside.MOD_ID, "textures/entity/duck_baby.png"));
             });
     @Override
     public Identifier getTextureLocation(DuckEntity animatable) {

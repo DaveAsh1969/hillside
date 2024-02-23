@@ -8,16 +8,21 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
+import net.minecraft.particle.ItemStackParticleEffect;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
+import net.minecraft.util.math.*;
 import net.minecraft.world.World;
 
 public class DuckEggEntity extends ThrownItemEntity {
-
+    private Vec3d pos;
     public DuckEggEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -33,24 +38,32 @@ public class DuckEggEntity extends ThrownItemEntity {
             if (this.random.nextInt(8) == 0) {
                 int i = 1;
                 if (this.random.nextInt(32) == 0) {
-                    i = 4;
+                    i = 3;
                 }
 
                 for(int j = 0; j < i; ++j) {
                     DuckEntity duckEntity = ModEntities.DUCK.create(this.getWorld());
                     duckEntity.setBreedingAge(-24000);
                     duckEntity.refreshPositionAndAngles(this.getX(), this.getY(), this.getZ(), this.getYaw(), 0.0F);
+                    //duckEntity.refreshPositionAndAngles(hitResult.getPos().x, hitResult.getPos().y, hitResult.getPos().z, this.getYaw(), 0.0f);
                     this.getWorld().spawnEntity(duckEntity);
                 }
             }
-
-            //this.getWorld().sendEntityStatus(this, (byte)3);
             this.getWorld().sendEntityStatus(this, EntityStatuses.PLAY_DEATH_SOUND_OR_ADD_PROJECTILE_HIT_PARTICLES);
             this.discard();
         }
-        this.getWorld().addParticle(ModParticles.DUCK_EGG_BREAK, true, hitResult.getPos().getX(),
-                hitResult.getPos().getY(), hitResult.getPos().getZ(),
-                0D, 0.2D, 0D);
+        /*if(getWorld().isClient())
+        {
+            this.getWorld().addParticle(ModParticles.DUCK_EGG_BREAK, this.getX(), this.getY(), this.getZ(),
+                    0.0, 0.0, 0.0);
+        }*/
+    }
+
+    @Override
+    public void handleStatus(byte status) {
+        if(status == EntityStatuses.PLAY_DEATH_SOUND_OR_ADD_PROJECTILE_HIT_PARTICLES)
+            this.getWorld().addParticle(ModParticles.DUCK_EGG_BREAK, this.getX(), this.getY(), this.getZ(),
+                    0.0, 0.0, 0.0);
     }
 
     @Override
@@ -64,7 +77,13 @@ public class DuckEggEntity extends ThrownItemEntity {
     }
 
     @Override
+    public void refreshPositionAndAngles(double x, double y, double z, float yaw, float pitch) {
+        this.setPosition(x, y, z);
+    }
+
+    @Override
     public Packet<ClientPlayPacketListener> createSpawnPacket() {
         return new EntitySpawnS2CPacket(this);
     }
+
 }
