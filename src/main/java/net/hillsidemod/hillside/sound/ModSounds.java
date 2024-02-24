@@ -9,8 +9,12 @@ import net.minecraft.util.Identifier;
 
 public class ModSounds {
     public static final SoundEvent DUCK_BABY = registerSoundEvent("quack_baby");
+    public static final SoundEvent DUCK_FLAP = registerSoundEvent("duck_flap");
     public static final SoundEvent DUCK_HURT = registerSoundEvent("quack_hurt");
     public static final SoundEvent DUCK_QUACK = registerSoundEvent("quack");
+    public static final SoundEvent DUCK_QUACK_ONE = registerSoundEvent("quack_one");
+    public static final SoundEvent DUCK_QUACK_THREE = registerSoundEvent("quack_three");
+    public static final SoundEvent DUCK_QUACK_TWO = registerSoundEvent("quack_two");
     public static final SoundEvent DUNGEON_DOOR_CLOSE = registerSoundEvent("dungeon_door_close");
     public static final SoundEvent DUNGEON_DOOR_LOCKED = registerSoundEvent("dungeon_door_locked");
     public static final SoundEvent DUNGEON_DOOR_OPEN = registerSoundEvent("dungeon_door_open");

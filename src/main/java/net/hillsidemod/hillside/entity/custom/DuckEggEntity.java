@@ -44,7 +44,9 @@ public class DuckEggEntity extends ThrownItemEntity {
                 for(int j = 0; j < i; ++j) {
                     DuckEntity duckEntity = ModEntities.DUCK.create(this.getWorld());
                     duckEntity.setBreedingAge(-24000);
-                    duckEntity.refreshPositionAndAngles(this.getX(), this.getY(), this.getZ(), this.getYaw(), 0.0F);
+                    Vec3i collisionVector = new Vec3i(this.getBlockX(), this.getBlockY(), this.getBlockZ());
+                    Vec3d colPos = Vec3d.ofCenter(collisionVector);
+                    duckEntity.refreshPositionAndAngles(colPos.x, this.getY(), colPos.z, this.getYaw(), 0.0F);
                     //duckEntity.refreshPositionAndAngles(hitResult.getPos().x, hitResult.getPos().y, hitResult.getPos().z, this.getYaw(), 0.0f);
                     this.getWorld().spawnEntity(duckEntity);
                 }
@@ -52,11 +54,6 @@ public class DuckEggEntity extends ThrownItemEntity {
             this.getWorld().sendEntityStatus(this, EntityStatuses.PLAY_DEATH_SOUND_OR_ADD_PROJECTILE_HIT_PARTICLES);
             this.discard();
         }
-        /*if(getWorld().isClient())
-        {
-            this.getWorld().addParticle(ModParticles.DUCK_EGG_BREAK, this.getX(), this.getY(), this.getZ(),
-                    0.0, 0.0, 0.0);
-        }*/
     }
 
     @Override
@@ -79,8 +76,12 @@ public class DuckEggEntity extends ThrownItemEntity {
     @Override
     public void refreshPositionAndAngles(double x, double y, double z, float yaw, float pitch) {
         this.setPosition(x, y, z);
+        //this.refreshPosition();
     }
 
+    protected void refreshPosition() {
+        this.setPosition(this.pos.x, this.pos.y, this.pos.z);
+    }
     @Override
     public Packet<ClientPlayPacketListener> createSpawnPacket() {
         return new EntitySpawnS2CPacket(this);

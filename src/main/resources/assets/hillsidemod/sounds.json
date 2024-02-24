@@ -1,4 +1,10 @@
 {
+  "duck_flap": {
+    "subtitle": "sounds.hillsidemod.duck_flap",
+    "sounds": [
+      "hillsidemod:duck_flap"
+    ]
+  },
   "dungeon_door_close": {
     "subtitle": "sounds.hillsidemod.dungeon_door_close",
     "sounds": [
@@ -39,6 +45,24 @@
     "subtitle": "sounds.hillsidemod.quack_hurt",
     "sounds": [
       "hillsidemod:quack_hurt"
+    ]
+  },
+  "quack_one": {
+    "subtitle": "sounds.hillsidemod.quack_one",
+    "sounds": [
+      "hillsidemod:quack_one"
+    ]
+  },
+  "quack_three": {
+    "subtitle": "sounds.hillsidemod.quack_three",
+    "sounds": [
+      "hillsidemod:quack_three"
+    ]
+  },
+  "quack_two": {
+    "subtitle": "sounds.hillsidemod.quack_two",
+    "sounds": [
+      "hillsidemod:quack_two"
     ]
   },
   "taco_bell": {
