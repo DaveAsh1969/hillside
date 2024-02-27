@@ -112,7 +112,7 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
                     if(slamTick <= SLAM_DELAY)
                     {
                         this.dataTracker.set(TROLL_STATUS, TrollStatus.SLAM.getId());
-                        if(slamDelay < SLAM_DELAY)
+                        if(slamDelay <= SLAM_DELAY)
                         {
                             slamDelay++;
                         }
@@ -275,14 +275,14 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         //controllers.add(new AnimationController<>(this, "troll_controller", 3, this::characterPredicate));
-        controllers.add(new AnimationController<>(this, "troll_status_controller", 3, this::characterMovingPredicate));
         controllers.add(new AnimationController<>(this, "troll_moving_controller", 3, this::characterGeckoPredicate));
-
+        controllers.add(new AnimationController<>(this, "troll_status_controller", 3, this::characterMovingPredicate));
     }
 
     private <T extends GeoAnimatable>PlayState characterGeckoPredicate(AnimationState<T> tAnimationState)
     {
-        if (tAnimationState.getController().hasAnimationFinished() || tAnimationState.getController().getAnimationState() == AnimationController.State.STOPPED)
+        if (tAnimationState.getController().hasAnimationFinished()
+                || tAnimationState.getController().getAnimationState() == AnimationController.State.STOPPED)
         {
             tAnimationState.getController().forceAnimationReset();
             if(tAnimationState.isMoving()
@@ -301,19 +301,16 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
             //reset the animation queue
             //tAnimationState.getController().forceAnimationReset();
         /**INTERRUPTING CODE**/
-        if(!tAnimationState.isMoving() && dataTracker.get(TROLL_STATUS) == TrollStatus.MOVING.getId())
+        if(dataTracker.get(TROLL_STATUS) == TrollStatus.SLAM.getId()
+                && tAnimationState.isCurrentAnimation(ModEntityAnimations.TROLL_ATTACK))
         {
-            tAnimationState.getController().forceAnimationReset();
-            return PlayState.STOP;
-        }
-        if(dataTracker.get(TROLL_STATUS) == TrollStatus.SLAM.getId() && tAnimationState.isCurrentAnimation(ModEntityAnimations.TROLL_ATTACK))
-        {
-            tAnimationState.getController().forceAnimationReset();
-            return PlayState.STOP;
+            tAnimationState.getController().stop();
         }
 
         /**MAIN ANIMATION CODE**/
-        if (tAnimationState.getController().hasAnimationFinished() || tAnimationState.getController().getAnimationState() == AnimationController.State.STOPPED) {
+        if (tAnimationState.getController().hasAnimationFinished()
+                || tAnimationState.getController().getAnimationState() == AnimationController.State.STOPPED)
+        {
             tAnimationState.getController().forceAnimationReset();
 
             if(dataTracker.get(TROLL_STATUS) == TrollStatus.ATTACKING.getId())
