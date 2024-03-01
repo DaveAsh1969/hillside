@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "hillsidemod:block/dungeon_stone_mossy_floor_slab"
+    },
+    "type=double": {
+      "model": "hillsidemod:block/dungeon_stone_mossy_floor"
+    },
+    "type=top": {
+      "model": "hillsidemod:block/dungeon_stone_mossy_floor_slab_top"
+    }
+  }
+}

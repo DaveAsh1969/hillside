@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "hillsidemod:block/dungeon_stone_andesite",
+    "side": "hillsidemod:block/dungeon_stone_andesite",
+    "top": "hillsidemod:block/dungeon_stone_andesite"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "W": {
+      "item": "minecraft:white_wool"
+    },
+    "X": {
+      "item": "minecraft:green_wool"
+    },
+    "Y": {
+      "item": "minecraft:glass"
+    },
+    "Z": {
+      "item": "minecraft:brown_wool"
+    }
+  },
+  "pattern": [
+    "WXW",
+    "XYX",
+    "WZW"
+  ],
+  "result": {
+    "count": 4,
+    "item": "hillsidemod:winter_window"
+  },
+  "show_notification": true
+}

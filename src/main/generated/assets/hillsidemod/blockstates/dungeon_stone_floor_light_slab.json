@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "hillsidemod:block/dungeon_stone_floor_light_slab"
+    },
+    "type=double": {
+      "model": "hillsidemod:block/dungeon_stone_floor_light"
+    },
+    "type=top": {
+      "model": "hillsidemod:block/dungeon_stone_floor_light_slab_top"
+    }
+  }
+}

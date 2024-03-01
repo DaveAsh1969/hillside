@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "hillsidemod:block/dungeon_cracked_wall"
+  }
+}

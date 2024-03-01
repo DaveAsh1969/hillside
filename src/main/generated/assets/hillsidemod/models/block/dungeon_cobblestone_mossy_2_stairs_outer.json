@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "hillsidemod:block/dungeon_cobblestone_mossy_2",
+    "side": "hillsidemod:block/dungeon_cobblestone_mossy_2",
+    "top": "hillsidemod:block/dungeon_cobblestone_mossy_2"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "hillsidemod:block/dungeon_blood_wall",
+    "side": "hillsidemod:block/dungeon_blood_wall",
+    "top": "hillsidemod:block/dungeon_blood_wall"
+  }
+}

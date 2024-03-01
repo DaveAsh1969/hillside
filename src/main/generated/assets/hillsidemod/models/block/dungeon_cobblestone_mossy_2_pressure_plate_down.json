@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/pressure_plate_down",
+  "textures": {
+    "texture": "hillsidemod:block/dungeon_cobblestone_mossy_2"
+  }
+}

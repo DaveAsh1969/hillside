@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "hillsidemod:block/dungeon_stony_ground_slab"
+    },
+    "type=double": {
+      "model": "hillsidemod:block/dungeon_stony_ground"
+    },
+    "type=top": {
+      "model": "hillsidemod:block/dungeon_stony_ground_slab_top"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_pressed",
+  "textures": {
+    "texture": "hillsidemod:block/dungeon_cracked_wall"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "X": {
+      "item": "minecraft:stick"
+    },
+    "Y": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "pattern": [
+    " X ",
+    " Y ",
+    "C C"
+  ],
+  "result": {
+    "item": "hillsidemod:dowsing_rod_diamond_lapis"
+  },
+  "show_notification": true
+}

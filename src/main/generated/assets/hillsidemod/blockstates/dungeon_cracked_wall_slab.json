@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "hillsidemod:block/dungeon_cracked_wall_slab"
+    },
+    "type=double": {
+      "model": "hillsidemod:block/dungeon_cracked_wall"
+    },
+    "type=top": {
+      "model": "hillsidemod:block/dungeon_cracked_wall_slab_top"
+    }
+  }
+}

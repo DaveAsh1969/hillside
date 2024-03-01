@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "hillsidemod:block/dungeon_dark_planks",
+    "side": "hillsidemod:block/dungeon_dark_planks",
+    "top": "hillsidemod:block/dungeon_dark_planks"
+  }
+}

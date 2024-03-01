@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_wall_side_tall",
+  "textures": {
+    "wall": "hillsidemod:block/dungeon_blood_wall"
+  }
+}
