@@ -20,6 +20,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
@@ -36,14 +37,15 @@ import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Predicate;
 
 public class TrollEntity extends HostileEntity implements GeoEntity {
     private static final Predicate<Entity> IS_NOT_TROLL = entity -> entity.isAlive() && !(entity instanceof TrollEntity);
     private static final TrackedData<Integer> TROLL_STATUS = DataTracker.registerData(TrollEntity.class, TrackedDataHandlerRegistry.INTEGER);
-    private static final double MOVEMENT_DELTA = 0.60;
+    private static final double MOVEMENT_DELTA = 0.65;
     private static final double ATTACK_RANGE = 9;
-    private static final double SLAM_DELAY = 3;
+    private static final double SLAM_DELAY = 6;
     private static final int SLAM_TICK_BASE = 80;
     private static final int HEAL_DELAY = 200; //in ticks
     private final AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
@@ -70,15 +72,15 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.4f)
                 .add(EntityAttributes.GENERIC_ARMOR_TOUGHNESS, 1.5f)
                 .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 12.0f)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 20f);
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 30f);
     }
 
     @Override
     protected void initGoals() {
-        this.goalSelector.add(1, new MeleeAttackGoal(this, 1.2D, false));
-        this.goalSelector.add(3, new SwimGoal(this));
+        this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0D, false));
+        this.goalSelector.add(2, new SwimGoal(this));
         //this.goalSelector.add(4, new LookAroundGoal(this));
-        //this.goalSelector.add(3, new RevengeGoal(this, TrollEntity.class));
+        this.goalSelector.add(3, new RevengeGoal(this, TrollEntity.class));
         this.goalSelector.add(7, new WanderAroundFarGoal(this, 1.0));
         this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
         this.targetSelector.add(2, new ActiveTargetGoal<>(this, SkeletonEntity.class, true));
@@ -109,7 +111,7 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
                 if(isTargetInAttackRange(getTarget().getBlockPos()))
                 {
                     //check for slam
-                    if(slamTick <= SLAM_DELAY)
+                    if(slamTick <= SLAM_DELAY || slamDelay > 0)
                     {
                         this.dataTracker.set(TROLL_STATUS, TrollStatus.SLAM.getId());
                         if(slamDelay <= SLAM_DELAY)
@@ -131,20 +133,19 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
                 {
                     //attack target
                     this.dataTracker.set(TROLL_STATUS, TrollStatus.ATTACKING.getId());
-                    //update slam
-                    slamTick--;
-                }
 
+                }
+                //update slam
+                slamTick--;
             }
             else
             {
-                //check to see if this is moving
+                //check to see if this isn't moving. moving animation is set client side
                 if(hasMovedHorizontally(lastBlockPos))
                     this.dataTracker.set(TROLL_STATUS, TrollStatus.MOVING.getId());
-
-                //idle remains
                 else
                     this.dataTracker.set(TROLL_STATUS, TrollStatus.IDLE.getId());
+
 
                 //troll slowly heals when peaceful if injured.
                 if(heartTick <= 0)
@@ -159,33 +160,6 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
             }
             lastBlockPos = this.getBlockPos();
         }
-
-            /*
-            //set datatracker IN_RANGE
-            setTargetInRange(this.getTarget());
-
-            //if not attacking troll heals
-            if(!isAttacking())
-                this.heartTick--;
-            else if(isAttacking() && this.dataTracker.get(SLAM_TICK) > 9)
-                    dataTracker.set(SLAM_TICK, setSlamTick(slamTick--));
-
-            else if(isAttacking() && this.dataTracker.get(SLAM_TICK) < 10)
-            {
-                this.roar();
-                resetSlamTick();
-            }
-
-            //every 30ish seconds not attacking, it gains 2 health.
-            if(heartTick <= 0)
-            {
-                if(this.getHealth() < this.getMaxHealth())
-                {
-                    this.setHealth(this.getHealth() + 2.0f);
-                    resetHeartTick();
-                }
-            }
-        }*/
     }
 
     private int setSlamTick(int slamticker)
@@ -197,11 +171,6 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
     private void resetSlamTick()
     {
         slamTick = SLAM_TICK_BASE + Random.create().nextBetween(1,100);
-        //this.dataTracker.set(SLAM_TICK, slamTick);
-    }
-    public boolean getTargetInRange()
-    {
-        return this.dataTracker.get(IN_RANGE);
     }
 
     private void resetHeartTick()
@@ -226,11 +195,6 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return cache;
     }
-
-    //@Override
-    //protected SoundEvent getAmbientSound() {
-    //    return ModSounds.TROLL_SAY;
-    //}
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
@@ -274,7 +238,6 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        //controllers.add(new AnimationController<>(this, "troll_controller", 3, this::characterPredicate));
         controllers.add(new AnimationController<>(this, "troll_moving_controller", 3, this::characterGeckoPredicate));
         controllers.add(new AnimationController<>(this, "troll_status_controller", 3, this::characterMovingPredicate));
     }
@@ -287,27 +250,35 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
             tAnimationState.getController().forceAnimationReset();
             if(tAnimationState.isMoving()
                     && dataTracker.get(TROLL_STATUS)!=TrollStatus.IN_ATTACK_RANGE.getId()
+                    && dataTracker.get(TROLL_STATUS)!=TrollStatus.ATTACKING.getId()
                     && dataTracker.get(TROLL_STATUS)!=TrollStatus.SLAM.getId())
             {
                 tAnimationState.getController().setAnimation(ModEntityAnimations.TROLL_WALK);
+            }
+            else if(!tAnimationState.isMoving()
+                    && dataTracker.get(TROLL_STATUS)!=TrollStatus.IN_ATTACK_RANGE.getId()
+                    && dataTracker.get(TROLL_STATUS)!=TrollStatus.ATTACKING.getId()
+                    && dataTracker.get(TROLL_STATUS)!=TrollStatus.SLAM.getId())
+            {
+                tAnimationState.getController().setAnimation(getIdleAnimation());
+                if (tAnimationState.getController().getCurrentRawAnimation() == ModEntityAnimations.TROLL_YAWN)
+                    this.getWorld().playSound(this.getX(), this.getY(), this.getZ(), ModSounds.TROLL_SAY, SoundCategory.HOSTILE, 0.7f, 1f, true);
             }
         }
         return PlayState.CONTINUE;
     }
     private <T extends GeoAnimatable>PlayState characterMovingPredicate(AnimationState<T> tAnimationState)
     {
-
-        //if (tAnimationState.getController().hasAnimationFinished() || tAnimationState.getController().getAnimationState() == AnimationController.State.STOPPED) {
-            //reset the animation queue
-            //tAnimationState.getController().forceAnimationReset();
-        /**INTERRUPTING CODE**/
+        //INTERRUPTING PLAYSTATE CODE--------------------------------------------------------
         if(dataTracker.get(TROLL_STATUS) == TrollStatus.SLAM.getId()
                 && tAnimationState.isCurrentAnimation(ModEntityAnimations.TROLL_ATTACK))
         {
-            tAnimationState.getController().stop();
+            tAnimationState.getController().forceAnimationReset();
+            tAnimationState.getController().setAnimation(ModEntityAnimations.TROLL_POUND);
+            return PlayState.CONTINUE;
         }
 
-        /**MAIN ANIMATION CODE**/
+        //MAIN ANIMATION SET CODE------------------------------------------------------------
         if (tAnimationState.getController().hasAnimationFinished()
                 || tAnimationState.getController().getAnimationState() == AnimationController.State.STOPPED)
         {
@@ -325,98 +296,9 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
             {
                 tAnimationState.getController().setAnimation(ModEntityAnimations.TROLL_POUND);
             }
-            else if(dataTracker.get(TROLL_STATUS) == TrollStatus.IDLE.getId())
-            {
-                tAnimationState.getController().setAnimation(getIdleAnimation());
-            }
-        }
-        return PlayState.CONTINUE;
-    }
-
-    private <T extends GeoAnimatable>PlayState characterPredicate(AnimationState<T> tAnimationState)
-    {
-        tAnimationState.getController().setAnimationSpeed(0.6D);
-
-        //-------------------------------------------------------------------------------------------------------------------------
-        //-----animations that interrupt playing animations or finish before interruption, this routine assumes no animation loops.
-        //-------------------------------------------------------------------------------------------------------------------------
-
-        //if attack or pound animations are playing, continue until finished.
-        if(tAnimationState.isCurrentAnimation(ModEntityAnimations.TROLL_ATTACK) &&
-                !tAnimationState.getController().getAnimationState().equals(AnimationController.State.STOPPED))
-            return PlayState.CONTINUE;
-
-        else if(tAnimationState.isCurrentAnimation(ModEntityAnimations.TROLL_POUND) &&
-                !tAnimationState.getController().getAnimationState().equals(AnimationController.State.STOPPED))
-            return PlayState.CONTINUE;
-
-        //if this is attacking and the state is not stopped and the attack animation isn't playing, immediately stop the state so the main code can take effect
-        if(this.isAttacking() &&
-                tAnimationState.getController().getAnimationState() != AnimationController.State.STOPPED &&
-                !tAnimationState.isCurrentAnimation(ModEntityAnimations.TROLL_ATTACK))
-        {
-            tAnimationState.getController().forceAnimationReset();
-            return PlayState.STOP;
         }
 
-        //if the player is in the middle of an idle animation and is not attacking, but starts moving, stop the state so the main code below can take effect.
-        if(!this.isAttacking() &&
-                !tAnimationState.isCurrentAnimation(ModEntityAnimations.TROLL_WALK) &&
-                tAnimationState.isMoving() &&
-                tAnimationState.getController().getAnimationState() != AnimationController.State.STOPPED)
-        {
-            tAnimationState.getController().forceAnimationReset();
-            return PlayState.STOP;
-        }
-
-        //if the walking animation is playing but the troll is idle and not attacking, stop the animation
-        //for the main code to take effect
-        if(!tAnimationState.isMoving()
-                && tAnimationState.isCurrentAnimation(ModEntityAnimations.TROLL_WALK)
-                && !tAnimationState.isCurrentAnimation(ModEntityAnimations.TROLL_ATTACK)
-                && tAnimationState.getController().getAnimationState() != AnimationController.State.STOPPED)
-            return PlayState.STOP;
-
-        //------------------------------
-        //-----Main Animation Logic-----
-        //------------------------------
-        //if animations is complete or stopped, play new animation
-        if (tAnimationState.getController().hasAnimationFinished() || tAnimationState.getController().getAnimationState() == AnimationController.State.STOPPED)
-        {
-            //reset the animation queue
-            tAnimationState.getController().forceAnimationReset();
-
-            //debug code
-            //this.getWorld().getClosestPlayer(this.getX(), this.getY(), this.getZ(),
-            //        100D, false).sendMessage(Text.literal(dataTracker.get(SLAM_TICK).toString()));
-
-            if(dataTracker.get(SLAM_TICK) < 10)
-            {
-                tAnimationState.getController().setAnimation(ModEntityAnimations.TROLL_POUND);
-                return PlayState.CONTINUE;
-            }
-
-            //this defaults to attack if attacking.
-            if(this.handSwinging) // || this.isAttacking()) //getTargetInRange() ||
-            {
-                tAnimationState.getController().setAnimation(ModEntityAnimations.TROLL_ATTACK);
-                slamTick--;
-            }
-
-            else if(tAnimationState.isMoving()) // || this.isAttacking())
-                tAnimationState.getController().setAnimation(ModEntityAnimations.TROLL_WALK);
-
-            //if nothing is happening, the entity is idle
-            else
-            {
-                tAnimationState.getController().setAnimation(getIdleAnimation());
-
-                //if animation is yawn, play growl sound
-                if(tAnimationState.getController().getCurrentAnimation() != null)
-                    if (tAnimationState.getController().getCurrentRawAnimation() == ModEntityAnimations.TROLL_YAWN)
-                        this.getWorld().playSound(this.getX(), this.getY(), this.getZ(), ModSounds.TROLL_SAY, SoundCategory.HOSTILE, 0.7f, 1f, true);
-            }
-        }
+        Objects.requireNonNull(getWorld().getClosestPlayer(this, 100)).sendMessage(Text.literal(dataTracker.get(TROLL_STATUS).toString()));
         return PlayState.CONTINUE;
     }
 
