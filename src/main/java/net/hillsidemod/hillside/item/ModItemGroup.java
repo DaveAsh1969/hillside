@@ -260,7 +260,6 @@ public class ModItemGroup {
                         entries.add(ModBlocks.DUNGEON_STONY_GROUND_BUTTON);
                     }).build());
 
-
     public static void registerItemGroups() {
         Hillside.LOGGER.info("Registering Item Groups for " + Hillside.MOD_ID);
     }
