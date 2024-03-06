@@ -53,7 +53,7 @@ public class ModItemGroup {
                         entries.add(ModBlocks.XANTHE);
 
                         //standard blocks
-                        entries.add(ModBlocks.LAVA_BLOCK);
+                        entries.add(ModBlocks.BLUE_LIGHT);
                         entries.add(ModBlocks.BRICK_OVEN);
                         entries.add(ModBlocks.BRICK_BLACK);
                         entries.add(ModBlocks.BRICK_BLACK_SMEAR);
@@ -93,6 +93,14 @@ public class ModItemGroup {
                         entries.add(ModBlocks.DUNGEON_STONE_PEBBLES);
                         entries.add(ModBlocks.DUNGEON_STONY_DIRT);
                         entries.add(ModBlocks.DUNGEON_STONY_GROUND);
+                        entries.add(ModBlocks.GLASS_MOD);
+                        entries.add(ModBlocks.GLASS_MOD_BLUE);
+                        entries.add(ModBlocks.GLASS_MOD_GREEN);
+                        entries.add(ModBlocks.GLASS_MOD_LIGHT_BLUE);
+                        entries.add(ModBlocks.GLASS_MOD_PURPLE);
+                        entries.add(ModBlocks.GLASS_MOD_WHITE);
+                        entries.add(ModBlocks.GLASS_MOD_YELLOW);
+                        entries.add(ModBlocks.LAVA_BLOCK);
 
                         //stairs
                         entries.add(ModBlocks.BRICK_BLACK_STAIRS);
@@ -192,6 +200,15 @@ public class ModItemGroup {
                         entries.add(ModBlocks.DUNGEON_STONE_PEBBLES_WALL);
                         entries.add(ModBlocks.DUNGEON_STONY_DIRT_WALL);
                         entries.add(ModBlocks.DUNGEON_STONY_GROUND_WALL);
+
+                        //panes
+                        entries.add(ModBlocks.GLASS_MOD_PANE);
+                        entries.add(ModBlocks.GLASS_MOD_BLUE_PANE);
+                        entries.add(ModBlocks.GLASS_MOD_GREEN_PANE);
+                        entries.add(ModBlocks.GLASS_MOD_LIGHT_BLUE_PANE);
+                        entries.add(ModBlocks.GLASS_MOD_PURPLE_PANE);
+                        entries.add(ModBlocks.GLASS_MOD_WHITE_PANE);
+                        entries.add(ModBlocks.GLASS_MOD_YELLOW_PANE);
 
                         //pressure plates
                         entries.add(ModBlocks.BRICK_BLACK_PLATE);

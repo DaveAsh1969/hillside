@@ -298,7 +298,7 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
             }
         }
 
-        Objects.requireNonNull(getWorld().getClosestPlayer(this, 100)).sendMessage(Text.literal(dataTracker.get(TROLL_STATUS).toString()));
+        //Objects.requireNonNull(getWorld().getClosestPlayer(this, 100)).sendMessage(Text.literal(dataTracker.get(TROLL_STATUS).toString()));
         return PlayState.CONTINUE;
     }
 

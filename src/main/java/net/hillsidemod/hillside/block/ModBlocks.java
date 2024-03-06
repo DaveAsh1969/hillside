@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.hillsidemod.hillside.Hillside;
 import net.hillsidemod.hillside.block.custom.*;
 import net.minecraft.block.*;
+import net.minecraft.block.enums.Instrument;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -15,6 +16,8 @@ import net.minecraft.util.Identifier;
 
 public class ModBlocks
 {
+    public static final Block BLUE_LIGHT = registerBlock("blue_light_block", new Block(FabricBlockSettings.create().mapColor(MapColor.BLUE)
+            .strength(0.3f).nonOpaque().sounds(BlockSoundGroup.GLASS).luminance(state -> 15).solidBlock(Blocks::never)));
     public static final Block BOP = registerBlock("bop", new FlowerBlock(StatusEffects.FIRE_RESISTANCE, 10,
             FabricBlockSettings.copyOf(Blocks.ALLIUM).nonOpaque().noCollision()));
     public static final Block BOP_POTTED = Registry.register(Registries.BLOCK, new Identifier(Hillside.MOD_ID, "bop_potted"),
@@ -530,6 +533,34 @@ public class ModBlocks
             new WallBlock(FabricBlockSettings.create().strength(1.0f).requiresTool()
                     .sounds(BlockSoundGroup.STONE)));
     //END DUNGEON BLOCKS------------------------------------------------------------------------------------
+    public static final Block GLASS_MOD = registerBlock("glass_mod",
+            new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(1.0f).nonOpaque()));
+    public static final Block GLASS_MOD_PANE = registerBlock("glass_mod_pane",
+            new PaneBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(1.0f).nonOpaque()));
+    public static final Block GLASS_MOD_BLUE = registerBlock("glass_mod_blue",
+            new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(1.0f).nonOpaque()));
+    public static final Block GLASS_MOD_BLUE_PANE = registerBlock("glass_mod_blue_pane",
+            new PaneBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(1.0f).nonOpaque()));
+    public static final Block GLASS_MOD_GREEN = registerBlock("glass_mod_green",
+            new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(1.0f).nonOpaque()));
+    public static final Block GLASS_MOD_GREEN_PANE = registerBlock("glass_mod_green_pane",
+            new PaneBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(1.0f).nonOpaque()));
+    public static final Block GLASS_MOD_LIGHT_BLUE = registerBlock("glass_mod_light_blue",
+            new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(1.0f).nonOpaque()));
+    public static final Block GLASS_MOD_LIGHT_BLUE_PANE = registerBlock("glass_mod_light_blue_pane",
+            new PaneBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(1.0f).nonOpaque()));
+    public static final Block GLASS_MOD_PURPLE = registerBlock("glass_mod_purple",
+            new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(1.0f).nonOpaque()));
+    public static final Block GLASS_MOD_PURPLE_PANE = registerBlock("glass_mod_purple_pane",
+            new PaneBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(1.0f).nonOpaque()));
+    public static final Block GLASS_MOD_WHITE = registerBlock("glass_mod_white",
+            new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(1.0f).nonOpaque()));
+    public static final Block GLASS_MOD_WHITE_PANE = registerBlock("glass_mod_white_pane",
+            new PaneBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(1.0f).nonOpaque()));
+    public static final Block GLASS_MOD_YELLOW = registerBlock("glass_mod_yellow",
+            new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(1.0f).nonOpaque()));
+    public static final Block GLASS_MOD_YELLOW_PANE = registerBlock("glass_mod_yellow_pane",
+            new PaneBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(1.0f).nonOpaque()));
     public static final Block LAVA_BLOCK = registerBlock("lava_block",
             new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
     public static final Block LAMP_BLOCK = registerBlock("lamp_block",

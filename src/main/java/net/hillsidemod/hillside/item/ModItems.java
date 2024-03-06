@@ -7,13 +7,18 @@ import net.hillsidemod.hillside.Hillside;
 import net.hillsidemod.hillside.block.ModBlocks;
 import net.hillsidemod.hillside.entity.ModEntities;
 import net.hillsidemod.hillside.item.custom.*;
+import net.minecraft.entity.EntityType;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
+    //public static final Item BUCKET_FOX = registerItem("bucket_fox",
+    //        new EntityBucketItem(EntityType.FOX, Fluids.EMPTY, SoundEvents.ITEM_BUCKET_EMPTY, new FabricItemSettings().maxCount(1)));
     public static final Item CHEESE = registerItem("cheese",
             new Item(new FabricItemSettings().food(ModFoodComponents.CHEESE).maxCount(64)));
     public static final Item DECAYING_FLESH = registerItem("decaying_flesh",
