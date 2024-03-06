@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "item": "minecraft:coal"
+    },
+    "X": {
+      "item": "minecraft:stick"
+    },
+    "Y": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "pattern": [
+    " X ",
+    " Y ",
+    "C C"
+  ],
+  "result": {
+    "item": "hillsidemod:dowsing_rod_coal_copper"
+  },
+  "show_notification": true
+}

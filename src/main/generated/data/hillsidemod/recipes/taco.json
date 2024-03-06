@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "hillsidemod:lettuce"
+    },
+    {
+      "item": "minecraft:cooked_beef"
+    },
+    {
+      "item": "hillsidemod:cheese"
+    },
+    {
+      "item": "hillsidemod:tortilla"
+    }
+  ],
+  "result": {
+    "item": "hillsidemod:taco"
+  }
+}
