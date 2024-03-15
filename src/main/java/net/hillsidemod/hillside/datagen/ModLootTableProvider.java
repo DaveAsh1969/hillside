@@ -244,6 +244,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.LETTUCE_CROP, cropDrops(ModBlocks.LETTUCE_CROP, ModItems.LETTUCE, ModItems.LETTUCE_SEEDS, builder));
 
         addDrop(ModBlocks.LAVA_BLOCK);
+        addDrop(ModBlocks.OCEAN_MARBLE);
         addDrop(ModBlocks.TACO_BELL);
         addDrop(ModBlocks.TROLL_HEAD);
         addDrop(ModBlocks.XANTHE);

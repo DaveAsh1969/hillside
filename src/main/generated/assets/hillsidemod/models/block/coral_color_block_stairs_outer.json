@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "hillsidemod:block/coral_color_block",
+    "side": "hillsidemod:block/coral_color_block",
+    "top": "hillsidemod:block/coral_color_block"
+  }
+}

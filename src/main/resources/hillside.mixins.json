@@ -9,7 +9,8 @@
 		"SpiderAggro",
 		"ZombieAggro",
 		"FurnaceMilkBucket",
-		"LivingEntityMixin"
+		"LivingEntityMixin",
+		"FoxTrustedAccess"
 	],
 	"injectors": {
 		"defaultRequire": 1

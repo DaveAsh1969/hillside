@@ -1,0 +1,124 @@
+{
+	"meta": {
+		"format_version": "4.9",
+		"model_format": "java_block",
+		"box_uv": false
+	},
+	"name": "water_shaft",
+	"parent": "",
+	"ambientocclusion": true,
+	"front_gui_light": false,
+	"visible_box": [1, 1, 0],
+	"variable_placeholders": "",
+	"variable_placeholder_buttons": [],
+	"unhandled_root_fields": {},
+	"resolution": {
+		"width": 16,
+		"height": 16
+	},
+	"elements": [
+		{
+			"name": "cube",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-1, -1, -1],
+			"to": [17, 17, 17],
+			"autouv": 1,
+			"color": 3,
+			"inflate": -1,
+			"origin": [0, 0, 0],
+			"faces": {
+				"north": {
+					"uv": [0, 0, 16, 16],
+					"texture": 0
+				},
+				"east": {
+					"uv": [0, 0, 16, 16],
+					"texture": 0
+				},
+				"south": {
+					"uv": [0, 0, 16, 16],
+					"texture": 0
+				},
+				"west": {
+					"uv": [0, 0, 16, 16],
+					"texture": 0
+				},
+				"up": {
+					"uv": [0, 0, 16, 16],
+					"texture": 0
+				},
+				"down": {
+					"uv": [0, 0, 16, 16],
+					"texture": 0
+				}
+			},
+			"type": "cube",
+			"uuid": "1357f260-2d25-ff03-2868-881af5fec5e5"
+		}
+	],
+	"outliner": ["1357f260-2d25-ff03-2868-881af5fec5e5"],
+	"textures": [
+		{
+			"path": "C:\\Users\\austi\\Desktop\\Minecraft Mod\\Fabric\\hillside\\gmp\\water_shaft_1.png",
+			"name": "water_shaft_1.png",
+			"folder": "",
+			"namespace": "",
+			"id": "0",
+			"width": 32,
+			"height": 32,
+			"uv_width": 16,
+			"uv_height": 16,
+			"particle": true,
+			"layers_enabled": false,
+			"sync_to_project": "",
+			"render_mode": "default",
+			"render_sides": "auto",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"internal": true,
+			"saved": true,
+			"uuid": "e533837a-8b7c-2c53-bbfd-cb14864b19bd",
+			"relative_path": "../../gmp/water_shaft_1.png",
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAaFJREFUWEfNV7tKREEMza1FC8FOUAvxE6y1t7JfsPAXLPwAC3/BQrC3srffTxAbBTthi12sV6LkMjeTmZzMXhennEc4OTl5TNcdnCzJWcuNHeq+Pvtbe5M7enu8Jnp5+t07OqP98xt6f7j0TGXnHQJAv9o8vaL59H4AYOv4ghbPt/1VDbqEzAVgGVqVgdTmD4B0g71LPbGQIwyk72o2XQYsAB4DKP1suwlAlAFxwgLmArDo8xjQrNUYGQCoXdQ68bIAzUeXgZoGOPd5cU2w6gCihSKA2mMOy/bu4QDb7OMVyh6dYaMzgHjNyOVeD0A2SgZSMUoWpCHQlXAUDZTASBZ4GkCyoSkEKANIOHoASAkWj5gBa629G7ZqIGtGqGBSBv58HvDqQK0SIrGXkGciRB5He8Eo7fhf9gJvJrTY1HvFOlCjrXUesMTeVIg8DSA6EjBZL0BSMspALRQrMRDtBeycDm0IgHjSOg/AGvBiGOmGnq0QA+IB2g1Tj0tAso+J9Q3TY1SEAU/UzTMh94JSN0Sn6/DHRAxH5gFvzlibBkqh+AaL8MNwlpl7yQAAAABJRU5ErkJggg=="
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0.5, 1.25, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"thirdperson_lefthand": {
+			"translation": [1.75, 0, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_righthand": {
+			"translation": [2.75, 1, 3],
+			"scale": [0.5, 0.5, 0.28]
+		},
+		"firstperson_lefthand": {
+			"translation": [2.75, 0.25, 1.5],
+			"scale": [0.5, 0.5, 0.28]
+		},
+		"ground": {
+			"translation": [0, 1, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [36, -36, 0],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"head": {
+			"scale": [0.85, 0.85, 0.85]
+		},
+		"fixed": {
+			"scale": [0.5, 0.5, 0.5]
+		}
+	}
+}

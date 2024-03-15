@@ -17,6 +17,7 @@ public class ModItemGroup {
             new Identifier(Hillside.MOD_ID, "hillsidemod"),
             FabricItemGroup.builder().displayName(Text.literal("Hillside"))
                     .icon(() -> new ItemStack(ModItems.STAR_COMPASS)).entries((displayContext, entries) -> {
+                        entries.add(ModItems.BUCKET_FOX);
                         entries.add(ModItems.CHEESE);
                         entries.add(ModItems.DECAYING_ZOMBIE_EGG);
                         entries.add(ModItems.DECAYING_FLESH);
@@ -54,6 +55,7 @@ public class ModItemGroup {
 
                         //standard blocks
                         entries.add(ModBlocks.BLUE_LIGHT);
+                        entries.add(ModBlocks.BLUE_LAVA);
                         entries.add(ModBlocks.BRICK_OVEN);
                         entries.add(ModBlocks.BRICK_BLACK);
                         entries.add(ModBlocks.BRICK_BLACK_SMEAR);
@@ -68,6 +70,7 @@ public class ModItemGroup {
                         entries.add(ModBlocks.BRICK_TAN_SMEAR);
                         entries.add(ModBlocks.BRICK_WHITE);
                         entries.add(ModBlocks.BRICK_WHITE_SMEAR);
+                        entries.add(ModBlocks.CORAL_COLOR_BLOCK);
                         entries.add(ModBlocks.DUNGEON_ANDESITE_CRACKED);
                         entries.add(ModBlocks.DUNGEON_BLOOD_WALL);
                         entries.add(ModBlocks.DUNGEON_CEILING);
@@ -101,6 +104,10 @@ public class ModItemGroup {
                         entries.add(ModBlocks.GLASS_MOD_WHITE);
                         entries.add(ModBlocks.GLASS_MOD_YELLOW);
                         entries.add(ModBlocks.LAVA_BLOCK);
+                        entries.add(ModBlocks.OCEAN_MARBLE);
+                        entries.add(ModBlocks.WAVES_BLOCK);
+                        entries.add(ModBlocks.WAVES_BLUE);
+                        entries.add(ModBlocks.WATER_SHAFT);
 
                         //stairs
                         entries.add(ModBlocks.BRICK_BLACK_STAIRS);
@@ -109,6 +116,7 @@ public class ModItemGroup {
                         entries.add(ModBlocks.BRICK_PINK_STAIRS);
                         entries.add(ModBlocks.BRICK_TAN_STAIRS);
                         entries.add(ModBlocks.BRICK_WHITE_STAIRS);
+                        entries.add(ModBlocks.CORAL_COLOR_BLOCK_STAIRS);
                         entries.add(ModBlocks.DUNGEON_ANDESITE_CRACKED_STAIRS);
                         entries.add(ModBlocks.DUNGEON_BLOOD_WALL_STAIRS);
                         entries.add(ModBlocks.DUNGEON_COBBLESTONE_MOSSY_STAIRS);
@@ -142,6 +150,7 @@ public class ModItemGroup {
                         entries.add(ModBlocks.BRICK_PINK_SLAB);
                         entries.add(ModBlocks.BRICK_TAN_SLAB);
                         entries.add(ModBlocks.BRICK_WHITE_SLAB);
+                        entries.add(ModBlocks.CORAL_COLOR_BLOCK_SLAB);
                         entries.add(ModBlocks.DUNGEON_ANDESITE_CRACKED_SLAB);
                         entries.add(ModBlocks.DUNGEON_BLOOD_WALL_SLAB);
                         entries.add(ModBlocks.DUNGEON_CEILING_SLAB);
@@ -175,6 +184,7 @@ public class ModItemGroup {
                         entries.add(ModBlocks.BRICK_PINK_WALL);
                         entries.add(ModBlocks.BRICK_TAN_WALL);
                         entries.add(ModBlocks.BRICK_WHITE_WALL);
+                        entries.add(ModBlocks.CORAL_COLOR_BLOCK_WALL);
                         entries.add(ModBlocks.DUNGEON_ANDESITE_CRACKED_WALL);
                         entries.add(ModBlocks.DUNGEON_BLOOD_WALL_WALL);
                         entries.add(ModBlocks.DUNGEON_CEILING_WALL);
@@ -217,6 +227,7 @@ public class ModItemGroup {
                         entries.add(ModBlocks.BRICK_PINK_PLATE);
                         entries.add(ModBlocks.BRICK_TAN_PLATE);
                         entries.add(ModBlocks.BRICK_WHITE_PLATE);
+                        entries.add(ModBlocks.CORAL_COLOR_BLOCK_PLATE);
                         entries.add(ModBlocks.DUNGEON_ANDESITE_CRACKED_PLATE);
                         entries.add(ModBlocks.DUNGEON_BLOOD_WALL_PLATE);
                         entries.add(ModBlocks.DUNGEON_CEILING_PLATE);
@@ -250,6 +261,7 @@ public class ModItemGroup {
                         entries.add(ModBlocks.BRICK_PINK_BUTTON);
                         entries.add(ModBlocks.BRICK_TAN_BUTTON);
                         entries.add(ModBlocks.BRICK_WHITE_BUTTON);
+                        entries.add(ModBlocks.CORAL_COLOR_BLOCK_BUTTON);
                         entries.add(ModBlocks.DUNGEON_ANDESITE_CRACKED_BUTTON);
                         entries.add(ModBlocks.DUNGEON_BLOOD_WALL_BUTTON);
                         entries.add(ModBlocks.DUNGEON_CEILING_BUTTON);

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "hillsidemod:block/water_shaft",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "hillsidemod:block/water_shaft"
+    },
+    "facing=west": {
+      "model": "hillsidemod:block/water_shaft",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "hillsidemod:block/water_shaft",
+      "y": 270
+    }
+  }
+}

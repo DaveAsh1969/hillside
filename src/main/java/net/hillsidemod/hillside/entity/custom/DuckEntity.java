@@ -61,7 +61,6 @@ public class DuckEntity extends AnimalEntity implements GeoEntity {
             DataTracker.registerData(DuckEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static final TrackedData<Integer> DUCK_ID_ADULT_VARIANT =
             DataTracker.registerData(DuckEntity.class, TrackedDataHandlerRegistry.INTEGER);
-
     private static final TrackedData<Boolean> DUCK_DANCE =
             DataTracker.registerData(DuckEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     public int eggLayTime;

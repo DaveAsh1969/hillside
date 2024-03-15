@@ -5,7 +5,6 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.hillsidemod.hillside.Hillside;
 import net.hillsidemod.hillside.block.custom.*;
 import net.minecraft.block.*;
-import net.minecraft.block.enums.Instrument;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -16,8 +15,11 @@ import net.minecraft.util.Identifier;
 
 public class ModBlocks
 {
+    public static final Block BLUE_LAVA = registerBlock("blue_lava",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.BLUE)
+                    .strength(0.3f).sounds(BlockSoundGroup.GLASS).luminance(state -> 15).solidBlock(Blocks::never)));
     public static final Block BLUE_LIGHT = registerBlock("blue_light_block", new Block(FabricBlockSettings.create().mapColor(MapColor.BLUE)
-            .strength(0.3f).nonOpaque().sounds(BlockSoundGroup.GLASS).luminance(state -> 15).solidBlock(Blocks::never)));
+            .strength(0.3f).sounds(BlockSoundGroup.STONE).luminance(state -> 15).solidBlock(Blocks::never)));
     public static final Block BOP = registerBlock("bop", new FlowerBlock(StatusEffects.FIRE_RESISTANCE, 10,
             FabricBlockSettings.copyOf(Blocks.ALLIUM).nonOpaque().noCollision()));
     public static final Block BOP_POTTED = Registry.register(Registries.BLOCK, new Identifier(Hillside.MOD_ID, "bop_potted"),
@@ -74,7 +76,7 @@ public class ModBlocks
             new WallBlock(FabricBlockSettings.create().strength(1.0f).requiresTool()
                     .sounds(BlockSoundGroup.STONE)));
     public static final Block BRICK_OVEN = registerBlock("brick_oven",
-            new BrickOvenBlock(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE).nonOpaque()
+            new BrickOvenBlock(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE)
                     .luminance((state) -> state.get(BrickOvenBlock.LIT) ? 15 : 0 )));
     public static final Block BRICK_PINK = registerBlock("brick_pink",
             new Block(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE)));
@@ -127,6 +129,22 @@ public class ModBlocks
             new StairsBlock(ModBlocks.BRICK_BLACK.getDefaultState(), FabricBlockSettings.create().strength(1.0f).requiresTool()
                     .sounds(BlockSoundGroup.STONE)));
     public static final Block BRICK_WHITE_WALL = registerBlock("brick_white_wall",
+            new WallBlock(FabricBlockSettings.create().strength(1.0f).requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
+
+    public static final Block CORAL_COLOR_BLOCK = registerBlock("coral_color_block",
+            new Block(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE)));
+    public static final Block CORAL_COLOR_BLOCK_BUTTON = registerBlock("coral_color_block_button",
+            new ButtonBlock(FabricBlockSettings.copyOf(Blocks.BRICKS), BlockSetType.IRON, 40, true));
+    public static final Block CORAL_COLOR_BLOCK_PLATE = registerBlock("coral_color_block_pressure_plate",
+            new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copyOf(Blocks.IRON_BLOCK), BlockSetType.IRON));
+    public static final Block CORAL_COLOR_BLOCK_SLAB = registerBlock("coral_color_block_slab",
+            new SlabBlock(FabricBlockSettings.create().strength(1.0f).requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
+    public static final Block CORAL_COLOR_BLOCK_STAIRS = registerBlock("coral_color_block_stairs",
+            new StairsBlock(ModBlocks.BRICK_BLACK.getDefaultState(), FabricBlockSettings.create().strength(1.0f).requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
+    public static final Block CORAL_COLOR_BLOCK_WALL = registerBlock("coral_color_block_wall",
             new WallBlock(FabricBlockSettings.create().strength(1.0f).requiresTool()
                     .sounds(BlockSoundGroup.STONE)));
 
@@ -307,8 +325,12 @@ public class ModBlocks
             new WallBlock(FabricBlockSettings.create().strength(1.0f).requiresTool()
                     .sounds(BlockSoundGroup.STONE)));
     //--
+    //public static final Block DUNGEON_DIRT_CRACKED = registerBlock("dungeon_dirt_cracked",
+    //        new Block(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE)));
+
     public static final Block DUNGEON_DIRT_CRACKED = registerBlock("dungeon_dirt_cracked",
-            new Block(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE)));
+            new GrassBlock(FabricBlockSettings.copyOf(Blocks.GRASS_BLOCK)));
+
     public static final Block DUNGEON_DIRT_CRACKED_BUTTON = registerBlock("dungeon_dirt_cracked_button",
             new ButtonBlock(FabricBlockSettings.copyOf(Blocks.BRICKS), BlockSetType.IRON, 40, true));
     public static final Block DUNGEON_DIRT_CRACKED_PLATE = registerBlock("dungeon_dirt_cracked_pressure_plate",
@@ -502,7 +524,7 @@ public class ModBlocks
                     .sounds(BlockSoundGroup.STONE)));
     //--
     public static final Block DUNGEON_STONY_DIRT = registerBlock("dungeon_stony_dirt",
-            new Block(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE)));
+            new GrassBlock(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.GRASS)));
     public static final Block DUNGEON_STONY_DIRT_BUTTON = registerBlock("dungeon_stony_dirt_button",
             new ButtonBlock(FabricBlockSettings.copyOf(Blocks.BRICKS), BlockSetType.IRON, 40, true));
     public static final Block DUNGEON_STONY_DIRT_PLATE = registerBlock("dungeon_stony_dirt_pressure_plate",
@@ -533,6 +555,9 @@ public class ModBlocks
             new WallBlock(FabricBlockSettings.create().strength(1.0f).requiresTool()
                     .sounds(BlockSoundGroup.STONE)));
     //END DUNGEON BLOCKS------------------------------------------------------------------------------------
+    public static final Block FOX_CAGE = registerBlock("fox_cage",
+            new FoxBlock(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.BONE)
+                    .nonOpaque()));
     public static final Block GLASS_MOD = registerBlock("glass_mod",
             new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(1.0f).nonOpaque()));
     public static final Block GLASS_MOD_PANE = registerBlock("glass_mod_pane",
@@ -562,10 +587,23 @@ public class ModBlocks
     public static final Block GLASS_MOD_YELLOW_PANE = registerBlock("glass_mod_yellow_pane",
             new PaneBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(1.0f).nonOpaque()));
     public static final Block LAVA_BLOCK = registerBlock("lava_block",
-            new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
+            new Block(FabricBlockSettings.create().mapColor(MapColor.YELLOW)
+                    .strength(0.3f).sounds(BlockSoundGroup.GLASS).luminance(state -> 15).solidBlock(Blocks::never)));
     public static final Block LAMP_BLOCK = registerBlock("lamp_block",
             new LampBlock(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.METAL).nonOpaque()
                     .luminance((state) -> state.get(LampBlock.CLICKED) ? 15 : 0)));
+    public static final Block OCEAN_MARBLE = registerBlock("ocean_marble",
+            new Block(FabricBlockSettings.copyOf(Blocks.STONE)));
+    public static final Block OCEAN_MARBLE_1 = registerBlock("ocean_marble_1",
+            new Block(FabricBlockSettings.copyOf(Blocks.STONE)));
+    public static final Block OCEAN_MARBLE_2 = registerBlock("ocean_marble_2",
+            new Block(FabricBlockSettings.copyOf(Blocks.STONE)));
+    public static final Block OCEAN_MARBLE_3 = registerBlock("ocean_marble_3",
+            new Block(FabricBlockSettings.copyOf(Blocks.STONE)));
+
+    public static final Block OCEAN_FLARE = registerBlock("ocean_flare",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.LIGHT_BLUE)
+                    .strength(0.3f).sounds(BlockSoundGroup.GLASS).luminance(state -> 9).solidBlock(Blocks::never)));
     public static final Block LETTUCE_CROP = Registry.register(Registries.BLOCK, new Identifier(Hillside.MOD_ID, "lettuce_crop"),
             new LettuceBlock(FabricBlockSettings.copyOf(Blocks.WHEAT)));
     public static final Block TACO_BELL = registerBlock("taco_bell",
@@ -574,13 +612,18 @@ public class ModBlocks
     public static final Block TROLL_HEAD = registerBlock("troll_head",
             new TrollHeadBlock(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.BONE)
                     .nonOpaque()));
+    public static final Block WAVES_BLOCK = registerBlock("waves_block",
+            new WavesBlock(FabricBlockSettings.create().strength(1.0f).sounds(BlockSoundGroup.STONE)));
+    public static final Block WAVES_BLUE = registerBlock("waves_blue",
+            new Block(FabricBlockSettings.copyOf(Blocks.STONE).strength(1.0f)));
+    public static final Block WATER_SHAFT = registerBlock("water_shaft",
+            new WaterShaftBlock(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE)));
     public static final Block WINTER_WINDOW = registerBlock("winter_window",
             new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(1.0f).nonOpaque()));
     public static final Block WINTER_WINDOW_PANE = registerBlock("winter_window_pane",
             new PaneBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(1.0f).nonOpaque()));
     public static final Block XANTHE = registerBlock("xanthe", new FlowerBlock(StatusEffects.FIRE_RESISTANCE, 10,
             FabricBlockSettings.copyOf(Blocks.ALLIUM).nonOpaque().noCollision()));
-
     public static final Block XANTHE_POTTED = Registry.register(Registries.BLOCK, new Identifier(Hillside.MOD_ID, "xanthe_potted"),
             new FlowerPotBlock(XANTHE, FabricBlockSettings.copyOf(Blocks.POTTED_ALLIUM).nonOpaque()));
 

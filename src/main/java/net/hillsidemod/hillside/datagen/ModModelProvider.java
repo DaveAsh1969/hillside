@@ -53,6 +53,9 @@ public class ModModelProvider extends FabricModelProvider {
         BlockStateModelGenerator.BlockTexturePool dungeon_stony_dirt_Pool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.DUNGEON_STONY_DIRT);
         BlockStateModelGenerator.BlockTexturePool dungeon_stony_ground_Pool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.DUNGEON_STONY_GROUND);
 
+        //other generators
+        BlockStateModelGenerator.BlockTexturePool coral_color_block_Pool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.CORAL_COLOR_BLOCK);
+
         //definitions for specialty bricks
         brickBlackPool.stairs(ModBlocks.BRICK_BLACK_STAIRS);
         brickBlackPool.slab(ModBlocks.BRICK_BLACK_SLAB);
@@ -241,7 +244,15 @@ public class ModModelProvider extends FabricModelProvider {
         dungeon_stony_ground_Pool.pressurePlate(ModBlocks.DUNGEON_STONY_GROUND_PLATE);
         dungeon_stony_ground_Pool.wall(ModBlocks.DUNGEON_STONY_GROUND_WALL);
 
+        //other generators
+        coral_color_block_Pool.stairs(ModBlocks.CORAL_COLOR_BLOCK_STAIRS);
+        coral_color_block_Pool.slab(ModBlocks.CORAL_COLOR_BLOCK_SLAB);
+        coral_color_block_Pool.button(ModBlocks.CORAL_COLOR_BLOCK_BUTTON);
+        coral_color_block_Pool.pressurePlate(ModBlocks.CORAL_COLOR_BLOCK_PLATE);
+        coral_color_block_Pool.wall(ModBlocks.CORAL_COLOR_BLOCK_WALL);
+
         //generic generator
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BLUE_LAVA);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BLUE_LIGHT);
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.BOP, ModBlocks.BOP_POTTED, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerItemModel(ModItems.CHEESE);
@@ -249,26 +260,21 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerParentedItemModel(ModItems.DUCK_ENTITY_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
         blockStateModelGenerator.registerDoor(ModBlocks.DUNGEON_DOOR);
         blockStateModelGenerator.registerItemModel(ModItems.DUNGEON_KEY);
-        //blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GLASS_MOD);
         blockStateModelGenerator.registerGlassPane(ModBlocks.GLASS_MOD, ModBlocks.GLASS_MOD_PANE);
-        //blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GLASS_MOD_BLUE);
         blockStateModelGenerator.registerGlassPane(ModBlocks.GLASS_MOD_BLUE, ModBlocks.GLASS_MOD_BLUE_PANE);
-        //blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GLASS_MOD_GREEN);
         blockStateModelGenerator.registerGlassPane(ModBlocks.GLASS_MOD_GREEN, ModBlocks.GLASS_MOD_GREEN_PANE);
-        //blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GLASS_MOD_LIGHT_BLUE);
         blockStateModelGenerator.registerGlassPane(ModBlocks.GLASS_MOD_LIGHT_BLUE, ModBlocks.GLASS_MOD_LIGHT_BLUE_PANE);
-        //blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GLASS_MOD_PURPLE);
         blockStateModelGenerator.registerGlassPane(ModBlocks.GLASS_MOD_PURPLE, ModBlocks.GLASS_MOD_PURPLE_PANE);
-        //blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GLASS_MOD_WHITE);
         blockStateModelGenerator.registerGlassPane(ModBlocks.GLASS_MOD_WHITE, ModBlocks.GLASS_MOD_WHITE_PANE);
-        //blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GLASS_MOD_YELLOW);
         blockStateModelGenerator.registerGlassPane(ModBlocks.GLASS_MOD_YELLOW, ModBlocks.GLASS_MOD_YELLOW_PANE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LAVA_BLOCK);
         blockStateModelGenerator.registerItemModel(ModItems.LETTUCE);
         blockStateModelGenerator.registerCrop(ModBlocks.LETTUCE_CROP, LettuceBlock.AGE, 0,1,2,3,4);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.OCEAN_FLARE);
         blockStateModelGenerator.registerItemModel(ModItems.TACO);
         blockStateModelGenerator.registerItemModel(ModItems.TORTILLA);
         blockStateModelGenerator.registerParentedItemModel(ModItems.TROLL_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WAVES_BLUE);
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.XANTHE, ModBlocks.XANTHE_POTTED, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerParentedItemModel(ModItems.ZOMBIE_PILLAGER_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
     }
@@ -281,7 +287,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.DUCK_RAW, Models.GENERATED);
         itemModelGenerator.register(ModItems.RUBY, Models.GENERATED);
         itemModelGenerator.register(ModItems.RUBY_PICKAXE, Models.HANDHELD);
-
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.RUBY_BOOTS));
     }
 }

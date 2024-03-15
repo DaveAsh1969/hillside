@@ -39,7 +39,6 @@ public class DuckEntityRenderer extends GeoEntityRenderer<DuckEntity> {
             return LOCATION_BY_VARIANT.get(DuckVariant.BABY);
         else
             return LOCATION_BY_VARIANT.get(animatable.getVariant());
-        //return new Identifier(Hillside.MOD_ID, "textures/entity/duck_mallard.png");
     }
 
     @Override

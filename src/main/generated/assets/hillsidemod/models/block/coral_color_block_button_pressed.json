@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_pressed",
+  "textures": {
+    "texture": "hillsidemod:block/coral_color_block"
+  }
+}
