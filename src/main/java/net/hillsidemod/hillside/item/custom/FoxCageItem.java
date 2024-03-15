@@ -11,6 +11,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtHelper;
 import net.minecraft.nbt.NbtList;
@@ -120,17 +121,18 @@ public class FoxCageItem extends Item {
                 FoxBlock fb = (FoxBlock) context.getWorld().getBlockState(foxBlockPos).getBlock();
                 fb.foxEntity = newFox;
                 activeStack.decrement(1);
-
             }
         }
         return ActionResult.FAIL;
     }
 
-    public int setItemTexture()
+    public int setItemTexture(ItemStack stack)
     {
-        if(fox.getVariant()==FoxEntity.Type.RED)
+        if(!stack.hasNbt())
+            return 1;
+        if(Objects.equals(stack.getNbt().getString("variant"), "red"))
             return 2;
-        else if(fox.getVariant()==FoxEntity.Type.SNOW)
+        else if(Objects.equals(stack.getNbt().getString("variant"), "snow"))
             return 3;
         else
             return 1;

@@ -95,19 +95,19 @@ public class ModModelPredicateProvider {
                 });
     }
 
-    private static void registerFoxCageTexture(Item fox)
+    private static void registerFoxCageTexture(Item foxCage)
     {
-        ModelPredicateProviderRegistry.register(fox, new Identifier("fox_entity"),
+        ModelPredicateProviderRegistry.register(foxCage, new Identifier("fox_entity"),
                 (stack, world, entity, seed) ->
                 {
-                    int foxVar = ((FoxCageItem)fox).setItemTexture();
+                    float foxVar = ((FoxCageItem)foxCage).setItemTexture(stack);
 
                     if(foxVar==1)
-                        return 1;
+                        return 0.0f;
                     else if(foxVar==2)
-                        return 2;
+                        return 0.5f;
                     else
-                        return 3;
+                        return 1.0f;
                 });
 
     }

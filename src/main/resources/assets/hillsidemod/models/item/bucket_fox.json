@@ -6,19 +6,19 @@
   "overrides": [
     {
       "predicate": {
-        "fox_entity": 1
+        "fox_entity": 0.0
       },
       "model": "hillsidemod:item/bucket_fox_empty"
     },
     {
       "predicate": {
-        "fox_entity": 2
+        "fox_entity": 0.5
       },
       "model": "hillsidemod:item/bucket_fox_red"
     },
     {
       "predicate": {
-        "fox_entity": 3
+        "fox_entity": 1
       },
       "model": "hillsidemod:item/bucket_fox_artic"
     }
