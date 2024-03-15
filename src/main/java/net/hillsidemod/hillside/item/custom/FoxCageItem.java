@@ -125,4 +125,14 @@ public class FoxCageItem extends Item {
         }
         return ActionResult.FAIL;
     }
+
+    public int setItemTexture()
+    {
+        if(fox.getVariant()==FoxEntity.Type.RED)
+            return 2;
+        else if(fox.getVariant()==FoxEntity.Type.SNOW)
+            return 3;
+        else
+            return 1;
+    }
 }

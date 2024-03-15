@@ -28,7 +28,6 @@ import java.util.List;
 public class MirrorItem extends BowItem {
 
     //look at properties
-
     private boolean bHasTeleported = false;
     private double teleportLocX = 0;
     private double teleportLocY = 0;
@@ -99,8 +98,7 @@ public class MirrorItem extends BowItem {
         {
             world.addParticle(ModParticles.TELEPORT_PARTICLE_SMALL, user.getX() + Random.create().nextBetween(-1,1),
                     user.getY() + Random.create().nextBetween(0,2), user.getZ() + Random.create().nextBetween(-1,1),
-                    0.01d, 0.015d,
-                    0.02d);
+                    0.01d,0.015d,0.02d);
         }
     }
     @Override

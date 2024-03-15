@@ -2,5 +2,25 @@
   "parent": "item/generated",
   "textures": {
     "layer0": "hillsidemod:item/bucket_fox"
-  }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "fox_entity": 1
+      },
+      "model": "hillsidemod:item/bucket_fox_empty"
+    },
+    {
+      "predicate": {
+        "fox_entity": 2
+      },
+      "model": "hillsidemod:item/bucket_fox_red"
+    },
+    {
+      "predicate": {
+        "fox_entity": 3
+      },
+      "model": "hillsidemod:item/bucket_fox_artic"
+    }
+  ]
 }
