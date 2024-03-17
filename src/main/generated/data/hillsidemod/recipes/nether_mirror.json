@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "X": {
+      "item": "minecraft:oak_planks"
+    },
+    "Y": {
+      "item": "minecraft:ancient_debris"
+    }
+  },
+  "pattern": [
+    "XXX",
+    "XYX",
+    "XXX"
+  ],
+  "result": {
+    "item": "hillsidemod:nether_mirror"
+  },
+  "show_notification": true
+}

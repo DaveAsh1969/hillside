@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:book"
+    },
+    {
+      "item": "minecraft:ink_sac"
+    },
+    {
+      "item": "hillsidemod:duck_feather"
+    }
+  ],
+  "result": {
+    "item": "minecraft:writable_book"
+  }
+}
