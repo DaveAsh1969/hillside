@@ -61,6 +61,8 @@ public class ModItemGroup {
                         entries.add(ModBlocks.BRICK_BLACK_SMEAR);
                         entries.add(ModBlocks.BRICK_BROWN);
                         entries.add(ModBlocks.BRICK_BROWN_SMEAR);
+                        entries.add(ModBlocks.BRICK_LAVENDER);
+                        entries.add(ModBlocks.BRICK_LAVENDER_SMEAR);
                         entries.add(ModBlocks.BRICK_MULTICOLORED);
                         entries.add(ModBlocks.BRICK_MULTICOLORED_SMEAR);
                         entries.add(ModBlocks.BRICK_PINK);
@@ -112,6 +114,7 @@ public class ModItemGroup {
                         //stairs
                         entries.add(ModBlocks.BRICK_BLACK_STAIRS);
                         entries.add(ModBlocks.BRICK_BROWN_STAIRS);
+                        entries.add(ModBlocks.BRICK_LAVENDER_STAIRS);
                         entries.add(ModBlocks.BRICK_MULTICOLORED_STAIRS);
                         entries.add(ModBlocks.BRICK_PINK_STAIRS);
                         entries.add(ModBlocks.BRICK_TAN_STAIRS);
@@ -146,6 +149,7 @@ public class ModItemGroup {
                         //slabs
                         entries.add(ModBlocks.BRICK_BLACK_SLAB);
                         entries.add(ModBlocks.BRICK_BROWN_SLAB);
+                        entries.add(ModBlocks.BRICK_LAVENDER_SLAB);
                         entries.add(ModBlocks.BRICK_MULTICOLORED_SLAB);
                         entries.add(ModBlocks.BRICK_PINK_SLAB);
                         entries.add(ModBlocks.BRICK_TAN_SLAB);
@@ -180,6 +184,7 @@ public class ModItemGroup {
                         //walls
                         entries.add(ModBlocks.BRICK_BLACK_WALL);
                         entries.add(ModBlocks.BRICK_BROWN_WALL);
+                        entries.add(ModBlocks.BRICK_LAVENDER_WALL);
                         entries.add(ModBlocks.BRICK_MULTICOLORED_WALL);
                         entries.add(ModBlocks.BRICK_PINK_WALL);
                         entries.add(ModBlocks.BRICK_TAN_WALL);
@@ -223,6 +228,7 @@ public class ModItemGroup {
                         //pressure plates
                         entries.add(ModBlocks.BRICK_BLACK_PLATE);
                         entries.add(ModBlocks.BRICK_BROWN_PLATE);
+                        entries.add(ModBlocks.BRICK_LAVENDER_PLATE);
                         entries.add(ModBlocks.BRICK_MULTICOLORED_PLATE);
                         entries.add(ModBlocks.BRICK_PINK_PLATE);
                         entries.add(ModBlocks.BRICK_TAN_PLATE);
@@ -257,6 +263,7 @@ public class ModItemGroup {
                         //buttons
                         entries.add(ModBlocks.BRICK_BLACK_BUTTON);
                         entries.add(ModBlocks.BRICK_BROWN_BUTTON);
+                        entries.add(ModBlocks.BRICK_LAVENDER_BUTTON);
                         entries.add(ModBlocks.BRICK_MULTICOLORED_BUTTON);
                         entries.add(ModBlocks.BRICK_PINK_BUTTON);
                         entries.add(ModBlocks.BRICK_TAN_BUTTON);

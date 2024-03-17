@@ -27,23 +27,19 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         //BLACK BRICK
         createStairsRecipe(ModBlocks.BRICK_BLACK_STAIRS, Ingredient.ofItems(ModBlocks.BRICK_BLACK.asItem()))
                 .criterion(hasItem(ModBlocks.BRICK_BLACK.asItem()), conditionsFromItem(ModBlocks.BRICK_BLACK.asItem()))
-                //.offerTo(exporter, new Identifier(getRecipeName(ModBlocks.BRICK_BLACK_STAIRS.asItem())));
                 .offerTo(exporter);
 
         createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BRICK_BLACK_SLAB, Ingredient.ofItems(ModBlocks.BRICK_BLACK.asItem()))
                 .criterion(hasItem(ModBlocks.BRICK_BLACK.asItem()), conditionsFromItem(ModBlocks.BRICK_BLACK.asItem()))
-                //.offerTo(exporter, new Identifier(getRecipeName(ModBlocks.BRICK_BLACK_SLAB.asItem())));
                 .offerTo(exporter);
 
         createPressurePlateRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BRICK_BLACK_PLATE, Ingredient.ofItems(ModBlocks.BRICK_BLACK.asItem()))
                 .criterion(hasItem(ModBlocks.BRICK_BLACK.asItem()), conditionsFromItem(ModBlocks.BRICK_BLACK.asItem()))
-                //.offerTo(exporter, new Identifier(getRecipeName(ModBlocks.BRICK_BLACK_PLATE.asItem())));
                 .offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BRICK_BLACK_BUTTON.asItem(), 1)
                 .input(Ingredient.ofItems(ModBlocks.BRICK_BLACK.asItem()))
                 .criterion(hasItem(ModBlocks.BRICK_BLACK.asItem()), conditionsFromItem(ModBlocks.BRICK_BLACK.asItem()))
-                //.offerTo(exporter, new Identifier(getRecipeName(ModBlocks.BRICK_BLACK_BUTTON.asItem())));
                 .offerTo(exporter);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BRICK_BLACK_WALL.asItem(), 6)
@@ -52,7 +48,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("CCC")
                 .input('C', ModBlocks.BRICK_BLACK.asItem())
                 .criterion(hasItem(ModBlocks.BRICK_BLACK.asItem()), conditionsFromItem(ModBlocks.BRICK_BLACK.asItem()))
-                //.offerTo(exporter, new Identifier(getRecipeName(ModBlocks.BRICK_BLACK_WALL.asItem())));
                 .offerTo(exporter);
 
         //BROWN BRICK
@@ -403,13 +398,46 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         //Mirror - Teleporting in Overworld
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.MIRROR, 1)
-                .pattern("  X")
-                .pattern(" XY")
-                .pattern("X  ")
-                .input('X', Items.STICK)
+                .pattern("XXX")
+                .pattern("XYX")
+                .pattern("XXX")
+                .input('X', Blocks.OAK_PLANKS.asItem())
                 .input('Y', Items.DIAMOND)
-                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                .criterion(hasItem(Blocks.OAK_PLANKS.asItem()), conditionsFromItem(Blocks.OAK_PLANKS.asItem()))
                 .criterion(hasItem(Items.DIAMOND), conditionsFromItem(Items.DIAMOND))
+                .offerTo(exporter);
+
+        //Nether Mirror - Teleporting in Nether
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.NETHER_MIRROR, 1)
+                .pattern("XXX")
+                .pattern("XYX")
+                .pattern("XXX")
+                .input('X', Blocks.OAK_PLANKS.asItem())
+                .input('Y', Blocks.ANCIENT_DEBRIS.asItem())
+                .criterion(hasItem(Blocks.OAK_PLANKS.asItem()), conditionsFromItem(Blocks.OAK_PLANKS.asItem()))
+                .criterion(hasItem(Blocks.ANCIENT_DEBRIS.asItem()), conditionsFromItem(Blocks.ANCIENT_DEBRIS.asItem()))
+                .offerTo(exporter);
+
+        //End Mirror - Teleporting in End
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.END_MIRROR, 1)
+                .pattern("XXX")
+                .pattern("XYX")
+                .pattern("XXX")
+                .input('X', Blocks.OAK_PLANKS.asItem())
+                .input('Y', Items.ENDER_EYE)
+                .criterion(hasItem(Blocks.OAK_PLANKS.asItem()), conditionsFromItem(Blocks.OAK_PLANKS.asItem()))
+                .criterion(hasItem(Items.ENDER_EYE), conditionsFromItem(Items.ENDER_EYE))
+                .offerTo(exporter);
+
+        //Fox Cage - capture a fox and release it
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.BUCKET_FOX, 1)
+                .pattern("XXX")
+                .pattern("XYX")
+                .pattern("XXX")
+                .input('X', Blocks.OAK_PLANKS.asItem())
+                .input('Y', Blocks.IRON_BARS.asItem())
+                .criterion(hasItem(Blocks.OAK_PLANKS.asItem()), conditionsFromItem(Blocks.OAK_PLANKS.asItem()))
+                .criterion(hasItem(Blocks.IRON_BARS.asItem()), conditionsFromItem(Blocks.IRON_BARS.asItem()))
                 .offerTo(exporter);
 
         //Pumpkin Pie with Duck Egg

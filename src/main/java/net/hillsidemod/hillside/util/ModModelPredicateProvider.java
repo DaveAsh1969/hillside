@@ -13,9 +13,9 @@ public class ModModelPredicateProvider {
     public static void init()
     {
         registerMirror(ModItems.MIRROR);
-        registerNetherMirror(ModItems.NETHER_MIRROR);
+        //registerNetherMirror(ModItems.NETHER_MIRROR);
         registerNetherHasBlock(ModItems.NETHER_MIRROR);
-        registerEndMirror(ModItems.END_MIRROR);
+        //registerEndMirror(ModItems.END_MIRROR);
         registerEndHasBlock(ModItems.END_MIRROR);
         registerFoxCageTexture(ModItems.BUCKET_FOX);
     }
@@ -35,7 +35,7 @@ public class ModModelPredicateProvider {
                     }
                });
          }
-         private static void registerNetherMirror(Item netherMirrorItem) {
+         /*private static void registerNetherMirror(Item netherMirrorItem) {
             ModelPredicateProviderRegistry.register(netherMirrorItem,new Identifier("nether_charging"),
                 (stack, world, entity, seed) -> {
 
@@ -50,18 +50,26 @@ public class ModModelPredicateProvider {
                     }
                     return 0.0f;
                 });
-            }
+            }*/
+
             private static void registerNetherHasBlock(Item netherMirrorItem)
             {
                 ModelPredicateProviderRegistry.register(netherMirrorItem,new Identifier("nether_block"),
                         (stack, world, entity, seed) ->
                         {
-                            boolean check = ((NetherMirrorItem)netherMirrorItem).usedOnBlock;
-
-                            if(check)
-                                return 1.0f;
-                            else
+                            float check = ((NetherMirrorItem) netherMirrorItem).setItemTexture(stack);
+                            if (check == 0.0f)
                                 return 0.0f;
+                            else if (check == 0.5f)
+                            {
+                                if (entity.getItemUseTimeLeft() > 10 && entity.getItemUseTimeLeft() < 20)
+                                    return 0.5f;
+                                else if (entity.getItemUseTimeLeft() > 30 && entity.getItemUseTimeLeft() < 40)
+                                    return 0.0f;
+                            }
+                            else
+                                return 1.0f;
+                            return 0.0f;
                         });
             }
 
@@ -86,12 +94,19 @@ public class ModModelPredicateProvider {
         ModelPredicateProviderRegistry.register(endMirrorItem,new Identifier("end_block"),
                 (stack, world, entity, seed) ->
                 {
-                    boolean check = ((EndMirrorItem)endMirrorItem).usedOnBlock;
-
-                    if(check)
-                        return 1.0f;
-                    else
+                    float check = ((EndMirrorItem) endMirrorItem).setItemTexture(stack);
+                    if (check == 0.0f)
                         return 0.0f;
+                    else if (check == 0.5f)
+                    {
+                        if (entity.getItemUseTimeLeft() > 10 && entity.getItemUseTimeLeft() < 20)
+                            return 0.5f;
+                        else if (entity.getItemUseTimeLeft() > 30 && entity.getItemUseTimeLeft() < 40)
+                            return 0.0f;
+                    }
+                    else
+                        return 1.0f;
+                    return 0.0f;
                 });
     }
 

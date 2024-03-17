@@ -20,7 +20,6 @@ public class DuckEntityModel extends GeoModel<DuckEntity> {
 
     @Override
     public Identifier getTextureResource(DuckEntity animatable) {
-        //return new Identifier(Hillside.MOD_ID, "textures/entity/duck_mallard.png");
         if(animatable.isBaby())
             return DuckEntityRenderer.LOCATION_BY_VARIANT.get(DuckVariant.BABY);
         else

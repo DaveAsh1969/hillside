@@ -6,15 +6,21 @@
   "overrides": [
     {
       "predicate": {
-        "end_block": 1
+        "end_block": 0.0
       },
-      "model": "hillsidemod:item/end_mirror_block"
+      "model": "hillsidemod:item/end_mirror"
     },
     {
       "predicate": {
-        "end_charging": 1
+        "end_block": 0.5
       },
       "model": "hillsidemod:item/end_mirror_charging"
+    },
+    {
+      "predicate": {
+        "end_block": 1.0
+      },
+      "model": "hillsidemod:item/end_mirror_block"
     }
   ]
 }

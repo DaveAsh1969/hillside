@@ -7,6 +7,7 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
@@ -60,19 +61,30 @@ public class NetherMirrorItem extends BowItem {
             }
             else
             {
+                ItemStack activeItemstack = context.getPlayer().getStackInHand(context.getPlayer().getActiveHand());
+
+                NbtCompound nbtData = new NbtCompound();
+                nbtData.putDouble("X", context.getBlockPos().getX());
+                nbtData.putDouble("Y", context.getBlockPos().getY());
+                nbtData.putDouble("Z", context.getBlockPos().getZ());
+                nbtData.putBoolean("hasCoord", true);
+                nbtData.putBoolean("charging", false);
+                nbtData.putBoolean("hasTeleported", false);
+
                 //set the teleport return point
-                blockLocX = context.getBlockPos().getX();
-                blockLocY = context.getBlockPos().getY();
-                blockLocZ = context.getBlockPos().getZ();
+                //blockLocX = context.getBlockPos().getX();
+                //blockLocY = context.getBlockPos().getY();
+                //blockLocZ = context.getBlockPos().getZ();
                 context.getPlayer().sendMessage(Text.literal("Return coordinate set"), true);
-                usedOnBlock = true;
+                //usedOnBlock = true;
                 blockFailed = false;
+
+                activeItemstack.setNbt(nbtData);
+                activeItemstack.writeNbt(nbtData);
             }
         }
 
         user.playSound(SoundEvents.BLOCK_AMETHYST_CLUSTER_STEP, 1.0f, 1.0f);
-
-
         return ActionResult.FAIL;
     }
 
@@ -81,14 +93,17 @@ public class NetherMirrorItem extends BowItem {
     {
         if(!world.isClient())
         {
+            ItemStack netherMirrorItem = user.getStackInHand(hand);
+            NbtCompound nbtData = netherMirrorItem.getNbt();
+
             if (!world.getDimensionKey().getValue().equals(DimensionTypes.THE_NETHER_ID))
             {
                 user.sendMessage(Text.translatable("This mirror only works in the Nether!"), true);
                 user.stopUsingItem();
                 return TypedActionResult.success(user.getStackInHand(hand));
             }
-           usedOnBlock=false;
-           if(blockLocX==0)
+           //usedOnBlock=false;
+           if(!nbtData.getBoolean("hasCoord"))
            {
                user.sendMessage(Text.translatable("Right click a block to set a location."), true);
                user.stopUsingItem();
@@ -97,6 +112,8 @@ public class NetherMirrorItem extends BowItem {
            teleportLocX = user.getX();
            teleportLocY = user.getY();
            teleportLocZ = user.getZ();
+           netherMirrorItem.setNbt(nbtData);
+           netherMirrorItem.writeNbt(nbtData);
         }
         return ItemUsage.consumeHeldItem(world, user, hand);
     }
@@ -105,10 +122,13 @@ public class NetherMirrorItem extends BowItem {
     public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
 
         PlayerEntity player = (PlayerEntity) user;
+        ItemStack netherMirrorItem = user.getStackInHand(player.getActiveHand());
+        NbtCompound nbtData = netherMirrorItem.getNbt();
         if(remainingUseTicks == 40)
         {
             world.playSound(null, user.getBlockPos(), ModSounds.NETHER_TELEPORT_CHARGING, SoundCategory.BLOCKS);
             charging = true;
+            nbtData.putBoolean("charging", true);
         }
         if(!world.isClient())
         {
@@ -119,8 +139,9 @@ public class NetherMirrorItem extends BowItem {
                     ((PlayerEntity)(user)).sendMessage(Text.literal("Stand still until you teleport"), true);
                     user.stopUsingItem();
                     charging = false;
+                    nbtData.putBoolean("charging", false);
                     if(blockLocX != 0)
-                        usedOnBlock=true;
+                        nbtData.putBoolean("hasCoord", true);
                     player.getItemCooldownManager().set(this,20);
                     return;
                 }
@@ -131,6 +152,8 @@ public class NetherMirrorItem extends BowItem {
                     this.finishUsing(stack,world,user);
                 }
             }
+            netherMirrorItem.setNbt(nbtData);
+            netherMirrorItem.writeNbt(nbtData);
         }
         if(remainingUseTicks % 2 == 0)
         {
@@ -145,6 +168,8 @@ public class NetherMirrorItem extends BowItem {
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         if(!world.isClient())
         {
+            NbtCompound nbtData = stack.getNbt();
+
             //make sure the player is not in the Nether or End
             if(!world.isClient && user.isPlayer()) {
                 if (!world.getDimensionKey().getValue().equals(DimensionTypes.THE_NETHER_ID) ||
@@ -156,38 +181,60 @@ public class NetherMirrorItem extends BowItem {
                     return stack;
                 }
 
-                //teleport player to set point.
-                    user.teleport(blockLocX, blockLocY+1, blockLocZ);
+                if(stack.hasNbt())
+                {
+                    NbtCompound getNbt = stack.getNbt();
+                    user.teleport(getNbt.getDouble("X"), getNbt.getDouble("Y")+1, getNbt.getDouble("Z"));
                     ((PlayerEntity) user).sendMessage(Text.translatable("You have returned."), true);
                     user.getStackInHand(user.getActiveHand()).damage(2, user, (p) -> p.sendToolBreakStatus(p.getActiveHand()));
 
+                    //clear nbt
+                    nbtData.putDouble("X", 0);
+                    nbtData.putDouble("Y", 0);
+                    nbtData.putDouble("Z", 0);
+                    nbtData.putBoolean("charging", false);
+                    nbtData.putBoolean("hasCoord", false);
+                    nbtData.putBoolean("hasTeleported", true);
+                    stack.setNbt(getNbt);
+                    stack.writeNbt(getNbt);
+                }
+
+                //teleport player to set point.
+                    //user.teleport(blockLocX, blockLocY+1, blockLocZ);
+                    //((PlayerEntity) user).sendMessage(Text.translatable("You have returned."), true);
+                    //user.getStackInHand(user.getActiveHand()).damage(2, user, (p) -> p.sendToolBreakStatus(p.getActiveHand()));
+
                     //confirm teleport and erase prior saved location
-                    bHasTeleported = true;
-                    blockLocX = 0;
-                    blockLocY = 0;
-                    blockLocZ = 0;
+                    //bHasTeleported = true;
+                    //blockLocX = 0;
+                    //blockLocY = 0;
+                    //blockLocZ = 0;
             }
             //reset charging and set a cooldown time. This keeps player from teleporting too quickly
             charging = false;
             ((PlayerEntity)(user)).getItemCooldownManager().set(this, 100);
         }
         //reset used on block and return
-        usedOnBlock=false;
+        //usedOnBlock=false;
         return stack;
     }
 
     @Override
     public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks)
     {
-            if(bHasTeleported && user.isPlayer())
-            {
-                bHasTeleported=false;
-            }
-            ((PlayerEntity)(user)).getItemCooldownManager().set(this, 100);
-            charging = false;
+        NbtCompound nbtData = stack.getNbt();
+        if(bHasTeleported && user.isPlayer())
+        {
+            bHasTeleported=false;
+        }
+        ((PlayerEntity)(user)).getItemCooldownManager().set(this, 100);
+        charging = false;
+        nbtData.putBoolean("charging", false);
 
-            if(blockLocX != 0)
-                usedOnBlock=true;
+        if(blockLocX != 0)
+            usedOnBlock=true;
+        stack.setNbt(nbtData);
+        stack.writeNbt(nbtData);
     }
 
     @Override
@@ -201,5 +248,19 @@ public class NetherMirrorItem extends BowItem {
             tooltip.add(Text.literal("Right click on block to set {SHIFT}"));
         }
         super.appendTooltip(stack, world, tooltip,context);
+    }
+
+    public float setItemTexture(ItemStack stack)
+    {
+        if(!stack.hasNbt())
+            return 0.0f;
+        if(stack.getNbt().getBoolean("charging"))
+        {
+            return 0.5f;
+        }
+        if(stack.getNbt().getBoolean("hasCoord"))
+            return 1.0f;
+        else
+            return 0.0f;
     }
 }

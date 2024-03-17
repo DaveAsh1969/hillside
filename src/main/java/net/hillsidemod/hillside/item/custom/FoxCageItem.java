@@ -1,9 +1,6 @@
 package net.hillsidemod.hillside.item.custom;
 
-import net.hillsidemod.hillside.block.ModBlocks;
-import net.hillsidemod.hillside.block.custom.FoxBlock;
-import net.hillsidemod.hillside.block.entity.FoxBlockEntity;
-import net.minecraft.block.BlockState;
+import net.hillsidemod.hillside.mixin.FoxTrustedAccess;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.passive.FoxEntity;
@@ -11,21 +8,16 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtHelper;
-import net.minecraft.nbt.NbtList;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.hillsidemod.hillside.mixin.FoxTrustedAccess;
 import net.minecraft.util.math.BlockPos;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
-//TODO: FoxCageItem icon changes with fox capture
 public class FoxCageItem extends Item {
     //declarations
     public static FoxEntity fox;
@@ -117,9 +109,11 @@ public class FoxCageItem extends Item {
                 BlockPos foxBlockPos = new BlockPos(context.getBlockPos().getX(), context.getBlockPos().getY()+1, context.getBlockPos().getZ());
                 if(!context.getWorld().getBlockState(foxBlockPos).isAir())
                     return ActionResult.FAIL;
-                context.getWorld().setBlockState(foxBlockPos, ModBlocks.FOX_CAGE.getDefaultState());
-                FoxBlock fb = (FoxBlock) context.getWorld().getBlockState(foxBlockPos).getBlock();
-                fb.foxEntity = newFox;
+
+                //summon fox
+                newFox.setPosition(foxBlockPos.getX(),foxBlockPos.getY()+1,foxBlockPos.getZ());
+                context.getWorld().spawnEntity(newFox);
+
                 activeStack.decrement(1);
             }
         }

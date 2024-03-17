@@ -70,9 +70,26 @@ public class ModBlocks
     public static final Block BRICK_MULTICOLORED_SMEAR = registerBlock("brick_multicolored_smeared",
             new Block(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE)));
     public static final Block BRICK_MULTICOLORED_STAIRS = registerBlock("brick_multicolored_stairs",
-            new StairsBlock(ModBlocks.BRICK_BLACK.getDefaultState(), FabricBlockSettings.create().strength(1.0f).requiresTool()
+            new StairsBlock(ModBlocks.BRICK_MULTICOLORED.getDefaultState(), FabricBlockSettings.create().strength(1.0f).requiresTool()
                     .sounds(BlockSoundGroup.STONE)));
     public static final Block BRICK_MULTICOLORED_WALL = registerBlock("brick_multicolored_wall",
+            new WallBlock(FabricBlockSettings.create().strength(1.0f).requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
+    public static final Block BRICK_LAVENDER = registerBlock("brick_purple",
+            new Block(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE)));
+    public static final Block BRICK_LAVENDER_BUTTON = registerBlock("brick_purple_button",
+            new ButtonBlock(FabricBlockSettings.copyOf(Blocks.BRICKS), BlockSetType.IRON, 40, true));
+    public static final Block BRICK_LAVENDER_PLATE = registerBlock("brick_purple_pressure_plate",
+            new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copyOf(Blocks.IRON_BLOCK), BlockSetType.IRON));
+    public static final Block BRICK_LAVENDER_SLAB = registerBlock("brick_purple_slab",
+            new SlabBlock(FabricBlockSettings.create().strength(1.0f).requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
+    public static final Block BRICK_LAVENDER_SMEAR = registerBlock("brick_purple_smeared",
+            new Block(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE)));
+    public static final Block BRICK_LAVENDER_STAIRS = registerBlock("brick_purple_stairs",
+            new StairsBlock(ModBlocks.BRICK_BLACK.getDefaultState(), FabricBlockSettings.create().strength(1.0f).requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
+    public static final Block BRICK_LAVENDER_WALL = registerBlock("brick_purple_wall",
             new WallBlock(FabricBlockSettings.create().strength(1.0f).requiresTool()
                     .sounds(BlockSoundGroup.STONE)));
     public static final Block BRICK_OVEN = registerBlock("brick_oven",
@@ -524,7 +541,7 @@ public class ModBlocks
                     .sounds(BlockSoundGroup.STONE)));
     //--
     public static final Block DUNGEON_STONY_DIRT = registerBlock("dungeon_stony_dirt",
-            new GrassBlock(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.GRASS)));
+            new GrassBlock(FabricBlockSettings.copyOf(Blocks.GRASS_BLOCK)));
     public static final Block DUNGEON_STONY_DIRT_BUTTON = registerBlock("dungeon_stony_dirt_button",
             new ButtonBlock(FabricBlockSettings.copyOf(Blocks.BRICKS), BlockSetType.IRON, 40, true));
     public static final Block DUNGEON_STONY_DIRT_PLATE = registerBlock("dungeon_stony_dirt_pressure_plate",
@@ -555,9 +572,6 @@ public class ModBlocks
             new WallBlock(FabricBlockSettings.create().strength(1.0f).requiresTool()
                     .sounds(BlockSoundGroup.STONE)));
     //END DUNGEON BLOCKS------------------------------------------------------------------------------------
-    public static final Block FOX_CAGE = registerBlock("fox_cage",
-            new FoxBlock(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.BONE)
-                    .nonOpaque()));
     public static final Block GLASS_MOD = registerBlock("glass_mod",
             new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(1.0f).nonOpaque()));
     public static final Block GLASS_MOD_PANE = registerBlock("glass_mod_pane",

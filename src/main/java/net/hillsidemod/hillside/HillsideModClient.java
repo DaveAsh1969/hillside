@@ -3,29 +3,23 @@ package net.hillsidemod.hillside;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.hillsidemod.hillside.block.ModBlocks;
 import net.hillsidemod.hillside.block.entity.ModBlockEntities;
-import net.hillsidemod.hillside.block.entity.client.FoxBlockEntityRenderer;
 import net.hillsidemod.hillside.block.entity.client.TacoBellRenderer;
 import net.hillsidemod.hillside.block.entity.client.TrollHeadRenderer;
 import net.hillsidemod.hillside.entity.ModEntities;
 import net.hillsidemod.hillside.entity.client.*;
 import net.hillsidemod.hillside.particle.ModParticles;
 import net.hillsidemod.hillside.particle.custom.*;
-import net.hillsidemod.hillside.util.ModModelPredicateProvider;
 import net.hillsidemod.hillside.screen.BrickOvenScreen;
 import net.hillsidemod.hillside.screen.ModScreenHandlers;
-import net.minecraft.block.Block;
+import net.hillsidemod.hillside.util.ModModelPredicateProvider;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
-import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
-import net.minecraft.entity.EntityDimensions;
-import software.bernie.example.registry.BlockEntityRegistry;
 
 public class HillsideModClient implements ClientModInitializer {
     @Override
@@ -65,7 +59,6 @@ public class HillsideModClient implements ClientModInitializer {
 
         BlockEntityRendererFactories.register(ModBlockEntities.TACO_BELL_ENTITY, TacoBellRenderer::new);
         BlockEntityRendererFactories.register(ModBlockEntities.TROLL_HEAD_ENTITY, TrollHeadRenderer::new);
-        BlockEntityRendererFactories.register(ModBlockEntities.FOX_BLOCK_ENTITY, FoxBlockEntityRenderer::new);
 
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.CHRISTMAS_TREE, ChristmasTreeModel::getTexturedModelData);
         ParticleFactoryRegistry.getInstance().register(ModParticles.TELEPORT_PARTICLE, TeleportParticle.Factory::new);

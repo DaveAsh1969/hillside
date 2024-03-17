@@ -6,15 +6,21 @@
   "overrides": [
     {
       "predicate": {
-        "nether_block": 1
+        "nether_block": 0.0
       },
-      "model": "hillsidemod:item/nether_mirror_block"
+      "model": "hillsidemod:item/nether_mirror"
     },
     {
       "predicate": {
-        "nether_charging": 1
+        "nether_block": 0.5
       },
       "model": "hillsidemod:item/nether_mirror_charging"
+    },
+    {
+      "predicate": {
+        "nether_block": 1.0
+      },
+      "model": "hillsidemod:item/nether_mirror_block"
     }
   ]
 }

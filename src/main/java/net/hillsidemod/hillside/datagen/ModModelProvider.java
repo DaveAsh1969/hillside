@@ -22,6 +22,7 @@ public class ModModelProvider extends FabricModelProvider {
         BlockStateModelGenerator.BlockTexturePool brickBlackPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.BRICK_BLACK);
         BlockStateModelGenerator.BlockTexturePool brickBrownPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.BRICK_BROWN);
         BlockStateModelGenerator.BlockTexturePool brickMulticoloredPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.BRICK_MULTICOLORED);
+        BlockStateModelGenerator.BlockTexturePool brickPurplePool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.BRICK_LAVENDER);
         BlockStateModelGenerator.BlockTexturePool pinkBrownPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.BRICK_PINK);
         BlockStateModelGenerator.BlockTexturePool tanBrownPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.BRICK_TAN);
         BlockStateModelGenerator.BlockTexturePool whiteBrownPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.BRICK_WHITE);
@@ -74,6 +75,12 @@ public class ModModelProvider extends FabricModelProvider {
         brickMulticoloredPool.button(ModBlocks.BRICK_MULTICOLORED_BUTTON);
         brickMulticoloredPool.pressurePlate(ModBlocks.BRICK_MULTICOLORED_PLATE);
         brickMulticoloredPool.wall(ModBlocks.BRICK_MULTICOLORED_WALL);
+
+        brickPurplePool.stairs(ModBlocks.BRICK_LAVENDER_STAIRS);
+        brickPurplePool.slab(ModBlocks.BRICK_LAVENDER_SLAB);
+        brickPurplePool.button(ModBlocks.BRICK_LAVENDER_BUTTON);
+        brickPurplePool.pressurePlate(ModBlocks.BRICK_LAVENDER_PLATE);
+        brickPurplePool.wall(ModBlocks.BRICK_LAVENDER_WALL);
 
         pinkBrownPool.stairs(ModBlocks.BRICK_PINK_STAIRS);
         pinkBrownPool.slab(ModBlocks.BRICK_PINK_SLAB);
