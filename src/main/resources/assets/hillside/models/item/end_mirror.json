@@ -1,0 +1,26 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "hillside:item/end_mirror"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "end_block": 0.0
+      },
+      "model": "hillside:item/end_mirror"
+    },
+    {
+      "predicate": {
+        "end_block": 0.5
+      },
+      "model": "hillside:item/end_mirror_charging"
+    },
+    {
+      "predicate": {
+        "end_block": 1.0
+      },
+      "model": "hillside:item/end_mirror_block"
+    }
+  ]
+}

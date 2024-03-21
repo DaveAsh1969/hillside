@@ -1,0 +1,26 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "hillside:item/bucket_fox"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "fox_entity": 0.0
+      },
+      "model": "hillside:item/bucket_fox_empty"
+    },
+    {
+      "predicate": {
+        "fox_entity": 0.5
+      },
+      "model": "hillside:item/bucket_fox_red"
+    },
+    {
+      "predicate": {
+        "fox_entity": 1
+      },
+      "model": "hillside:item/bucket_fox_artic"
+    }
+  ]
+}
