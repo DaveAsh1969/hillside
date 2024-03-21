@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "hillside:block/coral_color_block",
+    "side": "hillside:block/coral_color_block",
+    "top": "hillside:block/coral_color_block"
+  }
+}

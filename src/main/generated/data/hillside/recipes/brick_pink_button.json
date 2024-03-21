@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "hillside:brick_pink"
+    }
+  ],
+  "result": {
+    "item": "hillside:brick_pink_button"
+  }
+}

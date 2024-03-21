@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "hillside:block/dungeon_stone_dark_floor",
+    "side": "hillside:block/dungeon_stone_dark_floor",
+    "top": "hillside:block/dungeon_stone_dark_floor"
+  }
+}

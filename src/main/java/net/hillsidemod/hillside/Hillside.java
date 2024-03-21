@@ -19,8 +19,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Hillside implements ModInitializer {
-    public static final String MOD_ID = "hillsidemod";
-    public static final Logger LOGGER = LoggerFactory.getLogger("hillsidemod");
+    public static final String MOD_ID = "hillside";
+    public static final Logger LOGGER = LoggerFactory.getLogger("hillside");
 
     @Override
     public void onInitialize() {

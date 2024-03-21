@@ -1,3 +1,6 @@
-// 1.20.1	2024-03-17T14:49:46.3220723	Hillside Mod/Tags for minecraft:block
-097c0c36fecf931735fd9f92e6bb6159d48c61ba data\minecraft\tags\blocks\needs_diamond_tool.json
-cfc6fc9e0caae53956f1958aea77567af7e0f1b2 data\minecraft\tags\blocks\walls.json
+// 1.20.1	2024-03-20T12:44:19.838401	Hillside Mod/Tags for minecraft:block
+dc3d0fcf7bb44cf0899993b48a675dd8a0868084 data\minecraft\tags\blocks\needs_diamond_tool.json
+68f54ca5541c48bb781e7b6d85ac91828874cc5b data\minecraft\tags\blocks\mineable\pickaxe.json
+c18fc3d439d052b316e2faff2970d643149c23cb data\minecraft\tags\blocks\walls.json
+1156b1623b3c5fe08ac928f6bf7515b435098961 data\minecraft\tags\blocks\mineable\axe.json
+99c71bb0bef985c0cb17d6c2f214cbf59fe6932b data\minecraft\tags\blocks\needs_iron_tool.json

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "hillsidemod:block/dungeon_glowing_stone",
-    "side": "hillsidemod:block/dungeon_glowing_stone",
-    "top": "hillsidemod:block/dungeon_glowing_stone"
-  }
-}

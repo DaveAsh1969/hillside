@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "hillside:block/dungeon_cobblestone_mossy_2_slab"
+    },
+    "type=double": {
+      "model": "hillside:block/dungeon_cobblestone_mossy_2"
+    },
+    "type=top": {
+      "model": "hillside:block/dungeon_cobblestone_mossy_2_slab_top"
+    }
+  }
+}

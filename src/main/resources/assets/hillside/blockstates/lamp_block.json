@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "clicked=false": { "model": "hillside:block/lamp" },
+    "clicked=true": { "model": "hillside:block/lamp_on" }
+
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "hillsidemod:block/dungeon_stone_floor",
-    "side": "hillsidemod:block/dungeon_stone_floor",
-    "top": "hillsidemod:block/dungeon_stone_floor"
-  }
-}

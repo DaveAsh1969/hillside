@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "hillside:block/dungeon_stone_pebbles",
+    "side": "hillside:block/dungeon_stone_pebbles",
+    "top": "hillside:block/dungeon_stone_pebbles"
+  }
+}

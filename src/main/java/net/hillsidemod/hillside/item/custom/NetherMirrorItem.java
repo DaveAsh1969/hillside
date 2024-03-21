@@ -107,7 +107,7 @@ public class NetherMirrorItem extends BowItem {
            {
                user.sendMessage(Text.translatable("Right click a block to set a location."), true);
                user.stopUsingItem();
-               return TypedActionResult.fail(user.getStackInHand(hand));
+               return TypedActionResult.success(user.getStackInHand(hand));
            }
            teleportLocX = user.getX();
            teleportLocY = user.getY();
@@ -155,6 +155,7 @@ public class NetherMirrorItem extends BowItem {
             netherMirrorItem.setNbt(nbtData);
             netherMirrorItem.writeNbt(nbtData);
         }
+
         if(remainingUseTicks % 2 == 0)
         {
             world.addParticle(ModParticles.NETHER_TELEPORT_PARTICLE, user.getX() + 0.5d, user.getY() + 1.25d, user.getZ(),0, 0.85,0);

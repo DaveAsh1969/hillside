@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "hillsidemod:block/dungeon_cobblestone_mossy",
-    "side": "hillsidemod:block/dungeon_cobblestone_mossy",
-    "top": "hillsidemod:block/dungeon_cobblestone_mossy"
-  }
-}

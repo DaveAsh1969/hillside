@@ -14,17 +14,17 @@ import net.minecraft.world.biome.BiomeKeys;
 public class ModEntityGeneration {
     public static void addSpawns()
     {
-        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.SAVANNA), SpawnGroup.MONSTER,
-                ModEntities.DECAYING_ZOMBIE, 30, 2, 4);
+        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.SAVANNA, BiomeKeys.FOREST, BiomeKeys.PLAINS, BiomeKeys.DESERT), SpawnGroup.MONSTER,
+                ModEntities.DECAYING_ZOMBIE, 40, 2, 4);
 
-        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.PLAINS), SpawnGroup.MONSTER,
-                ModEntities.ZOMBIE_PILLAGER, 30, 2, 4);
+        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.PLAINS, BiomeKeys.FOREST), SpawnGroup.MONSTER,
+                ModEntities.ZOMBIE_PILLAGER, 40, 2, 4);
 
         //BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.DESERT), SpawnGroup.MONSTER,
         //        ModEntities.TROLL_ENTITY, 1, 1, 1);
 
         BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.BEACH, BiomeKeys.SNOWY_BEACH, BiomeKeys.RIVER), SpawnGroup.CREATURE,
-                ModEntities.DUCK, 30, 2, 4);
+                ModEntities.DUCK, 60, 2, 4);
 
         SpawnRestriction.register(ModEntities.DECAYING_ZOMBIE, SpawnRestriction.Location.ON_GROUND,
                 Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HostileEntity::canSpawnInDark);

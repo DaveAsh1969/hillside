@@ -25,7 +25,7 @@ public class ModBlocks
     public static final Block BOP_POTTED = Registry.register(Registries.BLOCK, new Identifier(Hillside.MOD_ID, "bop_potted"),
             new FlowerPotBlock(BOP, FabricBlockSettings.copyOf(Blocks.POTTED_ALLIUM).nonOpaque()));
     public static final Block BRICK_BLACK = registerBlock("brick_black",
-            new Block(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(BlockSoundGroup.STONE)));
+            new Block(FabricBlockSettings.copyOf(Blocks.BRICKS)));
     public static final Block BRICK_BLACK_BUTTON = registerBlock("brick_black_button",
             new ButtonBlock(FabricBlockSettings.copyOf(Blocks.BRICKS), BlockSetType.IRON, 40, true));
     public static final Block BRICK_BLACK_PLATE = registerBlock("brick_black_pressure_plate",

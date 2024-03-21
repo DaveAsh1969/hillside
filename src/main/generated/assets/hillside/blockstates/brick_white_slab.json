@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "hillside:block/brick_white_slab"
+    },
+    "type=double": {
+      "model": "hillside:block/brick_white"
+    },
+    "type=top": {
+      "model": "hillside:block/brick_white_slab_top"
+    }
+  }
+}

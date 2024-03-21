@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "hillside:block/dungeon_mossy_wall",
+    "side": "hillside:block/dungeon_mossy_wall",
+    "top": "hillside:block/dungeon_mossy_wall"
+  }
+}

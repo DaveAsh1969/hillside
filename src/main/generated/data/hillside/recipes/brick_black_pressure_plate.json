@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "hillside:brick_black"
+    }
+  },
+  "pattern": [
+    "##"
+  ],
+  "result": {
+    "item": "hillside:brick_black_pressure_plate"
+  },
+  "show_notification": true
+}

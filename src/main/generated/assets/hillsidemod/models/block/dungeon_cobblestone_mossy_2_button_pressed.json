@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/button_pressed",
-  "textures": {
-    "texture": "hillsidemod:block/dungeon_cobblestone_mossy_2"
-  }
-}

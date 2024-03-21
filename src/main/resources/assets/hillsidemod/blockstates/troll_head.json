@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "hillsidemod:block/troll_head"},
-    "facing=east": { "model": "hillsidemod:block/troll_head", "y": 90},
-    "facing=south": { "model": "hillsidemod:block/troll_head", "y": 180},
-    "facing=west": { "model": "hillsidemod:block/troll_head", "y": 270}
-  }
-}

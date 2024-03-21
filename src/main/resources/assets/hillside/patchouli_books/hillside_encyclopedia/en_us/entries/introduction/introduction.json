@@ -1,0 +1,19 @@
+{
+  "name": "Introduction",
+  "icon": "minecraft:writable_book",
+  "category": "hillside:introduction_category",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Welcome to the new updates in our Hillside Mod. In this book will be a list of updates and how to use the new features that are available. The main features in this update are: $(br)$(li)Fox Cages$(li)Ruby Boots$(li)All things tacos$(li)New Entities$(li)Brick ovens and new bricks$(li)Dungeon Blocks$(li)Ocean Blocks"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "hillside:textures/books/hillside/intro.png"
+      ],
+      "title": "New Blocks!",
+      "text": "A preview of the blocks in this update."
+    }
+  ]
+}

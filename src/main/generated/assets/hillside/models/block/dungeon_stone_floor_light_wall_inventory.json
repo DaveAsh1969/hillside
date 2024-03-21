@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "hillside:block/dungeon_stone_floor_light"
+  }
+}

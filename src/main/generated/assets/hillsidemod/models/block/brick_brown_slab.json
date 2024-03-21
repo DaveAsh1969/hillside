@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "hillsidemod:block/brick_brown",
-    "side": "hillsidemod:block/brick_brown",
-    "top": "hillsidemod:block/brick_brown"
-  }
-}

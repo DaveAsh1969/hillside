@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "hillside:brick_tan"
+    }
+  },
+  "pattern": [
+    "##"
+  ],
+  "result": {
+    "item": "hillside:brick_tan_pressure_plate"
+  },
+  "show_notification": true
+}

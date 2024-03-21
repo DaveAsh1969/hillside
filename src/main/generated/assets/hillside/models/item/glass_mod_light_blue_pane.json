@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hillside:block/glass_mod_light_blue"
+  }
+}

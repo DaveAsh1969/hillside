@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "hillside:block/dungeon_chiseled",
+    "side": "hillside:block/dungeon_chiseled",
+    "top": "hillside:block/dungeon_chiseled"
+  }
+}

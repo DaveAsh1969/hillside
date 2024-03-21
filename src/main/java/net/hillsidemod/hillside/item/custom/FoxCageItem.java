@@ -34,6 +34,11 @@ public class FoxCageItem extends Item {
     {
         if(!user.getWorld().isClient())
         {
+            if(user.isCreative())
+            {
+                user.sendMessage(Text.literal("The fox cage does not work in creative mode."), true);
+                return ActionResult.FAIL;
+            }
             ItemStack foxCageInv = user.getStackInHand(hand);
             if(!foxCageInv.hasNbt())
             {
@@ -80,6 +85,12 @@ public class FoxCageItem extends Item {
     public ActionResult useOnBlock(ItemUsageContext context) {
         if(!context.getWorld().isClient())
         {
+            if(context.getPlayer().isCreative())
+            {
+                context.getPlayer().sendMessage(Text.literal("The fox cage does not work in creative mode."),true);
+                return ActionResult.FAIL;
+            }
+
             ItemStack activeStack = Objects.requireNonNull(context.getPlayer()).getStackInHand(context.getPlayer().getActiveHand());
             FoxEntity newFox = new FoxEntity(EntityType.FOX, context.getWorld());
 

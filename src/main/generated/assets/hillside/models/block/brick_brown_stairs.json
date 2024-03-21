@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "hillside:block/brick_brown",
+    "side": "hillside:block/brick_brown",
+    "top": "hillside:block/brick_brown"
+  }
+}

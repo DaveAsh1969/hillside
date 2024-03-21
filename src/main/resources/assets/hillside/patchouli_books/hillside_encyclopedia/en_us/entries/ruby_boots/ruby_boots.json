@@ -1,0 +1,29 @@
+{
+  "name": "Ruby Boots",
+  "icon": "minecraft:writable_book",
+  "category": "hillside:ruby_boots",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Ruby boots have the simple function of allowing the player to walk on lava unharmed in still lava. Players are vulnerable to flowing lava and falling lava. The ability to walk on lava will help with navigating obstacles and provide opportunities for survival bases over lava."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "hillside:textures/books/hillside/ruby_boots.png"
+      ],
+      "title": "On Lava!",
+      "text": "While there are flames still associated with lava, there is no damage taken."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "To craft ruby boots is simple. When mining for diamonds, there is a chance to get an occasional ruby. Rubies allow the player to make the ruby pickaxe as well as ruby boots."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "hillside:ruby_boots",
+      "title": "Ruby Boots Recipe",
+      "string": "At a crafting table, use the recipe provided."
+    }
+  ]
+}

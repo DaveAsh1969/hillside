@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "hillside:block/dungeon_diorite_ceiling_slab"
+    },
+    "type=double": {
+      "model": "hillside:block/dungeon_diorite_ceiling"
+    },
+    "type=top": {
+      "model": "hillside:block/dungeon_diorite_ceiling_slab_top"
+    }
+  }
+}

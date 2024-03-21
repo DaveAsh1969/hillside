@@ -1,0 +1,98 @@
+{
+  "duck_flap": {
+    "subtitle": "sounds.hillsidemod.duck_flap",
+    "sounds": [
+      "hillside:duck_flap"
+    ]
+  },
+  "dungeon_door_close": {
+    "subtitle": "sounds.hillsidemod.dungeon_door_close",
+    "sounds": [
+      "hillside:dungeon_door_close"
+    ]
+  },
+  "dungeon_door_locked": {
+    "subtitle": "sounds.hillsidemod.dungeon_door_locked",
+    "sounds": [
+      "hillside:dungeon_door_locked"
+    ]
+  },
+  "dungeon_door_open": {
+    "subtitle": "sounds.hillsidemod.dungeon_door_open",
+    "sounds": [
+      "hillside:dungeon_door_open"
+    ]
+  },
+  "nether_teleport_charging": {
+    "subtitle": "sounds.hillsidemod.nether_teleport_charging",
+    "sounds": [
+      "hillside:nether_teleport_charging"
+    ]
+  },
+  "quack": {
+    "subtitle": "sounds.hillsidemod.quack",
+    "sounds": [
+      "hillside:quack"
+    ]
+  },
+  "quack_baby": {
+    "subtitle": "sounds.hillsidemod.quack_baby",
+    "sounds": [
+      "hillside:quack_baby"
+    ]
+  },
+  "quack_hurt": {
+    "subtitle": "sounds.hillsidemod.quack_hurt",
+    "sounds": [
+      "hillside:quack_hurt"
+    ]
+  },
+  "quack_one": {
+    "subtitle": "sounds.hillsidemod.quack_one",
+    "sounds": [
+      "hillside:quack_one"
+    ]
+  },
+  "quack_three": {
+    "subtitle": "sounds.hillsidemod.quack_three",
+    "sounds": [
+      "hillside:quack_three"
+    ]
+  },
+  "quack_two": {
+    "subtitle": "sounds.hillsidemod.quack_two",
+    "sounds": [
+      "hillside:quack_two"
+    ]
+  },
+  "taco_bell": {
+    "subtitle": "sounds.hillsidemod.taco_bell",
+    "sounds": [
+      "hillside:taco_bell"
+    ]
+  },
+  "teleport_charging": {
+    "subtitle": "sounds.hillsidemod.teleport_charging",
+    "sounds": [
+      "hillside:teleport_charging"
+    ]
+  },
+  "troll_hurt": {
+    "subtitle": "sounds.hillsidemod.troll_hurt",
+    "sounds": [
+      "hillside:troll_hurt"
+    ]
+  },
+  "troll_say": {
+    "subtitle": "sounds.hillsidemod.troll_say",
+    "sounds": [
+      "hillside:troll_say"
+    ]
+  },
+  "zombie_pillager_idle": {
+    "subtitle": "sounds.hillsidemod.zombie_pillager_idle",
+    "sounds": [
+      "hillside:zombie_pillager_idle"
+    ]
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "name": "Taco Items",
+  "icon": "minecraft:writable_book",
+  "category": "hillside:all_things_tacos",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Due to the content creator's love for tacos and a restaurant bearing its name, a few things have been created in this update reflecting the greatness that is the taco itself."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "hillside:textures/books/hillside/taco_bell.png",
+        "hillside:textures/books/hillside/tacos.png",
+        "hillside:textures/books/hillside/cheese.png",
+        "hillside:textures/books/hillside/tortilla.png",
+        "hillside:textures/books/hillside/lettuce.png"
+      ],
+      "title": "It's Raining Tacos!",
+      "text": "From a taco bell to the ability to now make tacos, enjoy the boost that a taco brings."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "To craft a taco bell is relatively easy, and if the bell is rung once a day at the proper time, the bell provides a free taco! Who doesn't love that?"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "hillside:taco_bell_item",
+      "title": "Taco Bell Recipe",
+      "string": "At a crafting table, use the recipe provided."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "To make a good taco with the benefits of speed and regeneration requires a significant amount of work: $(li)Cheese needs to be made.$(li)Lettuce needs to be grown.$(li)Steak is required (sorry no chicken tacos yet)$(li)tortillas need to be cooked. $(br)The labor is worth it with a food source that gives you healing and a temporary speed boost due to predicted methane levels."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "hillside:taco",
+      "title": "Taco Recipe",
+      "string": "At a crafting table, use the recipe provided."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Lettuce is a new crop that needs to be farmed in the creation of a taco. To get lettuce seeds, you have a chance of finding one every time you punch grass and get grass seeds. It makes no real sense, but hey, Minecraft doesn't either."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "hillside:textures/books/hillside/lettuce.png"
+      ],
+      "title": "Lettuce Seeds",
+      "text": "Farm your lettuce like other plants."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Cheese is made in a unique way. Get your cow farm set and put a bucket of milk in a furnace. Don't worry, you'll get your bucket back."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "hillside:textures/books/hillside/cheese.png"
+      ],
+      "title": "Cheese For Tacos",
+      "text": "It don't go down easy if it ain't cheesy."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Tortillas are made easily with some bread. Place your bread in a furnace and you have a tortilla. Hey, it is Minecraft. We make this up as we go."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "hillside:textures/books/hillside/tortilla.png"
+      ],
+      "title": "Tortilla For Tacos",
+      "text": "The wrapper for taco goodness."
+    }
+  ]
+}

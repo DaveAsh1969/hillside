@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "facing=north,give_taco=true": { "model": "hillside:block/taco_bell"},
+    "facing=east,give_taco=true": { "model": "hillside:block/taco_bell", "y": 90},
+    "facing=south,give_taco=true": { "model": "hillside:block/taco_bell", "y": 180},
+    "facing=west,give_taco=true": { "model": "hillside:block/taco_bell", "y": 270 },
+    "facing=north,give_taco=false": { "model": "hillside:block/taco_bell"},
+    "facing=east,give_taco=false": { "model": "hillside:block/taco_bell", "y": 90},
+    "facing=south,give_taco=false": { "model": "hillside:block/taco_bell", "y": 180},
+    "facing=west,give_taco=false": { "model": "hillside:block/taco_bell", "y": 270 }
+  }
+}

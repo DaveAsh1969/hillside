@@ -1,0 +1,18 @@
+{
+  "type": "hillside:brick_oven",
+  "cookingtime": 100,
+  "ingredients": [
+    {
+      "item": "minecraft:orange_dye"
+    },
+    {
+      "item": "minecraft:cobblestone"
+    },
+    {
+      "item": "minecraft:cobblestone"
+    }
+  ],
+  "output": {
+    "item": "hillside:brick_tan"
+  }
+}

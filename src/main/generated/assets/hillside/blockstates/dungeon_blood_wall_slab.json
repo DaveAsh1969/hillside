@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "hillside:block/dungeon_blood_wall_slab"
+    },
+    "type=double": {
+      "model": "hillside:block/dungeon_blood_wall"
+    },
+    "type=top": {
+      "model": "hillside:block/dungeon_blood_wall_slab_top"
+    }
+  }
+}

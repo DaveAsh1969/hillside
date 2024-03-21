@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "hillside:block/dungeon_stone_mossy_floor_pressure_plate"
+    },
+    "powered=true": {
+      "model": "hillside:block/dungeon_stone_mossy_floor_pressure_plate_down"
+    }
+  }
+}

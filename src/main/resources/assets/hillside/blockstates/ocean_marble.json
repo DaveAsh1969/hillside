@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "hillside:block/ocean_marble"
+      },
+      {
+        "model": "hillside:block/ocean_marble_1"
+      },
+      {
+        "model": "hillside:block/ocean_marble_2"
+      },
+      {
+        "model": "hillside:block/ocean_marble_3"
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "hillside:block/dungeon_dirt_cracked",
+    "side": "hillside:block/dungeon_dirt_cracked",
+    "top": "hillside:block/dungeon_dirt_cracked"
+  }
+}

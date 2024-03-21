@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "hillsidemod:duck",
-    "hillsidemod:troll"
+    "hillside:duck",
+    "hillside:troll"
   ]
 }

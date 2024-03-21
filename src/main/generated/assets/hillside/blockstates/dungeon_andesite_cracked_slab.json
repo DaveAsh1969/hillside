@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "hillside:block/dungeon_andesite_cracked_slab"
+    },
+    "type=double": {
+      "model": "hillside:block/dungeon_andesite_cracked"
+    },
+    "type=top": {
+      "model": "hillside:block/dungeon_andesite_cracked_slab_top"
+    }
+  }
+}

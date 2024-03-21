@@ -55,7 +55,7 @@ public class ZombiePillagerEntity extends ZombieEntity implements GeoEntity {
         return HostileEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 8.3D)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 6.0f)
-                .add(EntityAttributes.GENERIC_ATTACK_SPEED, 1.2f)
+                .add(EntityAttributes.GENERIC_ATTACK_SPEED, 0.5f)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.45f)
                 .add(EntityAttributes.GENERIC_ARMOR_TOUGHNESS, 0.5f)
                 .add(EntityAttributes.ZOMBIE_SPAWN_REINFORCEMENTS);
@@ -90,8 +90,8 @@ public class ZombiePillagerEntity extends ZombieEntity implements GeoEntity {
 
     @Override
     protected void initGoals() {
-        this.goalSelector.add(2, new ZombieAttackGoal(this, 1.1D, false));
-        this.goalSelector.add(6, new MoveThroughVillageGoal(this, 1.0, true, 4, this::canBreakDoors));
+        this.goalSelector.add(2, new ZombieAttackGoal(this, 0.6D, false));
+        this.goalSelector.add(6, new MoveThroughVillageGoal(this, 0.6, true, 4, this::canBreakDoors));
         this.goalSelector.add(8, new WanderAroundGoal(this, 0.6));
 
         this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));

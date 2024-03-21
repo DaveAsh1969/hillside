@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "hillside:block/waves_block",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "hillside:block/waves_block"
+    },
+    "facing=west": {
+      "model": "hillside:block/waves_block",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "hillside:block/waves_block",
+      "y": 270
+    }
+  }
+}

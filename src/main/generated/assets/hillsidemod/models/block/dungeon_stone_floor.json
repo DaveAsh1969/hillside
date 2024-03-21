@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "hillsidemod:block/dungeon_stone_floor"
-  }
-}

@@ -2,8 +2,10 @@ package net.hillsidemod.hillside.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.hillsidemod.hillside.block.ModBlocks;
 import net.hillsidemod.hillside.entity.ModEntities;
 import net.hillsidemod.hillside.item.ModItems;
+import net.minecraft.item.ItemStack;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.EntityTypeTags;
 import net.minecraft.registry.tag.ItemTags;

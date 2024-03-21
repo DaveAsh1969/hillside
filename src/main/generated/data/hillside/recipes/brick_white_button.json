@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "hillside:brick_white"
+    }
+  ],
+  "result": {
+    "item": "hillside:brick_white_button"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Fox Cages",
+  "icon": "minecraft:writable_book",
+  "category": "hillside:fox_cages",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Fox cages were a requested item that allows a player to right click on a fox and transport it to another biome easily.$(br)To catch the fox, with the cage in hand, right click on the fox and you will see the fox head in the cage in your inventory.$(br)After moving to your destination, right click on any block to release the fox and the cage will disappear. This cage will not work in creative."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "hillside:textures/books/hillside/fox.png"
+      ],
+      "title": "Catching a Fox",
+      "text": "Get close enough to right click the cage on the fox."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "To craft a fox cage is a simple process. You will need oak planks, and iron bars."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "hillside:bucket_fox",
+      "title": "Fox Cage Recipe",
+      "string": "At a crafting table, use the following recipe."
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "hillside:block/dungeon_stone_bricks_slab"
+    },
+    "type=double": {
+      "model": "hillside:block/dungeon_stone_bricks"
+    },
+    "type=top": {
+      "model": "hillside:block/dungeon_stone_bricks_slab_top"
+    }
+  }
+}

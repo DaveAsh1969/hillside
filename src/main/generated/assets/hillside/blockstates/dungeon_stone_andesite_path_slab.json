@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "hillside:block/dungeon_stone_andesite_path_slab"
+    },
+    "type=double": {
+      "model": "hillside:block/dungeon_stone_andesite_path"
+    },
+    "type=top": {
+      "model": "hillside:block/dungeon_stone_andesite_path_slab_top"
+    }
+  }
+}

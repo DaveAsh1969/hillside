@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "X": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "Y": {
+      "item": "minecraft:compass"
+    }
+  },
+  "pattern": [
+    "XXX",
+    "XYX",
+    "XXX"
+  ],
+  "result": {
+    "item": "hillside:star_compass"
+  },
+  "show_notification": true
+}

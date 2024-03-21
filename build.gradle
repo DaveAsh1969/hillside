@@ -20,6 +20,7 @@ repositories {
 		name = 'GeckoLib'
 		url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
 	}
+	maven { url 'https://maven.blamejared.com' }
 }
 
 loom {
@@ -55,8 +56,11 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
 	modImplementation 'software.bernie.geckolib:geckolib-fabric-1.20.1:4.3.1'
-	
+
+	modImplementation "vazkii.patchouli:Patchouli:1.20.1-81-FABRIC"
+
 	// Uncomment the following line to enable the deprecated Fabric API modules. 
 	// These are included in the Fabric API production distribution and allow you to update your mod to the latest modules at a later more convenient time.
 

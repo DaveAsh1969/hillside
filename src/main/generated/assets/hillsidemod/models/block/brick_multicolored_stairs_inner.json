@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "hillsidemod:block/brick_multicolored",
-    "side": "hillsidemod:block/brick_multicolored",
-    "top": "hillsidemod:block/brick_multicolored"
-  }
-}

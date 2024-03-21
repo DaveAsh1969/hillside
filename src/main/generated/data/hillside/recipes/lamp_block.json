@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:oak_planks"
+    },
+    "I": {
+      "item": "minecraft:torch"
+    },
+    "X": {
+      "item": "minecraft:brown_wool"
+    }
+  },
+  "pattern": [
+    "XXX",
+    "XIX",
+    " C "
+  ],
+  "result": {
+    "item": "hillside:lamp_block"
+  },
+  "show_notification": true
+}

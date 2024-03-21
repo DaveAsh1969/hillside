@@ -1,0 +1,74 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cheese": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hillside:cheese"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_cooked_beef": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:cooked_beef"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_lettuce": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hillside:lettuce"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "hillside:taco"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tortilla": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hillside:tortilla"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_lettuce",
+      "has_cooked_beef",
+      "has_cheese",
+      "has_tortilla",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "hillside:taco"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "hillside:block/dungeon_stony_dirt_pressure_plate"
+    },
+    "powered=true": {
+      "model": "hillside:block/dungeon_stony_dirt_pressure_plate_down"
+    }
+  }
+}

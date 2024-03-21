@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "hillside:block/dungeon_stone_andesite_path",
+    "side": "hillside:block/dungeon_stone_andesite_path",
+    "top": "hillside:block/dungeon_stone_andesite_path"
+  }
+}
