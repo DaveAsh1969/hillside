@@ -1,0 +1,41 @@
+{
+  "name": "Introduction",
+  "icon": "minecraft:writable_book",
+  "category": "hillside:entities",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "With this update comes new entities. Some will open new doors while others will challenge you in the night."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "hillside:duck",
+      "name": "Ducks",
+      "text": "Ducks are the new passive mob in our update. Play a juke box near them to watch them jam."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "hillside:decaying_zombie",
+      "name": "Decaying Zombie",
+      "text": "These zombies are fast, but with less hit points. Be careful when they approach."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "hillside:zombie_pillager",
+      "name": "Zombie Pillagers",
+      "text": "Sometimes, pillagers lose to zombies and find themselves zombies as well."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "hillside:troll",
+      "name": "Troll",
+      "text": "Trolls are special mobs only found when specifically spawned."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "hillside:christmas_tree",
+      "name": "Christmas Tree",
+      "text": "Christmas trees are not new, but they look nice in the winter."
+    }
+  ]
+}
