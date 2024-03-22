@@ -1,0 +1,19 @@
+{
+  "name": "5. Design Blocks",
+  "icon": "minecraft:writable_book",
+  "category": "hillside:design_blocks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "There are a great number of blocks, stairs, slabs, plates, and buttons that cannot be crafted or found. The point of these blocks is for designers to build for adventures. To use these books, go into creative mode and view the Hillside tab."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "hillside:textures/books/hillside/intro.png"
+      ],
+      "title": "New Design Blocks!",
+      "text": "Find these blocks in creative mode."
+    }
+  ]
+}

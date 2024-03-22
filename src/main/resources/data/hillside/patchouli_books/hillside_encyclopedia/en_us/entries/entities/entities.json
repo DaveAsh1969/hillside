@@ -1,5 +1,5 @@
 {
-  "name": "Introduction",
+  "name": "2. Modded Entities",
   "icon": "minecraft:writable_book",
   "category": "hillside:entities",
   "pages": [
@@ -20,10 +20,12 @@
       "text": "These zombies are fast, but with less hit points. Be careful when they approach."
     },
     {
-      "type": "patchouli:entity",
-      "entity": "hillside:zombie_pillager",
-      "name": "Zombie Pillagers",
-      "text": "Sometimes, pillagers lose to zombies and find themselves zombies as well."
+      "type": "patchouli:image",
+      "images": [
+        "hillside:textures/books/hillside/zombie_pillager.png"
+      ],
+      "title": "Zombie Pillager",
+      "text": "Sometimes pillagers fall to zombies."
     },
     {
       "type": "patchouli:entity",
@@ -35,6 +37,7 @@
       "type": "patchouli:entity",
       "entity": "hillside:christmas_tree",
       "name": "Christmas Tree",
+      "scale": 0.9,
       "text": "Christmas trees are not new, but they look nice in the winter."
     }
   ]
