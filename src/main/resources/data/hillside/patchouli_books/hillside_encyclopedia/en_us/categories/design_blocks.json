@@ -1,5 +1,5 @@
 {
-  "name": "Design BLocks",
-  "description": "These blocks are available in creative mode only.",
+  "name": "Design Blocks",
+  "description": "These blocks are available for design purposes, some are available in creative mode only.",
   "icon": "minecraft:writable_book"
 }

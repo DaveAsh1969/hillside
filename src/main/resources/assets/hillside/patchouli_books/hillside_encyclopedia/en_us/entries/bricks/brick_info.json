@@ -1,0 +1,77 @@
+{
+  "name": "9. Custom Bricks",
+  "icon": "minecraft:writable_book",
+  "category": "hillside:design_blocks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Bricks are the unique minecraft blocks made from a brick oven. In this section we will show you the unrealistic way of making a variety of bricks."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "hillside:textures/books/hillside/bricks.png"
+      ],
+      "title": "New Brick Blocks!",
+      "text": "Save your cobblestone and bonemeal, and dyes, you can make some unique bricks."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Brick Ovens are very simplistic to make and operate much like a furnace. Here's the crafting recipe:"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "hillside:brick_oven",
+      "title": "Brick Oven Recipe",
+      "string": "Use all that left over cobblestone and coal from digging to make a unique brick."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "How brick ovens work is very simple and easy to follow. $(br)The bottom slot is for fuel and there are three slots at the top. $(li)The left slot will take a dye or cobblestone. $(li)The middle slot will take cobblestone or bonemeal.$(li)The right slot will always take cobblestone."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "hillside:textures/books/hillside/brick_standard.png"
+      ],
+      "title": "Standard Bricks",
+      "text": "Here is a standard lavender brick made with purple dye."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "The bricks will either be standard or smeared. Standard bricks can be made into stairs, slabs, walls, plates, or buttons using standard recipes in a crafting table. Smeared bricks are meant to only offset standard blocks when making a wall, so they can only be blocks.$(br2)Dyeing sheep and placing their wool in a crafting table will now return a dye based on the color of wool."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "hillside:textures/books/hillside/brick_smeared.png"
+      ],
+      "title": "Smeared Bricks",
+      "text": "Here is a smeared lavender brick made with purple dye."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "The available recipes are as follows. Here is the shorthand for the recipes:$(li)Cobblestone:$(l)cob$()$(li)Colored Dye:$(l)color name$()$(li)Bonemeal:$(l)bone$()"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(l)Black Brick$()$(li)black - cob - cob$(br)$(l)Black Smeared Brick$()$(li)black - bone - cob$(br)$(l)Brown Brick$()$(li)brown - cob - cob$(br)$(l)Brown Smeared Brick$()$(li)brown - bone - cob$(br)$(l)Multicolored Brick$()$(li)yellow - cob - cob$(br)$(l)Multicolored Smeared Brick$()$(li)yellow - bone - cob$(br)$(l)Pink Brick$()$(li)pink - cob - cob$(br)$(l)Pink Smeared Brick$()$(li)pink - bone - cob"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "hillside:textures/books/hillside/bricks_preview.png"
+      ],
+      "title": "Happy Brick Making",
+      "text": "There are plenty of possibilities with these new colors."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "hillside:textures/books/hillside/bricks_preview2.png"
+      ],
+      "title": "Make Your Own Design",
+      "text": "Many more home designs are now available."
+    }
+  ]
+}

@@ -39,7 +39,7 @@ public class DowsingRodItem_Iron_Gold extends Item {
             }
 
             if(!foundBlock) {
-                player.sendMessage(Text.translatable("item.hillsidemod.dowsing_rod.no_valuables"), true);
+                player.sendMessage(Text.translatable("item.hillside.dowsing_rod.no_valuables"), true);
             }
         }
 

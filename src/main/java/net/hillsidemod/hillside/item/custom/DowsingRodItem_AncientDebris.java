@@ -58,7 +58,7 @@ public class DowsingRodItem_AncientDebris extends Item {
             }
 
             if(!foundBlock) {
-                player.sendMessage(Text.translatable("item.hillsidemod.dowsing_rod.no_valuables"), true);
+                player.sendMessage(Text.translatable("item.hillside.dowsing_rod.no_valuables"), true);
             }
         }
 
@@ -75,6 +75,6 @@ public class DowsingRodItem_AncientDebris extends Item {
     }
 
     private boolean isValuableBlock(Block block) {
-        return block == Blocks.ANCIENT_DEBRIS;
+        return block == Blocks.ANCIENT_DEBRIS || block == Blocks.NETHER_QUARTZ_ORE;
     }
 }

@@ -1,0 +1,17 @@
+{
+  "name": "A10. Lamp",
+  "icon": "minecraft:writable_book",
+  "category": "hillside:general_items",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Lamps are a great addition to any minecraft home area. They do not require redstone and are made with simple materials. Merely right click on the lamp to turn in on or off after placing it in your home."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "hillside:lamp_block",
+      "title": "Lamp Recipe",
+      "string": "Hillside's first wireless lamp."
+    }
+  ]
+}

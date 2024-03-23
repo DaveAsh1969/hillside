@@ -1,0 +1,29 @@
+{
+  "name": "7a. Ruby Pickaxe",
+  "icon": "minecraft:writable_book",
+  "category": "hillside:ruby",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A ruby pickaxe is an incredible boost for the miner (not minor). As a later-game item, a ruby pickaxe will mine 9 blocks at once, discarding almost all the non-critical blocks (except 1), and saving ores, lapiz, redstone, quartz, and ancient debris. The fire that makes a ruby also drops a torch periodically when it is dark."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "hillside:textures/books/hillside/ruby_pickaxe.png"
+      ],
+      "title": "Ruby Pickaxe",
+      "text": "Be careful not to mine yourself into a hole. Be a responsible miner."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "To craft a ruby pickaxe is just like a typical pickaxe. Just use rubies as your element."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "hillside:ruby_pickaxe",
+      "title": "Ruby Pickaxe Recipe",
+      "string": "At a crafting table, use this recipe. Happy digging!"
+    }
+  ]
+}

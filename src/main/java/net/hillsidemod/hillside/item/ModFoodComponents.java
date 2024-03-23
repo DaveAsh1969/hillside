@@ -18,7 +18,8 @@ public class ModFoodComponents {
             .saturationModifier(0.4f)
             .build();
     public static final FoodComponent TACO = (new FoodComponent.Builder()).hunger(6).saturationModifier(0.9f).meat()
-            .statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 600, 1), 1.0f)
+            .statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 300, 1), 1.0f)
+            .statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 80, 1), 1.0f)
             .alwaysEdible()
             .build();
     public static final FoodComponent TORTILLA = (new FoodComponent.Builder())

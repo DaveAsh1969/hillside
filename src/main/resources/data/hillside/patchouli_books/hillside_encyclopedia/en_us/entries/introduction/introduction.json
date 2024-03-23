@@ -5,7 +5,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Welcome to the new updates in our Hillside Mod. In this book will be a list of updates and how to use the new features that are available. The main features in this update are: $(br)$(li)Fox Cages$(li)Ruby Boots$(li)All things tacos$(li)New Entities$(li)Brick ovens and new bricks$(li)Dungeon Blocks$(li)Ocean Blocks"
+      "text": "Welcome to the new updates in our Hillside Mod. In this book will be a list of updates and how to use the new features that are available. The main features in this update are: $(br)$(li)Fox Cages$(li)Rubies and Items$(li)All things tacos$(li)New Entities$(li)Brick ovens and new bricks$(li)Dungeon Blocks$(li)Ocean Blocks"
     },
     {
       "type": "patchouli:image",

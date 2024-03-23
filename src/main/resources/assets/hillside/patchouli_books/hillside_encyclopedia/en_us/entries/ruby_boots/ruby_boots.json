@@ -1,7 +1,7 @@
 {
-  "name": "4. Ruby Boots",
+  "name": "7b. Ruby Boots",
   "icon": "minecraft:writable_book",
-  "category": "hillside:ruby_boots",
+  "category": "hillside:ruby",
   "pages": [
     {
       "type": "patchouli:text",

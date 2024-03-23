@@ -1,0 +1,17 @@
+{
+  "name": "8. Star Compass",
+  "icon": "minecraft:writable_book",
+  "category": "hillside:general_items",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The star compass uses sea technology on land! The star compass triangulates with the stars and the block you right-click on to report your coordinates.$(br2)To craft a star compass and use it is as follows:"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "hillside:star_compass",
+      "title": "Star Compass Recipe",
+      "string": "This little item is much better than F3. Take our word for it!"
+    }
+  ]
+}

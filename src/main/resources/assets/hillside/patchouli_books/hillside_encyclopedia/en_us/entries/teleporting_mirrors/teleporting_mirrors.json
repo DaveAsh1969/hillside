@@ -1,5 +1,5 @@
 {
-  "name": "7. Teleporting Mirrors",
+  "name": "4. Teleporting Mirrors",
   "icon": "minecraft:writable_book",
   "category": "hillside:teleporting_mirrors",
   "pages": [
@@ -29,7 +29,7 @@
     },
     {
       "type": "patchouli:text",
-      "text": "The Nether mirror works only in the Nether. The player must first right-click on a block to establish a return point. The mirror will light up. When the player is ready to return, stand still and holds right-click, they will come back to their return point."
+      "text": "The Nether mirror works only in the Nether. The player must first right-click on a block to establish a return point. The mirror will light up. When the player is ready to return, the player must stand still and hold right-click for a few seconds. They will then teleport to their return point."
     },
     {
       "type": "patchouli:crafting",
@@ -39,7 +39,7 @@
     },
     {
       "type": "patchouli:text",
-      "text": "The end mirror works in the End. The player must first right-click on a block to establish a return point. The mirror will light up. When the player is ready to return, the player stands still and holds right-click to return to their established point."
+      "text": "The End mirror works in the End. The player must first right-click on a block to establish a return point. The mirror will light up. When the player is ready to return, the player must stand still and hold right-click for a few seconds. They will then teleport to their return point."
     },
     {
       "type": "patchouli:crafting",

@@ -1,0 +1,47 @@
+{
+  "name": "9. Dowsing Rods",
+  "icon": "minecraft:writable_book",
+  "category": "hillside:general_items",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Dowsing Rods bring to life old folklore where people could point sticks to the ground and find water, except in Minecraft, they point to different ores. This will decrease your mining time and progression through the game significantly! Just pick the one you are looking for!"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "hillside:dowsing_rod_iron_gold",
+      "title": "Iron/Gold Rod",
+      "string": "Right-click on a block to get a reading for Iron and Gold."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Many people still think they can find water with sticks. It's a rather interesting theory, but the rest of us look for a faucet."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "hillside:dowsing_rod_coal_copper",
+      "title": "Coal/Copper Rod",
+      "string": "Right-click on a block to get a reading for Coal and Copper."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "There are so many questions to this idea. Do the sticks need to be wet or dry? I mean, how does a stick point to water?"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "hillside:dowsing_rod_diamond_lapis",
+      "title": "Diamond/Lapis Rod",
+      "string": "Right-click on a block to get a reading for Diamond and Lapis."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "I mean, really, wouldn't a stick have a better chance of helping you find a tree? That would make a little more sense."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "hillside:dowsing_rod_ancient_debris",
+      "title": "Quartz/Ancient Debris Rod",
+      "string": "Right-click on a block to get a reading for Quartz and Ancient Debris in the Nether."
+    }
+  ]
+}

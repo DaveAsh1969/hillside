@@ -1,0 +1,19 @@
+{
+  "name": "7. Rubies",
+  "icon": "minecraft:writable_book",
+  "category": "hillside:ruby",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Rubies are found when mining diamonds. There is a chance every time you break diamond ore to get a ruby."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "hillside:textures/books/hillside/ruby.png"
+      ],
+      "title": "Rubies are your friend!",
+      "text": "Forged from fire to stone, rubies allow for unique items."
+    }
+  ]
+}
