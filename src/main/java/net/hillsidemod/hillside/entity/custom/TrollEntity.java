@@ -1,6 +1,7 @@
 package net.hillsidemod.hillside.entity.custom;
 
 import net.hillsidemod.hillside.animation.ModEntityAnimations;
+import net.hillsidemod.hillside.entity.goal.hsAttackGoal;
 import net.hillsidemod.hillside.sound.ModSounds;
 import net.hillsidemod.hillside.util.TrollStatus;
 import net.minecraft.entity.Entity;
@@ -77,11 +78,12 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
 
     @Override
     protected void initGoals() {
-        this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0D, false));
-        this.goalSelector.add(2, new SwimGoal(this));
+        //this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0D, false));
+        this.goalSelector.add(1, new hsAttackGoal(this, 1.0D, true));
+        //this.goalSelector.add(2, new SwimGoal(this));
         //this.goalSelector.add(4, new LookAroundGoal(this));
-        this.goalSelector.add(3, new RevengeGoal(this, TrollEntity.class));
-        this.goalSelector.add(7, new WanderAroundFarGoal(this, 1.0));
+        //this.goalSelector.add(3, new RevengeGoal(this, TrollEntity.class));
+        //this.goalSelector.add(7, new WanderAroundFarGoal(this, 1.0));
         this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
         this.targetSelector.add(2, new ActiveTargetGoal<>(this, SkeletonEntity.class, true));
         this.targetSelector.add(4, new ActiveTargetGoal<>(this, SpiderEntity.class, true));
