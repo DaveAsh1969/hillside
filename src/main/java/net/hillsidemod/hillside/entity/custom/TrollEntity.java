@@ -79,7 +79,7 @@ public class TrollEntity extends HostileEntity implements GeoEntity {
     @Override
     protected void initGoals() {
         //this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0D, false));
-        this.goalSelector.add(1, new hsAttackGoal(this, 1.0D, true));
+        this.goalSelector.add(1, new hsAttackGoal(this, 1.0D));
         //this.goalSelector.add(2, new SwimGoal(this));
         //this.goalSelector.add(4, new LookAroundGoal(this));
         //this.goalSelector.add(3, new RevengeGoal(this, TrollEntity.class));
